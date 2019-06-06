@@ -24,11 +24,14 @@ void CodeGenerator::visitClassNode(ClassNode* node) {
 
 void CodeGenerator::visitMethodNode(MethodNode* node) {
     // WRITEME: Replace with code if necessary
+    MethodInfo methInfo =  (*(this->methodTable))[node->identifier_1->name];
+    std::cout<<currentClassName<<"_"<<node->currentMethodName<< std::endl;
 
 }
 
 void CodeGenerator::visitMethodBodyNode(MethodBodyNode* node) {
     // WRITEME: Replace with code if necessary
+    node->visit_children(this);
 }
 
 void CodeGenerator::visitParameterNode(ParameterNode* node) {
@@ -295,7 +298,7 @@ void CodeGenerator::visitIntegerLiteralNode(IntegerLiteralNode* node) {
 }
 
 void CodeGenerator::visitBooleanLiteralNode(BooleanLiteralNode* node) {
-    // WRITEME: Replace with code if necessary
+  // WRITEME: Replace with code if necessary
     std::cout << "# BOOL LITERAL" << std::endl;
     std::cout << "mov " << node->integer->value << " %eax" << std::endl;
     std::cout << "push %eax" << std::endl;
@@ -303,7 +306,11 @@ void CodeGenerator::visitBooleanLiteralNode(BooleanLiteralNode* node) {
 }
 
 void CodeGenerator::visitNewNode(NewNode* node) {
-    // WRITEME: Replace with code if necessary
+  // WRITEME: Replace with code if necessary
+      std::cout << "push $12 # size to allocate" << std::endl;
+      std::cout << "call malloc # call malloc with one arg" << std::endl;
+      std::cout << "  add $4, %esp # remove arg from stack" << std::endl;
+      std::cout << "push %eax" << std::endl;
 }
 
 void CodeGenerator::visitIntegerTypeNode(IntegerTypeNode* node) {
