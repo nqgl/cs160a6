@@ -370,13 +370,6 @@ void CodeGenerator::visitBooleanLiteralNode(BooleanLiteralNode* node) {
 }
 
 void CodeGenerator::visitNewNode(NewNode* node) {
-<<<<<<< HEAD
-  // WRITEME: Replace with code if necessary
-      std::cout << "push $12 # size to allocate" << std::endl;
-      std::cout << "call malloc # call malloc with one arg" << std::endl;
-      std::cout << "  add $4, %esp # remove arg from stack" << std::endl;
-      std::cout << "push %eax" << std::endl;
-=======
     // WRITEME: Replace with code if necessary
     ClassInfo newClass = (*(classTable))[node->identifier->name];
     // push constructor args
@@ -391,7 +384,6 @@ void CodeGenerator::visitNewNode(NewNode* node) {
     std::cout << "push %eax" << std::endl; // push self pointer
     std::cout << "call " << node->identifier << "_" << node->identifier; //call constructor
 
->>>>>>> 4ca8cdd1b7fc927e920e0586125fe58e9595d8f3
 }
 
 void CodeGenerator::visitIntegerTypeNode(IntegerTypeNode* node) {
