@@ -6,14 +6,25 @@
 
 void CodeGenerator::visitProgramNode(ProgramNode* node) {
     // WRITEME: Replace with code if necessary
+    std::cout << ".data" << std::endl;
+    std::cout << "printstr: .asciz \"%d\\n\"" << std::endl;
+
+    std::cout << ".text" << std::endl;
+    std::cout << ".globl Main_main" << std::endl;
+    node->visit_children(this);
 }
 
 void CodeGenerator::visitClassNode(ClassNode* node) {
     // WRITEME: Replace with code if necessary
+    currentClassName = node->identifier_1->name;
+    currentClassInfo = (*(this->classTable))[node->identifier_1->name];
+    node->visit_children(node);
+
 }
 
 void CodeGenerator::visitMethodNode(MethodNode* node) {
     // WRITEME: Replace with code if necessary
+
 }
 
 void CodeGenerator::visitMethodBodyNode(MethodBodyNode* node) {
@@ -135,7 +146,7 @@ void CodeGenerator::visitTimesNode(TimesNode* node) {
 
 void CodeGenerator::visitDivideNode(DivideNode* node) {
     // WRITEME: Replace with code if necessary
-            
+
     std::cout << "# DIVIDE" << std::endl;
     node->visit_children(this);
     std::cout << "    pop %eax" << std::endl; //numerator gets popped first
@@ -248,6 +259,22 @@ void caller_save(){
 
 void CodeGenerator::visitMethodCallNode(MethodCallNode* node) {
     // WRITEME: Replace with code if necessary
+  std::cout << "# Method Call" << std::endl;
+  if (node->identifier_2){
+      std::cout<< node->identifier_1->name<< "."<< node->identifier_2->name;
+    }
+  else{
+      std::cout<< node->identifier_1-name;
+    std::cout<<std::endl;
+    std::cout<< "push %eax" <<std::endl;
+    std::cout<< "push %ecx" <<std::endl;
+    std::cout<< "push %edx" << std::endl
+    for (std::list<ExpressionNode*>::reverse_iterator it = node->expression_list->rbegin(); it!= node->expression_list->rend(); it++){
+      (*it)->accept(this);
+      std::string altClassName, methodName;
+
+    }
+  }
 }
 
 void CodeGenerator::visitMemberAccessNode(MemberAccessNode* node) {
@@ -269,6 +296,10 @@ void CodeGenerator::visitIntegerLiteralNode(IntegerLiteralNode* node) {
 
 void CodeGenerator::visitBooleanLiteralNode(BooleanLiteralNode* node) {
     // WRITEME: Replace with code if necessary
+    std::cout << "# BOOL LITERAL" << std::endl;
+    std::cout << "mov " << node->integer->value << " %eax" << std::endl;
+    std::cout << "push %eax" << std::endl;
+    std::cout << "# END BOOL LITERAL" << std::endl;
 }
 
 void CodeGenerator::visitNewNode(NewNode* node) {
@@ -288,7 +319,7 @@ void CodeGenerator::visitObjectTypeNode(ObjectTypeNode* node) {
 }
 
 void CodeGenerator::visitNoneNode(NoneNode* node) {
-    // WRITEME: Replace with code if necessary
+    // WRITEME: Replace with code if necessary cz
 }
 
 void CodeGenerator::visitIdentifierNode(IdentifierNode* node) {
