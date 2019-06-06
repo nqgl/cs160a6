@@ -1,0 +1,4 @@
+.dir*
+compile_commands.json
+.idea/*
+.idea
