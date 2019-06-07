@@ -5,16 +5,77 @@
 // you will complete to generate the x86 assembly code. Not
 // all functions must have code, many may be left empty.
 
-VariableInfo getVariableInScope(std::string identifier, CodeGenerator* scope){
-    if (scope->currentMethodInfo.variables->count(identifier) != 0){
 
+
+typedef struct accessiblevariableinfo{
+    VariableInfo variableInfo;
+    int classOffset; // for a member variable, this is zero or negative
+                        // variableInfo.offset + accssibleVariableInfo is the actual memory offset of the variable
+                        // set in getVariableInScope by  -1 *  getFullClassSize(parent class)
+                        // or positive for a local variable
+
+    int getOffset(){
+        if (classOffset > 0){
+            return variableInfo.offset;
+        }
+        else{
+            return variableInfo.offset + classOffset;
+        }
     }
-    else if (scope->currentClassInfo.members->count(identifier) != 0){
 
+    bool isLocalAccess(){
+        return classOffset > 0;
+    }
+} AccessibleVariableInfo;
+
+int getFullClassSize(std::string classname, CodeGenerator* scope){
+    if (scope->classTable->count(classname) != 0) {
+        ClassInfo classInfo = (*(scope->classTable))[classname];
+        if (classInfo.superClassName != "") {
+            return classInfo.membersSize + getFullClassSize(classInfo.superClassName, scope);
+        } else {
+            return classInfo.membersSize;
+        }
+    }
+    return 0;
+}
+AccessibleVariableInfo getMemberInClass(std::string identifier, std::string classname, CodeGenerator* scope) {
+    ClassInfo classInfo = (*(scope->classTable))[classname];
+    AccessibleVariableInfo accessVar;
+    if (classInfo.members->count(identifier) != 0){
+        accessVar.classOffset = -1 * getFullClassSize(scope->currentClassInfo.superClassName, scope);
+        accessVar.variableInfo = (*(classInfo.members))[identifier];
+        return accessVar;
     }
     else{
-        assert("failed to find variable in scope" && false);
+        return getMemberInClass(identifier, classInfo.superClassName, scope);
     }
+}
+
+AccessibleVariableInfo getVariableInScope(std::string identifier, CodeGenerator* scope){
+    AccessibleVariableInfo accessVar;
+    if (scope->currentMethodInfo.variables != NULL && scope->currentMethodInfo.variables->count(identifier) != 0){
+        accessVar.classOffset = 1;
+        accessVar.variableInfo = (*(scope->currentMethodInfo.variables))[identifier];
+        return accessVar;
+    }
+    else {
+        return getMemberInClass(identifier, scope->currentClassInfo.superClassName, scope);
+    }
+}
+
+std::string x86pushVariable(AccessibleVariableInfo variableAccess){
+    std::stringstream s;
+    if (variableAccess.isLocalAccess()){
+        // in local area
+        s << "push " << variableAccess.getOffset() << "(%ebp)";
+    }
+    else{
+        // in self class
+        s << "    mov 8(%ebp) %eax" << std::endl
+        << "push " << variableAccess.getOffset() << "(%eax)" << std::endl;
+    }
+    return s.str();
 }
 
 
@@ -39,18 +100,17 @@ void CodeGenerator::visitClassNode(ClassNode* node) {
 
 void CodeGenerator::visitMethodNode(MethodNode* node) {
     // WRITEME: Replace with code if necessary
-    MethodInfo methInfo =  (*(this->methodTable))[node->identifier_1->name];
-    std::cout<<currentClassName<<"_"<<node->currentMethodName<< std::endl;
 
     currentMethodName = node->identifier->name; // set current method
+    currentMethodInfo = (*(currentClassInfo.methods))[currentMethodName];
     std::cout << currentClassName << "_" << node->identifier->name << ":"; // create label
 
 
-    push %ebp // push old ebp
-    mov %esp %ebp // set new ebp to esp
+    std::cout << "push %ebp" << std::endl; // push old ebp
+    std::cout << "mov %esp %ebp" << std::endl; // set new ebp to esp
 
 
-    "sub $" << methodinfo->localsSize << " %esp" // allocate space for local vars
+    std::cout << "sub $" << currentMethodInfo.localsSize<< " %esp" << std::endl; // allocate space for local vars
 
     std::cout << "push %ebx" << std::endl; // save callee-save regs
     std::cout << "push %edi" << std::endl;
@@ -64,22 +124,25 @@ void CodeGenerator::visitMethodNode(MethodNode* node) {
     // Deallocate local vars space by moving %esp to %ebp
     std::cout << "mov %ebp %esp" << std::endl;
     // Restore old base pointer by popping old %ebp from the stack
-    std::cout << "pop %ebp" << std::endl;
+    std::cout << "pop %ebp" << std::endl; // does ret make this reduntant/incorrect?
     // Return using return address (ret instruction)
     std::cout << "ret" << std::endl;
 }
 
 void CodeGenerator::visitMethodBodyNode(MethodBodyNode* node) {
     // WRITEME: Replace with code if necessary
-    node->visit_children(this);
+    node->visit_children(this); //should be sufficient
 }
 
 void CodeGenerator::visitParameterNode(ParameterNode* node) {
     // WRITEME: Replace with code if necessary
+    // nothing necessary? params are passed in on the stack
 }
 
 void CodeGenerator::visitDeclarationNode(DeclarationNode* node) {
     // WRITEME: Replace with code if necessary
+    // nothing necessary?
+    // thinking this is dealt with by visitmethodnode @alloc_local
 }
 
 void CodeGenerator::visitReturnStatementNode(ReturnStatementNode* node) {
@@ -87,17 +150,27 @@ void CodeGenerator::visitReturnStatementNode(ReturnStatementNode* node) {
     //Execute/visit the expression
     node->visit_children(this);
     //Take result of last expression from top of stack and place into %eax
-    pop %eax
+    std::cout << "    pop %eax" << std::endl;
 
 }
 
 
 void CodeGenerator::visitAssignmentNode(AssignmentNode* node) {
     // WRITEME: Replace with code if necessary
+    node->expression->accept(this); // put value to assign on stack
+
+    if (node->identifier_2){
+
+    }
+    else {
+
+    }
 }
 
 void CodeGenerator::visitCallNode(CallNode* node) {
     // WRITEME: Replace with code if necessary
+    node->visit_children(this);
+    std::cout<<"    add $4 $esp"; // pop the result given by methodcallnode (which/because_it is an expression)
 }
 
 void CodeGenerator::visitIfElseNode(IfElseNode* node) {
@@ -148,7 +221,7 @@ void CodeGenerator::visitPrintNode(PrintNode* node) {
 
 void CodeGenerator::visitDoWhileNode(DoWhileNode* node) {
     // WRITEME: Replace with code if necessary
-    std::string whilelabel = nextLabel();
+    int whilelabel = nextLabel();
     std::cout << whilelabel << ":" << std::endl;
     for (StatementNode* statement : node->statement_list){
         statement->accept(this);
@@ -319,29 +392,67 @@ void caller_save(){
 
 void CodeGenerator::visitMethodCallNode(MethodCallNode* node) {
     // WRITEME: Replace with code if necessary
+
+    std::string pushSelfPointer;
+    if (node->identifier_2){
+        pushSelfPointer = x86pushVariable(getVariableInScope(node->identifier_1->name, this));
+    }
+    else{
+        pushSelfPointer = "    push 8(%ebp)";
+    }
+
+    std::string prevClassName = currentClassName;
+    std::string prevMethodName = currentMethodName;
+    ClassInfo prevClassInfo = currentClassInfo;
+    MethodInfo prevMethodInfo = currentMethodInfo;
+
+    if (node->identifier_2){
+        currentMethodName = node->identifier_2->name;
+        currentClassName = getVariableInScope(node->identifier_1->name, this).variableInfo.type.objectClassName;
+        currentClassInfo = (*(classTable))[currentClassName];
+        currentMethodInfo = (*(currentClassInfo.methods))[currentMethodName];
+    }
+    else{
+        currentMethodName = node->identifier_1->name;
+        currentMethodInfo = (*(currentClassInfo.methods))[currentMethodName];
+    }
+
     std::cout << "# Method Call" << std::endl;
-    std::cout<< "push %eax" <<std::endl;
-    std::cout<< "push %ecx" <<std::endl;
-    std::cout<< "push %edx" << std::endl;
+    std::cout<< "    push %eax" <<std::endl; // caller save
+    std::cout<< "    push %ecx" <<std::endl;
+    std::cout<< "    push %edx" << std::endl;
+
+
+    // put method args on stack
     for (std::list<ExpressionNode*>::reverse_iterator it = node->expression_list->rbegin(); it!= node->expression_list->rend(); it++) {
         (*it)->accept(this);
         std::string altClassName, methodName;
     }
+
+    //push self-pointer onto stack
+    std::cout << pushSelfPointer;
+
     if (node->identifier_2){
-        std::cout << "call " << node->identifier_1->name<< "_"<< node->identifier_2->name;
+        std::cout << "    call " << node->identifier_1->name<< "_"<< node->identifier_2->name;
     }
     else{
-        std::cout << "call " << currentClassName << "_" << node->identifier_1->name << std::endl;
+        std::cout << "    call " << currentClassName << "_" << node->identifier_1->name << std::endl;
     }
 
     // remove arguments
-    std::cout << "add $" << this->currentMethodInfo.parameters->size() * 4 << " %esp" << std::endl;
+    std::cout << "    add $" << this->currentMethodInfo.parameters->size() * 4 << " %esp" << std::endl;
 
     // restore caller-save regs
-    std::cout<< "pop %edx" << std::endl;
-    std::cout<< "pop %ecx" <<std::endl;
-    std::cout<< "xchg %eax" <<std::endl; // retrieve return value from %eax
+    std::cout<< "    pop %edx" << std::endl;
+    std::cout<< "    pop %ecx" <<std::endl;
+    std::cout<< "    xchg %eax" <<std::endl; // retrieve return value from %eax
 
+    std::cout << "# Method Call DONE" << std::endl;
+
+    currentClassName = prevClassName;
+    currentMethodName = prevMethodName;
+    currentClassInfo = prevClassInfo;
+    currentMethodInfo = prevMethodInfo;
 }
 
 void CodeGenerator::visitMemberAccessNode(MemberAccessNode* node) {
@@ -350,40 +461,57 @@ void CodeGenerator::visitMemberAccessNode(MemberAccessNode* node) {
 
 void CodeGenerator::visitVariableNode(VariableNode* node) {
     // WRITEME: Replace with code if necessary
-
+    AccessibleVariableInfo accessVar = getVariableInScope(node->identifier->name, this);
+    x86pushVariable(accessVar);
 }
 
 void CodeGenerator::visitIntegerLiteralNode(IntegerLiteralNode* node) {
     // WRITEME: Replace with code if necessary
     std::cout << "# INT LITERAL" << std::endl;
-    std::cout << "mov " << node->integer->value << " %eax" << std::endl;
-    std::cout << "push %eax" << std::endl;
+    std::cout << "    mov " << node->integer->value << " %eax" << std::endl;
+    std::cout << "    push %eax" << std::endl;
     std::cout << "# END INT LITERAL" << std::endl;
 }
 
 void CodeGenerator::visitBooleanLiteralNode(BooleanLiteralNode* node) {
   // WRITEME: Replace with code if necessary
     std::cout << "# BOOL LITERAL" << std::endl;
-    std::cout << "mov " << node->integer->value << " %eax" << std::endl;
-    std::cout << "push %eax" << std::endl;
+    std::cout << "    mov " << node->integer->value << " %eax" << std::endl;
+    std::cout << "    push %eax" << std::endl;
     std::cout << "# END BOOL LITERAL" << std::endl;
 }
 
+
+// pretty comfortable about the state of this one
 void CodeGenerator::visitNewNode(NewNode* node) {
     // WRITEME: Replace with code if necessary
     ClassInfo newClass = (*(classTable))[node->identifier->name];
-    // push constructor args
-    caller_save(); // save caller-vars
-    for (ExpressionNode* expression: *node->expression_list){
-        expression->accept(this);
+    bool hasConstructor = newClass.methods->count(node->identifier->name) != 0;
+    if (hasConstructor) {
+        std::cout << "    push %eax" << std::endl; // caller save
+        std::cout << "    push %ecx" << std::endl;
+        std::cout << "    push %edx" << std::endl; // save caller-vars (???)
+        // push constructor args
+        for (ExpressionNode* expression: *node->expression_list){
+            expression->accept(this);
+        }
     }
 
-    std::cout << "push $" << newClass.membersSize;
+    std::cout << "push $" << getFullClassSize(node->identifier->name, this) << std::endl;
     std::cout << "call malloc" << std::endl;
     std::cout << "add $4, %esp" << std::endl;
     std::cout << "push %eax" << std::endl; // push self pointer
-    std::cout << "call " << node->identifier << "_" << node->identifier; //call constructor
+    if (hasConstructor) {
+        std::cout << "call " << node->identifier << "_" << node->identifier; //call constructor
 
+        // remove arguments from stack
+        std::cout << "    add $" << (*(newClass.methods))[node->identifier->name].parameters->size() * 4 << " %esp" << std::endl;
+
+        // restore caller-save regs
+        std::cout << "    pop %edx" << std::endl;
+        std::cout << "    pop %ecx" << std::endl;
+        std::cout << "    xchg %eax" << std::endl; // retrieve return value from %eax, put on stack
+    }
 }
 
 void CodeGenerator::visitIntegerTypeNode(IntegerTypeNode* node) {
