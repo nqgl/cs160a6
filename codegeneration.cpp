@@ -398,7 +398,7 @@ void CodeGenerator::visitMethodCallNode(MethodCallNode* node) {
         pushSelfPointer = x86pushVariable(getVariableInScope(node->identifier_1->name, this));
     }
     else{
-        pushSelfPointer = "    push 8(%ebp)";
+        pushSelfPointer = "    push 8(%ebp)\n";
     }
 
     std::string prevClassName = currentClassName;
