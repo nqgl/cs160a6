@@ -226,7 +226,9 @@ CompoundType getExpressionType(ExpressionNode* expression, TypeCheck* visitor){
         }
         ClassInfo typeClassInfo = visitor->classTable->at(newExpression->identifier->name);
         if (typeClassInfo.methods->count(newExpression->identifier->name) == 0){
-            typeError(undefined_method);
+            if (newExpression->expression_list && newExpression->expression_list->size() != 0) {
+                typeError(undefined_method);
+            }
         }
         else{
             MethodInfo constructorInfo = typeClassInfo.methods->at(newExpression->identifier->name);
@@ -282,7 +284,7 @@ CompoundType compoundFromTypeNode(TypeNode* node){
 }
 
 bool areSameCompoundType(CompoundType& t1, CompoundType& t2){
-    return (t1.baseType == t2.baseType) && (t1.objectClassName == t2.objectClassName);
+    return (t1.baseType == t2.baseType) && (t1.objectClassName == t2.objectClassName || t1.baseType != bt_object);
 }
 
 // TypeCheck Visitor Functions: These are the functions you will
@@ -391,11 +393,12 @@ void TypeCheck::visitMethodNode(MethodNode* node) {
 
     // check return type
     CompoundType returnStatementType;
-    if(node->methodbody->returnstatement == NULL){
-         returnStatementType = {bt_none, ""};
+    if(node->methodbody->returnstatement && node->methodbody->returnstatement->expression){
+        returnStatementType = getExpressionType(node->methodbody->returnstatement->expression, this);
     }
     else{
-        returnStatementType = getExpressionType(node->methodbody->returnstatement->expression, this);
+         returnStatementType.baseType = bt_none;
+         returnStatementType.objectClassName = "";
     }
     //typeError(undefined_variable); //testerror
     if (!areSameCompoundType(returnStatementType, methodInfo.returnType)){
