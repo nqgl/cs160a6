@@ -72,11 +72,41 @@ std::string x86pushVariable(AccessibleVariableInfo variableAccess){
     }
     else{
         // in self class
-        s << "    mov 8(%ebp) %eax" << std::endl
-        << "push " << variableAccess.getOffset() << "(%eax)" << std::endl;
+        s << "    mov 8(%ebp) %edx" << std::endl
+        << "    push " << variableAccess.getOffset() << "(%edx)" << std::endl;
     }
     return s.str();
 }
+
+std::string x86popIntoVariable(AccessibleVariableInfo variableAccess){
+    std::stringstream s;
+    if (variableAccess.isLocalAccess()){
+        // in local area
+        s << "    pop " << variableAccess.getOffset() << "(%ebp)"; // not entirely confident in double-dereference
+    }
+    else{
+        // in self class
+        s << "    mov 8(%ebp) %edx" << std::endl;
+        s << "    pop " << variableAccess.getOffset() << "(%edx)" << std::endl;
+    }
+    return s.str();
+}
+
+
+std::string x86getAndPrepInScopeName(AccessibleVariableInfo variableAccess){
+    std::stringstream s;
+    if (variableAccess.isLocalAccess()){
+        // in local area
+        s << variableAccess.getOffset() << "(%ebp)";
+    }
+    else{
+        // in self class
+        std::cout << "    mov 8(%ebp) %edx" << std::endl;
+        s << variableAccess.getOffset() << "(%edx)" << std::endl;
+    }
+    return s.str();
+}
+
 
 
 
@@ -160,10 +190,16 @@ void CodeGenerator::visitAssignmentNode(AssignmentNode* node) {
     node->expression->accept(this); // put value to assign on stack
 
     if (node->identifier_2){
-
+        AccessibleVariableInfo parentVariable = getVariableInScope(node->identifier_1->name, this);
+        ClassInfo parentClass = (*(classTable))[parentVariable.variableInfo.type.objectClassName];
+        AccessibleVariableInfo assignedVariable = getMemberInClass(node->identifier_2->name, parentVariable.variableInfo.type.objectClassName, this);
+        std::string x86parentVar = x86getAndPrepInScopeName(parentVariable);
+        std::cout << "mov " << x86parentVar << " %edx " << std::endl;
+        std::cout << "pop " << assignedVariable.getOffset() << "(%edx)";
     }
     else {
-
+        AccessibleVariableInfo assignedVariable = getVariableInScope(node->identifier_1->name, this);
+        std::cout << x86popIntoVariable(assignedVariable);
     }
 }
 
@@ -217,13 +253,16 @@ void CodeGenerator::visitWhileNode(WhileNode* node) {
 
 void CodeGenerator::visitPrintNode(PrintNode* node) {
     // WRITEME: Replace with code if necessary
+    node->expression->accept(this); //push print expression result
+    std::cout << "    push $printstring";
+    std::cout << "call printf" << std::endl;
 }
 
 void CodeGenerator::visitDoWhileNode(DoWhileNode* node) {
     // WRITEME: Replace with code if necessary
     int whilelabel = nextLabel();
     std::cout << whilelabel << ":" << std::endl;
-    for (StatementNode* statement : node->statement_list){
+    for (StatementNode* statement : *node->statement_list){
         statement->accept(this);
     }
     node->expression->accept(this);
@@ -372,23 +411,6 @@ void CodeGenerator::visitNegationNode(NegationNode* node) {
 
 }
 
-
-void callee_load(){
-    pop %esi
-    pop %edi
-    pop %ebx
-    mov %esp %ebp
-    pop %ebp
-    ret
-}
-
-void caller_save(){
-    push %eax
-    push %ecx
-    push %edx
-    // push args onto stack
-    // push self pointer
-}
 
 void CodeGenerator::visitMethodCallNode(MethodCallNode* node) {
     // WRITEME: Replace with code if necessary
