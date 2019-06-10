@@ -119,6 +119,37 @@ VariableInfo getVariableInfo(std::string& identifier, TypeCheck* scope){
 
 
 
+bool areSameCompoundType(CompoundType& t1, CompoundType& t2){
+    return (t1.baseType == t2.baseType) && (t1.objectClassName == t2.objectClassName || t1.baseType != bt_object);
+}
+
+
+
+// check whether checkType is derived from ParentType
+bool aDerivesFromB(CompoundType& parentType, CompoundType& checkType, TypeCheck* scope){
+    ClassInfo parent = (*(scope->classTable))[parentType.objectClassName];
+    ClassInfo checkDerived = (*(scope->classTable))[checkType.objectClassName];
+    if (checkDerived.superClassName == "") return false;
+    else if (checkDerived.superClassName == parentType.objectClassName) return true;
+    else{
+        CompoundType checkParent;
+        checkParent.baseType = bt_object;
+        checkParent.objectClassName = checkDerived.superClassName;
+        return aDerivesFromB(parentType, checkParent, scope);
+    }
+}
+
+
+// Check whether checkType is same type or a derived type of parentType
+bool isValidSubtype(CompoundType& parentType, CompoundType& checkType, TypeCheck* scope){
+    if (areSameCompoundType(parentType, checkType)){
+        return true;
+    } else {
+        if (parentType.baseType != checkType.baseType || checkType.baseType != bt_object) return false;
+        return aDerivesFromB(parentType, checkType, scope);
+    }
+}
+
 
 MethodInfo getMethodInfoFromClass(std::string& classname, std::string& identifier, TypeCheck* scope){
     ClassInfo classInfo = getClassInfo(classname, scope);
@@ -188,10 +219,12 @@ CompoundType getExpressionType(ExpressionNode* expression, TypeCheck* visitor){
         std::list<ExpressionNode*>::const_iterator i_args = methodCall->expression_list->begin();
         std::list<CompoundType>::const_iterator i_params = methodCalled.parameters->begin();
         CompoundType argType;
+        CompoundType paramType;
         while(i_params != methodCalled.parameters->end() && i_args != methodCall->expression_list->end()){
             argType = getExpressionType(*i_args, visitor);
-            if ((argType.baseType != i_params->baseType)
-                || (argType.objectClassName != i_params->objectClassName)){
+            paramType.baseType = i_params->baseType;
+            paramType.objectClassName = i_params->objectClassName;
+            if (!isValidSubtype(paramType, argType, visitor)){
                 typeError(argument_type_mismatch);
             }
             i_args++;
@@ -236,10 +269,12 @@ CompoundType getExpressionType(ExpressionNode* expression, TypeCheck* visitor){
             std::list<ExpressionNode*>::const_iterator i_args = newExpression->expression_list->begin();
             std::list<CompoundType>::const_iterator i_params = constructorInfo.parameters->begin();
             CompoundType argType;
+            CompoundType paramType;
             while(i_params != constructorInfo.parameters->end() && i_args != newExpression->expression_list->end()){
                 argType = getExpressionType(*i_args, visitor);
-                if ((argType.baseType != i_params->baseType)
-                    || (argType.objectClassName != i_params->objectClassName)){
+                paramType.baseType = i_params->baseType;
+                paramType.objectClassName = i_params->objectClassName;
+                if (!isValidSubtype(paramType, argType, visitor)){
                     typeError(argument_type_mismatch);
                 }
                 i_args++;
@@ -283,9 +318,9 @@ CompoundType compoundFromTypeNode(TypeNode* node){
     return nodetype;
 }
 
-bool areSameCompoundType(CompoundType& t1, CompoundType& t2){
-    return (t1.baseType == t2.baseType) && (t1.objectClassName == t2.objectClassName || t1.baseType != bt_object);
-}
+
+
+
 
 // TypeCheck Visitor Functions: These are the functions you will
 // complete to build the symbol table and type check the program.
@@ -318,7 +353,7 @@ void TypeCheck::visitClassNode(ClassNode* node) {
     classInfo.methods = new MethodTable();
     classInfo.members = new VariableTable();
     currentLocalOffset = 0;
-    if (node->identifier_2 != NULL) {
+    if (node->identifier_2) {
         classInfo.superClassName = node->identifier_2->name; // probably need to
         if (classTable->count(classInfo.superClassName) == 0){
             typeError(undefined_class);
@@ -401,7 +436,7 @@ void TypeCheck::visitMethodNode(MethodNode* node) {
          returnStatementType.objectClassName = "";
     }
     //typeError(undefined_variable); //testerror
-    if (!areSameCompoundType(returnStatementType, methodInfo.returnType)){
+    if (!isValidSubtype(methodInfo.returnType, returnStatementType, this)){
         typeError(return_type_mismatch);
     }
 
@@ -462,11 +497,11 @@ void TypeCheck::visitAssignmentNode(AssignmentNode* node) {
         if (newVar.type.baseType != bt_object){
           typeError(not_object);
         }
-        VariableInfo expressionVariableInfo= getVariableInfoFromClassMember(newVar.type.objectClassName, node->identifier_2->name, this);
-        if (expressionVariableInfo.type.baseType == bt_none && expressionVariableInfo.type.objectClassName == "failure"){
+        VariableInfo assignedField= getVariableInfoFromClassMember(newVar.type.objectClassName, node->identifier_2->name, this);
+        if (assignedField.type.baseType == bt_none && assignedField.type.objectClassName == "failure"){
           typeError(undefined_member);
         }
-        if (!areSameCompoundType(expressionType, expressionVariableInfo.type)){
+        if (!isValidSubtype(assignedField.type, expressionType, this)){
           typeError(assignment_type_mismatch);
         }
     }
@@ -477,11 +512,9 @@ void TypeCheck::visitAssignmentNode(AssignmentNode* node) {
     if (assignedVar.type.baseType == bt_none && assignedVar.type.objectClassName == "failure"){
       typeError(undefined_member);
     }
-    if (!areSameCompoundType(expressionType, assignedVar.type)){
+    if (!isValidSubtype(assignedVar.type, expressionType, this)){
       typeError(assignment_type_mismatch);
     }
-
-
   }
 
     node->visit_children(this);

@@ -113,7 +113,7 @@ std::string x86getAndPrepInScopeName(AccessibleVariableInfo variableAccess){
 void CodeGenerator::visitProgramNode(ProgramNode* node) {
     // WRITEME: Replace with code if necessary
     std::cout << ".data" << std::endl;
-    std::cout << "printstr: .asciz \"%d\\n\"" << std::endl;
+    std::cout << "printstring: .asciz \"%d\\n\"" << std::endl;
 
     std::cout << ".text" << std::endl;
     std::cout << ".globl Main_main" << std::endl;
@@ -130,33 +130,34 @@ void CodeGenerator::visitClassNode(ClassNode* node) {
 
 void CodeGenerator::visitMethodNode(MethodNode* node) {
     // WRITEME: Replace with code if necessary
-
+    std::cout << "    ### BEGIN METHOD DEFINITION" << std::endl;
     currentMethodName = node->identifier->name; // set current method
     currentMethodInfo = (*(currentClassInfo.methods))[currentMethodName];
-    std::cout << currentClassName << "_" << node->identifier->name << ":"; // create label
+    std::cout << currentClassName << "_" << node->identifier->name << ":" << std::endl; // create label
 
 
-    std::cout << "push %ebp" << std::endl; // push old ebp
-    std::cout << "mov %esp %ebp" << std::endl; // set new ebp to esp
+    std::cout << "    push %ebp" << std::endl; // push old ebp
+    std::cout << "    mov %esp %ebp" << std::endl; // set new ebp to esp
 
 
-    std::cout << "sub $" << currentMethodInfo.localsSize<< " %esp" << std::endl; // allocate space for local vars
+    std::cout << "    sub $" << currentMethodInfo.localsSize<< " %esp" << std::endl; // allocate space for local vars
 
-    std::cout << "push %ebx" << std::endl; // save callee-save regs
-    std::cout << "push %edi" << std::endl;
-    std::cout << "push %esi" << std::endl;
+    std::cout << "    push %ebx" << std::endl; // save callee-save regs
+    std::cout << "    push %edi" << std::endl;
+    std::cout << "    push %esi" << std::endl;
 
     node->visit_children(this); // exec body and return
     // Restore callee-saved registers
-    std::cout << "pop %esi" << std::endl;
-    std::cout << "pop %edi" << std::endl;
-    std::cout << "pop %ebx" << std::endl;
+    std::cout << "    pop %esi" << std::endl;
+    std::cout << "    pop %edi" << std::endl;
+    std::cout << "    pop %ebx" << std::endl;
     // Deallocate local vars space by moving %esp to %ebp
-    std::cout << "mov %ebp %esp" << std::endl;
+    std::cout << "    mov %ebp %esp" << std::endl;
     // Restore old base pointer by popping old %ebp from the stack
-    std::cout << "pop %ebp" << std::endl; // does ret make this reduntant/incorrect?
+    std::cout << "    pop %ebp" << std::endl; // does ret make this reduntant/incorrect?
     // Return using return address (ret instruction)
-    std::cout << "ret" << std::endl;
+    std::cout << "    ret" << std::endl;
+    std::cout << "    ### END METHOD DEFINITION" << std::endl;
 }
 
 void CodeGenerator::visitMethodBodyNode(MethodBodyNode* node) {
@@ -187,6 +188,7 @@ void CodeGenerator::visitReturnStatementNode(ReturnStatementNode* node) {
 
 void CodeGenerator::visitAssignmentNode(AssignmentNode* node) {
     // WRITEME: Replace with code if necessary
+    std::cout << "    # ASSIGNMENT" << std::endl;
     node->expression->accept(this); // put value to assign on stack
 
     if (node->identifier_2){
@@ -201,12 +203,15 @@ void CodeGenerator::visitAssignmentNode(AssignmentNode* node) {
         AccessibleVariableInfo assignedVariable = getVariableInScope(node->identifier_1->name, this);
         std::cout << x86popIntoVariable(assignedVariable);
     }
+    std::cout << "    # END ASSIGNMENT" << std::endl;
 }
 
 void CodeGenerator::visitCallNode(CallNode* node) {
     // WRITEME: Replace with code if necessary
+    std::cout << "    ### METHOD CALL STATEMENT" << std::endl;
     node->visit_children(this);
     std::cout<<"    add $4 $esp"; // pop the result given by methodcallnode (which/because_it is an expression)
+    std::cout << "    ### END METHOD CALL STATEMENT" << std::endl;
 }
 
 void CodeGenerator::visitIfElseNode(IfElseNode* node) {
@@ -254,32 +259,35 @@ void CodeGenerator::visitWhileNode(WhileNode* node) {
 void CodeGenerator::visitPrintNode(PrintNode* node) {
     // WRITEME: Replace with code if necessary
     node->expression->accept(this); //push print expression result
-    std::cout << "    push $printstring";
+    std::cout << "    push $printstring" << std::endl;
     std::cout << "call printf" << std::endl;
 }
 
 void CodeGenerator::visitDoWhileNode(DoWhileNode* node) {
     // WRITEME: Replace with code if necessary
+    std::cout << "    ### DO WHILE" << std::endl;
     int whilelabel = nextLabel();
     std::cout << whilelabel << ":" << std::endl;
     for (StatementNode* statement : *node->statement_list){
         statement->accept(this);
     }
     node->expression->accept(this);
-    std::cout << "pop %eax" << std::endl;
-    std::cout << "mov $0 %ebx" << std::endl;
-    std::cout << "cmp %eax %ebx" << std::endl;
-    std::cout << "jne " << whilelabel << std::endl;
+    std::cout << "    pop %eax" << std::endl;
+    std::cout << "    mov $0 %ebx" << std::endl;
+    std::cout << "    cmp %eax %ebx" << std::endl;
+    std::cout << "    jne " << whilelabel << std::endl;
+    std::cout << "    ### END DO WHILE" << std::endl;
+
 }
 
 void CodeGenerator::visitPlusNode(PlusNode* node) {
     // WRITEME: Replace with code if necessary
     std::cout << "#### ADD" << std::endl;
     node->visit_children(this);
-    std::cout << " pop %ebx" << std::endl;
-    std::cout << " pop %eax" << std::endl;
-    std::cout << " add %ebx, %eax" << std::endl;
-    std::cout << " push %eax" << std::endl;
+    std::cout << "    pop %ebx" << std::endl;
+    std::cout << "    pop %eax" << std::endl;
+    std::cout << "    add %ebx, %eax" << std::endl;
+    std::cout << "    push %eax" << std::endl;
     std::cout << "#### END ADD" << std::endl;
 }
 
@@ -297,7 +305,7 @@ void CodeGenerator::visitMinusNode(MinusNode* node) {
 
 void CodeGenerator::visitTimesNode(TimesNode* node) {
     // WRITEME: Replace with code if necessary
-        std::cout << "#### MULTIPLY" << std::endl;
+    std::cout << "#### MULTIPLY" << std::endl;
     node->visit_children(this);
     std::cout << " pop %ebx" << std::endl;
     std::cout << " pop %eax" << std::endl;
@@ -455,7 +463,7 @@ void CodeGenerator::visitMethodCallNode(MethodCallNode* node) {
     std::cout << pushSelfPointer;
 
     if (node->identifier_2){
-        std::cout << "    call " << node->identifier_1->name<< "_"<< node->identifier_2->name;
+        std::cout << "    call " << node->identifier_1->name<< "_"<< node->identifier_2->name << std::endl;
     }
     else{
         std::cout << "    call " << currentClassName << "_" << node->identifier_1->name << std::endl;
@@ -507,6 +515,7 @@ void CodeGenerator::visitBooleanLiteralNode(BooleanLiteralNode* node) {
 // pretty comfortable about the state of this one
 void CodeGenerator::visitNewNode(NewNode* node) {
     // WRITEME: Replace with code if necessary
+    std::cout << "    # NEW ALLOC" << std::endl;
     ClassInfo newClass = (*(classTable))[node->identifier->name];
     bool hasConstructor = newClass.methods->count(node->identifier->name) != 0;
     if (hasConstructor) {
@@ -534,6 +543,7 @@ void CodeGenerator::visitNewNode(NewNode* node) {
         std::cout << "    pop %ecx" << std::endl;
         std::cout << "    xchg %eax" << std::endl; // retrieve return value from %eax, put on stack
     }
+    std::cout << "    # END NEW ALLOC" << std::endl;
 }
 
 void CodeGenerator::visitIntegerTypeNode(IntegerTypeNode* node) {
