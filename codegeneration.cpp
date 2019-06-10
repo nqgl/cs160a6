@@ -68,7 +68,7 @@ std::string x86pushVariable(AccessibleVariableInfo variableAccess){
     std::stringstream s;
     if (variableAccess.isLocalAccess()){
         // in local area
-        s << "push " << variableAccess.getOffset() << "(%ebp)";
+        s << "push " << variableAccess.getOffset() << "(%ebp)" << std::endl;
     }
     else{
         // in self class
@@ -216,18 +216,24 @@ void CodeGenerator::visitCallNode(CallNode* node) {
 
 void CodeGenerator::visitIfElseNode(IfElseNode* node) {
     // WRITEME: Replace with code if necessary
-    int elselabel = nextLabel();
-    int endlabel = nextLabel();
+    std::cout << "# IF:" << std::endl;
+    std::string elselabel = "label" + std::to_string(nextLabel());
+    std::string endlabel = "label" + std::to_string(nextLabel());
+    std::cout << "    ### PUSH CONDITIONAL" << std::endl;
     node->expression->visit_children(this);
+    std::cout << "    ### END CONDITIONAL" << std::endl;
     std::cout << "pop %eax" << std::endl;
     std::cout << "mov $0, %ebx" << std::endl;
     std::cout << "cmp %eax, %ebx" << std::endl;
-    std::cout << "je " << elselabel << std::endl;
-    std::cout << "# IF:" << std::endl;
+    if (node->statement_list_2){        
+        std::cout << "je " << elselabel << std::endl;
+    } else {
+        std::cout << "je " << endlabel << std::endl;
+    }
     for (StatementNode* statement : *node->statement_list_1){
         statement->accept(this);
     }
-    std::cout << "j " << endlabel << std::endl;
+    std::cout << "jmp " << endlabel << std::endl;
     if (node->statement_list_2){        
         std::cout << elselabel << ":" << std::endl;
         std::cout << "# ELSE:" << std::endl;
@@ -241,8 +247,8 @@ void CodeGenerator::visitIfElseNode(IfElseNode* node) {
 
 void CodeGenerator::visitWhileNode(WhileNode* node) {
     // WRITEME: Replace with code if necessary
-    int whilelabel = nextLabel();
-    int endlabel = nextLabel();
+    std::string whilelabel = "label" + std::to_string(nextLabel());
+    std::string endlabel = "label" + std::to_string(nextLabel());
     std::cout << "#WHILE LOOP" << std::endl;
     std::cout << whilelabel << ":" << std::endl;
     node->expression->visit_children(this);
@@ -268,7 +274,7 @@ void CodeGenerator::visitPrintNode(PrintNode* node) {
 void CodeGenerator::visitDoWhileNode(DoWhileNode* node) {
     // WRITEME: Replace with code if necessary
     std::cout << "    ### DO WHILE" << std::endl;
-    int whilelabel = nextLabel();
+    std::string whilelabel = "label" + std::to_string(nextLabel());
     std::cout << whilelabel << ":" << std::endl;
     for (StatementNode* statement : *node->statement_list){
         statement->accept(this);
@@ -297,8 +303,8 @@ void CodeGenerator::visitMinusNode(MinusNode* node) {
     // WRITEME: Replace with code if necessary
     std::cout << "#### SUBTRACT" << std::endl;
     node->visit_children(this);
-    std::cout << " pop %eax" << std::endl;
     std::cout << " pop %ebx" << std::endl;
+    std::cout << " pop %eax" << std::endl;
     std::cout << " sub %ebx, %eax" << std::endl;
     std::cout << " push %eax" << std::endl;
     std::cout << "#### END SUBTRACT" << std::endl;
@@ -321,8 +327,8 @@ void CodeGenerator::visitDivideNode(DivideNode* node) {
 
     std::cout << "# DIVIDE" << std::endl;
     node->visit_children(this);
-    std::cout << "    pop %eax" << std::endl; //numerator gets popped first
-    std::cout << "    pop %ebx" << std::endl;
+    std::cout << "    pop %ebx" << std::endl; //numerator gets popped first
+    std::cout << "    pop %eax" << std::endl;
     std::cout << "    cdq # moves sign into EDX (?)" << std::endl;
     std::cout << "    idiv %ebx" << std::endl;
     std::cout << "    push %eax" << std::endl;
@@ -337,11 +343,10 @@ void CodeGenerator::visitGreaterNode(GreaterNode* node) {
     node->visit_children(this);
     std::cout << "    pop %ebx" << std::endl;
     std::cout << "    pop %eax" << std::endl;
-    std::cout << "    mv $0, %edx # Clear %edx" << std::endl;
+    std::cout << "    mov $0, %edx # Clear %edx" << std::endl;
     std::cout << "    cmp %ebx, %eax # Compare regs" << std::endl;
     std::cout << "    setg %dl # Sets lowest byte" << std::endl;
     std::cout << "    # # in %edx if the" << std::endl;
-    std::cout << "    cmp showed equal" << std::endl;
     std::cout << "    push %edx # Push the result" << std::endl;
     std::cout << "# END GT CHECK" << std::endl;
 
@@ -353,11 +358,9 @@ void CodeGenerator::visitGreaterEqualNode(GreaterEqualNode* node) {
     node->visit_children(this);
     std::cout << "    pop %ebx" << std::endl;
     std::cout << "    pop %eax" << std::endl;
-    std::cout << "    mv $0, %edx # Clear %edx" << std::endl;
+    std::cout << "    mov $0, %edx # Clear %edx" << std::endl;
     std::cout << "    cmp %ebx, %eax # Compare regs" << std::endl;
     std::cout << "    setge %dl # Sets lowest byte" << std::endl;
-    std::cout << "    # in %edx if the" << std::endl;
-    std::cout << "    cmp showed equal" << std::endl;
     std::cout << "    push %edx # Push the result" << std::endl;
     std::cout << "# END GT CHECK" << std::endl;
 }
@@ -368,11 +371,9 @@ void CodeGenerator::visitEqualNode(EqualNode* node) {
     node->visit_children(this);
     std::cout << "    pop %ebx" << std::endl;
     std::cout << "    pop %eax" << std::endl;
-    std::cout << "    mv $0, %edx # Clear %edx" << std::endl;
+    std::cout << "    mov $0, %edx # Clear %edx" << std::endl;
     std::cout << "    cmp %ebx, %eax # Compare regs" << std::endl;
     std::cout << "    sete %dl # Sets lowest byte" << std::endl;
-    std::cout << "    # in %edx if the" << std::endl;
-    std::cout << "    cmp showed equal" << std::endl;
     std::cout << "    push %edx # Push the result" << std::endl;
     std::cout << "# END EQUALITY CHECK" << std::endl;
 }
@@ -493,8 +494,10 @@ void CodeGenerator::visitMemberAccessNode(MemberAccessNode* node) {
 
 void CodeGenerator::visitVariableNode(VariableNode* node) {
     // WRITEME: Replace with code if necessary
+    std::cout << "    ### VARIABLE" << std::endl;
     AccessibleVariableInfo accessVar = getVariableInScope(node->identifier->name, this);
-    x86pushVariable(accessVar);
+    std::cout << x86pushVariable(accessVar);
+    std::cout << "    ### END VARIABLE" << std::endl;
 }
 
 void CodeGenerator::visitIntegerLiteralNode(IntegerLiteralNode* node) {
