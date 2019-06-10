@@ -228,10 +228,12 @@ void CodeGenerator::visitIfElseNode(IfElseNode* node) {
         statement->accept(this);
     }
     std::cout << "j " << endlabel << std::endl;
-    std::cout << "# ELSE:" << std::endl;
-    std::cout << elselabel << ":" << std::endl;
-    for (StatementNode* statement : *node->statement_list_2){
-        statement->accept(this);
+    if (node->statement_list_2){        
+        std::cout << elselabel << ":" << std::endl;
+        std::cout << "# ELSE:" << std::endl;
+        for (StatementNode* statement : *node->statement_list_2){
+            statement->accept(this);
+        }
     }
     std::cout << endlabel << ":" << std::endl;
 }
