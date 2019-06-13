@@ -440,6 +440,7 @@ void TypeCheck::visitMethodNode(MethodNode* node) {
         typeError(return_type_mismatch);
     }
 
+    
     (*(this->currentMethodTable))[node->identifier->name] = methodInfo;
 }
 

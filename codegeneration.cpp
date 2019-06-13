@@ -210,7 +210,7 @@ void CodeGenerator::visitCallNode(CallNode* node) {
     // WRITEME: Replace with code if necessary
     std::cout << "    ### METHOD CALL STATEMENT" << std::endl;
     node->visit_children(this);
-    std::cout<<"    add $4, $esp"; // pop the result given by methodcallnode (which/because_it is an expression)
+    std::cout<<"    add $4, %esp"; // pop the result given by methodcallnode (which/because_it is an expression)
     std::cout << "    ### END METHOD CALL STATEMENT" << std::endl;
 }
 
@@ -220,7 +220,7 @@ void CodeGenerator::visitIfElseNode(IfElseNode* node) {
     std::string elselabel = "label" + std::to_string(nextLabel());
     std::string endlabel = "label" + std::to_string(nextLabel());
     std::cout << "    ### PUSH CONDITIONAL" << std::endl;
-    node->expression->visit_children(this);
+    node->expression->accept(this);
     std::cout << "    ### END CONDITIONAL" << std::endl;
     std::cout << "pop %eax" << std::endl;
     std::cout << "mov $0, %ebx" << std::endl;
@@ -251,15 +251,15 @@ void CodeGenerator::visitWhileNode(WhileNode* node) {
     std::string endlabel = "label" + std::to_string(nextLabel());
     std::cout << "#WHILE LOOP" << std::endl;
     std::cout << whilelabel << ":" << std::endl;
-    node->expression->visit_children(this);
+    node->expression->accept(this);
     std::cout << "pop %eax" << std::endl;
     std::cout << "mov $0, %ebx" << std::endl;
-    std::cout << "cmp %eax, %ebx" << std::endl;
+    std::cout << "cmp %eax, %ebx" << std::endl; // equality between these means
     std::cout << "je " << endlabel << std::endl;
     for (StatementNode* statement : *node->statement_list){
         statement->accept(this);
     }
-    std::cout << "j " << whilelabel << std::endl;
+    std::cout << "jmp " << whilelabel << std::endl;
     std::cout << endlabel << ":" << std::endl;
     std::cout << "#END WHILE LOOP" << std::endl;
 }
@@ -406,8 +406,11 @@ void CodeGenerator::visitNotNode(NotNode* node) {
     std::cout << "# NOT" << std::endl;
     node->visit_children(this);
     std::cout << "    pop %eax"  << std::endl;
-    std::cout << "    not %eax"  << std::endl;
-    std::cout << "    push %eax"  << std::endl;
+    std::cout << "    mov $0, %ebx" << std::endl;
+    std::cout << "    mov $0, %edx # Clear %edx" << std::endl;
+    std::cout << "    cmp %ebx, %eax # Compare regs" << std::endl;
+    std::cout << "    sete %dl # Sets lowest byte" << std::endl;
+    std::cout << "    push %edx"  << std::endl;
     std::cout << "# END NOT" << std::endl;
 }
 
@@ -465,28 +468,30 @@ void CodeGenerator::visitMethodCallNode(MethodCallNode* node) {
     //push self-pointer onto stack
     std::cout << pushSelfPointer;
 
+    currentClassName = prevClassName;
+    currentMethodName = prevMethodName;
+    currentClassInfo = prevClassInfo;
+    currentMethodInfo = prevMethodInfo;
     if (node->identifier_2){
-        std::cout << "    call " << node->identifier_1->name<< "_"<< node->identifier_2->name << std::endl;
+        std::string parentClass = getVariableInScope(node->identifier_1->name, this).variableInfo.type.objectClassName;
+
+        std::cout << "    call " << parentClass << "_"<< node->identifier_2->name << std::endl;
     }
     else{
         std::cout << "    call " << currentClassName << "_" << node->identifier_1->name << std::endl;
     }
 
     // remove arguments
-    std::cout << "    add $" << this->currentMethodInfo.parameters->size() * 4 << " %esp" << std::endl;
+    std::cout << "    add $" << this->currentMethodInfo.parameters->size() * 4 << ", %esp" << std::endl;
 
     // restore caller-save regs
     std::cout<< "    pop %edx" << std::endl;
     std::cout<< "    pop %ecx" <<std::endl;
-    std::cout<< "    xchg %eax" <<std::endl; // retrieve return value from %eax
+    std::cout<< "    xchg %eax, 0(%esp)" <<std::endl; // retrieve return value from %eax
 
     std::cout << "# Method Call DONE" << std::endl;
-
-    currentClassName = prevClassName;
-    currentMethodName = prevMethodName;
-    currentClassInfo = prevClassInfo;
-    currentMethodInfo = prevMethodInfo;
 }
+
 
 void CodeGenerator::visitMemberAccessNode(MemberAccessNode* node) {
     // WRITEME: Replace with code if necessary
@@ -546,7 +551,7 @@ void CodeGenerator::visitNewNode(NewNode* node) {
         // restore caller-save regs
         std::cout << "    pop %edx" << std::endl;
         std::cout << "    pop %ecx" << std::endl;
-        std::cout << "    xchg %eax" << std::endl; // retrieve return value from %eax, put on stack
+        std::cout << "    xchg %eax, 0(%esp)" << std::endl; // retrieve return value from %eax, put on stack
     }
     std::cout << "    # END NEW ALLOC" << std::endl;
 }
