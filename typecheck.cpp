@@ -365,7 +365,6 @@ void TypeCheck::visitClassNode(ClassNode* node) {
     (*(this->classTable))[node->identifier_1->name] = classInfo;
     this->currentMethodTable = classInfo.methods;
     this->currentVariableTable = classInfo.members;
-
     this->currentClassName = node->identifier_1->name;
     node->visit_children(this);
 

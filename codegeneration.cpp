@@ -28,6 +28,39 @@ typedef struct accessiblevariableinfo{
     }
 } AccessibleVariableInfo;
 
+
+
+// this used to be the "reverse" one
+std::string methodCallingClass(std::string classname, std::string methodName, CodeGenerator* scope){
+    ClassInfo classInfo = (*(scope->classTable))[classname];
+    std::string result;
+    if (!classInfo.superClassName.empty()) {
+        result = methodCallingClass(classInfo.superClassName, methodName, scope);
+    }
+    if (classInfo.methods){
+        if (classInfo.methods->count(methodName) != 0){
+            return classname;
+        }
+    }
+    if (!result.empty()) return result;
+    return "";
+}
+/* old:
+ *
+    ClassInfo classInfo = (*(scope->classTable))[classname];
+    if (classInfo.methods && (classInfo.methods->count(methodName) != 0)){
+        return classname;
+    }
+    else {
+        return methodCallingClass(classInfo.superClassName, methodName, scope);
+    }
+}
+
+std::string methodCallingClassReverse(std::string classname, std::string methodName, CodeGenerator* scope){
+ */
+
+
+
 int getFullClassSize(std::string classname, CodeGenerator* scope){
     if (scope->classTable->count(classname) != 0) {
         ClassInfo classInfo = (*(scope->classTable))[classname];
@@ -43,7 +76,7 @@ AccessibleVariableInfo getMemberInClass(std::string identifier, std::string clas
     ClassInfo classInfo = (*(scope->classTable))[classname];
     AccessibleVariableInfo accessVar;
     if (classInfo.members->count(identifier) != 0){
-        accessVar.classOffset = -1 * getFullClassSize(scope->currentClassInfo.superClassName, scope);
+        accessVar.classOffset = -1 * getFullClassSize(classname, scope);
         accessVar.variableInfo = (*(classInfo.members))[identifier];
         return accessVar;
     }
@@ -60,7 +93,7 @@ AccessibleVariableInfo getVariableInScope(std::string identifier, CodeGenerator*
         return accessVar;
     }
     else {
-        return getMemberInClass(identifier, scope->currentClassInfo.superClassName, scope);
+        return getMemberInClass(identifier, scope->currentClassName, scope);
     }
 }
 
@@ -102,7 +135,7 @@ std::string x86getAndPrepInScopeName(AccessibleVariableInfo variableAccess){
     else{
         // in self class
         std::cout << "    mov 8(%ebp), %edx" << std::endl;
-        s << variableAccess.getOffset() << "(%edx)" << std::endl;
+        s << variableAccess.getOffset() << "(%edx)";
     }
     return s.str();
 }
@@ -114,11 +147,12 @@ void CodeGenerator::visitProgramNode(ProgramNode* node) {
     // WRITEME: Replace with code if necessary
     std::cout << ".data" << std::endl;
     std::cout << "printstring: .asciz \"%d\\n\"" << std::endl;
-
     std::cout << ".text" << std::endl;
     std::cout << ".globl Main_main" << std::endl;
     node->visit_children(this);
 }
+
+
 
 void CodeGenerator::visitClassNode(ClassNode* node) {
     // WRITEME: Replace with code if necessary
@@ -188,7 +222,7 @@ void CodeGenerator::visitReturnStatementNode(ReturnStatementNode* node) {
 
 void CodeGenerator::visitAssignmentNode(AssignmentNode* node) {
     // WRITEME: Replace with code if necessary
-    std::cout << "    # ASSIGNMENT" << std::endl;
+    std::cout << "    # ASSIGNMENT "<< node->identifier_1->name << std::endl;
     node->expression->accept(this); // put value to assign on stack
 
     if (node->identifier_2){
@@ -196,7 +230,7 @@ void CodeGenerator::visitAssignmentNode(AssignmentNode* node) {
         ClassInfo parentClass = (*(classTable))[parentVariable.variableInfo.type.objectClassName];
         AccessibleVariableInfo assignedVariable = getMemberInClass(node->identifier_2->name, parentVariable.variableInfo.type.objectClassName, this);
         std::string x86parentVar = x86getAndPrepInScopeName(parentVariable);
-        std::cout << "mov " << x86parentVar << " %edx " << std::endl;
+        std::cout << "mov "  << x86parentVar <<", %edx"<< std::endl;
         std::cout << "pop " << assignedVariable.getOffset() << "(%edx)";
     }
     else {
@@ -269,6 +303,7 @@ void CodeGenerator::visitPrintNode(PrintNode* node) {
     node->expression->accept(this); //push print expression result
     std::cout << "    push $printstring" << std::endl;
     std::cout << "call printf" << std::endl;
+//    std::cout << "    add $4, %esp" << std::endl;
 }
 
 void CodeGenerator::visitDoWhileNode(DoWhileNode* node) {
@@ -327,6 +362,7 @@ void CodeGenerator::visitDivideNode(DivideNode* node) {
 
     std::cout << "# DIVIDE" << std::endl;
     node->visit_children(this);
+
     std::cout << "    pop %ebx" << std::endl; //numerator gets popped first
     std::cout << "    pop %eax" << std::endl;
     std::cout << "    cdq # moves sign into EDX (?)" << std::endl;
@@ -437,21 +473,6 @@ void CodeGenerator::visitMethodCallNode(MethodCallNode* node) {
         pushSelfPointer = "    push 8(%ebp)\n";
     }
 
-    std::string prevClassName = currentClassName;
-    std::string prevMethodName = currentMethodName;
-    ClassInfo prevClassInfo = currentClassInfo;
-    MethodInfo prevMethodInfo = currentMethodInfo;
-
-    if (node->identifier_2){
-        currentMethodName = node->identifier_2->name;
-        currentClassName = getVariableInScope(node->identifier_1->name, this).variableInfo.type.objectClassName;
-        currentClassInfo = (*(classTable))[currentClassName];
-        currentMethodInfo = (*(currentClassInfo.methods))[currentMethodName];
-    }
-    else{
-        currentMethodName = node->identifier_1->name;
-        currentMethodInfo = (*(currentClassInfo.methods))[currentMethodName];
-    }
 
     std::cout << "# Method Call" << std::endl;
     std::cout<< "    push %eax" <<std::endl; // caller save
@@ -460,29 +481,31 @@ void CodeGenerator::visitMethodCallNode(MethodCallNode* node) {
 
 
     // put method args on stack
+    std::cout << "# c\n";
     for (std::list<ExpressionNode*>::reverse_iterator it = node->expression_list->rbegin(); it!= node->expression_list->rend(); it++) {
         (*it)->accept(this);
         std::string altClassName, methodName;
     }
+    std::cout << "# c\n";
 
     //push self-pointer onto stack
     std::cout << pushSelfPointer;
 
-    currentClassName = prevClassName;
-    currentMethodName = prevMethodName;
-    currentClassInfo = prevClassInfo;
-    currentMethodInfo = prevMethodInfo;
+
+    std::cout << "# invoke" << std::endl;
     if (node->identifier_2){
         std::string parentClass = getVariableInScope(node->identifier_1->name, this).variableInfo.type.objectClassName;
 
-        std::cout << "    call " << parentClass << "_"<< node->identifier_2->name << std::endl;
+        std::cout << "# in case of crash, called w/ " << parentClass << " as class" << std::endl;
+
+        std::cout << "    call " << methodCallingClass(parentClass, node->identifier_2->name, this) << "_"<< node->identifier_2->name << std::endl;
     }
     else{
-        std::cout << "    call " << currentClassName << "_" << node->identifier_1->name << std::endl;
+        std::cout << "# in case of crash, called at " << currentClassName << " as class" << std::endl;
+        std::cout << "    call " << methodCallingClass(currentClassName, node->identifier_1->name, this) << "_" << node->identifier_1->name << std::endl;
     }
-
     // remove arguments
-    std::cout << "    add $" << this->currentMethodInfo.parameters->size() * 4 << ", %esp" << std::endl;
+    std::cout << "    add $" << this->currentMethodInfo.parameters->size() * 4  << ", %esp" << std::endl;
 
     // restore caller-save regs
     std::cout<< "    pop %edx" << std::endl;
@@ -495,12 +518,29 @@ void CodeGenerator::visitMethodCallNode(MethodCallNode* node) {
 
 void CodeGenerator::visitMemberAccessNode(MemberAccessNode* node) {
     // WRITEME: Replace with code if necessary
+     // WRITEME: Replace with code if necessary
+    std::cout << "    # ASSIGNMENT" << std::endl;
+
+    if (node->identifier_2){
+        AccessibleVariableInfo parentVariable = getVariableInScope(node->identifier_1->name, this);
+        ClassInfo parentClass = (*(classTable))[parentVariable.variableInfo.type.objectClassName];
+        AccessibleVariableInfo assignedVariable = getMemberInClass(node->identifier_2->name, parentVariable.variableInfo.type.objectClassName, this);
+        std::string x86parentVar = x86getAndPrepInScopeName(parentVariable);
+        std::cout << "mov "  << x86parentVar <<", %edx"<< std::endl;
+        std::cout << "push " << assignedVariable.getOffset() << "(%edx)";
+    }
+    else {
+        AccessibleVariableInfo assignedVariable = getVariableInScope(node->identifier_1->name, this);
+        std::cout << x86pushVariable(assignedVariable);
+    }
+    std::cout << "    # END ASSIGNMENT" << std::endl;
 }
 
 void CodeGenerator::visitVariableNode(VariableNode* node) {
     // WRITEME: Replace with code if necessary
     std::cout << "    ### VARIABLE" << std::endl;
     AccessibleVariableInfo accessVar = getVariableInScope(node->identifier->name, this);
+    std::cout << "    ### END VARget" << std::endl;
     std::cout << x86pushVariable(accessVar);
     std::cout << "    ### END VARIABLE" << std::endl;
 }
@@ -528,30 +568,42 @@ void CodeGenerator::visitNewNode(NewNode* node) {
     std::cout << "    # NEW ALLOC" << std::endl;
     ClassInfo newClass = (*(classTable))[node->identifier->name];
     bool hasConstructor = newClass.methods->count(node->identifier->name) != 0;
+    if (hasConstructor){
+        int pcount = 0;
+        if (node->expression_list){
+            pcount = node->expression_list->size();
+        }
+        if ( (*(newClass.methods))[node->identifier->name].parameters && (*(newClass.methods))[node->identifier->name].parameters->size() != pcount ){
+            hasConstructor = false;
+        }
+    }
     if (hasConstructor) {
         std::cout << "    push %eax" << std::endl; // caller save
         std::cout << "    push %ecx" << std::endl;
         std::cout << "    push %edx" << std::endl; // save caller-vars (???)
         // push constructor args
-        for (ExpressionNode* expression: *node->expression_list){
-            expression->accept(this);
+
+        for (std::list<ExpressionNode*>::reverse_iterator it = node->expression_list->rbegin(); it!= node->expression_list->rend(); it++) {
+            (*it)->accept(this);
         }
     }
 
     std::cout << "push $" << getFullClassSize(node->identifier->name, this) << std::endl;
     std::cout << "call malloc" << std::endl;
-    std::cout << "add $4, %esp" << std::endl;
+    std::cout << "add $4, %esp" << std::endl; // revert stack by 1
     std::cout << "push %eax" << std::endl; // push self pointer
     if (hasConstructor) {
-        std::cout << "call " << node->identifier << "_" << node->identifier; //call constructor
-
-        // remove arguments from stack
+        //std::cout << "push %eax" << std::endl; // push self pointer
+        std::cout << "call " << node->identifier->name << "_" << node->identifier->name << std::endl; //call constructor
+        std::cout << "    pop %eax" << std::endl;
         std::cout << "    add $" << (*(newClass.methods))[node->identifier->name].parameters->size() * 4 << ", %esp" << std::endl;
-
+        // remove arguments from stack
+        //std::cout << "pop %eax" << std::endl;
         // restore caller-save regs
         std::cout << "    pop %edx" << std::endl;
         std::cout << "    pop %ecx" << std::endl;
         std::cout << "    xchg %eax, 0(%esp)" << std::endl; // retrieve return value from %eax, put on stack
+
     }
     std::cout << "    # END NEW ALLOC" << std::endl;
 }
