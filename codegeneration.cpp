@@ -76,7 +76,7 @@ AccessibleVariableInfo getMemberInClass(std::string identifier, std::string clas
     ClassInfo classInfo = (*(scope->classTable))[classname];
     AccessibleVariableInfo accessVar;
     if (classInfo.members->count(identifier) != 0){
-        accessVar.classOffset = -1 * getFullClassSize(classname, scope);
+        accessVar.classOffset = (-1) * getFullClassSize(classname, scope);
         accessVar.variableInfo = (*(classInfo.members))[identifier];
         return accessVar;
     }
