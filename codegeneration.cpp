@@ -631,3 +631,4 @@ void CodeGenerator::visitIdentifierNode(IdentifierNode* node) {
 void CodeGenerator::visitIntegerNode(IntegerNode* node) {
     // WRITEME: Replace with code if necessary
 }
+
