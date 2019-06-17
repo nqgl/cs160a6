@@ -9,6 +9,10 @@ getlines(){
 	done
 }
 
+cleanchk(){
+	rm *.out *.lines
+}
+
 linesfromrun(){
 	while read line; do
 		if [[ $line =~ ^./lang ]]; then
