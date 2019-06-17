@@ -64,7 +64,7 @@ std::string methodCallingClassReverse(std::string classname, std::string methodN
 int getFullClassSize(std::string classname, CodeGenerator* scope){
     if (scope->classTable->count(classname) != 0) {
         ClassInfo classInfo = (*(scope->classTable))[classname];
-        if (classInfo.superClassName != "") {
+        if (classInfo.superClassName.empty()) {
             return classInfo.membersSize + getFullClassSize(classInfo.superClassName, scope);
         } else {
             return classInfo.membersSize;
