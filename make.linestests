@@ -126686,9 +126686,6 @@
 ./lang < tests/79.good.lang:
 ./lang < tests/79.good.lang:
 ./lang < tests/79.good.lang:
-./lang < tests/80.good.lang:
-./lang < tests/80.good.lang:
-./lang < tests/80.good.lang:
 ./lang < tests/81.good.lang:
 ./lang < tests/81.good.lang:
 ./lang < tests/81.good.lang:

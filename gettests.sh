@@ -1,3 +1,4 @@
+#!/bin/bash
 getlines(){
 	while read line; do
 		if [[ $line =~ ^[\>,\<,-] ]]; then
