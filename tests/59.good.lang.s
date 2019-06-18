@@ -16,7 +16,7 @@ class0_class0:
     push %eax
 # END BOOL LITERAL
     mov 8(%ebp), %edx
-    pop -80(%edx)
+    pop 16(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member1
 # BOOL LITERAL
@@ -24,7 +24,7 @@ class0_class0:
     push %eax
 # END BOOL LITERAL
     mov 8(%ebp), %edx
-    pop -92(%edx)
+    pop 4(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member0
 # OR
@@ -64,7 +64,7 @@ class0_class0:
     push %eax
 # END OR
     mov 8(%ebp), %edx
-    pop -96(%edx)
+    pop 0(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member3
 # BOOL LITERAL
@@ -72,7 +72,7 @@ class0_class0:
     push %eax
 # END BOOL LITERAL
     mov 8(%ebp), %edx
-    pop -84(%edx)
+    pop 12(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member2
 # INT LITERAL
@@ -80,7 +80,7 @@ class0_class0:
     push %eax
 # END INT LITERAL
     mov 8(%ebp), %edx
-    pop -88(%edx)
+    pop 8(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT local1
 # INT LITERAL
@@ -166,7 +166,7 @@ class1_f0:
     sete %dl # Sets lowest byte
     push %edx
 # END NOT
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -211,7 +211,7 @@ call class0_class0
     setge %dl # Sets lowest byte
     push %edx # Push the result
 # END GT CHECK
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -280,7 +280,7 @@ class1_f1:
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -335,7 +335,7 @@ call class0_class0
     or %ebx, %eax
     push %eax
 # END OR
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -378,7 +378,7 @@ call class0_class0
     mov $1, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -678,7 +678,7 @@ class1_f3:
     setge %dl # Sets lowest byte
     push %edx # Push the result
 # END GT CHECK
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -705,7 +705,7 @@ call class0_class0
     mov $1, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -796,7 +796,7 @@ push -20(%ebp)
     push %eax
 # END BOOL LITERAL
 mov -8(%ebp), %edx
-pop -96(%edx)    # END ASSIGNMENT
+pop 0(%edx)    # END ASSIGNMENT
 jmp label4
 label5:
 #END WHILE LOOP
@@ -841,7 +841,7 @@ class1_f4:
     setge %dl # Sets lowest byte
     push %edx # Push the result
 # END GT CHECK
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -894,7 +894,7 @@ call class0_class0
     mov $1, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -915,7 +915,7 @@ call class0_class0
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -930,9 +930,9 @@ call class0_class0
     # ASSIGNMENT local2
     # ASSIGNMENT
 mov -8(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push 8(%edx)    # END ASSIGNMENT
 mov -12(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop 8(%edx)    # END ASSIGNMENT
     pop %esi
     pop %edi
     pop %ebx
@@ -965,7 +965,7 @@ class1_class1:
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -1099,7 +1099,7 @@ call class0_class0
     sete %dl # Sets lowest byte
     push %edx # Push the result
 # END EQUALITY CHECK
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -1200,7 +1200,7 @@ Main_main:
     setge %dl # Sets lowest byte
     push %edx # Push the result
 # END GT CHECK
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -1406,10 +1406,10 @@ label9:
     push %eax
 # END BOOL LITERAL
 mov -12(%ebp), %edx
-pop -80(%edx)    # END ASSIGNMENT
+pop 16(%edx)    # END ASSIGNMENT
     # ASSIGNMENT
 mov -12(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push 8(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
 # BOOL LITERAL
@@ -1465,9 +1465,9 @@ push -28(%ebp)
     # ASSIGNMENT local2
     # ASSIGNMENT
 mov -12(%ebp), %edx
-push -84(%edx)    # END ASSIGNMENT
+push 12(%edx)    # END ASSIGNMENT
 mov -12(%ebp), %edx
-pop -92(%edx)    # END ASSIGNMENT
+pop 4(%edx)    # END ASSIGNMENT
 jmp label10
 label11:
 #END WHILE LOOP

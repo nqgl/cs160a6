@@ -79,7 +79,7 @@ label1:
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -84(%edx)
+    push 12(%edx)
     ### END VARIABLE
     push $printstring
 call printf
@@ -87,12 +87,12 @@ call printf
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -84(%edx)
+    push 12(%edx)
     ### END VARIABLE
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -76(%edx)
+    push 20(%edx)
     ### END VARIABLE
     pop %ebx
     pop %eax
@@ -122,7 +122,7 @@ class0_class0:
     push %eax
 # END INT LITERAL
     mov 8(%ebp), %edx
-    pop -76(%edx)
+    pop 20(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member4
 # INT LITERAL
@@ -130,7 +130,7 @@ class0_class0:
     push %eax
 # END INT LITERAL
     mov 8(%ebp), %edx
-    pop -80(%edx)
+    pop 16(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member1
 # INT LITERAL
@@ -138,7 +138,7 @@ class0_class0:
     push %eax
 # END INT LITERAL
     mov 8(%ebp), %edx
-    pop -92(%edx)
+    pop 4(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member0
 # DIVIDE
@@ -157,7 +157,7 @@ class0_class0:
     push %eax
 # END DIVIDE
     mov 8(%ebp), %edx
-    pop -96(%edx)
+    pop 0(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member3
 # INT LITERAL
@@ -165,7 +165,7 @@ class0_class0:
     push %eax
 # END INT LITERAL
     mov 8(%ebp), %edx
-    pop -84(%edx)
+    pop 12(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member2
 #### MULTIPLY
@@ -183,7 +183,7 @@ class0_class0:
  push %eax
 #### END MULTIPLY
     mov 8(%ebp), %edx
-    pop -88(%edx)
+    pop 8(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT local1
 #### MULTIPLY
@@ -268,7 +268,7 @@ class0_class0:
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -96(%edx)
+    push 0(%edx)
     ### END VARIABLE
     push $printstring
 call printf

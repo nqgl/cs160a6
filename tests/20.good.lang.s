@@ -16,7 +16,7 @@ classA_classA:
     push %eax
 # END INT LITERAL
     mov 8(%ebp), %edx
-    pop -96(%edx)
+    pop 0(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT y
 # INT LITERAL
@@ -24,7 +24,7 @@ classA_classA:
     push %eax
 # END INT LITERAL
     mov 8(%ebp), %edx
-    pop -92(%edx)
+    pop 4(%edx)
     # END ASSIGNMENT
     pop %esi
     pop %edi
@@ -77,7 +77,7 @@ classB_makeA:
     push %eax
     push %ecx
     push %edx
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -93,7 +93,7 @@ call classA_classA
 #### ADD
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push 0(%edx)    # END ASSIGNMENT
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
@@ -105,12 +105,12 @@ push -96(%edx)    # END ASSIGNMENT
     push %eax
 #### END ADD
 mov -4(%ebp), %edx
-pop -96(%edx)    # END ASSIGNMENT
+pop 0(%edx)    # END ASSIGNMENT
     # ASSIGNMENT aNew
 #### ADD
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push 4(%edx)    # END ASSIGNMENT
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
@@ -122,7 +122,7 @@ push -92(%edx)    # END ASSIGNMENT
     push %eax
 #### END ADD
 mov -4(%ebp), %edx
-pop -92(%edx)    # END ASSIGNMENT
+pop 4(%edx)    # END ASSIGNMENT
     ### VARIABLE
     ### END VARget
 push -4(%ebp)
@@ -148,7 +148,7 @@ Main_main:
     push %eax
     push %ecx
     push %edx
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -166,14 +166,14 @@ call classA_classA
     push %eax
 # END INT LITERAL
 mov -4(%ebp), %edx
-pop -96(%edx)    # END ASSIGNMENT
+pop 0(%edx)    # END ASSIGNMENT
     # ASSIGNMENT a1
 # INT LITERAL
     mov $8, %eax
     push %eax
 # END INT LITERAL
 mov -4(%ebp), %edx
-pop -92(%edx)    # END ASSIGNMENT
+pop 4(%edx)    # END ASSIGNMENT
     # ASSIGNMENT b
     # NEW ALLOC
     push %eax
@@ -222,12 +222,12 @@ push -12(%ebp)
     pop -8(%ebp)    # END ASSIGNMENT
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push 0(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push 4(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     # ASSIGNMENT
@@ -242,12 +242,12 @@ push -4(%edx)    # END ASSIGNMENT
 call printf
     # ASSIGNMENT
 mov -8(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push 0(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     # ASSIGNMENT
 mov -8(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push 4(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     pop %esi

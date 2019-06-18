@@ -120,7 +120,7 @@ class0_f1:
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -88(%edx)
+    push 8(%edx)
     ### END VARIABLE
     push $printstring
 call printf
@@ -144,12 +144,12 @@ call printf
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -96(%edx)
+    push 0(%edx)
     ### END VARIABLE
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -96(%edx)
+    push 0(%edx)
     ### END VARIABLE
  pop %ebx
  pop %eax
@@ -178,7 +178,7 @@ class0_class0:
     push %eax
 # END INT LITERAL
     mov 8(%ebp), %edx
-    pop -80(%edx)
+    pop 16(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member1
 # INT LITERAL
@@ -186,7 +186,7 @@ class0_class0:
     push %eax
 # END INT LITERAL
     mov 8(%ebp), %edx
-    pop -92(%edx)
+    pop 4(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member0
 #### MULTIPLY
@@ -204,7 +204,7 @@ class0_class0:
  push %eax
 #### END MULTIPLY
     mov 8(%ebp), %edx
-    pop -96(%edx)
+    pop 0(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member3
 # BOOL LITERAL
@@ -212,7 +212,7 @@ class0_class0:
     push %eax
 # END BOOL LITERAL
     mov 8(%ebp), %edx
-    pop -84(%edx)
+    pop 12(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member2
 # INT LITERAL
@@ -220,7 +220,7 @@ class0_class0:
     push %eax
 # END INT LITERAL
     mov 8(%ebp), %edx
-    pop -88(%edx)
+    pop 8(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT local1
 # INT LITERAL
@@ -356,7 +356,7 @@ je label3
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -84(%edx)
+    push 12(%edx)
     ### END VARIABLE
     ### END CONDITIONAL
 pop %eax
@@ -367,7 +367,7 @@ je label4
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -92(%edx)
+    push 4(%edx)
     ### END VARIABLE
     pop -12(%ebp)    # END ASSIGNMENT
     # ASSIGNMENT i1
@@ -523,7 +523,7 @@ class1_f0:
     mov $173, %eax
     push %eax
 # END INT LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -671,7 +671,7 @@ class1_f1:
  imul %ebx, %eax
  push %eax
 #### END MULTIPLY
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -689,7 +689,7 @@ call class0_class0
     push %eax
 # END INT LITERAL
 mov -12(%ebp), %edx
-pop -96(%edx)    # END ASSIGNMENT
+pop 0(%edx)    # END ASSIGNMENT
 # Method Call
     push %eax
     push %ecx
@@ -710,7 +710,7 @@ pop -96(%edx)    # END ASSIGNMENT
 # END INT LITERAL
     # ASSIGNMENT
 mov -12(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push 8(%edx)    # END ASSIGNMENT
 #### ADD
 # INT LITERAL
     mov $222, %eax
@@ -725,7 +725,7 @@ push -16(%ebp)
     add %ebx, %eax
     push %eax
 #### END ADD
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -922,7 +922,7 @@ class1_class1:
     mov $117, %eax
     push %eax
 # END INT LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -994,11 +994,11 @@ push -12(%ebp)
     # ASSIGNMENT
     mov 8(%ebp), %edx
 mov -20(%edx), %edx
-push -84(%edx)    # END ASSIGNMENT
+push 12(%edx)    # END ASSIGNMENT
     # ASSIGNMENT
     mov 8(%ebp), %edx
 mov -20(%edx), %edx
-push -84(%edx)    # END ASSIGNMENT
+push 12(%edx)    # END ASSIGNMENT
     pop %eax
     pop %ebx
     or %ebx, %eax
@@ -1014,7 +1014,7 @@ je label10
     # ASSIGNMENT
     mov 8(%ebp), %edx
 mov -20(%edx), %edx
-push -84(%edx)    # END ASSIGNMENT
+push 12(%edx)    # END ASSIGNMENT
     ### END CONDITIONAL
 pop %eax
 mov $0, %ebx
@@ -1047,7 +1047,7 @@ label11:
     # ASSIGNMENT
     mov 8(%ebp), %edx
 mov -20(%edx), %edx
-push -92(%edx)    # END ASSIGNMENT
+push 4(%edx)    # END ASSIGNMENT
     ### VARIABLE
     ### END VARget
 push -4(%ebp)
@@ -1203,7 +1203,7 @@ Main_main:
     mov $140, %eax
     push %eax
 # END INT LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -1314,7 +1314,7 @@ push -20(%ebp)
 # END INT LITERAL
     # ASSIGNMENT
 mov -16(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push 4(%edx)    # END ASSIGNMENT
     pop %ebx
     pop %eax
     mov $0, %edx # Clear %edx
@@ -1338,17 +1338,17 @@ label16:
 #### MULTIPLY
     # ASSIGNMENT
 mov -16(%ebp), %edx
-push -80(%edx)    # END ASSIGNMENT
+push 16(%edx)    # END ASSIGNMENT
     # ASSIGNMENT
 mov -16(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push 8(%edx)    # END ASSIGNMENT
  pop %ebx
  pop %eax
  imul %ebx, %eax
  push %eax
 #### END MULTIPLY
 mov -16(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop 8(%edx)    # END ASSIGNMENT
     pop %esi
     pop %edi
     pop %ebx

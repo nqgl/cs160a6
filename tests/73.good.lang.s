@@ -16,7 +16,7 @@ class0_class0:
     push %eax
 # END INT LITERAL
     mov 8(%ebp), %edx
-    pop -96(%edx)
+    pop 0(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT local4
 # BOOL LITERAL
@@ -88,7 +88,7 @@ class0_class0:
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -96(%edx)
+    push 0(%edx)
     ### END VARIABLE
     ### VARIABLE
     ### END VARget
@@ -151,7 +151,7 @@ Main_main:
     push %eax
     push %ecx
     push %edx
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -168,7 +168,7 @@ call class0_class0
     push %eax
     push %ecx
     push %edx
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax

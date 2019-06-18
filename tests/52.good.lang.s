@@ -797,7 +797,7 @@ class1_f3:
     push %eax
     push %ecx
     push %edx
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -849,7 +849,7 @@ call class0_class0
     push %eax
     push %ecx
     push %edx
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -885,9 +885,10 @@ push -24(%ebp)
     ### END VARIABLE
     pop -24(%ebp)    # END ASSIGNMENT
     ### VARIABLE
+#not empty, class [class1] has 0 size and parent 0
     ### END VARget
     mov 8(%ebp), %edx
-    push -96(%edx)
+    push 0(%edx)
     ### END VARIABLE
     push $printstring
 call printf
@@ -1184,7 +1185,7 @@ class1_f4:
     push %eax
     push %ecx
     push %edx
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -1362,8 +1363,9 @@ class1_class1:
     mov $54, %eax
     push %eax
 # END INT LITERAL
+#not empty, class [class1] has 0 size and parent 0
     mov 8(%ebp), %edx
-    pop -80(%edx)
+    pop 16(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member1
 # NEGATION
@@ -1375,8 +1377,9 @@ class1_class1:
     neg %eax
     push %eax
 # END NEGATION
+#not empty, class [class1] has 0 size and parent 0
     mov 8(%ebp), %edx
-    pop -92(%edx)
+    pop 4(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member0
 # CHECK GTE
@@ -1406,15 +1409,16 @@ class1_class1:
     setge %dl # Sets lowest byte
     push %edx # Push the result
 # END GT CHECK
+#not empty, class [class1] has 0 size and parent 0
     mov 8(%ebp), %edx
-    pop -96(%edx)
+    pop 0(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member3
     # NEW ALLOC
     push %eax
     push %ecx
     push %edx
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -1425,8 +1429,9 @@ call class0_class0
     pop %ecx
     xchg %eax, 0(%esp)
     # END NEW ALLOC
+#not empty, class [class1] has 0 size and parent 0
     mov 8(%ebp), %edx
-    pop -84(%edx)
+    pop 12(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member2
 # DIVIDE
@@ -1444,8 +1449,9 @@ call class0_class0
     idiv %ebx
     push %eax
 # END DIVIDE
+#not empty, class [class1] has 0 size and parent 0
     mov 8(%ebp), %edx
-    pop -88(%edx)
+    pop 8(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT local0
 # CHECK GTE
@@ -1501,14 +1507,16 @@ push 12(%ebp)
     push %edx
 # c
     ### VARIABLE
+#not empty, class [class1] has 0 size and parent 0
     ### END VARget
     mov 8(%ebp), %edx
-    push -84(%edx)
+    push 12(%edx)
     ### END VARIABLE
     ### VARIABLE
+#not empty, class [class1] has 0 size and parent 0
     ### END VARget
     mov 8(%ebp), %edx
-    push -88(%edx)
+    push 8(%edx)
     ### END VARIABLE
 # c
     push 8(%ebp)
@@ -1668,7 +1676,7 @@ class2_class2:
     push %eax
     push %ecx
     push %edx
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -2988,7 +2996,8 @@ class3_f4:
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $#not empty, class [class1] has 0 size and parent 0
+0
 call malloc
 add $4, %esp
 push %eax
@@ -3084,8 +3093,9 @@ call class2_class2
     ### PUSH CONDITIONAL
 # CHECK EQUALITY
     # ASSIGNMENT
+#not empty, class [class1] has 0 size and parent 0
 mov -24(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push 8(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $118, %eax
     push %eax
@@ -3256,7 +3266,7 @@ class3_class3:
     push %eax
     push %ecx
     push %edx
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -3409,7 +3419,7 @@ call class2_class2
     push %eax
     push %ecx
     push %edx
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax

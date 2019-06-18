@@ -156,7 +156,7 @@ Main_main:
     mov $169, %eax
     push %eax
 # END INT LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax

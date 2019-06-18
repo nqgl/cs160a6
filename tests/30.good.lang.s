@@ -804,7 +804,7 @@ class1_f0:
     sete %dl # Sets lowest byte
     push %edx # Push the result
 # END EQUALITY CHECK
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -877,7 +877,7 @@ call class0_class0
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -962,7 +962,7 @@ class1_f1:
     sete %dl # Sets lowest byte
     push %edx
 # END NOT
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -1003,7 +1003,7 @@ call class0_class0
     mov $1, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -1044,7 +1044,7 @@ call class0_class0
     mov $1, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -1218,7 +1218,7 @@ class1_f3:
     sete %dl # Sets lowest byte
     push %edx
 # END NOT
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -1416,7 +1416,7 @@ class1_class1:
     and %ebx, %eax
     push %eax
 # END AND
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -1457,7 +1457,7 @@ call class0_class0
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -1538,7 +1538,7 @@ call class0_class0
     and %ebx, %eax
     push %eax
 # END AND
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -1625,7 +1625,7 @@ call class0_class0
     # # in %edx if the
     push %edx # Push the result
 # END GT CHECK
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax

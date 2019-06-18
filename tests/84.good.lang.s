@@ -840,7 +840,7 @@ class1_f2:
  imul %ebx, %eax
  push %eax
 #### END MULTIPLY
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -885,7 +885,7 @@ call class0_class0
     mov $247, %eax
     push %eax
 # END INT LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -953,7 +953,7 @@ call class0_class0
     neg %eax
     push %eax
 # END NEGATION
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -1018,9 +1018,10 @@ push -24(%ebp)
 # END DIVIDE
     pop -24(%ebp)    # END ASSIGNMENT
     ### VARIABLE
+#not empty, class [class1] has 0 size and parent 0
     ### END VARget
     mov 8(%ebp), %edx
-    push -96(%edx)
+    push 0(%edx)
     ### END VARIABLE
     push $printstring
 call printf
@@ -1028,14 +1029,16 @@ call printf
     ### PUSH CONDITIONAL
 # OR
     ### VARIABLE
+#not empty, class [class1] has 0 size and parent 0
     ### END VARget
     mov 8(%ebp), %edx
-    push -80(%edx)
+    push 16(%edx)
     ### END VARIABLE
     ### VARIABLE
+#not empty, class [class1] has 0 size and parent 0
     ### END VARget
     mov 8(%ebp), %edx
-    push -80(%edx)
+    push 16(%edx)
     ### END VARIABLE
     pop %eax
     pop %ebx
@@ -1134,9 +1137,10 @@ label19:
     ### PUSH CONDITIONAL
 # CHECK EQUALITY
     ### VARIABLE
+#not empty, class [class1] has 0 size and parent 0
     ### END VARget
     mov 8(%ebp), %edx
-    push -92(%edx)
+    push 4(%edx)
     ### END VARIABLE
     ### VARIABLE
     ### END VARget
@@ -1247,9 +1251,10 @@ label17:
     push %eax
 # END BOOL LITERAL
     ### VARIABLE
+#not empty, class [class1] has 0 size and parent 0
     ### END VARget
     mov 8(%ebp), %edx
-    push -96(%edx)
+    push 0(%edx)
     ### END VARIABLE
     pop %eax
     pop %ebx
@@ -1259,9 +1264,10 @@ label17:
     push $printstring
 call printf
     ### VARIABLE
+#not empty, class [class1] has 0 size and parent 0
     ### END VARget
     mov 8(%ebp), %edx
-    push -96(%edx)
+    push 0(%edx)
     ### END VARIABLE
     pop %eax
     pop %esi
@@ -1324,7 +1330,7 @@ class1_f3:
     mov $149, %eax
     push %eax
 # END INT LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -1359,7 +1365,7 @@ call class0_class0
     mov $146, %eax
     push %eax
 # END INT LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -1473,8 +1479,9 @@ class1_class1:
     mov $1, %eax
     push %eax
 # END BOOL LITERAL
+#not empty, class [class1] has 0 size and parent 0
     mov 8(%ebp), %edx
-    pop -80(%edx)
+    pop 16(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member1
 #### MULTIPLY
@@ -1496,8 +1503,9 @@ class1_class1:
  imul %ebx, %eax
  push %eax
 #### END MULTIPLY
+#not empty, class [class1] has 0 size and parent 0
     mov 8(%ebp), %edx
-    pop -92(%edx)
+    pop 4(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member0
 # CHECK GTE
@@ -1516,8 +1524,9 @@ class1_class1:
     setge %dl # Sets lowest byte
     push %edx # Push the result
 # END GT CHECK
+#not empty, class [class1] has 0 size and parent 0
     mov 8(%ebp), %edx
-    pop -96(%edx)
+    pop 0(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member3
     # NEW ALLOC
@@ -1537,7 +1546,7 @@ class1_class1:
     neg %eax
     push %eax
 # END NEGATION
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -1548,8 +1557,9 @@ call class0_class0
     pop %ecx
     xchg %eax, 0(%esp)
     # END NEW ALLOC
+#not empty, class [class1] has 0 size and parent 0
     mov 8(%ebp), %edx
-    pop -84(%edx)
+    pop 12(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member2
     # NEW ALLOC
@@ -1569,7 +1579,7 @@ call class0_class0
     mov $251, %eax
     push %eax
 # END INT LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -1580,8 +1590,9 @@ call class0_class0
     pop %ecx
     xchg %eax, 0(%esp)
     # END NEW ALLOC
+#not empty, class [class1] has 0 size and parent 0
     mov 8(%ebp), %edx
-    pop -88(%edx)
+    pop 8(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT local5
 #### SUBTRACT
@@ -1648,7 +1659,7 @@ call class0_class0
     neg %eax
     push %eax
 # END NEGATION
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -1700,7 +1711,7 @@ call class0_class0
     mov $118, %eax
     push %eax
 # END INT LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax

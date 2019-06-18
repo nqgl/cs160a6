@@ -492,7 +492,7 @@ class1_f0:
     mov $4, %eax
     push %eax
 # END INT LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -907,7 +907,7 @@ class1_f2:
  imul %ebx, %eax
  push %eax
 #### END MULTIPLY
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -1094,7 +1094,7 @@ class1_class1:
     neg %eax
     push %eax
 # END NEGATION
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax

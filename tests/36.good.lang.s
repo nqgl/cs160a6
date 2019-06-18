@@ -16,7 +16,7 @@ class0_class0:
     push %eax
 # END BOOL LITERAL
     mov 8(%ebp), %edx
-    pop -92(%edx)
+    pop 4(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member0
 # BOOL LITERAL
@@ -24,7 +24,7 @@ class0_class0:
     push %eax
 # END BOOL LITERAL
     mov 8(%ebp), %edx
-    pop -96(%edx)
+    pop 0(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT local0
 # BOOL LITERAL
@@ -155,7 +155,7 @@ class1_f1:
     mov $73, %eax
     push %eax
 # END INT LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -254,7 +254,7 @@ je label4
     # ASSIGNMENT local0
     # ASSIGNMENT
 mov -8(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push 0(%edx)    # END ASSIGNMENT
     pop -4(%ebp)    # END ASSIGNMENT
     # ASSIGNMENT local5
     ### VARIABLE
@@ -277,7 +277,7 @@ label4:
     push %eax
 # END BOOL LITERAL
 mov -8(%ebp), %edx
-pop -96(%edx)    # END ASSIGNMENT
+pop 0(%edx)    # END ASSIGNMENT
 label5:
 # IF:
     ### PUSH CONDITIONAL
@@ -410,7 +410,7 @@ class1_class1:
     mov $169, %eax
     push %eax
 # END INT LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax

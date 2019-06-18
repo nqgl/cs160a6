@@ -91,7 +91,7 @@ label1:
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -96(%edx)
+    push 0(%edx)
     ### END VARIABLE
     pop %ebx
     pop %eax
@@ -132,7 +132,7 @@ class0_f1:
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -96(%edx)
+    push 0(%edx)
     ### END VARIABLE
     pop %ebx
     pop %eax
@@ -216,12 +216,12 @@ label3:
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -96(%edx)
+    push 0(%edx)
     ### END VARIABLE
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -96(%edx)
+    push 0(%edx)
     ### END VARIABLE
     pop %ebx
     pop %eax
@@ -432,7 +432,7 @@ label8:
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -92(%edx)
+    push 4(%edx)
     ### END VARIABLE
 # c
     push 8(%ebp)
@@ -464,7 +464,7 @@ call printf
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -92(%edx)
+    push 4(%edx)
     ### END VARIABLE
     push $printstring
 call printf
@@ -569,7 +569,7 @@ call printf
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -96(%edx)
+    push 0(%edx)
     ### END VARIABLE
     pop %eax
     pop %esi
@@ -621,7 +621,7 @@ class0_class0:
     push %eax
 # END OR
     mov 8(%ebp), %edx
-    pop -92(%edx)
+    pop 4(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member0
 # INT LITERAL
@@ -629,7 +629,7 @@ class0_class0:
     push %eax
 # END INT LITERAL
     mov 8(%ebp), %edx
-    pop -96(%edx)
+    pop 0(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT local1
 # CHECK GTE
@@ -699,7 +699,7 @@ class0_class0:
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -96(%edx)
+    push 0(%edx)
     ### END VARIABLE
 # Method Call
     push %eax
@@ -709,7 +709,7 @@ class0_class0:
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -96(%edx)
+    push 0(%edx)
     ### END VARIABLE
 # BOOL LITERAL
     mov $0, %eax
@@ -755,7 +755,7 @@ push -4(%ebp)
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -92(%edx)
+    push 4(%edx)
     ### END VARIABLE
     pop %eax
     mov $0, %ebx
@@ -858,7 +858,7 @@ push -4(%ebp)
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -92(%edx)
+    push 4(%edx)
     ### END VARIABLE
 # c
     push 8(%ebp)
@@ -923,7 +923,7 @@ Main_main:
     mov $1, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -1002,7 +1002,7 @@ call class0_class0
     or %ebx, %eax
     push %eax
 # END OR
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -1032,11 +1032,11 @@ call class0_class0
 # END BOOL LITERAL
     # ASSIGNMENT
 mov -24(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push 0(%edx)    # END ASSIGNMENT
 # OR
     # ASSIGNMENT
 mov -24(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push 4(%edx)    # END ASSIGNMENT
 # BOOL LITERAL
     mov $1, %eax
     push %eax
@@ -1096,7 +1096,7 @@ je label11
 # CHECK GTE
     # ASSIGNMENT
 mov -24(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push 0(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $249, %eax
     push %eax
@@ -1109,7 +1109,7 @@ push -96(%edx)    # END ASSIGNMENT
     push %edx # Push the result
 # END GT CHECK
 mov -24(%ebp), %edx
-pop -92(%edx)    # END ASSIGNMENT
+pop 4(%edx)    # END ASSIGNMENT
     ### VARIABLE
     ### END VARget
 push -8(%ebp)
@@ -1169,7 +1169,7 @@ jmp label11
 label11:
     # ASSIGNMENT
 mov -24(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push 4(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     ### METHOD CALL STATEMENT
@@ -1180,7 +1180,7 @@ call printf
 # c
     # ASSIGNMENT
 mov -24(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push 4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $126, %eax
     push %eax
@@ -1274,7 +1274,7 @@ call printf
 call printf
     # ASSIGNMENT
 mov -24(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push 4(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     ### METHOD CALL STATEMENT
@@ -1285,7 +1285,7 @@ call printf
 # c
     # ASSIGNMENT
 mov -24(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push 4(%edx)    # END ASSIGNMENT
     ### VARIABLE
     ### END VARget
 push -12(%ebp)
@@ -1297,7 +1297,7 @@ push -12(%ebp)
 # END INT LITERAL
     # ASSIGNMENT
 mov -24(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push 0(%edx)    # END ASSIGNMENT
     pop %ebx
     pop %eax
     mov $0, %edx # Clear %edx
@@ -1364,7 +1364,7 @@ push -28(%ebp)
     # ASSIGNMENT local4
     # ASSIGNMENT
 mov -24(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push 4(%edx)    # END ASSIGNMENT
     pop -20(%ebp)    # END ASSIGNMENT
     # ASSIGNMENT i1
 # NEGATION
@@ -1458,7 +1458,7 @@ push -24(%ebp)
 push -4(%ebp)
     ### END VARIABLE
 mov -16(%ebp), %edx
-pop -96(%edx)    # END ASSIGNMENT
+pop 0(%edx)    # END ASSIGNMENT
 jmp label14
 label15:
 #END WHILE LOOP
@@ -1474,9 +1474,9 @@ label13:
     # ASSIGNMENT local5
     # ASSIGNMENT
 mov -24(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push 4(%edx)    # END ASSIGNMENT
 mov -24(%ebp), %edx
-pop -92(%edx)    # END ASSIGNMENT
+pop 4(%edx)    # END ASSIGNMENT
     # ASSIGNMENT local2
 # INT LITERAL
     mov $249, %eax

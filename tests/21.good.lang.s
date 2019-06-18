@@ -16,7 +16,7 @@ classA_classA:
 push 12(%ebp)
     ### END VARIABLE
     mov 8(%ebp), %edx
-    pop -96(%edx)
+    pop 0(%edx)
     # END ASSIGNMENT
     pop %esi
     pop %edi
@@ -72,7 +72,7 @@ classB_fib:
     ### END VARIABLE
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push 0(%edx)    # END ASSIGNMENT
     pop %ebx
     pop %eax
     add %ebx, %eax
@@ -96,7 +96,7 @@ call printf
     ### END VARget
 push -4(%ebp)
     ### END VARIABLE
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -184,7 +184,7 @@ call printf
     mov $1, %eax
     push %eax
 # END INT LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax

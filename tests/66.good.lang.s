@@ -39,7 +39,7 @@ class0_class0:
     push %edx # Push the result
 # END GT CHECK
     mov 8(%ebp), %edx
-    pop -92(%edx)
+    pop 4(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member0
 # INT LITERAL
@@ -47,7 +47,7 @@ class0_class0:
     push %eax
 # END INT LITERAL
     mov 8(%ebp), %edx
-    pop -96(%edx)
+    pop 0(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT local1
 # AND
@@ -519,7 +519,7 @@ call class1_class1
     mov $254, %eax
     push %eax
 # END INT LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -709,7 +709,7 @@ push -8(%ebp)
     push %eax
 # END OR
 mov -12(%ebp), %edx
-pop -92(%edx)    # END ASSIGNMENT
+pop 4(%edx)    # END ASSIGNMENT
 jmp label9
 label9:
 # IF:
@@ -735,7 +735,7 @@ call printf
     push %eax
 # END INT LITERAL
 mov -12(%ebp), %edx
-pop -96(%edx)    # END ASSIGNMENT
+pop 0(%edx)    # END ASSIGNMENT
 jmp label11
 label10:
 # ELSE:
@@ -755,7 +755,7 @@ push -8(%ebp)
     push %eax
 # END AND
 mov -12(%ebp), %edx
-pop -92(%edx)    # END ASSIGNMENT
+pop 4(%edx)    # END ASSIGNMENT
 label11:
 jmp label2
 label3:
@@ -1137,7 +1137,7 @@ label21:
     push %eax
 # END BOOL LITERAL
 mov -12(%ebp), %edx
-pop -92(%edx)    # END ASSIGNMENT
+pop 4(%edx)    # END ASSIGNMENT
 # IF:
     ### PUSH CONDITIONAL
 # AND
@@ -1959,7 +1959,7 @@ label47:
  push %eax
 #### END MULTIPLY
 mov -12(%ebp), %edx
-pop -96(%edx)    # END ASSIGNMENT
+pop 0(%edx)    # END ASSIGNMENT
     # ASSIGNMENT local1
 # BOOL LITERAL
     mov $1, %eax
@@ -2161,7 +2161,7 @@ push -8(%ebp)
     push %eax
 # END OR
 mov -12(%ebp), %edx
-pop -92(%edx)    # END ASSIGNMENT
+pop 4(%edx)    # END ASSIGNMENT
 label75:
 jmp label72
 label73:
@@ -2180,7 +2180,7 @@ label70:
     push %eax
 # END NEGATION
 mov -12(%ebp), %edx
-pop -96(%edx)    # END ASSIGNMENT
+pop 0(%edx)    # END ASSIGNMENT
 # IF:
     ### PUSH CONDITIONAL
     ### VARIABLE
@@ -2531,7 +2531,7 @@ label37:
 push -8(%ebp)
     ### END VARIABLE
 mov -12(%ebp), %edx
-pop -92(%edx)    # END ASSIGNMENT
+pop 4(%edx)    # END ASSIGNMENT
     ### VARIABLE
     ### END VARget
 push -8(%ebp)
@@ -2622,7 +2622,7 @@ push -8(%ebp)
     push %eax
 # END OR
 mov -12(%ebp), %edx
-pop -92(%edx)    # END ASSIGNMENT
+pop 4(%edx)    # END ASSIGNMENT
 jmp label26
 label27:
 #END WHILE LOOP

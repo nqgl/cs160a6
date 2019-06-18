@@ -16,7 +16,7 @@ class0_class0:
     push %eax
 # END INT LITERAL
     mov 8(%ebp), %edx
-    pop -96(%edx)
+    pop 0(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT local1
 #### MULTIPLY
@@ -318,7 +318,7 @@ push 24(%ebp)
 # END INT LITERAL
     # ASSIGNMENT
 mov 20(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push 0(%edx)    # END ASSIGNMENT
  pop %ebx
  pop %eax
  imul %ebx, %eax
@@ -494,7 +494,7 @@ push -8(%ebp)
     ### END VARget
 push -4(%ebp)
     ### END VARIABLE
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -621,7 +621,7 @@ class1_f2:
     sete %dl # Sets lowest byte
     push %edx
 # END NOT
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -643,7 +643,7 @@ push 20(%ebp)
     ### END VARIABLE
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push 0(%edx)    # END ASSIGNMENT
     pop %ebx
     pop %eax
     mov $0, %edx # Clear %edx
@@ -747,7 +747,7 @@ push 12(%ebp)
     or %ebx, %eax
     push %eax
 # END OR
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -773,7 +773,7 @@ call class0_class0
 # CHECK EQUALITY
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push 0(%edx)    # END ASSIGNMENT
 #### ADD
     ### VARIABLE
     ### END VARget
@@ -912,7 +912,7 @@ push 12(%ebp)
     # # in %edx if the
     push %edx # Push the result
 # END GT CHECK
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -1099,7 +1099,7 @@ push 12(%ebp)
     # # in %edx if the
     push %edx # Push the result
 # END GT CHECK
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -1397,7 +1397,7 @@ push -8(%ebp)
     # # in %edx if the
     push %edx # Push the result
 # END GT CHECK
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -1441,7 +1441,7 @@ push 20(%ebp)
     # # in %edx if the
     push %edx # Push the result
 # END GT CHECK
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -1479,7 +1479,7 @@ call class0_class0
     pop %ecx
     xchg %eax, 0(%esp)
 # Method Call DONE
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -1685,7 +1685,7 @@ push 20(%ebp)
     sete %dl # Sets lowest byte
     push %edx
 # END NOT
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -1765,7 +1765,7 @@ push -4(%ebp)
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -2054,7 +2054,7 @@ push -12(%ebp)
     sete %dl # Sets lowest byte
     push %edx # Push the result
 # END EQUALITY CHECK
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -2492,7 +2492,7 @@ push 24(%ebp)
     pop %ecx
     xchg %eax, 0(%esp)
 # Method Call DONE
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -2565,7 +2565,7 @@ push 12(%ebp)
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -2803,7 +2803,7 @@ push 12(%ebp)
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -2848,7 +2848,7 @@ push 16(%ebp)
     # # in %edx if the
     push %edx # Push the result
 # END GT CHECK
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -2874,7 +2874,7 @@ push 28(%ebp)
     pop %ecx
     xchg %eax, 0(%esp)
 # Method Call DONE
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -3196,7 +3196,7 @@ push -12(%ebp)
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -3407,7 +3407,7 @@ class2_f4:
     mov $1, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -3888,7 +3888,7 @@ push -16(%ebp)
     push %eax
 # END INT LITERAL
 mov -8(%ebp), %edx
-pop -96(%edx)    # END ASSIGNMENT
+pop 0(%edx)    # END ASSIGNMENT
 jmp label59
 label59:
 label55:
@@ -4149,7 +4149,7 @@ push -16(%ebp)
     sete %dl # Sets lowest byte
     push %edx # Push the result
 # END EQUALITY CHECK
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -4272,7 +4272,7 @@ Main_main:
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -4363,7 +4363,7 @@ je label62
     push %eax
 # END INT LITERAL
 mov -12(%ebp), %edx
-pop -96(%edx)    # END ASSIGNMENT
+pop 0(%edx)    # END ASSIGNMENT
 jmp label63
 label62:
 # ELSE:
@@ -4430,7 +4430,7 @@ push -24(%ebp)
     push %eax
 # END INT LITERAL
 mov -12(%ebp), %edx
-pop -96(%edx)    # END ASSIGNMENT
+pop 0(%edx)    # END ASSIGNMENT
 jmp label64
 label65:
 #END WHILE LOOP
@@ -4455,7 +4455,7 @@ je label67
     push %eax
 # END INT LITERAL
 mov -12(%ebp), %edx
-pop -96(%edx)    # END ASSIGNMENT
+pop 0(%edx)    # END ASSIGNMENT
 # IF:
     ### PUSH CONDITIONAL
 # CHECK GT

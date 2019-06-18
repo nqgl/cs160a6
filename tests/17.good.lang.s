@@ -12,7 +12,7 @@ Main_main:
     push %esi
     # ASSIGNMENT a
     # NEW ALLOC
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -24,22 +24,22 @@ push %eax
     push %eax
 # END INT LITERAL
 mov -4(%ebp), %edx
-pop -96(%edx)    # END ASSIGNMENT
+pop 0(%edx)    # END ASSIGNMENT
     # ASSIGNMENT a
 # INT LITERAL
     mov $6, %eax
     push %eax
 # END INT LITERAL
 mov -4(%ebp), %edx
-pop -92(%edx)    # END ASSIGNMENT
+pop 4(%edx)    # END ASSIGNMENT
 #### SUBTRACT
 #### MULTIPLY
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push 0(%edx)    # END ASSIGNMENT
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push 4(%edx)    # END ASSIGNMENT
  pop %ebx
  pop %eax
  imul %ebx, %eax

@@ -16,7 +16,7 @@ classA_classA:
 push 12(%ebp)
     ### END VARIABLE
     mov 8(%ebp), %edx
-    pop -96(%edx)
+    pop 0(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT y
     ### VARIABLE
@@ -24,7 +24,7 @@ push 12(%ebp)
 push 16(%ebp)
     ### END VARIABLE
     mov 8(%ebp), %edx
-    pop -92(%edx)
+    pop 4(%edx)
     # END ASSIGNMENT
     pop %esi
     pop %edi
@@ -46,7 +46,7 @@ classA_inc:
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -96(%edx)
+    push 0(%edx)
     ### END VARIABLE
 # INT LITERAL
     mov $2, %eax
@@ -58,14 +58,14 @@ classA_inc:
  push %eax
 #### END MULTIPLY
     mov 8(%ebp), %edx
-    pop -96(%edx)
+    pop 0(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT y
 #### ADD
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -92(%edx)
+    push 4(%edx)
     ### END VARIABLE
 # INT LITERAL
     mov $1, %eax
@@ -77,7 +77,7 @@ classA_inc:
     push %eax
 #### END ADD
     mov 8(%ebp), %edx
-    pop -92(%edx)
+    pop 4(%edx)
     # END ASSIGNMENT
     pop %esi
     pop %edi
@@ -107,7 +107,7 @@ Main_main:
     mov $3, %eax
     push %eax
 # END INT LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -121,12 +121,12 @@ call classA_classA
     pop -4(%ebp)    # END ASSIGNMENT
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push 0(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push 4(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     ### METHOD CALL STATEMENT
@@ -149,10 +149,10 @@ push -4(%ebp)
 #### MULTIPLY
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push 0(%edx)    # END ASSIGNMENT
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push 4(%edx)    # END ASSIGNMENT
  pop %ebx
  pop %eax
  imul %ebx, %eax

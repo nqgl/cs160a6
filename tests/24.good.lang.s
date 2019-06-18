@@ -16,7 +16,7 @@ classA_classA:
 push 12(%ebp)
     ### END VARIABLE
     mov 8(%ebp), %edx
-    pop -96(%edx)
+    pop 0(%edx)
     # END ASSIGNMENT
     pop %esi
     pop %edi
@@ -38,7 +38,7 @@ classA_double:
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -96(%edx)
+    push 0(%edx)
     ### END VARIABLE
 # INT LITERAL
     mov $2, %eax
@@ -50,7 +50,7 @@ classA_double:
  push %eax
 #### END MULTIPLY
     mov 8(%ebp), %edx
-    pop -96(%edx)
+    pop 0(%edx)
     # END ASSIGNMENT
     pop %esi
     pop %edi
@@ -93,9 +93,9 @@ push 12(%ebp)
     ### END VARget
 push 16(%ebp)
     ### END VARIABLE
-#not empty, class [classB] has 4 size and parent 96
+#not empty, class [classB] has 4 size and parent 0
     mov 8(%ebp), %edx
-    pop -100(%edx)
+    pop -4(%edx)
     # END ASSIGNMENT
     pop %esi
     pop %edi
@@ -116,10 +116,10 @@ classB_double:
 #### SUBTRACT
 #### MULTIPLY
     ### VARIABLE
-#not empty, class [classB] has 4 size and parent 96
+#not empty, class [classB] has 4 size and parent 0
     ### END VARget
     mov 8(%ebp), %edx
-    push -100(%edx)
+    push -4(%edx)
     ### END VARIABLE
 # INT LITERAL
     mov $2, %eax
@@ -139,9 +139,9 @@ classB_double:
  sub %ebx, %eax
  push %eax
 #### END SUBTRACT
-#not empty, class [classB] has 4 size and parent 96
+#not empty, class [classB] has 4 size and parent 0
     mov 8(%ebp), %edx
-    pop -100(%edx)
+    pop -4(%edx)
     # END ASSIGNMENT
     pop %esi
     pop %edi
@@ -191,8 +191,8 @@ Main_main:
     mov $4, %eax
     push %eax
 # END INT LITERAL
-push $#not empty, class [classB] has 4 size and parent 96
-100
+push $#not empty, class [classB] has 4 size and parent 0
+4
 call malloc
 add $4, %esp
 push %eax
@@ -227,13 +227,13 @@ push -12(%ebp)
     pop -8(%ebp)    # END ASSIGNMENT
     # ASSIGNMENT
 mov -8(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push 0(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     # ASSIGNMENT
-#not empty, class [classB] has 4 size and parent 96
+#not empty, class [classB] has 4 size and parent 0
 mov -4(%ebp), %edx
-push -100(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     ### METHOD CALL STATEMENT
@@ -255,13 +255,13 @@ push -8(%ebp)
     add $4, %esp    ### END METHOD CALL STATEMENT
     # ASSIGNMENT
 mov -8(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push 0(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     # ASSIGNMENT
-#not empty, class [classB] has 4 size and parent 96
+#not empty, class [classB] has 4 size and parent 0
 mov -4(%ebp), %edx
-push -100(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     ### METHOD CALL STATEMENT
@@ -283,13 +283,13 @@ push -4(%ebp)
     add $4, %esp    ### END METHOD CALL STATEMENT
     # ASSIGNMENT
 mov -8(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push 0(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     # ASSIGNMENT
-#not empty, class [classB] has 4 size and parent 96
+#not empty, class [classB] has 4 size and parent 0
 mov -4(%ebp), %edx
-push -100(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     pop %esi

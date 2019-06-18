@@ -376,7 +376,7 @@ label3:
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -88(%edx)
+    push 8(%edx)
     ### END VARIABLE
     pop %eax
     pop %esi
@@ -411,7 +411,7 @@ class0_f3:
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -96(%edx)
+    push 0(%edx)
     ### END VARIABLE
     ### END CONDITIONAL
 pop %eax
@@ -628,7 +628,7 @@ class0_class0:
     push %eax
 # END AND
     mov 8(%ebp), %edx
-    pop -92(%edx)
+    pop 4(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member0
 # BOOL LITERAL
@@ -636,7 +636,7 @@ class0_class0:
     push %eax
 # END BOOL LITERAL
     mov 8(%ebp), %edx
-    pop -96(%edx)
+    pop 0(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member3
 # BOOL LITERAL
@@ -644,7 +644,7 @@ class0_class0:
     push %eax
 # END BOOL LITERAL
     mov 8(%ebp), %edx
-    pop -84(%edx)
+    pop 12(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member2
 # BOOL LITERAL
@@ -652,7 +652,7 @@ class0_class0:
     push %eax
 # END BOOL LITERAL
     mov 8(%ebp), %edx
-    pop -88(%edx)
+    pop 8(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT local4
 # NOT
@@ -805,7 +805,7 @@ class1_class1:
     mov $1, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -931,7 +931,7 @@ call class0_class0
     and %ebx, %eax
     push %eax
 # END AND
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -965,7 +965,7 @@ call printf
     # ASSIGNMENT
     mov 8(%ebp), %edx
 mov -16(%edx), %edx
-push -96(%edx)    # END ASSIGNMENT
+push 0(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
 jmp label9
@@ -1012,6 +1012,7 @@ class2_f0:
     push $printstring
 call printf
     ### METHOD CALL STATEMENT
+#not empty, class [class2] has 16 size and parent 16
 # Method Call
     push %eax
     push %ecx
@@ -1025,6 +1026,7 @@ call printf
     mov 8(%ebp), %edx
     push -32(%edx)
 # invoke
+#not empty, class [class2] has 16 size and parent 16
 # in case of crash, called w/ class0 as class
     call class0_f1
     add $4, %esp
@@ -1036,9 +1038,10 @@ call printf
 # IF:
     ### PUSH CONDITIONAL
     # ASSIGNMENT
+#not empty, class [class2] has 16 size and parent 16
     mov 8(%ebp), %edx
 mov -32(%edx), %edx
-push -96(%edx)    # END ASSIGNMENT
+push 0(%edx)    # END ASSIGNMENT
     ### END CONDITIONAL
 pop %eax
 mov $0, %ebx
@@ -1123,6 +1126,7 @@ class2_class2:
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
+#not empty, class [class2] has 16 size and parent 16
     mov 8(%ebp), %edx
     pop -28(%edx)
     # END ASSIGNMENT
@@ -1173,7 +1177,7 @@ class2_class2:
     or %ebx, %eax
     push %eax
 # END OR
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -1184,6 +1188,7 @@ call class0_class0
     pop %ecx
     xchg %eax, 0(%esp)
     # END NEW ALLOC
+#not empty, class [class2] has 16 size and parent 16
     mov 8(%ebp), %edx
     pop -32(%edx)
     # END ASSIGNMENT
@@ -1192,6 +1197,7 @@ call class0_class0
     mov $1, %eax
     push %eax
 # END BOOL LITERAL
+#not empty, class [class2] has 16 size and parent 16
     mov 8(%ebp), %edx
     pop -20(%edx)
     # END ASSIGNMENT
@@ -1200,6 +1206,7 @@ call class0_class0
     mov $71, %eax
     push %eax
 # END INT LITERAL
+#not empty, class [class2] has 16 size and parent 16
     mov 8(%ebp), %edx
     pop -24(%edx)
     # END ASSIGNMENT
@@ -1281,7 +1288,7 @@ call class0_class0
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
@@ -1328,7 +1335,7 @@ call class0_class0
     pop -12(%ebp)    # END ASSIGNMENT
     # ASSIGNMENT
 mov -8(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push 4(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     # ASSIGNMENT local1
@@ -1349,7 +1356,7 @@ push -16(%ebp)
     push %edx # Push the result
 # END EQUALITY CHECK
 mov -8(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop 8(%edx)    # END ASSIGNMENT
     pop %esi
     pop %edi
     pop %ebx
@@ -1529,8 +1536,9 @@ class3_class3:
     mov $160, %eax
     push %eax
 # END INT LITERAL
+#not empty, class [class3] has 16 size and parent 0
     mov 8(%ebp), %edx
-    pop -112(%edx)
+    pop -16(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT local1
 # INT LITERAL
@@ -1596,7 +1604,8 @@ Main_main:
     mov $1, %eax
     push %eax
 # END BOOL LITERAL
-push $112
+push $#not empty, class [class3] has 16 size and parent 0
+16
 call malloc
 add $4, %esp
 push %eax
@@ -1635,7 +1644,8 @@ call class3_class3
     mov $1, %eax
     push %eax
 # END BOOL LITERAL
-push $112
+push $#not empty, class [class3] has 16 size and parent 0
+16
 call malloc
 add $4, %esp
 push %eax
@@ -1789,8 +1799,9 @@ push -8(%ebp)
     ### END VARget
 push -4(%ebp)
     ### END VARIABLE
+#not empty, class [class3] has 16 size and parent 0
 mov -12(%ebp), %edx
-pop -112(%edx)    # END ASSIGNMENT
+pop -16(%edx)    # END ASSIGNMENT
 jmp label18
 label19:
 #END WHILE LOOP
@@ -1830,8 +1841,9 @@ push -8(%ebp)
     pop %ecx
     xchg %eax, 0(%esp)
 # Method Call DONE
+#not empty, class [class3] has 16 size and parent 0
 mov -12(%ebp), %edx
-pop -112(%edx)    # END ASSIGNMENT
+pop -16(%edx)    # END ASSIGNMENT
 label15:
     ### METHOD CALL STATEMENT
 # Method Call
@@ -1885,7 +1897,7 @@ push -4(%ebp)
 call printf
     # ASSIGNMENT
 mov -8(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push 4(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     ### METHOD CALL STATEMENT
@@ -1896,7 +1908,7 @@ call printf
 # c
     # ASSIGNMENT
 mov -8(%ebp), %edx
-push -84(%edx)    # END ASSIGNMENT
+push 12(%edx)    # END ASSIGNMENT
     # NEW ALLOC
     push %eax
     push %ecx
@@ -1965,8 +1977,9 @@ push -8(%ebp)
     push %eax
 # END INT LITERAL
     # ASSIGNMENT
+#not empty, class [class3] has 16 size and parent 0
 mov -8(%ebp), %edx
-push -112(%edx)    # END ASSIGNMENT
+push -16(%edx)    # END ASSIGNMENT
     pop %ebx
     pop %eax
     cdq # moves sign into EDX (?)
@@ -1976,8 +1989,9 @@ push -112(%edx)    # END ASSIGNMENT
 #### SUBTRACT
 # NEGATION
     # ASSIGNMENT
+#not empty, class [class3] has 16 size and parent 0
 mov -8(%ebp), %edx
-push -112(%edx)    # END ASSIGNMENT
+push -16(%edx)    # END ASSIGNMENT
     pop %eax
     neg %eax
     push %eax
@@ -2132,8 +2146,9 @@ push -28(%ebp)
     pop -28(%ebp)    # END ASSIGNMENT
     # ASSIGNMENT local0
     # ASSIGNMENT
+#not empty, class [class3] has 16 size and parent 0
 mov -8(%ebp), %edx
-push -112(%edx)    # END ASSIGNMENT
+push -16(%edx)    # END ASSIGNMENT
     pop -4(%ebp)    # END ASSIGNMENT
 jmp label22
 label23:
@@ -2151,7 +2166,7 @@ cmp %eax, %ebx
 je label25
     # ASSIGNMENT
 mov -8(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push 8(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     # ASSIGNMENT local0
@@ -2165,11 +2180,13 @@ label25:
     # ASSIGNMENT local0
 #### MULTIPLY
     # ASSIGNMENT
+#not empty, class [class3] has 16 size and parent 0
 mov -8(%ebp), %edx
-push -112(%edx)    # END ASSIGNMENT
+push -16(%edx)    # END ASSIGNMENT
     # ASSIGNMENT
+#not empty, class [class3] has 16 size and parent 0
 mov -8(%ebp), %edx
-push -112(%edx)    # END ASSIGNMENT
+push -16(%edx)    # END ASSIGNMENT
  pop %ebx
  pop %eax
  imul %ebx, %eax
@@ -2274,8 +2291,9 @@ call class1_class1
     xchg %eax, 0(%esp)
     # END NEW ALLOC
     # ASSIGNMENT
+#not empty, class [class3] has 16 size and parent 0
 mov -8(%ebp), %edx
-push -112(%edx)    # END ASSIGNMENT
+push -16(%edx)    # END ASSIGNMENT
     ### VARIABLE
     ### END VARget
 push -4(%ebp)
@@ -2302,7 +2320,7 @@ label27:
 # c
     # ASSIGNMENT
 mov -8(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push 8(%edx)    # END ASSIGNMENT
     # NEW ALLOC
     push %eax
     push %ecx
@@ -2328,8 +2346,9 @@ call class1_class1
     push %eax
 # END NEGATION
     # ASSIGNMENT
+#not empty, class [class3] has 16 size and parent 0
 mov -8(%ebp), %edx
-push -112(%edx)    # END ASSIGNMENT
+push -16(%edx)    # END ASSIGNMENT
 # c
 push -8(%ebp)
 # invoke

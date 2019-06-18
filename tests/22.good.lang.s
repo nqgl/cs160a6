@@ -16,7 +16,7 @@ classA_classA:
 push 12(%ebp)
     ### END VARIABLE
     mov 8(%ebp), %edx
-    pop -96(%edx)
+    pop 0(%edx)
     # END ASSIGNMENT
     pop %esi
     pop %edi
@@ -39,16 +39,16 @@ classB_classB:
 push 12(%ebp)
     ### END VARIABLE
     mov 8(%ebp), %edx
-    pop -96(%edx)
+    pop 0(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT y
     ### VARIABLE
     ### END VARget
 push 16(%ebp)
     ### END VARIABLE
-#not empty, class [classB] has 4 size and parent 96
+#not empty, class [classB] has 4 size and parent 0
     mov 8(%ebp), %edx
-    pop -100(%edx)
+    pop -4(%edx)
     # END ASSIGNMENT
     pop %esi
     pop %edi
@@ -78,8 +78,8 @@ Main_main:
     mov $12, %eax
     push %eax
 # END INT LITERAL
-push $#not empty, class [classB] has 4 size and parent 96
-100
+push $#not empty, class [classB] has 4 size and parent 0
+4
 call malloc
 add $4, %esp
 push %eax
@@ -93,13 +93,13 @@ call classB_classB
     pop -4(%ebp)    # END ASSIGNMENT
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push 0(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     # ASSIGNMENT
-#not empty, class [classB] has 4 size and parent 96
+#not empty, class [classB] has 4 size and parent 0
 mov -4(%ebp), %edx
-push -100(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     pop %esi

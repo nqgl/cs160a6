@@ -356,7 +356,7 @@ Main_main:
     idiv %ebx
     push %eax
 # END DIVIDE
-push $96
+push $0
 call malloc
 add $4, %esp
 push %eax
