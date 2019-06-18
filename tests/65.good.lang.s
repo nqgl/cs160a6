@@ -1340,6 +1340,7 @@ push 20(%ebp)
     add $4, %esp    ### END METHOD CALL STATEMENT
     # ASSIGNMENT local0
     ### VARIABLE
+#not empty, class [class1] has 16 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -96(%edx)
@@ -1549,6 +1550,7 @@ class1_class1:
     mov $10, %eax
     push %eax
 # END INT LITERAL
+#not empty, class [class1] has 16 size and parent 96
     mov 8(%ebp), %edx
     pop -108(%edx)
     # END ASSIGNMENT
@@ -1557,6 +1559,7 @@ class1_class1:
     mov $67, %eax
     push %eax
 # END INT LITERAL
+#not empty, class [class1] has 16 size and parent 96
     mov 8(%ebp), %edx
     pop -112(%edx)
     # END ASSIGNMENT
@@ -1589,6 +1592,7 @@ class1_class1:
     # # in %edx if the
     push %edx # Push the result
 # END GT CHECK
+#not empty, class [class1] has 16 size and parent 96
     mov 8(%ebp), %edx
     pop -100(%edx)
     # END ASSIGNMENT
@@ -1597,6 +1601,7 @@ class1_class1:
     mov $1, %eax
     push %eax
 # END BOOL LITERAL
+#not empty, class [class1] has 16 size and parent 96
     mov 8(%ebp), %edx
     pop -104(%edx)
     # END ASSIGNMENT
@@ -1615,6 +1620,7 @@ class1_class1:
  imul %ebx, %eax
  push %eax
 #### END MULTIPLY
+#not empty, class [class1] has 16 size and parent 96
     mov 8(%ebp), %edx
     pop -96(%edx)
     # END ASSIGNMENT
@@ -1928,6 +1934,7 @@ push -20(%ebp)
     ### PUSH CONDITIONAL
 # CHECK GTE
     ### VARIABLE
+#not empty, class [class1] has 16 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -96(%edx)
@@ -2028,6 +2035,7 @@ push -24(%ebp)
     pop -24(%ebp)    # END ASSIGNMENT
     # ASSIGNMENT local0
     ### VARIABLE
+#not empty, class [class1] has 16 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -96(%edx)
@@ -2228,6 +2236,7 @@ push -36(%ebp)
 #### END ADD
     pop -36(%ebp)    # END ASSIGNMENT
     ### VARIABLE
+#not empty, class [class1] has 16 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -100(%edx)
@@ -2257,6 +2266,7 @@ label39:
 # END BOOL LITERAL
 # NOT
     ### VARIABLE
+#not empty, class [class1] has 16 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -100(%edx)
@@ -3732,6 +3742,7 @@ class4_class4:
     sete %dl # Sets lowest byte
     push %edx
 # END NOT
+#not empty, class [class4] has 8 size and parent 24
     mov 8(%ebp), %edx
     pop -24(%edx)
     # END ASSIGNMENT
@@ -3750,6 +3761,7 @@ class4_class4:
  imul %ebx, %eax
  push %eax
 #### END MULTIPLY
+#not empty, class [class4] has 8 size and parent 24
     mov 8(%ebp), %edx
     pop -28(%edx)
     # END ASSIGNMENT
@@ -3777,6 +3789,7 @@ call class2_class2
     pop %ecx
     xchg %eax, 0(%esp)
     # END NEW ALLOC
+#not empty, class [class4] has 8 size and parent 24
     mov 8(%ebp), %edx
     pop -32(%edx)
     # END ASSIGNMENT
@@ -3803,6 +3816,7 @@ call class2_class2
 # END AND
     pop -4(%ebp)    # END ASSIGNMENT
     # ASSIGNMENT local1
+#not empty, class [class4] has 8 size and parent 24
 # Method Call
     push %eax
     push %ecx
@@ -3816,6 +3830,7 @@ call class2_class2
     mov 8(%ebp), %edx
     push -32(%edx)
 # invoke
+#not empty, class [class4] has 8 size and parent 24
 # in case of crash, called w/ class2 as class
     call class2_f0
     add $12, %esp

@@ -1365,6 +1365,7 @@ call printf
 push -12(%ebp)
     ### END VARIABLE
     ### VARIABLE
+#not empty, class [class1] has 24 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -120(%edx)
@@ -1375,6 +1376,7 @@ push -12(%ebp)
  push %eax
 #### END SUBTRACT
     ### VARIABLE
+#not empty, class [class1] has 24 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -120(%edx)
@@ -1946,6 +1948,7 @@ push -80(%edx)    # END ASSIGNMENT
 call printf
 #### SUBTRACT
     ### VARIABLE
+#not empty, class [class1] has 24 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -120(%edx)
@@ -2183,6 +2186,7 @@ call class0_class0
     pop %ecx
     xchg %eax, 0(%esp)
     # END NEW ALLOC
+#not empty, class [class1] has 24 size and parent 96
     mov 8(%ebp), %edx
     pop -116(%edx)
     # END ASSIGNMENT
@@ -2201,6 +2205,7 @@ call class0_class0
  sub %ebx, %eax
  push %eax
 #### END SUBTRACT
+#not empty, class [class1] has 24 size and parent 96
     mov 8(%ebp), %edx
     pop -120(%edx)
     # END ASSIGNMENT
@@ -2537,7 +2542,8 @@ class2_f0:
     mov $166, %eax
     push %eax
 # END INT LITERAL
-push $120
+push $#not empty, class [class1] has 24 size and parent 96
+120
 call malloc
 add $4, %esp
 push %eax
@@ -2660,6 +2666,7 @@ push -4(%ebp)
  sub %ebx, %eax
  push %eax
 #### END SUBTRACT
+#not empty, class [class1] has 24 size and parent 96
 mov -8(%ebp), %edx
 pop -120(%edx)    # END ASSIGNMENT
     # ASSIGNMENT local0
@@ -2673,8 +2680,10 @@ label45:
 #END WHILE LOOP
     # ASSIGNMENT local1
     # ASSIGNMENT
+#not empty, class [class1] has 24 size and parent 96
 mov -8(%ebp), %edx
 push -120(%edx)    # END ASSIGNMENT
+#not empty, class [class1] has 24 size and parent 96
 mov -8(%ebp), %edx
 pop -120(%edx)    # END ASSIGNMENT
     ### VARIABLE
@@ -2725,7 +2734,8 @@ class2_f1:
     mov $108, %eax
     push %eax
 # END INT LITERAL
-push $120
+push $#not empty, class [class1] has 24 size and parent 96
+120
 call malloc
 add $4, %esp
 push %eax

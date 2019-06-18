@@ -2006,7 +2006,8 @@ class2_class2:
     # # in %edx if the
     push %edx # Push the result
 # END GT CHECK
-push $120
+push $#not empty, class [class1] has 24 size and parent 96
+120
 call malloc
 add $4, %esp
 push %eax
@@ -2027,7 +2028,8 @@ call class1_class1
     mov $1, %eax
     push %eax
 # END BOOL LITERAL
-push $120
+push $#not empty, class [class1] has 24 size and parent 96
+120
 call malloc
 add $4, %esp
 push %eax
@@ -2691,7 +2693,8 @@ class3_class3:
     mov $1, %eax
     push %eax
 # END BOOL LITERAL
-push $120
+push $#not empty, class [class1] has 24 size and parent 96
+120
 call malloc
 add $4, %esp
 push %eax
@@ -2887,6 +2890,9 @@ class4_f4:
 # END INT LITERAL
     pop -12(%ebp)    # END ASSIGNMENT
     ### METHOD CALL STATEMENT
+#not empty, class [class1] has 24 size and parent 96
+#not empty, class [class4] has 20 size and parent 120
+#not empty, class [class1] has 24 size and parent 96
 # Method Call
     push %eax
     push %ecx
@@ -2896,6 +2902,9 @@ class4_f4:
     mov 8(%ebp), %edx
     push -132(%edx)
 # invoke
+#not empty, class [class1] has 24 size and parent 96
+#not empty, class [class4] has 20 size and parent 120
+#not empty, class [class1] has 24 size and parent 96
 # in case of crash, called w/ class0 as class
     call class0_f2
     add $12, %esp
@@ -3092,7 +3101,8 @@ class4_f6:
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $120
+push $#not empty, class [class1] has 24 size and parent 96
+120
 call malloc
 add $4, %esp
 push %eax
@@ -3121,6 +3131,9 @@ call class1_class1
 # IF:
     ### PUSH CONDITIONAL
     # ASSIGNMENT
+#not empty, class [class1] has 24 size and parent 96
+#not empty, class [class4] has 20 size and parent 120
+#not empty, class [class1] has 24 size and parent 96
     mov 8(%ebp), %edx
 mov -132(%edx), %edx
 push -80(%edx)    # END ASSIGNMENT
@@ -3130,6 +3143,9 @@ mov $0, %ebx
 cmp %eax, %ebx
 je label42
     # ASSIGNMENT
+#not empty, class [class1] has 24 size and parent 96
+#not empty, class [class4] has 20 size and parent 120
+#not empty, class [class1] has 24 size and parent 96
     mov 8(%ebp), %edx
 mov -132(%edx), %edx
 push -80(%edx)    # END ASSIGNMENT
@@ -3139,6 +3155,9 @@ jmp label43
 label42:
 # ELSE:
     # ASSIGNMENT
+#not empty, class [class1] has 24 size and parent 96
+#not empty, class [class4] has 20 size and parent 120
+#not empty, class [class1] has 24 size and parent 96
     mov 8(%ebp), %edx
 mov -132(%edx), %edx
 push -80(%edx)    # END ASSIGNMENT
@@ -3254,6 +3273,9 @@ jmp label46
 label47:
 #END WHILE LOOP
     ### METHOD CALL STATEMENT
+#not empty, class [class1] has 24 size and parent 96
+#not empty, class [class4] has 20 size and parent 120
+#not empty, class [class1] has 24 size and parent 96
 # Method Call
     push %eax
     push %ecx
@@ -3281,6 +3303,9 @@ label47:
     push -80(%edx)
     ### END VARIABLE
     # ASSIGNMENT
+#not empty, class [class1] has 24 size and parent 96
+#not empty, class [class4] has 20 size and parent 120
+#not empty, class [class1] has 24 size and parent 96
     mov 8(%ebp), %edx
 mov -132(%edx), %edx
 push -80(%edx)    # END ASSIGNMENT
@@ -3288,6 +3313,9 @@ push -80(%edx)    # END ASSIGNMENT
     mov 8(%ebp), %edx
     push -132(%edx)
 # invoke
+#not empty, class [class1] has 24 size and parent 96
+#not empty, class [class4] has 20 size and parent 120
+#not empty, class [class1] has 24 size and parent 96
 # in case of crash, called w/ class0 as class
     call class0_f1
     add $0, %esp
@@ -3329,6 +3357,9 @@ label45:
  push %eax
 #### END SUBTRACT
     # ASSIGNMENT
+#not empty, class [class1] has 24 size and parent 96
+#not empty, class [class4] has 20 size and parent 120
+#not empty, class [class1] has 24 size and parent 96
     mov 8(%ebp), %edx
 mov -132(%edx), %edx
 push -80(%edx)    # END ASSIGNMENT
@@ -3337,10 +3368,14 @@ push -80(%edx)    # END ASSIGNMENT
     push %ecx
     push %edx
     # ASSIGNMENT
+#not empty, class [class1] has 24 size and parent 96
+#not empty, class [class4] has 20 size and parent 120
+#not empty, class [class1] has 24 size and parent 96
     mov 8(%ebp), %edx
 mov -132(%edx), %edx
 push -80(%edx)    # END ASSIGNMENT
-push $120
+push $#not empty, class [class1] has 24 size and parent 96
+120
 call malloc
 add $4, %esp
 push %eax
@@ -3352,6 +3387,9 @@ call class1_class1
     xchg %eax, 0(%esp)
     # END NEW ALLOC
     ### VARIABLE
+#not empty, class [class1] has 24 size and parent 96
+#not empty, class [class4] has 20 size and parent 120
+#not empty, class [class1] has 24 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -136(%edx)
@@ -3369,6 +3407,9 @@ call class1_class1
     add $4, %esp    ### END METHOD CALL STATEMENT
 label43:
     ### METHOD CALL STATEMENT
+#not empty, class [class1] has 24 size and parent 96
+#not empty, class [class4] has 20 size and parent 120
+#not empty, class [class1] has 24 size and parent 96
 # Method Call
     push %eax
     push %ecx
@@ -3378,6 +3419,9 @@ label43:
     mov 8(%ebp), %edx
     push -132(%edx)
 # invoke
+#not empty, class [class1] has 24 size and parent 96
+#not empty, class [class4] has 20 size and parent 120
+#not empty, class [class1] has 24 size and parent 96
 # in case of crash, called w/ class0 as class
     call class0_f2
     add $0, %esp
@@ -3448,6 +3492,9 @@ push -12(%ebp)
     push %edx
 # c
     # ASSIGNMENT
+#not empty, class [class1] has 24 size and parent 96
+#not empty, class [class4] has 20 size and parent 120
+#not empty, class [class1] has 24 size and parent 96
     mov 8(%ebp), %edx
 mov -132(%edx), %edx
 push -76(%edx)    # END ASSIGNMENT
@@ -3468,7 +3515,8 @@ push -76(%edx)    # END ASSIGNMENT
     mov $1, %eax
     push %eax
 # END BOOL LITERAL
-push $120
+push $#not empty, class [class1] has 24 size and parent 96
+120
 call malloc
 add $4, %esp
 push %eax
@@ -3498,6 +3546,9 @@ jmp label48
 label49:
 #END WHILE LOOP
     # ASSIGNMENT
+#not empty, class [class1] has 24 size and parent 96
+#not empty, class [class4] has 20 size and parent 120
+#not empty, class [class1] has 24 size and parent 96
     mov 8(%ebp), %edx
 mov -132(%edx), %edx
 push -84(%edx)    # END ASSIGNMENT
@@ -3596,6 +3647,9 @@ class4_class4:
     neg %eax
     push %eax
 # END NEGATION
+#not empty, class [class1] has 24 size and parent 96
+#not empty, class [class4] has 20 size and parent 120
+#not empty, class [class1] has 24 size and parent 96
     mov 8(%ebp), %edx
     pop -136(%edx)
     # END ASSIGNMENT
@@ -3604,6 +3658,9 @@ class4_class4:
     mov $188, %eax
     push %eax
 # END INT LITERAL
+#not empty, class [class1] has 24 size and parent 96
+#not empty, class [class4] has 20 size and parent 120
+#not empty, class [class1] has 24 size and parent 96
     mov 8(%ebp), %edx
     pop -140(%edx)
     # END ASSIGNMENT
@@ -3612,6 +3669,9 @@ class4_class4:
     mov $225, %eax
     push %eax
 # END INT LITERAL
+#not empty, class [class1] has 24 size and parent 96
+#not empty, class [class4] has 20 size and parent 120
+#not empty, class [class1] has 24 size and parent 96
     mov 8(%ebp), %edx
     pop -128(%edx)
     # END ASSIGNMENT
@@ -3631,6 +3691,9 @@ call class0_class0
     pop %ecx
     xchg %eax, 0(%esp)
     # END NEW ALLOC
+#not empty, class [class1] has 24 size and parent 96
+#not empty, class [class4] has 20 size and parent 120
+#not empty, class [class1] has 24 size and parent 96
     mov 8(%ebp), %edx
     pop -132(%edx)
     # END ASSIGNMENT
@@ -3650,6 +3713,9 @@ call class2_class2
     pop %ecx
     xchg %eax, 0(%esp)
     # END NEW ALLOC
+#not empty, class [class1] has 24 size and parent 96
+#not empty, class [class4] has 20 size and parent 120
+#not empty, class [class1] has 24 size and parent 96
     mov 8(%ebp), %edx
     pop -120(%edx)
     # END ASSIGNMENT
@@ -3668,6 +3734,9 @@ call class2_class2
     add %ebx, %eax
     push %eax
 #### END ADD
+#not empty, class [class1] has 24 size and parent 96
+#not empty, class [class4] has 20 size and parent 120
+#not empty, class [class1] has 24 size and parent 96
     mov 8(%ebp), %edx
     pop -124(%edx)
     # END ASSIGNMENT
@@ -3777,6 +3846,9 @@ jmp label50
 label51:
 #END WHILE LOOP
     ### METHOD CALL STATEMENT
+#not empty, class [class1] has 24 size and parent 96
+#not empty, class [class4] has 20 size and parent 120
+#not empty, class [class1] has 24 size and parent 96
 # Method Call
     push %eax
     push %ecx
@@ -3816,6 +3888,9 @@ push 24(%ebp)
     mov 8(%ebp), %edx
     push -132(%edx)
 # invoke
+#not empty, class [class1] has 24 size and parent 96
+#not empty, class [class4] has 20 size and parent 120
+#not empty, class [class1] has 24 size and parent 96
 # in case of crash, called w/ class0 as class
     call class0_f1
     add $16, %esp
@@ -3827,6 +3902,9 @@ push 24(%ebp)
     # ASSIGNMENT local1
 # CHECK GTE
     # ASSIGNMENT
+#not empty, class [class1] has 24 size and parent 96
+#not empty, class [class4] has 20 size and parent 120
+#not empty, class [class1] has 24 size and parent 96
     mov 8(%ebp), %edx
 mov -132(%edx), %edx
 push -84(%edx)    # END ASSIGNMENT
@@ -3843,6 +3921,9 @@ push -84(%edx)    # END ASSIGNMENT
 # END GT CHECK
     pop -8(%ebp)    # END ASSIGNMENT
     ### METHOD CALL STATEMENT
+#not empty, class [class1] has 24 size and parent 96
+#not empty, class [class4] has 20 size and parent 120
+#not empty, class [class1] has 24 size and parent 96
 # Method Call
     push %eax
     push %ecx
@@ -3852,6 +3933,9 @@ push -84(%edx)    # END ASSIGNMENT
     mov 8(%ebp), %edx
     push -132(%edx)
 # invoke
+#not empty, class [class1] has 24 size and parent 96
+#not empty, class [class4] has 20 size and parent 120
+#not empty, class [class1] has 24 size and parent 96
 # in case of crash, called w/ class0 as class
     call class0_f2
     add $16, %esp
@@ -3861,6 +3945,9 @@ push -84(%edx)    # END ASSIGNMENT
 # Method Call DONE
     add $4, %esp    ### END METHOD CALL STATEMENT
     ### METHOD CALL STATEMENT
+#not empty, class [class1] has 24 size and parent 96
+#not empty, class [class4] has 20 size and parent 120
+#not empty, class [class1] has 24 size and parent 96
 # Method Call
     push %eax
     push %ecx
@@ -3882,6 +3969,9 @@ push -8(%ebp)
     mov 8(%ebp), %edx
     push -132(%edx)
 # invoke
+#not empty, class [class1] has 24 size and parent 96
+#not empty, class [class4] has 20 size and parent 120
+#not empty, class [class1] has 24 size and parent 96
 # in case of crash, called w/ class0 as class
     call class0_f1
     add $16, %esp

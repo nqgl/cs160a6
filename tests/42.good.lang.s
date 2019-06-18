@@ -814,6 +814,7 @@ call class0_class0
     pop %ecx
     xchg %eax, 0(%esp)
     # END NEW ALLOC
+#not empty, class [class1] has 16 size and parent 96
     mov 8(%ebp), %edx
     pop -108(%edx)
     # END ASSIGNMENT
@@ -833,6 +834,7 @@ call class0_class0
     idiv %ebx
     push %eax
 # END DIVIDE
+#not empty, class [class1] has 16 size and parent 96
     mov 8(%ebp), %edx
     pop -112(%edx)
     # END ASSIGNMENT
@@ -1068,7 +1070,8 @@ Main_main:
     push %eax
     push %ecx
     push %edx
-push $112
+push $#not empty, class [class1] has 16 size and parent 96
+112
 call malloc
 add $4, %esp
 push %eax
@@ -1123,6 +1126,7 @@ push -4(%ebp)
     push %eax
 # END NEGATION
     # ASSIGNMENT
+#not empty, class [class1] has 16 size and parent 96
 mov -4(%ebp), %edx
 push -112(%edx)    # END ASSIGNMENT
  pop %ebx
@@ -1143,8 +1147,10 @@ push -4(%ebp)
     add $4, %esp    ### END METHOD CALL STATEMENT
     # ASSIGNMENT local0
     # ASSIGNMENT
+#not empty, class [class1] has 16 size and parent 96
 mov -4(%ebp), %edx
 push -112(%edx)    # END ASSIGNMENT
+#not empty, class [class1] has 16 size and parent 96
 mov -4(%ebp), %edx
 pop -112(%edx)    # END ASSIGNMENT
     ### METHOD CALL STATEMENT
@@ -1303,12 +1309,15 @@ label17:
     mov $87, %eax
     push %eax
 # END INT LITERAL
+#not empty, class [class1] has 16 size and parent 96
 mov -4(%ebp), %edx
 pop -112(%edx)    # END ASSIGNMENT
     # ASSIGNMENT local0
     # ASSIGNMENT
+#not empty, class [class1] has 16 size and parent 96
 mov -4(%ebp), %edx
 push -112(%edx)    # END ASSIGNMENT
+#not empty, class [class1] has 16 size and parent 96
 mov -4(%ebp), %edx
 pop -112(%edx)    # END ASSIGNMENT
 jmp label14
@@ -1432,6 +1441,7 @@ call printf
     push %edx
 # c
     # ASSIGNMENT
+#not empty, class [class1] has 16 size and parent 96
 mov -4(%ebp), %edx
 push -112(%edx)    # END ASSIGNMENT
 # c
@@ -1573,6 +1583,7 @@ label24:
 #### SUBTRACT
 # NEGATION
     # ASSIGNMENT
+#not empty, class [class1] has 16 size and parent 96
 mov -4(%ebp), %edx
 push -112(%edx)    # END ASSIGNMENT
     pop %eax
@@ -1794,6 +1805,7 @@ mov $0, %ebx
 cmp %eax, %ebx
 je label31
     # ASSIGNMENT
+#not empty, class [class1] has 16 size and parent 96
 mov -4(%ebp), %edx
 push -112(%edx)    # END ASSIGNMENT
     push $printstring
@@ -2002,6 +2014,7 @@ label35:
 #END WHILE LOOP
 # DIVIDE
     # ASSIGNMENT
+#not empty, class [class1] has 16 size and parent 96
 mov -4(%ebp), %edx
 push -112(%edx)    # END ASSIGNMENT
     # ASSIGNMENT

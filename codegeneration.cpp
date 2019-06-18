@@ -73,6 +73,7 @@ int getFullClassSize(std::string classname, CodeGenerator* scope){
             return classInfo.membersSize;
         }
     }
+    gen("unable to find" + classname);
     return 1;
 }
 

@@ -2107,6 +2107,7 @@ call class0_class0
     push %eax
 # END BOOL LITERAL
     ### VARIABLE
+#not empty, class [class3] has 20 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -116(%edx)
@@ -2348,6 +2349,7 @@ class3_class3:
     mov $1, %eax
     push %eax
 # END BOOL LITERAL
+#not empty, class [class3] has 20 size and parent 96
     mov 8(%ebp), %edx
     pop -112(%edx)
     # END ASSIGNMENT
@@ -2356,6 +2358,7 @@ class3_class3:
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
+#not empty, class [class3] has 20 size and parent 96
     mov 8(%ebp), %edx
     pop -116(%edx)
     # END ASSIGNMENT
@@ -2364,6 +2367,7 @@ class3_class3:
     mov $159, %eax
     push %eax
 # END INT LITERAL
+#not empty, class [class3] has 20 size and parent 96
     mov 8(%ebp), %edx
     pop -104(%edx)
     # END ASSIGNMENT
@@ -2382,6 +2386,7 @@ class3_class3:
  sub %ebx, %eax
  push %eax
 #### END SUBTRACT
+#not empty, class [class3] has 20 size and parent 96
     mov 8(%ebp), %edx
     pop -108(%edx)
     # END ASSIGNMENT
@@ -2400,6 +2405,7 @@ class3_class3:
  sub %ebx, %eax
  push %eax
 #### END SUBTRACT
+#not empty, class [class3] has 20 size and parent 96
     mov 8(%ebp), %edx
     pop -100(%edx)
     # END ASSIGNMENT
@@ -2446,6 +2452,7 @@ call class2_class2
 call printf
     # ASSIGNMENT local1
     ### VARIABLE
+#not empty, class [class3] has 20 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -108(%edx)

@@ -208,6 +208,7 @@ class1_class1:
     mov $67, %eax
     push %eax
 # END INT LITERAL
+#not empty, class [class1] has 4 size and parent 96
     mov 8(%ebp), %edx
     pop -100(%edx)
     # END ASSIGNMENT
@@ -498,6 +499,9 @@ push -20(%ebp)
     push %edx
 # c
     ### VARIABLE
+#not empty, class [class1] has 4 size and parent 96
+#not empty, class [class2] has 4 size and parent 100
+#not empty, class [class1] has 4 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -100(%edx)
@@ -549,6 +553,9 @@ push 16(%ebp)
     pop -8(%ebp)    # END ASSIGNMENT
     # ASSIGNMENT local2
     ### VARIABLE
+#not empty, class [class1] has 4 size and parent 96
+#not empty, class [class2] has 4 size and parent 100
+#not empty, class [class1] has 4 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -100(%edx)
@@ -643,11 +650,17 @@ je label7
     push %edx
 # c
     ### VARIABLE
+#not empty, class [class1] has 4 size and parent 96
+#not empty, class [class2] has 4 size and parent 100
+#not empty, class [class1] has 4 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -100(%edx)
     ### END VARIABLE
     ### VARIABLE
+#not empty, class [class1] has 4 size and parent 96
+#not empty, class [class2] has 4 size and parent 100
+#not empty, class [class1] has 4 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -100(%edx)
@@ -658,6 +671,9 @@ je label7
     push %eax
 # END INT LITERAL
     ### VARIABLE
+#not empty, class [class1] has 4 size and parent 96
+#not empty, class [class2] has 4 size and parent 100
+#not empty, class [class1] has 4 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -96(%edx)
@@ -714,6 +730,9 @@ push 12(%ebp)
 # END OR
 # AND
     ### VARIABLE
+#not empty, class [class1] has 4 size and parent 96
+#not empty, class [class2] has 4 size and parent 100
+#not empty, class [class1] has 4 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -100(%edx)
@@ -778,6 +797,9 @@ je label9
 # END BOOL LITERAL
 # CHECK GTE
     ### VARIABLE
+#not empty, class [class1] has 4 size and parent 96
+#not empty, class [class2] has 4 size and parent 100
+#not empty, class [class1] has 4 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -104(%edx)
@@ -998,6 +1020,9 @@ call class0_class0
     push %eax
 # END INT LITERAL
     ### VARIABLE
+#not empty, class [class1] has 4 size and parent 96
+#not empty, class [class2] has 4 size and parent 100
+#not empty, class [class1] has 4 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -92(%edx)
@@ -1011,6 +1036,9 @@ call class0_class0
 # END GT CHECK
 # CHECK GTE
     ### VARIABLE
+#not empty, class [class1] has 4 size and parent 96
+#not empty, class [class2] has 4 size and parent 100
+#not empty, class [class1] has 4 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -104(%edx)
@@ -1098,7 +1126,8 @@ class2_f3:
  imul %ebx, %eax
  push %eax
 #### END MULTIPLY
-push $100
+push $#not empty, class [class1] has 4 size and parent 96
+100
 call malloc
 add $4, %esp
 push %eax
@@ -1119,6 +1148,9 @@ call class1_class1
     # ASSIGNMENT local0
 #### MULTIPLY
     ### VARIABLE
+#not empty, class [class1] has 4 size and parent 96
+#not empty, class [class2] has 4 size and parent 100
+#not empty, class [class1] has 4 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -96(%edx)
@@ -1132,16 +1164,23 @@ call class1_class1
  imul %ebx, %eax
  push %eax
 #### END MULTIPLY
+#not empty, class [class1] has 4 size and parent 96
 mov -4(%ebp), %edx
 pop -100(%edx)    # END ASSIGNMENT
     # ASSIGNMENT local1
     ### VARIABLE
+#not empty, class [class1] has 4 size and parent 96
+#not empty, class [class2] has 4 size and parent 100
+#not empty, class [class1] has 4 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -100(%edx)
     ### END VARIABLE
     pop -8(%ebp)    # END ASSIGNMENT
     ### VARIABLE
+#not empty, class [class1] has 4 size and parent 96
+#not empty, class [class2] has 4 size and parent 100
+#not empty, class [class1] has 4 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -92(%edx)
@@ -1381,6 +1420,9 @@ push -20(%ebp)
     push %eax
 # END BOOL LITERAL
     ### VARIABLE
+#not empty, class [class1] has 4 size and parent 96
+#not empty, class [class2] has 4 size and parent 100
+#not empty, class [class1] has 4 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -100(%edx)
@@ -1481,6 +1523,9 @@ class2_class2:
  imul %ebx, %eax
  push %eax
 #### END MULTIPLY
+#not empty, class [class1] has 4 size and parent 96
+#not empty, class [class2] has 4 size and parent 100
+#not empty, class [class1] has 4 size and parent 96
     mov 8(%ebp), %edx
     pop -92(%edx)
     # END ASSIGNMENT
@@ -1489,6 +1534,9 @@ class2_class2:
     mov $179, %eax
     push %eax
 # END INT LITERAL
+#not empty, class [class1] has 4 size and parent 96
+#not empty, class [class2] has 4 size and parent 100
+#not empty, class [class1] has 4 size and parent 96
     mov 8(%ebp), %edx
     pop -96(%edx)
     # END ASSIGNMENT
@@ -1502,6 +1550,9 @@ class2_class2:
     neg %eax
     push %eax
 # END NEGATION
+#not empty, class [class1] has 4 size and parent 96
+#not empty, class [class2] has 4 size and parent 100
+#not empty, class [class1] has 4 size and parent 96
     mov 8(%ebp), %edx
     pop -88(%edx)
     # END ASSIGNMENT
@@ -1510,6 +1561,9 @@ class2_class2:
     mov $1, %eax
     push %eax
 # END BOOL LITERAL
+#not empty, class [class1] has 4 size and parent 96
+#not empty, class [class2] has 4 size and parent 100
+#not empty, class [class1] has 4 size and parent 96
     mov 8(%ebp), %edx
     pop -100(%edx)
     # END ASSIGNMENT
@@ -1518,6 +1572,9 @@ class2_class2:
     mov $224, %eax
     push %eax
 # END INT LITERAL
+#not empty, class [class1] has 4 size and parent 96
+#not empty, class [class2] has 4 size and parent 100
+#not empty, class [class1] has 4 size and parent 96
     mov 8(%ebp), %edx
     pop -104(%edx)
     # END ASSIGNMENT
@@ -1558,6 +1615,9 @@ class2_class2:
     push %ecx
     push %edx
     ### VARIABLE
+#not empty, class [class1] has 4 size and parent 96
+#not empty, class [class2] has 4 size and parent 100
+#not empty, class [class1] has 4 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -96(%edx)
@@ -1566,7 +1626,8 @@ class2_class2:
     ### END VARget
 push -4(%ebp)
     ### END VARIABLE
-push $100
+push $#not empty, class [class1] has 4 size and parent 96
+100
 call malloc
 add $4, %esp
 push %eax
@@ -1622,7 +1683,8 @@ push -4(%ebp)
     mov $17, %eax
     push %eax
 # END INT LITERAL
-push $100
+push $#not empty, class [class1] has 4 size and parent 96
+100
 call malloc
 add $4, %esp
 push %eax
@@ -1656,6 +1718,9 @@ call class1_class1
     add $4, %esp    ### END METHOD CALL STATEMENT
     # ASSIGNMENT local0
     ### VARIABLE
+#not empty, class [class1] has 4 size and parent 96
+#not empty, class [class2] has 4 size and parent 100
+#not empty, class [class1] has 4 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -104(%edx)
@@ -1679,7 +1744,8 @@ call class1_class1
     mov $179, %eax
     push %eax
 # END INT LITERAL
-push $100
+push $#not empty, class [class1] has 4 size and parent 96
+100
 call malloc
 add $4, %esp
 push %eax
@@ -1715,11 +1781,17 @@ call class1_class1
     push %edx
 # c
     ### VARIABLE
+#not empty, class [class1] has 4 size and parent 96
+#not empty, class [class2] has 4 size and parent 100
+#not empty, class [class1] has 4 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -96(%edx)
     ### END VARIABLE
     ### VARIABLE
+#not empty, class [class1] has 4 size and parent 96
+#not empty, class [class2] has 4 size and parent 100
+#not empty, class [class1] has 4 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -96(%edx)
@@ -1849,7 +1921,8 @@ push -4(%ebp)
     mov 8(%ebp), %edx
     push -96(%edx)
     ### END VARIABLE
-push $100
+push $#not empty, class [class1] has 4 size and parent 96
+100
 call malloc
 add $4, %esp
 push %eax
@@ -1862,6 +1935,9 @@ call class1_class1
     # END NEW ALLOC
 # DIVIDE
     ### VARIABLE
+#not empty, class [class1] has 4 size and parent 96
+#not empty, class [class2] has 4 size and parent 100
+#not empty, class [class1] has 4 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -88(%edx)
@@ -1889,6 +1965,9 @@ call class1_class1
     add $4, %esp    ### END METHOD CALL STATEMENT
     # ASSIGNMENT local0
     ### VARIABLE
+#not empty, class [class1] has 4 size and parent 96
+#not empty, class [class2] has 4 size and parent 100
+#not empty, class [class1] has 4 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -96(%edx)
@@ -1970,7 +2049,8 @@ push 12(%ebp)
     idiv %ebx
     push %eax
 # END DIVIDE
-push $100
+push $#not empty, class [class1] has 4 size and parent 96
+100
 call malloc
 add $4, %esp
 push %eax
@@ -2110,11 +2190,13 @@ push 16(%ebp)
     push %eax
 # END BOOL LITERAL
     ### VARIABLE
+#not empty, class [class3] has 20 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -116(%edx)
     ### END VARIABLE
     ### VARIABLE
+#not empty, class [class3] has 20 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -116(%edx)
@@ -2214,6 +2296,7 @@ class3_class3:
     mov $1, %eax
     push %eax
 # END BOOL LITERAL
+#not empty, class [class3] has 20 size and parent 96
     mov 8(%ebp), %edx
     pop -116(%edx)
     # END ASSIGNMENT
@@ -2222,6 +2305,7 @@ class3_class3:
     mov $210, %eax
     push %eax
 # END INT LITERAL
+#not empty, class [class3] has 20 size and parent 96
     mov 8(%ebp), %edx
     pop -108(%edx)
     # END ASSIGNMENT
@@ -2242,6 +2326,7 @@ class3_class3:
     sete %dl # Sets lowest byte
     push %edx # Push the result
 # END EQUALITY CHECK
+#not empty, class [class3] has 20 size and parent 96
     mov 8(%ebp), %edx
     pop -112(%edx)
     # END ASSIGNMENT
@@ -2284,7 +2369,8 @@ class3_class3:
     mov $43, %eax
     push %eax
 # END INT LITERAL
-push $100
+push $#not empty, class [class1] has 4 size and parent 96
+100
 call malloc
 add $4, %esp
 push %eax
@@ -2322,11 +2408,13 @@ push -4(%ebp)
     pop -4(%ebp)    # END ASSIGNMENT
 #### SUBTRACT
     ### VARIABLE
+#not empty, class [class3] has 20 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -108(%edx)
     ### END VARIABLE
     ### VARIABLE
+#not empty, class [class3] has 20 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -108(%edx)
@@ -2375,6 +2463,7 @@ je label14
     push %edx
 #### MULTIPLY
     ### VARIABLE
+#not empty, class [class3] has 20 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -108(%edx)
@@ -2392,7 +2481,8 @@ je label14
     mov $175, %eax
     push %eax
 # END INT LITERAL
-push $100
+push $#not empty, class [class1] has 4 size and parent 96
+100
 call malloc
 add $4, %esp
 push %eax
@@ -2492,7 +2582,8 @@ push 24(%ebp)
     ### END VARget
 push 24(%ebp)
     ### END VARIABLE
-push $100
+push $#not empty, class [class1] has 4 size and parent 96
+100
 call malloc
 add $4, %esp
 push %eax

@@ -1496,6 +1496,7 @@ call printf
 push 12(%ebp)
     ### END VARIABLE
     # ASSIGNMENT
+#not empty, class [class1] has 24 size and parent 96
     mov 8(%ebp), %edx
 mov -120(%edx), %edx
 push -96(%edx)    # END ASSIGNMENT
@@ -1906,6 +1907,7 @@ class1_class1:
     setge %dl # Sets lowest byte
     push %edx # Push the result
 # END GT CHECK
+#not empty, class [class1] has 24 size and parent 96
     mov 8(%ebp), %edx
     pop -116(%edx)
     # END ASSIGNMENT
@@ -1967,6 +1969,7 @@ call class0_class0
     pop %ecx
     xchg %eax, 0(%esp)
     # END NEW ALLOC
+#not empty, class [class1] has 24 size and parent 96
     mov 8(%ebp), %edx
     pop -120(%edx)
     # END ASSIGNMENT
@@ -1975,6 +1978,7 @@ call class0_class0
     mov $63, %eax
     push %eax
 # END INT LITERAL
+#not empty, class [class1] has 24 size and parent 96
     mov 8(%ebp), %edx
     pop -112(%edx)
     # END ASSIGNMENT

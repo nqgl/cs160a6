@@ -885,6 +885,7 @@ push -24(%ebp)
     ### END VARIABLE
     pop -24(%ebp)    # END ASSIGNMENT
     ### VARIABLE
+#not empty, class [class1] has 0 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -96(%edx)
@@ -1362,6 +1363,7 @@ class1_class1:
     mov $54, %eax
     push %eax
 # END INT LITERAL
+#not empty, class [class1] has 0 size and parent 96
     mov 8(%ebp), %edx
     pop -80(%edx)
     # END ASSIGNMENT
@@ -1375,6 +1377,7 @@ class1_class1:
     neg %eax
     push %eax
 # END NEGATION
+#not empty, class [class1] has 0 size and parent 96
     mov 8(%ebp), %edx
     pop -92(%edx)
     # END ASSIGNMENT
@@ -1406,6 +1409,7 @@ class1_class1:
     setge %dl # Sets lowest byte
     push %edx # Push the result
 # END GT CHECK
+#not empty, class [class1] has 0 size and parent 96
     mov 8(%ebp), %edx
     pop -96(%edx)
     # END ASSIGNMENT
@@ -1425,6 +1429,7 @@ call class0_class0
     pop %ecx
     xchg %eax, 0(%esp)
     # END NEW ALLOC
+#not empty, class [class1] has 0 size and parent 96
     mov 8(%ebp), %edx
     pop -84(%edx)
     # END ASSIGNMENT
@@ -1444,6 +1449,7 @@ call class0_class0
     idiv %ebx
     push %eax
 # END DIVIDE
+#not empty, class [class1] has 0 size and parent 96
     mov 8(%ebp), %edx
     pop -88(%edx)
     # END ASSIGNMENT
@@ -1501,11 +1507,13 @@ push 12(%ebp)
     push %edx
 # c
     ### VARIABLE
+#not empty, class [class1] has 0 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -84(%edx)
     ### END VARIABLE
     ### VARIABLE
+#not empty, class [class1] has 0 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -88(%edx)
@@ -2988,7 +2996,8 @@ class3_f4:
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $#not empty, class [class1] has 0 size and parent 96
+96
 call malloc
 add $4, %esp
 push %eax
@@ -3084,6 +3093,7 @@ call class2_class2
     ### PUSH CONDITIONAL
 # CHECK EQUALITY
     # ASSIGNMENT
+#not empty, class [class1] has 0 size and parent 96
 mov -24(%ebp), %edx
 push -88(%edx)    # END ASSIGNMENT
 # INT LITERAL

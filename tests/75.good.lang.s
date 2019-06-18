@@ -1301,7 +1301,8 @@ Main_main:
     push %eax
     push %ecx
     push %edx
-push $112
+push $#not empty, class [class1] has 16 size and parent 96
+112
 call malloc
 add $4, %esp
 push %eax
@@ -1324,7 +1325,8 @@ call class1_class1
     push %eax
     push %ecx
     push %edx
-push $112
+push $#not empty, class [class1] has 16 size and parent 96
+112
 call malloc
 add $4, %esp
 push %eax

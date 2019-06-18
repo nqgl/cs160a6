@@ -1018,6 +1018,7 @@ push -24(%ebp)
 # END DIVIDE
     pop -24(%ebp)    # END ASSIGNMENT
     ### VARIABLE
+#not empty, class [class1] has 0 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -96(%edx)
@@ -1028,11 +1029,13 @@ call printf
     ### PUSH CONDITIONAL
 # OR
     ### VARIABLE
+#not empty, class [class1] has 0 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -80(%edx)
     ### END VARIABLE
     ### VARIABLE
+#not empty, class [class1] has 0 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -80(%edx)
@@ -1134,6 +1137,7 @@ label19:
     ### PUSH CONDITIONAL
 # CHECK EQUALITY
     ### VARIABLE
+#not empty, class [class1] has 0 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -92(%edx)
@@ -1247,6 +1251,7 @@ label17:
     push %eax
 # END BOOL LITERAL
     ### VARIABLE
+#not empty, class [class1] has 0 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -96(%edx)
@@ -1259,6 +1264,7 @@ label17:
     push $printstring
 call printf
     ### VARIABLE
+#not empty, class [class1] has 0 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -96(%edx)
@@ -1473,6 +1479,7 @@ class1_class1:
     mov $1, %eax
     push %eax
 # END BOOL LITERAL
+#not empty, class [class1] has 0 size and parent 96
     mov 8(%ebp), %edx
     pop -80(%edx)
     # END ASSIGNMENT
@@ -1496,6 +1503,7 @@ class1_class1:
  imul %ebx, %eax
  push %eax
 #### END MULTIPLY
+#not empty, class [class1] has 0 size and parent 96
     mov 8(%ebp), %edx
     pop -92(%edx)
     # END ASSIGNMENT
@@ -1516,6 +1524,7 @@ class1_class1:
     setge %dl # Sets lowest byte
     push %edx # Push the result
 # END GT CHECK
+#not empty, class [class1] has 0 size and parent 96
     mov 8(%ebp), %edx
     pop -96(%edx)
     # END ASSIGNMENT
@@ -1548,6 +1557,7 @@ call class0_class0
     pop %ecx
     xchg %eax, 0(%esp)
     # END NEW ALLOC
+#not empty, class [class1] has 0 size and parent 96
     mov 8(%ebp), %edx
     pop -84(%edx)
     # END ASSIGNMENT
@@ -1580,6 +1590,7 @@ call class0_class0
     pop %ecx
     xchg %eax, 0(%esp)
     # END NEW ALLOC
+#not empty, class [class1] has 0 size and parent 96
     mov 8(%ebp), %edx
     pop -88(%edx)
     # END ASSIGNMENT

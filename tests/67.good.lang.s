@@ -932,6 +932,7 @@ push -92(%edx)    # END ASSIGNMENT
 call printf
     # ASSIGNMENT local3
     ### VARIABLE
+#not empty, class [class1] has 24 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -112(%edx)
@@ -943,6 +944,7 @@ call printf
     push %eax
 # END BOOL LITERAL
     ### VARIABLE
+#not empty, class [class1] has 24 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -112(%edx)
@@ -1023,6 +1025,7 @@ class1_class1:
     setge %dl # Sets lowest byte
     push %edx # Push the result
 # END GT CHECK
+#not empty, class [class1] has 24 size and parent 96
     mov 8(%ebp), %edx
     pop -116(%edx)
     # END ASSIGNMENT
@@ -1046,6 +1049,7 @@ class1_class1:
  imul %ebx, %eax
  push %eax
 #### END MULTIPLY
+#not empty, class [class1] has 24 size and parent 96
     mov 8(%ebp), %edx
     pop -120(%edx)
     # END ASSIGNMENT
@@ -1054,6 +1058,7 @@ class1_class1:
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
+#not empty, class [class1] has 24 size and parent 96
     mov 8(%ebp), %edx
     pop -112(%edx)
     # END ASSIGNMENT
@@ -1099,6 +1104,7 @@ class1_class1:
     pop -12(%ebp)    # END ASSIGNMENT
     # ASSIGNMENT local2
     ### VARIABLE
+#not empty, class [class1] has 24 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -120(%edx)
@@ -1439,7 +1445,8 @@ Main_main:
     push %eax
     push %ecx
     push %edx
-push $120
+push $#not empty, class [class1] has 24 size and parent 96
+120
 call malloc
 add $4, %esp
 push %eax
@@ -1754,6 +1761,7 @@ label27:
 # ELSE:
 #### SUBTRACT
     # ASSIGNMENT
+#not empty, class [class1] has 24 size and parent 96
 mov -4(%ebp), %edx
 push -120(%edx)    # END ASSIGNMENT
     # ASSIGNMENT
@@ -1872,6 +1880,7 @@ je label31
     mov $80, %eax
     push %eax
 # END INT LITERAL
+#not empty, class [class1] has 24 size and parent 96
 mov -4(%ebp), %edx
 pop -120(%edx)    # END ASSIGNMENT
 jmp label32
@@ -1893,6 +1902,7 @@ label31:
     push %eax
 # END AND
     # ASSIGNMENT
+#not empty, class [class1] has 24 size and parent 96
 mov -4(%ebp), %edx
 push -116(%edx)    # END ASSIGNMENT
     pop %eax
@@ -1964,6 +1974,7 @@ call printf
 # IF:
     ### PUSH CONDITIONAL
     # ASSIGNMENT
+#not empty, class [class1] has 24 size and parent 96
 mov -4(%ebp), %edx
 push -116(%edx)    # END ASSIGNMENT
     ### END CONDITIONAL
@@ -2006,10 +2017,12 @@ call printf
 label34:
     # ASSIGNMENT local1
     # ASSIGNMENT
+#not empty, class [class1] has 24 size and parent 96
 mov -4(%ebp), %edx
 push -116(%edx)    # END ASSIGNMENT
     pop -8(%ebp)    # END ASSIGNMENT
     # ASSIGNMENT
+#not empty, class [class1] has 24 size and parent 96
 mov -4(%ebp), %edx
 push -116(%edx)    # END ASSIGNMENT
     push $printstring
@@ -2035,6 +2048,7 @@ push -12(%ebp)
     or %ebx, %eax
     push %eax
 # END OR
+#not empty, class [class1] has 24 size and parent 96
 mov -4(%ebp), %edx
 pop -112(%edx)    # END ASSIGNMENT
     # ASSIGNMENT local1

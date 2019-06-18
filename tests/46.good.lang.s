@@ -1731,6 +1731,7 @@ class2_class2:
     mov $238, %eax
     push %eax
 # END INT LITERAL
+#not empty, class [class2] has 12 size and parent 96
     mov 8(%ebp), %edx
     pop -108(%edx)
     # END ASSIGNMENT
@@ -1739,6 +1740,7 @@ class2_class2:
     mov $131, %eax
     push %eax
 # END INT LITERAL
+#not empty, class [class2] has 12 size and parent 96
     mov 8(%ebp), %edx
     pop -104(%edx)
     # END ASSIGNMENT
@@ -1803,6 +1805,7 @@ push -4(%ebp)
 # CHECK GT
 #### SUBTRACT
     ### VARIABLE
+#not empty, class [class2] has 12 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -108(%edx)
@@ -1835,6 +1838,7 @@ cmp %eax, %ebx
 je label14
 # CHECK GTE
     ### VARIABLE
+#not empty, class [class2] has 12 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -104(%edx)

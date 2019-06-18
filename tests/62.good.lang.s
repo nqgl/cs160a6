@@ -1436,6 +1436,7 @@ call class0_class0
     pop %ecx
     xchg %eax, 0(%esp)
     # END NEW ALLOC
+#not empty, class [class2] has 24 size and parent 24
     mov 8(%ebp), %edx
     pop -44(%edx)
     # END ASSIGNMENT
@@ -1444,6 +1445,7 @@ call class0_class0
     mov $166, %eax
     push %eax
 # END INT LITERAL
+#not empty, class [class2] has 24 size and parent 24
     mov 8(%ebp), %edx
     pop -48(%edx)
     # END ASSIGNMENT
@@ -1933,6 +1935,7 @@ push -32(%ebp)
     ### PUSH CONDITIONAL
 # OR
     # ASSIGNMENT
+#not empty, class [class2] has 24 size and parent 24
     mov 8(%ebp), %edx
 mov -44(%edx), %edx
 push -80(%edx)    # END ASSIGNMENT
@@ -2059,6 +2062,7 @@ label37:
 # IF:
     ### PUSH CONDITIONAL
     # ASSIGNMENT
+#not empty, class [class2] has 24 size and parent 24
     mov 8(%ebp), %edx
 mov -44(%edx), %edx
 push -92(%edx)    # END ASSIGNMENT
@@ -2342,7 +2346,8 @@ class3_f1:
     mov $97, %eax
     push %eax
 # END INT LITERAL
-push $48
+push $#not empty, class [class2] has 24 size and parent 24
+48
 call malloc
 add $4, %esp
 push %eax
@@ -2439,7 +2444,8 @@ call class1_class1
  sub %ebx, %eax
  push %eax
 #### END SUBTRACT
-push $48
+push $#not empty, class [class2] has 24 size and parent 24
+48
 call malloc
 add $4, %esp
 push %eax
@@ -2778,7 +2784,8 @@ class3_f3:
     neg %eax
     push %eax
 # END NEGATION
-push $48
+push $#not empty, class [class2] has 24 size and parent 24
+48
 call malloc
 add $4, %esp
 push %eax
@@ -3362,6 +3369,7 @@ je label76
     push %eax
 # END INT LITERAL
     # ASSIGNMENT
+#not empty, class [class2] has 24 size and parent 24
     mov 8(%ebp), %edx
 mov -8(%edx), %edx
 push -48(%edx)    # END ASSIGNMENT
@@ -3374,6 +3382,7 @@ push -48(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     # ASSIGNMENT
+#not empty, class [class2] has 24 size and parent 24
     mov 8(%ebp), %edx
 mov -8(%edx), %edx
 push -48(%edx)    # END ASSIGNMENT
@@ -3470,7 +3479,8 @@ class3_class3:
  sub %ebx, %eax
  push %eax
 #### END SUBTRACT
-push $48
+push $#not empty, class [class2] has 24 size and parent 24
+48
 call malloc
 add $4, %esp
 push %eax
@@ -4001,6 +4011,7 @@ je label99
 push -4(%ebp)
     ### END VARIABLE
     # ASSIGNMENT
+#not empty, class [class2] has 24 size and parent 24
     mov 8(%ebp), %edx
 mov -8(%edx), %edx
 push -48(%edx)    # END ASSIGNMENT
@@ -4169,7 +4180,8 @@ call class0_class0
  sub %ebx, %eax
  push %eax
 #### END SUBTRACT
-push $48
+push $#not empty, class [class2] has 24 size and parent 24
+48
 call malloc
 add $4, %esp
 push %eax
@@ -4255,6 +4267,7 @@ call class1_class1
     mov $11, %eax
     push %eax
 # END INT LITERAL
+#not empty, class [class2] has 24 size and parent 24
 mov -16(%ebp), %edx
 pop -48(%edx)    # END ASSIGNMENT
 # IF:
@@ -4393,6 +4406,7 @@ push -96(%edx)    # END ASSIGNMENT
     # ASSIGNMENT
 mov -20(%ebp), %edx
 push -76(%edx)    # END ASSIGNMENT
+#not empty, class [class2] has 24 size and parent 24
 mov -16(%ebp), %edx
 pop -48(%edx)    # END ASSIGNMENT
 jmp label106
@@ -5117,7 +5131,8 @@ class4_class4:
     mov $254, %eax
     push %eax
 # END INT LITERAL
-push $48
+push $#not empty, class [class2] has 24 size and parent 24
+48
 call malloc
 add $4, %esp
 push %eax

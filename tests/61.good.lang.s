@@ -1209,11 +1209,13 @@ call printf
     push %edx
 # c
     ### VARIABLE
+#not empty, class [class2] has 20 size and parent 0
     ### END VARget
     mov 8(%ebp), %edx
     push -12(%edx)
     ### END VARIABLE
     ### VARIABLE
+#not empty, class [class2] has 20 size and parent 0
     ### END VARget
     mov 8(%ebp), %edx
     push -12(%edx)
@@ -1546,6 +1548,7 @@ label31:
     push %eax
 # END DIVIDE
     ### VARIABLE
+#not empty, class [class2] has 20 size and parent 0
     ### END VARget
     mov 8(%ebp), %edx
     push -16(%edx)
@@ -1684,6 +1687,7 @@ call class1_class1
     pop -12(%ebp)    # END ASSIGNMENT
     # ASSIGNMENT local1
     ### VARIABLE
+#not empty, class [class2] has 20 size and parent 0
     ### END VARget
     mov 8(%ebp), %edx
     push -8(%edx)
@@ -1774,6 +1778,7 @@ class2_class2:
  sub %ebx, %eax
  push %eax
 #### END SUBTRACT
+#not empty, class [class2] has 20 size and parent 0
     mov 8(%ebp), %edx
     pop -20(%edx)
     # END ASSIGNMENT
@@ -1834,6 +1839,7 @@ call class0_class0
     pop %ecx
     xchg %eax, 0(%esp)
     # END NEW ALLOC
+#not empty, class [class2] has 20 size and parent 0
     mov 8(%ebp), %edx
     pop -12(%edx)
     # END ASSIGNMENT
@@ -1842,6 +1848,7 @@ call class0_class0
     mov $125, %eax
     push %eax
 # END INT LITERAL
+#not empty, class [class2] has 20 size and parent 0
     mov 8(%ebp), %edx
     pop -16(%edx)
     # END ASSIGNMENT
@@ -1893,6 +1900,7 @@ call class1_class1
     pop %ecx
     xchg %eax, 0(%esp)
     # END NEW ALLOC
+#not empty, class [class2] has 20 size and parent 0
     mov 8(%ebp), %edx
     pop -4(%edx)
     # END ASSIGNMENT
@@ -1931,6 +1939,7 @@ call class1_class1
  sub %ebx, %eax
  push %eax
 #### END SUBTRACT
+#not empty, class [class2] has 20 size and parent 0
     mov 8(%ebp), %edx
     pop -8(%edx)
     # END ASSIGNMENT
@@ -1998,6 +2007,7 @@ call class1_class1
     # ASSIGNMENT local1
 # DIVIDE
     ### VARIABLE
+#not empty, class [class2] has 20 size and parent 0
     ### END VARget
     mov 8(%ebp), %edx
     push -16(%edx)
@@ -2016,6 +2026,7 @@ call class1_class1
     # ASSIGNMENT local0
 #### SUBTRACT
     ### VARIABLE
+#not empty, class [class2] has 20 size and parent 0
     ### END VARget
     mov 8(%ebp), %edx
     push -16(%edx)
@@ -2107,6 +2118,7 @@ call printf
 # END INT LITERAL
 #### SUBTRACT
     ### VARIABLE
+#not empty, class [class2] has 20 size and parent 0
     ### END VARget
     mov 8(%ebp), %edx
     push -20(%edx)

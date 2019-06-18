@@ -2804,6 +2804,7 @@ push -16(%ebp)
     pop -16(%ebp)    # END ASSIGNMENT
     # ASSIGNMENT local1
     # ASSIGNMENT
+#not empty, class [class3] has 4 size and parent 24
     mov 8(%ebp), %edx
 mov -24(%edx), %edx
 push -92(%edx)    # END ASSIGNMENT
@@ -2900,12 +2901,14 @@ cmp %eax, %ebx
 je label49
     # ASSIGNMENT local0
     # ASSIGNMENT
+#not empty, class [class3] has 4 size and parent 24
     mov 8(%ebp), %edx
 mov -24(%edx), %edx
 push -84(%edx)    # END ASSIGNMENT
     pop -4(%ebp)    # END ASSIGNMENT
     # ASSIGNMENT local0
     # ASSIGNMENT
+#not empty, class [class3] has 4 size and parent 24
     mov 8(%ebp), %edx
 mov -24(%edx), %edx
 push -80(%edx)    # END ASSIGNMENT
@@ -3403,6 +3406,7 @@ push -32(%ebp)
 # IF:
     ### PUSH CONDITIONAL
     # ASSIGNMENT
+#not empty, class [class3] has 4 size and parent 24
     mov 8(%ebp), %edx
 mov -24(%edx), %edx
 push -76(%edx)    # END ASSIGNMENT
@@ -3418,6 +3422,7 @@ je label66
     push %edx
 # c
     # ASSIGNMENT
+#not empty, class [class3] has 4 size and parent 24
     mov 8(%ebp), %edx
 mov -24(%edx), %edx
 push -84(%edx)    # END ASSIGNMENT
@@ -3497,6 +3502,7 @@ push -36(%ebp)
     pop -36(%ebp)    # END ASSIGNMENT
     # ASSIGNMENT local0
     # ASSIGNMENT
+#not empty, class [class3] has 4 size and parent 24
     mov 8(%ebp), %edx
 mov -24(%edx), %edx
 push -80(%edx)    # END ASSIGNMENT
@@ -3640,6 +3646,7 @@ mov $0, %ebx
 cmp %eax, %ebx
 je label74
     # ASSIGNMENT
+#not empty, class [class3] has 4 size and parent 24
     mov 8(%ebp), %edx
 mov -24(%edx), %edx
 push -80(%edx)    # END ASSIGNMENT
@@ -4186,6 +4193,7 @@ call class0_class0
     pop %ecx
     xchg %eax, 0(%esp)
     # END NEW ALLOC
+#not empty, class [class3] has 4 size and parent 24
     mov 8(%ebp), %edx
     pop -24(%edx)
     # END ASSIGNMENT
@@ -4205,6 +4213,7 @@ call class2_class2
     pop %ecx
     xchg %eax, 0(%esp)
     # END NEW ALLOC
+#not empty, class [class3] has 4 size and parent 24
     mov 8(%ebp), %edx
     pop -28(%edx)
     # END ASSIGNMENT

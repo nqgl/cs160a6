@@ -2437,6 +2437,7 @@ push -4(%ebp)
     push $printstring
 call printf
     ### VARIABLE
+#not empty, class [class4] has 20 size and parent 4
     ### END VARget
     mov 8(%ebp), %edx
     push -16(%edx)
@@ -2447,6 +2448,7 @@ jmp label54
 label55:
 #END WHILE LOOP
     ### VARIABLE
+#not empty, class [class4] has 20 size and parent 4
     ### END VARget
     mov 8(%ebp), %edx
     push -16(%edx)
@@ -2456,6 +2458,7 @@ call printf
 # IF:
     ### PUSH CONDITIONAL
     ### VARIABLE
+#not empty, class [class4] has 20 size and parent 4
     ### END VARget
     mov 8(%ebp), %edx
     push -16(%edx)
@@ -2866,6 +2869,7 @@ call class0_class0
     pop %ecx
     xchg %eax, 0(%esp)
     # END NEW ALLOC
+#not empty, class [class4] has 20 size and parent 4
     mov 8(%ebp), %edx
     pop -20(%edx)
     # END ASSIGNMENT
@@ -2894,6 +2898,7 @@ call class0_class0
  sub %ebx, %eax
  push %eax
 #### END SUBTRACT
+#not empty, class [class4] has 20 size and parent 4
     mov 8(%ebp), %edx
     pop -24(%edx)
     # END ASSIGNMENT
@@ -2902,6 +2907,7 @@ call class0_class0
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
+#not empty, class [class4] has 20 size and parent 4
     mov 8(%ebp), %edx
     pop -16(%edx)
     # END ASSIGNMENT

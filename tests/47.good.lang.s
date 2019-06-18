@@ -870,6 +870,7 @@ class1_class1:
     mov $243, %eax
     push %eax
 # END INT LITERAL
+#not empty, class [class1] has 24 size and parent 96
     mov 8(%ebp), %edx
     pop -120(%edx)
     # END ASSIGNMENT
@@ -957,6 +958,7 @@ call class0_class0
     push %eax
 # END INT LITERAL
     ### VARIABLE
+#not empty, class [class1] has 24 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -120(%edx)
@@ -1837,7 +1839,8 @@ Main_main:
     push %eax
     push %ecx
     push %edx
-push $120
+push $#not empty, class [class1] has 24 size and parent 96
+120
 call malloc
 add $4, %esp
 push %eax
@@ -1886,6 +1889,7 @@ call class1_class1
     mov $79, %eax
     push %eax
 # END INT LITERAL
+#not empty, class [class1] has 24 size and parent 96
 mov -4(%ebp), %edx
 pop -120(%edx)    # END ASSIGNMENT
 # Method Call
@@ -1914,6 +1918,7 @@ call printf
     mov $203, %eax
     push %eax
 # END INT LITERAL
+#not empty, class [class1] has 24 size and parent 96
 mov -4(%ebp), %edx
 pop -120(%edx)    # END ASSIGNMENT
     # ASSIGNMENT local1

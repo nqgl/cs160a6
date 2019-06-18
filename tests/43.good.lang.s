@@ -4965,6 +4965,7 @@ label47:
     push %edx
 # c
     ### VARIABLE
+#not empty, class [class3] has 8 size and parent 20
     ### END VARget
     mov 8(%ebp), %edx
     push -28(%edx)
@@ -5028,12 +5029,14 @@ class3_f6:
     push $printstring
 call printf
     ### METHOD CALL STATEMENT
+#not empty, class [class3] has 8 size and parent 20
 # Method Call
     push %eax
     push %ecx
     push %edx
 # c
     # ASSIGNMENT
+#not empty, class [class3] has 8 size and parent 20
     mov 8(%ebp), %edx
 mov -24(%edx), %edx
 push 4(%edx)    # END ASSIGNMENT
@@ -5098,6 +5101,7 @@ call class0_class0
     mov 8(%ebp), %edx
     push -24(%edx)
 # invoke
+#not empty, class [class3] has 8 size and parent 20
 # in case of crash, called w/ class2 as class
     call class2_f0
     add $0, %esp
@@ -5292,6 +5296,7 @@ call class2_class2
     pop %ecx
     xchg %eax, 0(%esp)
     # END NEW ALLOC
+#not empty, class [class3] has 8 size and parent 20
     mov 8(%ebp), %edx
     pop -24(%edx)
     # END ASSIGNMENT
@@ -5300,6 +5305,7 @@ call class2_class2
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
+#not empty, class [class3] has 8 size and parent 20
     mov 8(%ebp), %edx
     pop -28(%edx)
     # END ASSIGNMENT
@@ -5331,6 +5337,7 @@ call class2_class2
     or %ebx, %eax
     push %eax
 # END OR
+#not empty, class [class3] has 8 size and parent 20
     mov 8(%ebp), %edx
     pop -20(%edx)
     # END ASSIGNMENT
@@ -5475,6 +5482,7 @@ push -8(%ebp)
 # IF:
     ### PUSH CONDITIONAL
     ### VARIABLE
+#not empty, class [class3] has 8 size and parent 20
     ### END VARget
     mov 8(%ebp), %edx
     push -20(%edx)
