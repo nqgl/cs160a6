@@ -5,7 +5,9 @@
 // you will complete to generate the x86 assembly code. Not
 // all functions must have code, many may be left empty.
 
-
+void gen(std::string& codeLine){
+    std::cout<<codeLine<<std::endl;
+}
 
 typedef struct accessiblevariableinfo{
     VariableInfo variableInfo;
@@ -65,13 +67,15 @@ int getFullClassSize(std::string classname, CodeGenerator* scope){
     if (scope->classTable->count(classname) != 0) {
         ClassInfo classInfo = (*(scope->classTable))[classname];
         if (!classInfo.superClassName.empty()) {
+            gen("#not empty, class [" + classname + "] has " + classInfo.membersSize + " size and parent " + getFullClassSize(classInfo.superClassName, scope));
             return classInfo.membersSize + getFullClassSize(classInfo.superClassName, scope);
         } else {
             return classInfo.membersSize;
         }
     }
-    return 0;
+    return 1;
 }
+
 AccessibleVariableInfo getMemberInClass(std::string identifier, std::string classname, CodeGenerator* scope) {
     ClassInfo classInfo = (*(scope->classTable))[classname];
     AccessibleVariableInfo accessVar;
