@@ -93,6 +93,7 @@ push 12(%ebp)
     ### END VARget
 push 16(%ebp)
     ### END VARIABLE
+#not empty, class [classB] has 4 size and parent 96
     mov 8(%ebp), %edx
     pop -100(%edx)
     # END ASSIGNMENT
@@ -124,7 +125,8 @@ Main_main:
     mov $12, %eax
     push %eax
 # END INT LITERAL
-push $100
+push $#not empty, class [classB] has 4 size and parent 96
+100
 call malloc
 add $4, %esp
 push %eax
@@ -142,6 +144,7 @@ push -96(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     # ASSIGNMENT
+#not empty, class [classB] has 4 size and parent 96
 mov -4(%ebp), %edx
 push -100(%edx)    # END ASSIGNMENT
     push $printstring
@@ -169,6 +172,7 @@ push -96(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     # ASSIGNMENT
+#not empty, class [classB] has 4 size and parent 96
 mov -4(%ebp), %edx
 push -100(%edx)    # END ASSIGNMENT
     push $printstring

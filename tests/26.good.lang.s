@@ -868,6 +868,7 @@ label13:
     push %eax
 # END INT LITERAL
     ### VARIABLE
+#not empty, class [class1] has 20 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -112(%edx)
@@ -1259,6 +1260,7 @@ push -4(%ebp)
 # IF:
     ### PUSH CONDITIONAL
     ### VARIABLE
+#not empty, class [class1] has 20 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -116(%edx)
@@ -1372,6 +1374,7 @@ cmp %eax, %ebx
 je label31
 # NOT
     ### VARIABLE
+#not empty, class [class1] has 20 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -116(%edx)
@@ -1453,6 +1456,7 @@ push 20(%ebp)
 mov -4(%ebp), %edx
 pop -88(%edx)    # END ASSIGNMENT
     ### VARIABLE
+#not empty, class [class1] has 20 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -112(%edx)
@@ -1608,6 +1612,7 @@ class1_class1:
     mov $1, %eax
     push %eax
 # END BOOL LITERAL
+#not empty, class [class1] has 20 size and parent 96
     mov 8(%ebp), %edx
     pop -116(%edx)
     # END ASSIGNMENT
@@ -1616,6 +1621,7 @@ class1_class1:
     mov $234, %eax
     push %eax
 # END INT LITERAL
+#not empty, class [class1] has 20 size and parent 96
     mov 8(%ebp), %edx
     pop -112(%edx)
     # END ASSIGNMENT
@@ -1952,7 +1958,8 @@ class2_f4:
     mov $1, %eax
     push %eax
 # END BOOL LITERAL
-push $116
+push $#not empty, class [class1] has 20 size and parent 96
+116
 call malloc
 add $4, %esp
 push %eax
@@ -2097,7 +2104,8 @@ class2_f5:
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $116
+push $#not empty, class [class1] has 20 size and parent 96
+116
 call malloc
 add $4, %esp
 push %eax
@@ -2168,6 +2176,7 @@ call printf
     push %edx
 # c
     # ASSIGNMENT
+#not empty, class [class1] has 20 size and parent 96
 mov -12(%ebp), %edx
 push -112(%edx)    # END ASSIGNMENT
 # INT LITERAL
@@ -2250,6 +2259,7 @@ class2_f6:
     push %edx
 # c
     ### VARIABLE
+#not empty, class [class2] has 8 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -100(%edx)
@@ -2258,6 +2268,7 @@ class2_f6:
     push %eax
     push %ecx
     push %edx
+#not empty, class [class2] has 8 size and parent 96
 # Method Call
     push %eax
     push %ecx
@@ -2272,6 +2283,7 @@ class2_f6:
     neg %eax
     push %eax
 # END NEGATION
+#not empty, class [class2] has 8 size and parent 96
 # Method Call
     push %eax
     push %ecx
@@ -2305,6 +2317,7 @@ class2_f6:
     mov 8(%ebp), %edx
     push -104(%edx)
 # invoke
+#not empty, class [class2] has 8 size and parent 96
 # in case of crash, called w/ class0 as class
     call class0_f1
     add $0, %esp
@@ -2334,6 +2347,7 @@ push -8(%ebp)
     mov 8(%ebp), %edx
     push -104(%edx)
 # invoke
+#not empty, class [class2] has 8 size and parent 96
 # in case of crash, called w/ class0 as class
     call class0_f0
     add $0, %esp
@@ -2341,7 +2355,8 @@ push -8(%ebp)
     pop %ecx
     xchg %eax, 0(%esp)
 # Method Call DONE
-push $116
+push $#not empty, class [class1] has 20 size and parent 96
+116
 call malloc
 add $4, %esp
 push %eax
@@ -2431,6 +2446,7 @@ push -24(%ebp)
 #### ADD
 #### SUBTRACT
     ### VARIABLE
+#not empty, class [class2] has 8 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -92(%edx)
@@ -2445,6 +2461,7 @@ push -24(%ebp)
  push %eax
 #### END SUBTRACT
     ### VARIABLE
+#not empty, class [class2] has 8 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -92(%edx)
@@ -2472,7 +2489,8 @@ label43:
     ### END VARget
 push -4(%ebp)
     ### END VARIABLE
-push $116
+push $#not empty, class [class1] has 20 size and parent 96
+116
 call malloc
 add $4, %esp
 push %eax
@@ -2671,6 +2689,7 @@ call class0_class0
     pop %ecx
     xchg %eax, 0(%esp)
     # END NEW ALLOC
+#not empty, class [class2] has 8 size and parent 96
     mov 8(%ebp), %edx
     pop -104(%edx)
     # END ASSIGNMENT
@@ -2709,6 +2728,7 @@ call class0_class0
     add %ebx, %eax
     push %eax
 #### END ADD
+#not empty, class [class2] has 8 size and parent 96
     mov 8(%ebp), %edx
     pop -96(%edx)
     # END ASSIGNMENT
@@ -2770,6 +2790,7 @@ call class0_class0
     pop %ecx
     xchg %eax, 0(%esp)
     # END NEW ALLOC
+#not empty, class [class2] has 8 size and parent 96
     mov 8(%ebp), %edx
     pop -100(%edx)
     # END ASSIGNMENT
@@ -2806,6 +2827,7 @@ call class0_class0
     pop %ecx
     xchg %eax, 0(%esp)
     # END NEW ALLOC
+#not empty, class [class2] has 8 size and parent 96
     mov 8(%ebp), %edx
     pop -88(%edx)
     # END ASSIGNMENT
@@ -2814,6 +2836,7 @@ call class0_class0
     mov $203, %eax
     push %eax
 # END INT LITERAL
+#not empty, class [class2] has 8 size and parent 96
     mov 8(%ebp), %edx
     pop -92(%edx)
     # END ASSIGNMENT
@@ -2869,6 +2892,7 @@ push -4(%ebp)
 #### END SUBTRACT
     pop -4(%ebp)    # END ASSIGNMENT
     ### METHOD CALL STATEMENT
+#not empty, class [class2] has 8 size and parent 96
 # Method Call
     push %eax
     push %ecx
@@ -2878,6 +2902,7 @@ push -4(%ebp)
     mov 8(%ebp), %edx
     push -104(%edx)
 # invoke
+#not empty, class [class2] has 8 size and parent 96
 # in case of crash, called w/ class0 as class
     call class0_f2
     add $8, %esp
@@ -2892,6 +2917,7 @@ push -4(%ebp)
     push %eax
 # END INT LITERAL
     # ASSIGNMENT
+#not empty, class [class2] has 8 size and parent 96
     mov 8(%ebp), %edx
 mov -104(%edx), %edx
 push -80(%edx)    # END ASSIGNMENT
@@ -2927,6 +2953,7 @@ je label47
     push %edx
 # c
     ### VARIABLE
+#not empty, class [class2] has 8 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -88(%edx)
@@ -2940,7 +2967,8 @@ je label47
     mov 8(%ebp), %edx
     push -88(%edx)
     ### END VARIABLE
-push $116
+push $#not empty, class [class1] has 20 size and parent 96
+116
 call malloc
 add $4, %esp
 push %eax
@@ -2952,6 +2980,7 @@ call class1_class1
     xchg %eax, 0(%esp)
     # END NEW ALLOC
     ### VARIABLE
+#not empty, class [class2] has 8 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -92(%edx)
@@ -2968,6 +2997,7 @@ call class1_class1
 # Method Call DONE
     add $4, %esp    ### END METHOD CALL STATEMENT
     ### VARIABLE
+#not empty, class [class2] has 8 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -92(%edx)
@@ -3013,6 +3043,7 @@ class3_f3:
 push -4(%ebp)
     ### END VARIABLE
     pop -4(%ebp)    # END ASSIGNMENT
+#not empty, class [class3] has 20 size and parent 96
 # Method Call
     push %eax
     push %ecx
@@ -3027,6 +3058,7 @@ push -4(%ebp)
     push %eax
 # END INT LITERAL
     ### VARIABLE
+#not empty, class [class3] has 20 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -108(%edx)
@@ -3039,6 +3071,7 @@ push -4(%ebp)
     mov 8(%ebp), %edx
     push -112(%edx)
 # invoke
+#not empty, class [class3] has 20 size and parent 96
 # in case of crash, called w/ class1 as class
     call class0_f0
     add $4, %esp
@@ -3054,6 +3087,8 @@ call printf
 push -4(%ebp)
     ### END VARIABLE
     # ASSIGNMENT
+#not empty, class [class3] has 20 size and parent 96
+#not empty, class [class1] has 20 size and parent 96
     mov 8(%ebp), %edx
 mov -112(%edx), %edx
 push -112(%edx)    # END ASSIGNMENT
@@ -3067,6 +3102,7 @@ push -112(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     ### METHOD CALL STATEMENT
+#not empty, class [class3] has 20 size and parent 96
 # Method Call
     push %eax
     push %ecx
@@ -3076,6 +3112,7 @@ call printf
     mov 8(%ebp), %edx
     push -112(%edx)
 # invoke
+#not empty, class [class3] has 20 size and parent 96
 # in case of crash, called w/ class1 as class
     call class0_f2
     add $4, %esp
@@ -3247,6 +3284,8 @@ push -16(%ebp)
     push %eax
 # END BOOL LITERAL
     # ASSIGNMENT
+#not empty, class [class3] has 20 size and parent 96
+#not empty, class [class1] has 20 size and parent 96
     mov 8(%ebp), %edx
 mov -112(%edx), %edx
 push -116(%edx)    # END ASSIGNMENT
@@ -3269,6 +3308,7 @@ call printf
 # IF:
     ### PUSH CONDITIONAL
     # ASSIGNMENT
+#not empty, class [class3] has 20 size and parent 96
     mov 8(%ebp), %edx
 mov -112(%edx), %edx
 push -92(%edx)    # END ASSIGNMENT
@@ -3278,6 +3318,7 @@ mov $0, %ebx
 cmp %eax, %ebx
 je label55
     ### METHOD CALL STATEMENT
+#not empty, class [class3] has 20 size and parent 96
 # Method Call
     push %eax
     push %ecx
@@ -3287,6 +3328,7 @@ je label55
     mov 8(%ebp), %edx
     push -112(%edx)
 # invoke
+#not empty, class [class3] has 20 size and parent 96
 # in case of crash, called w/ class1 as class
     call class0_f2
     add $4, %esp
@@ -3298,6 +3340,7 @@ je label55
 # IF:
     ### PUSH CONDITIONAL
     # ASSIGNMENT
+#not empty, class [class3] has 20 size and parent 96
     mov 8(%ebp), %edx
 mov -112(%edx), %edx
 push -88(%edx)    # END ASSIGNMENT
@@ -3307,6 +3350,7 @@ mov $0, %ebx
 cmp %eax, %ebx
 je label56
     ### METHOD CALL STATEMENT
+#not empty, class [class3] has 20 size and parent 96
 # Method Call
     push %eax
     push %ecx
@@ -3316,6 +3360,7 @@ je label56
     mov 8(%ebp), %edx
     push -112(%edx)
 # invoke
+#not empty, class [class3] has 20 size and parent 96
 # in case of crash, called w/ class1 as class
     call class0_f2
     add $4, %esp
@@ -3325,6 +3370,7 @@ je label56
 # Method Call DONE
     add $4, %esp    ### END METHOD CALL STATEMENT
     ### METHOD CALL STATEMENT
+#not empty, class [class3] has 20 size and parent 96
 # Method Call
     push %eax
     push %ecx
@@ -3334,6 +3380,7 @@ je label56
     mov 8(%ebp), %edx
     push -112(%edx)
 # invoke
+#not empty, class [class3] has 20 size and parent 96
 # in case of crash, called w/ class1 as class
     call class0_f2
     add $4, %esp
@@ -3348,6 +3395,7 @@ label56:
     # ASSIGNMENT local0
 # NEGATION
     # ASSIGNMENT
+#not empty, class [class3] has 20 size and parent 96
     mov 8(%ebp), %edx
 mov -112(%edx), %edx
 push -80(%edx)    # END ASSIGNMENT
@@ -3363,6 +3411,7 @@ push -80(%edx)    # END ASSIGNMENT
     push %eax
 # END INT LITERAL
     # ASSIGNMENT
+#not empty, class [class3] has 20 size and parent 96
     mov 8(%ebp), %edx
 mov -112(%edx), %edx
 push -80(%edx)    # END ASSIGNMENT
@@ -3375,6 +3424,7 @@ push -80(%edx)    # END ASSIGNMENT
     pop -4(%ebp)    # END ASSIGNMENT
 label57:
     # ASSIGNMENT
+#not empty, class [class3] has 20 size and parent 96
     mov 8(%ebp), %edx
 mov -112(%edx), %edx
 push -88(%edx)    # END ASSIGNMENT
@@ -3426,7 +3476,8 @@ class3_f4:
     mov $248, %eax
     push %eax
 # END INT LITERAL
-push $104
+push $#not empty, class [class2] has 8 size and parent 96
+104
 call malloc
 add $4, %esp
 push %eax
@@ -3449,6 +3500,7 @@ call printf
     mov $250, %eax
     push %eax
 # END INT LITERAL
+#not empty, class [class2] has 8 size and parent 96
 mov -4(%ebp), %edx
 pop -96(%edx)    # END ASSIGNMENT
     # ASSIGNMENT
@@ -3559,6 +3611,7 @@ class3_f5:
 # c
 # NEGATION
     # ASSIGNMENT
+#not empty, class [class3] has 20 size and parent 96
     mov 8(%ebp), %edx
 mov -112(%edx), %edx
 push -96(%edx)    # END ASSIGNMENT
@@ -3572,11 +3625,14 @@ push -96(%edx)    # END ASSIGNMENT
     push %edx
 #### SUBTRACT
     ### VARIABLE
+#not empty, class [class3] has 20 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -108(%edx)
     ### END VARIABLE
     # ASSIGNMENT
+#not empty, class [class3] has 20 size and parent 96
+#not empty, class [class1] has 20 size and parent 96
     mov 8(%ebp), %edx
 mov -112(%edx), %edx
 push -112(%edx)    # END ASSIGNMENT
@@ -3601,6 +3657,7 @@ push -16(%ebp)
  push %eax
 #### END SUBTRACT
     ### VARIABLE
+#not empty, class [class3] has 20 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -108(%edx)
@@ -3610,7 +3667,8 @@ push -16(%ebp)
     add %ebx, %eax
     push %eax
 #### END ADD
-push $104
+push $#not empty, class [class2] has 8 size and parent 96
+104
 call malloc
 add $4, %esp
 push %eax
@@ -3674,7 +3732,8 @@ class3_f6:
     or %ebx, %eax
     push %eax
 # END OR
-push $116
+push $#not empty, class [class1] has 20 size and parent 96
+116
 call malloc
 add $4, %esp
 push %eax
@@ -3711,6 +3770,7 @@ call printf
     push %edx
 # c
     # ASSIGNMENT
+#not empty, class [class1] has 20 size and parent 96
 mov -8(%ebp), %edx
 push -112(%edx)    # END ASSIGNMENT
     # NEW ALLOC
@@ -3735,7 +3795,8 @@ push -112(%edx)    # END ASSIGNMENT
  sub %ebx, %eax
  push %eax
 #### END SUBTRACT
-push $104
+push $#not empty, class [class2] has 8 size and parent 96
+104
 call malloc
 add $4, %esp
 push %eax
@@ -3859,7 +3920,8 @@ class3_f7:
     mov $1, %eax
     push %eax
 # END BOOL LITERAL
-push $116
+push $#not empty, class [class1] has 20 size and parent 96
+116
 call malloc
 add $4, %esp
 push %eax
@@ -3876,6 +3938,7 @@ call class1_class1
     mov $1, %eax
     push %eax
 # END BOOL LITERAL
+#not empty, class [class1] has 20 size and parent 96
 mov -12(%ebp), %edx
 pop -116(%edx)    # END ASSIGNMENT
     ### METHOD CALL STATEMENT
@@ -3996,6 +4059,7 @@ call printf
 # c
 # CHECK GT
     ### VARIABLE
+#not empty, class [class3] has 20 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -108(%edx)
@@ -4080,6 +4144,7 @@ push -12(%ebp)
     push %eax
 # END INT LITERAL
     ### VARIABLE
+#not empty, class [class3] has 20 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -108(%edx)
@@ -4133,6 +4198,7 @@ push -4(%ebp)
     ### END VARIABLE
     pop -16(%ebp)    # END ASSIGNMENT
     ### VARIABLE
+#not empty, class [class3] has 20 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -108(%edx)
@@ -4208,6 +4274,7 @@ class3_class3:
     mov $140, %eax
     push %eax
 # END INT LITERAL
+#not empty, class [class3] has 20 size and parent 96
     mov 8(%ebp), %edx
     pop -116(%edx)
     # END ASSIGNMENT
@@ -4216,6 +4283,7 @@ class3_class3:
     mov $186, %eax
     push %eax
 # END INT LITERAL
+#not empty, class [class3] has 20 size and parent 96
     mov 8(%ebp), %edx
     pop -108(%edx)
     # END ASSIGNMENT
@@ -4241,7 +4309,8 @@ class3_class3:
     # # in %edx if the
     push %edx # Push the result
 # END GT CHECK
-push $116
+push $#not empty, class [class1] has 20 size and parent 96
+116
 call malloc
 add $4, %esp
 push %eax
@@ -4252,6 +4321,7 @@ call class1_class1
     pop %ecx
     xchg %eax, 0(%esp)
     # END NEW ALLOC
+#not empty, class [class3] has 20 size and parent 96
     mov 8(%ebp), %edx
     pop -112(%edx)
     # END ASSIGNMENT
@@ -4278,7 +4348,8 @@ call class1_class1
     mov $89, %eax
     push %eax
 # END INT LITERAL
-push $104
+push $#not empty, class [class2] has 8 size and parent 96
+104
 call malloc
 add $4, %esp
 push %eax
@@ -4363,6 +4434,7 @@ call class2_class2
     push %eax
 # END INT LITERAL
     ### VARIABLE
+#not empty, class [class3] has 20 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -108(%edx)
@@ -4373,6 +4445,7 @@ call class2_class2
  push %eax
 #### END MULTIPLY
     # ASSIGNMENT
+#not empty, class [class2] has 8 size and parent 96
 mov -24(%ebp), %edx
 push -96(%edx)    # END ASSIGNMENT
  pop %ebx
@@ -4380,6 +4453,7 @@ push -96(%edx)    # END ASSIGNMENT
  sub %ebx, %eax
  push %eax
 #### END SUBTRACT
+#not empty, class [class2] has 8 size and parent 96
 mov -24(%ebp), %edx
 pop -96(%edx)    # END ASSIGNMENT
     ### METHOD CALL STATEMENT

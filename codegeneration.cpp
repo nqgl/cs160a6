@@ -5,7 +5,7 @@
 // you will complete to generate the x86 assembly code. Not
 // all functions must have code, many may be left empty.
 
-void gen(std::string& codeLine){
+void gen(std::string codeLine){
     std::cout<<codeLine<<std::endl;
 }
 
@@ -67,7 +67,7 @@ int getFullClassSize(std::string classname, CodeGenerator* scope){
     if (scope->classTable->count(classname) != 0) {
         ClassInfo classInfo = (*(scope->classTable))[classname];
         if (!classInfo.superClassName.empty()) {
-            gen("#not empty, class [" + classname + "] has " + classInfo.membersSize + " size and parent " + getFullClassSize(classInfo.superClassName, scope));
+            gen("#not empty, class [" + classname + "] has " + std::to_string(classInfo.membersSize) + " size and parent " + std::to_string(getFullClassSize(classInfo.superClassName, scope)));
             return classInfo.membersSize + getFullClassSize(classInfo.superClassName, scope);
         } else {
             return classInfo.membersSize;

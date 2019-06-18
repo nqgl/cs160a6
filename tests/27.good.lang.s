@@ -856,6 +856,7 @@ push -12(%ebp)
     # ASSIGNMENT local0
 # CHECK EQUALITY
     ### VARIABLE
+#not empty, class [class1] has 20 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -112(%edx)
@@ -921,6 +922,7 @@ label7:
     push -84(%edx)
     ### END VARIABLE
     ### VARIABLE
+#not empty, class [class1] has 20 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -112(%edx)
@@ -1046,6 +1048,7 @@ class1_class1:
     mov $194, %eax
     push %eax
 # END INT LITERAL
+#not empty, class [class1] has 20 size and parent 96
     mov 8(%ebp), %edx
     pop -116(%edx)
     # END ASSIGNMENT
@@ -1054,6 +1057,7 @@ class1_class1:
     mov $63, %eax
     push %eax
 # END INT LITERAL
+#not empty, class [class1] has 20 size and parent 96
     mov 8(%ebp), %edx
     pop -112(%edx)
     # END ASSIGNMENT
@@ -1136,6 +1140,7 @@ jmp label10
 label11:
 #END WHILE LOOP
     ### VARIABLE
+#not empty, class [class1] has 20 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -112(%edx)
@@ -1303,6 +1308,7 @@ mov $0, %ebx
 cmp %eax, %ebx
 je label20
     ### VARIABLE
+#not empty, class [class1] has 20 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -116(%edx)
@@ -1417,6 +1423,7 @@ push -16(%ebp)
     push %eax
 # END INT LITERAL
     ### VARIABLE
+#not empty, class [class1] has 20 size and parent 96
     ### END VARget
     mov 8(%ebp), %edx
     push -116(%edx)
