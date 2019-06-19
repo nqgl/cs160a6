@@ -10,7 +10,7 @@ void gen(std::string codeLine){
 }
 
 void printcontext(CodeGenerator* scope){
-    gen("classtable:")
+    gen("classtable:");
     print(*scope->classTable, 0);
 }
 
@@ -75,9 +75,9 @@ int getFullClassSize(std::string classname, CodeGenerator* scope){
         if (!classInfo.superClassName.empty()) {
             gen("#not empty, class [" + classname + "] has " + std::to_string(classInfo.membersSize) + " size and parent " + std::to_string(getFullClassSize(classInfo.superClassName, scope)));
             gen("# from length " + std::to_string(classInfo.members->size()));
-            return classInfo.membersSize + getFullClassSize(classInfo.superClassName, scope);
+            return classInfo.members->size() * 4 + getFullClassSize(classInfo.superClassName, scope);
         } else {
-            return classInfo.membersSize;
+            return classInfo.members->size() * 4;
         }
     }
     gen("unable to find" + classname);
