@@ -10,6 +10,7 @@ void gen(std::string codeLine){
 }
 
 void printcontext(CodeGenerator* scope){
+    gen("classtable:")
     print(*scope->classTable, 0);
 }
 
@@ -73,6 +74,7 @@ int getFullClassSize(std::string classname, CodeGenerator* scope){
         ClassInfo classInfo = (*(scope->classTable))[classname];
         if (!classInfo.superClassName.empty()) {
             gen("#not empty, class [" + classname + "] has " + std::to_string(classInfo.membersSize) + " size and parent " + std::to_string(getFullClassSize(classInfo.superClassName, scope)));
+            gen("# from length " + std::to_string(classInfo.members->size()));
             return classInfo.membersSize + getFullClassSize(classInfo.superClassName, scope);
         } else {
             return classInfo.membersSize;
@@ -155,11 +157,13 @@ std::string x86getAndPrepInScopeName(AccessibleVariableInfo variableAccess){
 
 void CodeGenerator::visitProgramNode(ProgramNode* node) {
     // WRITEME: Replace with code if necessary
+    printcontext(this);
     std::cout << ".data" << std::endl;
     std::cout << "printstring: .asciz \"%d\\n\"" << std::endl;
     std::cout << ".text" << std::endl;
     std::cout << ".globl Main_main" << std::endl;
     node->visit_children(this);
+    printcontext(this);
 }
 
 
@@ -174,7 +178,6 @@ void CodeGenerator::visitClassNode(ClassNode* node) {
 
 void CodeGenerator::visitMethodNode(MethodNode* node) {
     // WRITEME: Replace with code if necessary
-    printcontext(this);
     std::cout << "    ### BEGIN METHOD DEFINITION" << std::endl;
     currentMethodName = node->identifier->name; // set current method
     currentMethodInfo = (*(currentClassInfo.methods))[currentMethodName];
