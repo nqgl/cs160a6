@@ -2,43 +2,6 @@
 printstring: .asciz "%d\n"
 .text
 .globl Main_main
-ClassTable {
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        24,
-        VariableTable {
-          local0 -> {Integer, -4, 4},
-          local1 -> {Boolean, -8, 4},
-          local2 -> {Object(class0), -12, 4},
-          local3 -> {Object(class0), -16, 4},
-          local4 -> {Integer, -20, 4},
-          local5 -> {Boolean, -24, 4}
-        }
-      }
-    }
-  },
-  class0 -> {
-    VariableTable {
-      member0 -> {Integer, 0, 4}
-    },
-    MethodTable {
-      class0 -> {
-        None,
-        20,
-        VariableTable {
-          local0 -> {Integer, -4, 4},
-          local1 -> {Integer, -8, 4},
-          local2 -> {Integer, -12, 4},
-          local3 -> {Integer, -16, 4},
-          local4 -> {Boolean, -20, 4}
-        }
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 class0_class0:
     push %ebp
@@ -53,7 +16,7 @@ class0_class0:
     push %eax
 # END INT LITERAL
     mov 8(%ebp), %edx
-    pop -96(%edx)
+    pop -4(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT local4
 # BOOL LITERAL
@@ -125,7 +88,7 @@ class0_class0:
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -96(%edx)
+    push -4(%edx)
     ### END VARIABLE
     ### VARIABLE
     ### END VARget
@@ -151,43 +114,6 @@ push -20(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
-ClassTable {
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        24,
-        VariableTable {
-          local0 -> {Integer, -4, 4},
-          local1 -> {Boolean, -8, 4},
-          local2 -> {Object(class0), -12, 4},
-          local3 -> {Object(class0), -16, 4},
-          local4 -> {Integer, -20, 4},
-          local5 -> {Boolean, -24, 4}
-        }
-      }
-    }
-  },
-  class0 -> {
-    VariableTable {
-      member0 -> {Integer, 0, 4}
-    },
-    MethodTable {
-      class0 -> {
-        None,
-        20,
-        VariableTable {
-          local0 -> {Integer, -4, 4},
-          local1 -> {Integer, -8, 4},
-          local2 -> {Integer, -12, 4},
-          local3 -> {Integer, -16, 4},
-          local4 -> {Boolean, -20, 4}
-        }
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 Main_main:
     push %ebp
@@ -225,7 +151,7 @@ Main_main:
     push %eax
     push %ecx
     push %edx
-push $96
+push $4
 call malloc
 add $4, %esp
 push %eax
@@ -242,7 +168,7 @@ call class0_class0
     push %eax
     push %ecx
     push %edx
-push $96
+push $4
 call malloc
 add $4, %esp
 push %eax

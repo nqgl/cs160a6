@@ -2,48 +2,6 @@
 printstring: .asciz "%d\n"
 .text
 .globl Main_main
-ClassTable {
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        20,
-        VariableTable {
-          i0 -> {Integer, -8, 4},
-          i1 -> {Integer, -12, 4},
-          i2 -> {Integer, -16, 4},
-          i3 -> {Integer, -20, 4},
-          local0 -> {Boolean, -4, 4}
-        }
-      }
-    }
-  },
-  class0 -> {
-    VariableTable {
-      member0 -> {Integer, 0, 4},
-      member1 -> {Integer, 4, 4},
-      member2 -> {Integer, 8, 4},
-      member3 -> {Integer, 12, 4},
-      member4 -> {Boolean, 16, 4},
-      member5 -> {Boolean, 20, 4}
-    },
-    MethodTable {
-      class0 -> {
-        None,
-        24,
-        VariableTable {
-          i0 -> {Integer, -24, 4},
-          local0 -> {Integer, -4, 4},
-          local1 -> {Integer, -8, 4},
-          local2 -> {Boolean, -12, 4},
-          local3 -> {Integer, -16, 4},
-          local4 -> {Boolean, -20, 4}
-        }
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 class0_class0:
     push %ebp
@@ -66,7 +24,7 @@ class0_class0:
     push %edx
 # END NOT
     mov 8(%ebp), %edx
-    pop -76(%edx)
+    pop -4(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member4
 # BOOL LITERAL
@@ -74,7 +32,7 @@ class0_class0:
     push %eax
 # END BOOL LITERAL
     mov 8(%ebp), %edx
-    pop -80(%edx)
+    pop -8(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member1
 # INT LITERAL
@@ -82,7 +40,7 @@ class0_class0:
     push %eax
 # END INT LITERAL
     mov 8(%ebp), %edx
-    pop -92(%edx)
+    pop -20(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member0
 # INT LITERAL
@@ -90,7 +48,7 @@ class0_class0:
     push %eax
 # END INT LITERAL
     mov 8(%ebp), %edx
-    pop -96(%edx)
+    pop -24(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member3
 #### SUBTRACT
@@ -108,7 +66,7 @@ class0_class0:
  push %eax
 #### END SUBTRACT
     mov 8(%ebp), %edx
-    pop -84(%edx)
+    pop -12(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT member2
 # INT LITERAL
@@ -116,7 +74,7 @@ class0_class0:
     push %eax
 # END INT LITERAL
     mov 8(%ebp), %edx
-    pop -88(%edx)
+    pop -16(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT local4
 # AND
@@ -290,7 +248,7 @@ push -24(%ebp)
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -80(%edx)
+    push -8(%edx)
     ### END VARIABLE
     pop -20(%ebp)    # END ASSIGNMENT
 jmp label0
@@ -309,48 +267,6 @@ label1:
     pop %ebp
     ret
     ### END METHOD DEFINITION
-ClassTable {
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        20,
-        VariableTable {
-          i0 -> {Integer, -8, 4},
-          i1 -> {Integer, -12, 4},
-          i2 -> {Integer, -16, 4},
-          i3 -> {Integer, -20, 4},
-          local0 -> {Boolean, -4, 4}
-        }
-      }
-    }
-  },
-  class0 -> {
-    VariableTable {
-      member0 -> {Integer, 0, 4},
-      member1 -> {Integer, 4, 4},
-      member2 -> {Integer, 8, 4},
-      member3 -> {Integer, 12, 4},
-      member4 -> {Boolean, 16, 4},
-      member5 -> {Boolean, 20, 4}
-    },
-    MethodTable {
-      class0 -> {
-        None,
-        24,
-        VariableTable {
-          i0 -> {Integer, -24, 4},
-          local0 -> {Integer, -4, 4},
-          local1 -> {Integer, -8, 4},
-          local2 -> {Boolean, -12, 4},
-          local3 -> {Integer, -16, 4},
-          local4 -> {Boolean, -20, 4}
-        }
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 Main_main:
     push %ebp

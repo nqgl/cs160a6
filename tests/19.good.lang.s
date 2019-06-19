@@ -2,42 +2,6 @@
 printstring: .asciz "%d\n"
 .text
 .globl Main_main
-ClassTable {
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        8,
-        VariableTable {
-          a -> {Object(classA), -4, 4},
-          i -> {Integer, -8, 4}
-        }
-      }
-    }
-  },
-  classA -> {
-    VariableTable {
-      x -> {Integer, 0, 4},
-      y -> {Integer, 4, 4}
-    },
-    MethodTable {
-      classA -> {
-        None,
-        0,
-        VariableTable {
-          xarg -> {Integer, 12, 4},
-          yarg -> {Integer, 16, 4}
-        }
-      },
-      inc -> {
-        None,
-        0,
-        VariableTable {}
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 classA_classA:
     push %ebp
@@ -52,7 +16,7 @@ classA_classA:
 push 12(%ebp)
     ### END VARIABLE
     mov 8(%ebp), %edx
-    pop -96(%edx)
+    pop -8(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT y
     ### VARIABLE
@@ -60,7 +24,7 @@ push 12(%ebp)
 push 16(%ebp)
     ### END VARIABLE
     mov 8(%ebp), %edx
-    pop -92(%edx)
+    pop -4(%edx)
     # END ASSIGNMENT
     pop %esi
     pop %edi
@@ -69,42 +33,6 @@ push 16(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
-ClassTable {
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        8,
-        VariableTable {
-          a -> {Object(classA), -4, 4},
-          i -> {Integer, -8, 4}
-        }
-      }
-    }
-  },
-  classA -> {
-    VariableTable {
-      x -> {Integer, 0, 4},
-      y -> {Integer, 4, 4}
-    },
-    MethodTable {
-      classA -> {
-        None,
-        0,
-        VariableTable {
-          xarg -> {Integer, 12, 4},
-          yarg -> {Integer, 16, 4}
-        }
-      },
-      inc -> {
-        None,
-        0,
-        VariableTable {}
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 classA_inc:
     push %ebp
@@ -118,7 +46,7 @@ classA_inc:
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -96(%edx)
+    push -8(%edx)
     ### END VARIABLE
 # INT LITERAL
     mov $2, %eax
@@ -130,14 +58,14 @@ classA_inc:
  push %eax
 #### END MULTIPLY
     mov 8(%ebp), %edx
-    pop -96(%edx)
+    pop -8(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT y
 #### ADD
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -92(%edx)
+    push -4(%edx)
     ### END VARIABLE
 # INT LITERAL
     mov $1, %eax
@@ -149,7 +77,7 @@ classA_inc:
     push %eax
 #### END ADD
     mov 8(%ebp), %edx
-    pop -92(%edx)
+    pop -4(%edx)
     # END ASSIGNMENT
     pop %esi
     pop %edi
@@ -158,42 +86,6 @@ classA_inc:
     pop %ebp
     ret
     ### END METHOD DEFINITION
-ClassTable {
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        8,
-        VariableTable {
-          a -> {Object(classA), -4, 4},
-          i -> {Integer, -8, 4}
-        }
-      }
-    }
-  },
-  classA -> {
-    VariableTable {
-      x -> {Integer, 0, 4},
-      y -> {Integer, 4, 4}
-    },
-    MethodTable {
-      classA -> {
-        None,
-        0,
-        VariableTable {
-          xarg -> {Integer, 12, 4},
-          yarg -> {Integer, 16, 4}
-        }
-      },
-      inc -> {
-        None,
-        0,
-        VariableTable {}
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 Main_main:
     push %ebp
@@ -215,7 +107,7 @@ Main_main:
     mov $3, %eax
     push %eax
 # END INT LITERAL
-push $96
+push $8
 call malloc
 add $4, %esp
 push %eax
@@ -229,12 +121,12 @@ call classA_classA
     pop -4(%ebp)    # END ASSIGNMENT
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     ### METHOD CALL STATEMENT
@@ -257,10 +149,10 @@ push -4(%ebp)
 #### MULTIPLY
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
  pop %ebx
  pop %eax
  imul %ebx, %eax

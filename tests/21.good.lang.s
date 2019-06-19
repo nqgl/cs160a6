@@ -2,59 +2,6 @@
 printstring: .asciz "%d\n"
 .text
 .globl Main_main
-ClassTable {
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        4,
-        VariableTable {
-          b -> {Object(classB), -4, 4}
-        }
-      }
-    }
-  },
-  classA -> {
-    VariableTable {
-      x -> {Integer, 0, 4}
-    },
-    MethodTable {
-      classA -> {
-        None,
-        0,
-        VariableTable {
-          val -> {Integer, 12, 4}
-        }
-      }
-    }
-  },
-  classB -> {
-    VariableTable {
-      x -> {Integer, 0, 4}
-    },
-    MethodTable {
-      classB -> {
-        None,
-        0,
-        VariableTable {}
-      },
-      dofib -> {
-        None,
-        0,
-        VariableTable {}
-      },
-      fib -> {
-        Object(classA),
-        4,
-        VariableTable {
-          a -> {Object(classA), 12, 4},
-          tmp -> {Integer, -4, 4}
-        }
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 classA_classA:
     push %ebp
@@ -69,7 +16,7 @@ classA_classA:
 push 12(%ebp)
     ### END VARIABLE
     mov 8(%ebp), %edx
-    pop -96(%edx)
+    pop -4(%edx)
     # END ASSIGNMENT
     pop %esi
     pop %edi
@@ -78,59 +25,6 @@ push 12(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
-ClassTable {
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        4,
-        VariableTable {
-          b -> {Object(classB), -4, 4}
-        }
-      }
-    }
-  },
-  classA -> {
-    VariableTable {
-      x -> {Integer, 0, 4}
-    },
-    MethodTable {
-      classA -> {
-        None,
-        0,
-        VariableTable {
-          val -> {Integer, 12, 4}
-        }
-      }
-    }
-  },
-  classB -> {
-    VariableTable {
-      x -> {Integer, 0, 4}
-    },
-    MethodTable {
-      classB -> {
-        None,
-        0,
-        VariableTable {}
-      },
-      dofib -> {
-        None,
-        0,
-        VariableTable {}
-      },
-      fib -> {
-        Object(classA),
-        4,
-        VariableTable {
-          a -> {Object(classA), 12, 4},
-          tmp -> {Integer, -4, 4}
-        }
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 classB_classB:
     push %ebp
@@ -154,59 +48,6 @@ classB_classB:
     pop %ebp
     ret
     ### END METHOD DEFINITION
-ClassTable {
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        4,
-        VariableTable {
-          b -> {Object(classB), -4, 4}
-        }
-      }
-    }
-  },
-  classA -> {
-    VariableTable {
-      x -> {Integer, 0, 4}
-    },
-    MethodTable {
-      classA -> {
-        None,
-        0,
-        VariableTable {
-          val -> {Integer, 12, 4}
-        }
-      }
-    }
-  },
-  classB -> {
-    VariableTable {
-      x -> {Integer, 0, 4}
-    },
-    MethodTable {
-      classB -> {
-        None,
-        0,
-        VariableTable {}
-      },
-      dofib -> {
-        None,
-        0,
-        VariableTable {}
-      },
-      fib -> {
-        Object(classA),
-        4,
-        VariableTable {
-          a -> {Object(classA), 12, 4},
-          tmp -> {Integer, -4, 4}
-        }
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 classB_fib:
     push %ebp
@@ -231,7 +72,7 @@ classB_fib:
     ### END VARIABLE
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
     pop %ebx
     pop %eax
     add %ebx, %eax
@@ -255,7 +96,7 @@ call printf
     ### END VARget
 push -4(%ebp)
     ### END VARIABLE
-push $96
+push $4
 call malloc
 add $4, %esp
 push %eax
@@ -274,59 +115,6 @@ call classA_classA
     pop %ebp
     ret
     ### END METHOD DEFINITION
-ClassTable {
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        4,
-        VariableTable {
-          b -> {Object(classB), -4, 4}
-        }
-      }
-    }
-  },
-  classA -> {
-    VariableTable {
-      x -> {Integer, 0, 4}
-    },
-    MethodTable {
-      classA -> {
-        None,
-        0,
-        VariableTable {
-          val -> {Integer, 12, 4}
-        }
-      }
-    }
-  },
-  classB -> {
-    VariableTable {
-      x -> {Integer, 0, 4}
-    },
-    MethodTable {
-      classB -> {
-        None,
-        0,
-        VariableTable {}
-      },
-      dofib -> {
-        None,
-        0,
-        VariableTable {}
-      },
-      fib -> {
-        Object(classA),
-        4,
-        VariableTable {
-          a -> {Object(classA), 12, 4},
-          tmp -> {Integer, -4, 4}
-        }
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 classB_dofib:
     push %ebp
@@ -396,7 +184,7 @@ call printf
     mov $1, %eax
     push %eax
 # END INT LITERAL
-push $96
+push $4
 call malloc
 add $4, %esp
 push %eax
@@ -495,59 +283,6 @@ call classA_classA
     pop %ebp
     ret
     ### END METHOD DEFINITION
-ClassTable {
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        4,
-        VariableTable {
-          b -> {Object(classB), -4, 4}
-        }
-      }
-    }
-  },
-  classA -> {
-    VariableTable {
-      x -> {Integer, 0, 4}
-    },
-    MethodTable {
-      classA -> {
-        None,
-        0,
-        VariableTable {
-          val -> {Integer, 12, 4}
-        }
-      }
-    }
-  },
-  classB -> {
-    VariableTable {
-      x -> {Integer, 0, 4}
-    },
-    MethodTable {
-      classB -> {
-        None,
-        0,
-        VariableTable {}
-      },
-      dofib -> {
-        None,
-        0,
-        VariableTable {}
-      },
-      fib -> {
-        Object(classA),
-        4,
-        VariableTable {
-          a -> {Object(classA), 12, 4},
-          tmp -> {Integer, -4, 4}
-        }
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 Main_main:
     push %ebp

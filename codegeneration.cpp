@@ -10,8 +10,8 @@ void gen(std::string codeLine){
 }
 
 void printcontext(CodeGenerator* scope){
-    gen("classtable:");
-    print(*scope->classTable, 0);
+    //gen("classtable:");
+    //print(*scope->classTable, 0);
 }
 
 typedef struct accessiblevariableinfo{
@@ -73,8 +73,8 @@ int getFullClassSize(std::string classname, CodeGenerator* scope){
     if (scope->classTable->count(classname) != 0) {
         ClassInfo classInfo = (*(scope->classTable))[classname];
         if (!classInfo.superClassName.empty()) {
-            gen("#not empty, class [" + classname + "] has " + std::to_string(classInfo.membersSize) + " size and parent " + std::to_string(getFullClassSize(classInfo.superClassName, scope)));
-            gen("# from length " + std::to_string(classInfo.members->size()));
+            //gen("#not empty, class [" + classname + "] has " + std::to_string(classInfo.membersSize) + " size and parent " + std::to_string(getFullClassSize(classInfo.superClassName, scope)));
+            //gen("# from length " + std::to_string(classInfo.members->size()));
             return classInfo.members->size() * 4 + getFullClassSize(classInfo.superClassName, scope);
         } else {
             return classInfo.members->size() * 4;

@@ -2,22 +2,6 @@
 printstring: .asciz "%d\n"
 .text
 .globl Main_main
-ClassTable {
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        12,
-        VariableTable {
-          cond -> {Boolean, -12, 4},
-          i -> {Integer, -4, 4},
-          x -> {Integer, -8, 4}
-        }
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 Main_main:
     push %ebp

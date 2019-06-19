@@ -2,55 +2,6 @@
 printstring: .asciz "%d\n"
 .text
 .globl Main_main
-ClassTable {
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        4,
-        VariableTable {
-          b -> {Object(classB), -4, 4}
-        }
-      }
-    }
-  },
-  classA -> {
-    VariableTable {
-      x -> {Integer, 0, 4}
-    },
-    MethodTable {
-      classA -> {
-        None,
-        0,
-        VariableTable {
-          val -> {Integer, 12, 4}
-        }
-      },
-      f0 -> {
-        None,
-        0,
-        VariableTable {}
-      }
-    }
-  },
-  classB -> {
-    classA,
-    VariableTable {
-      y -> {Boolean, 0, 4}
-    },
-    MethodTable {
-      classB -> {
-        None,
-        0,
-        VariableTable {
-          val1 -> {Integer, 12, 4},
-          val2 -> {Boolean, 16, 4}
-        }
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 classA_classA:
     push %ebp
@@ -65,7 +16,7 @@ classA_classA:
 push 12(%ebp)
     ### END VARIABLE
     mov 8(%ebp), %edx
-    pop -96(%edx)
+    pop -4(%edx)
     # END ASSIGNMENT
     pop %esi
     pop %edi
@@ -74,55 +25,6 @@ push 12(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
-ClassTable {
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        4,
-        VariableTable {
-          b -> {Object(classB), -4, 4}
-        }
-      }
-    }
-  },
-  classA -> {
-    VariableTable {
-      x -> {Integer, 0, 4}
-    },
-    MethodTable {
-      classA -> {
-        None,
-        0,
-        VariableTable {
-          val -> {Integer, 12, 4}
-        }
-      },
-      f0 -> {
-        None,
-        0,
-        VariableTable {}
-      }
-    }
-  },
-  classB -> {
-    classA,
-    VariableTable {
-      y -> {Boolean, 0, 4}
-    },
-    MethodTable {
-      classB -> {
-        None,
-        0,
-        VariableTable {
-          val1 -> {Integer, 12, 4},
-          val2 -> {Boolean, 16, 4}
-        }
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 classA_f0:
     push %ebp
@@ -136,7 +38,7 @@ classA_f0:
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -96(%edx)
+    push -4(%edx)
     ### END VARIABLE
 # INT LITERAL
     mov $2, %eax
@@ -148,7 +50,7 @@ classA_f0:
  push %eax
 #### END MULTIPLY
     mov 8(%ebp), %edx
-    pop -96(%edx)
+    pop -4(%edx)
     # END ASSIGNMENT
     pop %esi
     pop %edi
@@ -157,55 +59,6 @@ classA_f0:
     pop %ebp
     ret
     ### END METHOD DEFINITION
-ClassTable {
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        4,
-        VariableTable {
-          b -> {Object(classB), -4, 4}
-        }
-      }
-    }
-  },
-  classA -> {
-    VariableTable {
-      x -> {Integer, 0, 4}
-    },
-    MethodTable {
-      classA -> {
-        None,
-        0,
-        VariableTable {
-          val -> {Integer, 12, 4}
-        }
-      },
-      f0 -> {
-        None,
-        0,
-        VariableTable {}
-      }
-    }
-  },
-  classB -> {
-    classA,
-    VariableTable {
-      y -> {Boolean, 0, 4}
-    },
-    MethodTable {
-      classB -> {
-        None,
-        0,
-        VariableTable {
-          val1 -> {Integer, 12, 4},
-          val2 -> {Boolean, 16, 4}
-        }
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 classB_classB:
     push %ebp
@@ -240,9 +93,8 @@ push 12(%ebp)
     ### END VARget
 push 16(%ebp)
     ### END VARIABLE
-#not empty, class [classB] has 4 size and parent 96
     mov 8(%ebp), %edx
-    pop -100(%edx)
+    pop -8(%edx)
     # END ASSIGNMENT
     pop %esi
     pop %edi
@@ -251,55 +103,6 @@ push 16(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
-ClassTable {
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        4,
-        VariableTable {
-          b -> {Object(classB), -4, 4}
-        }
-      }
-    }
-  },
-  classA -> {
-    VariableTable {
-      x -> {Integer, 0, 4}
-    },
-    MethodTable {
-      classA -> {
-        None,
-        0,
-        VariableTable {
-          val -> {Integer, 12, 4}
-        }
-      },
-      f0 -> {
-        None,
-        0,
-        VariableTable {}
-      }
-    }
-  },
-  classB -> {
-    classA,
-    VariableTable {
-      y -> {Boolean, 0, 4}
-    },
-    MethodTable {
-      classB -> {
-        None,
-        0,
-        VariableTable {
-          val1 -> {Integer, 12, 4},
-          val2 -> {Boolean, 16, 4}
-        }
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 Main_main:
     push %ebp
@@ -321,8 +124,7 @@ Main_main:
     mov $12, %eax
     push %eax
 # END INT LITERAL
-push $#not empty, class [classB] has 4 size and parent 96
-100
+push $8
 call malloc
 add $4, %esp
 push %eax
@@ -336,13 +138,12 @@ call classB_classB
     pop -4(%ebp)    # END ASSIGNMENT
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     # ASSIGNMENT
-#not empty, class [classB] has 4 size and parent 96
 mov -4(%ebp), %edx
-push -100(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     ### METHOD CALL STATEMENT
@@ -364,13 +165,12 @@ push -4(%ebp)
     add $4, %esp    ### END METHOD CALL STATEMENT
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     # ASSIGNMENT
-#not empty, class [classB] has 4 size and parent 96
 mov -4(%ebp), %edx
-push -100(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     pop %esi

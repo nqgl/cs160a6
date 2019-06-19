@@ -2,59 +2,6 @@
 printstring: .asciz "%d\n"
 .text
 .globl Main_main
-ClassTable {
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        12,
-        VariableTable {
-          a1 -> {Object(classA), -4, 4},
-          a2 -> {Object(classA), -8, 4},
-          b -> {Object(classB), -12, 4}
-        }
-      }
-    }
-  },
-  classA -> {
-    VariableTable {
-      x -> {Integer, 0, 4},
-      y -> {Integer, 4, 4}
-    },
-    MethodTable {
-      classA -> {
-        None,
-        0,
-        VariableTable {}
-      }
-    }
-  },
-  classB -> {
-    VariableTable {
-      xplus -> {Integer, 0, 4},
-      yplus -> {Integer, 4, 4}
-    },
-    MethodTable {
-      classB -> {
-        None,
-        0,
-        VariableTable {
-          xval -> {Integer, 12, 4},
-          yval -> {Integer, 16, 4}
-        }
-      },
-      makeA -> {
-        Object(classA),
-        4,
-        VariableTable {
-          a -> {Object(classA), 12, 4},
-          aNew -> {Object(classA), -4, 4}
-        }
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 classA_classA:
     push %ebp
@@ -69,7 +16,7 @@ classA_classA:
     push %eax
 # END INT LITERAL
     mov 8(%ebp), %edx
-    pop -96(%edx)
+    pop -8(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT y
 # INT LITERAL
@@ -77,7 +24,7 @@ classA_classA:
     push %eax
 # END INT LITERAL
     mov 8(%ebp), %edx
-    pop -92(%edx)
+    pop -4(%edx)
     # END ASSIGNMENT
     pop %esi
     pop %edi
@@ -86,59 +33,6 @@ classA_classA:
     pop %ebp
     ret
     ### END METHOD DEFINITION
-ClassTable {
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        12,
-        VariableTable {
-          a1 -> {Object(classA), -4, 4},
-          a2 -> {Object(classA), -8, 4},
-          b -> {Object(classB), -12, 4}
-        }
-      }
-    }
-  },
-  classA -> {
-    VariableTable {
-      x -> {Integer, 0, 4},
-      y -> {Integer, 4, 4}
-    },
-    MethodTable {
-      classA -> {
-        None,
-        0,
-        VariableTable {}
-      }
-    }
-  },
-  classB -> {
-    VariableTable {
-      xplus -> {Integer, 0, 4},
-      yplus -> {Integer, 4, 4}
-    },
-    MethodTable {
-      classB -> {
-        None,
-        0,
-        VariableTable {
-          xval -> {Integer, 12, 4},
-          yval -> {Integer, 16, 4}
-        }
-      },
-      makeA -> {
-        Object(classA),
-        4,
-        VariableTable {
-          a -> {Object(classA), 12, 4},
-          aNew -> {Object(classA), -4, 4}
-        }
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 classB_classB:
     push %ebp
@@ -170,59 +64,6 @@ push 16(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
-ClassTable {
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        12,
-        VariableTable {
-          a1 -> {Object(classA), -4, 4},
-          a2 -> {Object(classA), -8, 4},
-          b -> {Object(classB), -12, 4}
-        }
-      }
-    }
-  },
-  classA -> {
-    VariableTable {
-      x -> {Integer, 0, 4},
-      y -> {Integer, 4, 4}
-    },
-    MethodTable {
-      classA -> {
-        None,
-        0,
-        VariableTable {}
-      }
-    }
-  },
-  classB -> {
-    VariableTable {
-      xplus -> {Integer, 0, 4},
-      yplus -> {Integer, 4, 4}
-    },
-    MethodTable {
-      classB -> {
-        None,
-        0,
-        VariableTable {
-          xval -> {Integer, 12, 4},
-          yval -> {Integer, 16, 4}
-        }
-      },
-      makeA -> {
-        Object(classA),
-        4,
-        VariableTable {
-          a -> {Object(classA), 12, 4},
-          aNew -> {Object(classA), -4, 4}
-        }
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 classB_makeA:
     push %ebp
@@ -236,7 +77,7 @@ classB_makeA:
     push %eax
     push %ecx
     push %edx
-push $96
+push $8
 call malloc
 add $4, %esp
 push %eax
@@ -252,7 +93,7 @@ call classA_classA
 #### ADD
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
@@ -264,12 +105,12 @@ push -96(%edx)    # END ASSIGNMENT
     push %eax
 #### END ADD
 mov -4(%ebp), %edx
-pop -96(%edx)    # END ASSIGNMENT
+pop -8(%edx)    # END ASSIGNMENT
     # ASSIGNMENT aNew
 #### ADD
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
@@ -281,7 +122,7 @@ push -92(%edx)    # END ASSIGNMENT
     push %eax
 #### END ADD
 mov -4(%ebp), %edx
-pop -92(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
     ### VARIABLE
     ### END VARget
 push -4(%ebp)
@@ -294,59 +135,6 @@ push -4(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
-ClassTable {
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        12,
-        VariableTable {
-          a1 -> {Object(classA), -4, 4},
-          a2 -> {Object(classA), -8, 4},
-          b -> {Object(classB), -12, 4}
-        }
-      }
-    }
-  },
-  classA -> {
-    VariableTable {
-      x -> {Integer, 0, 4},
-      y -> {Integer, 4, 4}
-    },
-    MethodTable {
-      classA -> {
-        None,
-        0,
-        VariableTable {}
-      }
-    }
-  },
-  classB -> {
-    VariableTable {
-      xplus -> {Integer, 0, 4},
-      yplus -> {Integer, 4, 4}
-    },
-    MethodTable {
-      classB -> {
-        None,
-        0,
-        VariableTable {
-          xval -> {Integer, 12, 4},
-          yval -> {Integer, 16, 4}
-        }
-      },
-      makeA -> {
-        Object(classA),
-        4,
-        VariableTable {
-          a -> {Object(classA), 12, 4},
-          aNew -> {Object(classA), -4, 4}
-        }
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 Main_main:
     push %ebp
@@ -360,7 +148,7 @@ Main_main:
     push %eax
     push %ecx
     push %edx
-push $96
+push $8
 call malloc
 add $4, %esp
 push %eax
@@ -378,14 +166,14 @@ call classA_classA
     push %eax
 # END INT LITERAL
 mov -4(%ebp), %edx
-pop -96(%edx)    # END ASSIGNMENT
+pop -8(%edx)    # END ASSIGNMENT
     # ASSIGNMENT a1
 # INT LITERAL
     mov $8, %eax
     push %eax
 # END INT LITERAL
 mov -4(%ebp), %edx
-pop -92(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
     # ASSIGNMENT b
     # NEW ALLOC
     push %eax
@@ -434,12 +222,12 @@ push -12(%ebp)
     pop -8(%ebp)    # END ASSIGNMENT
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     # ASSIGNMENT
@@ -454,12 +242,12 @@ push -4(%edx)    # END ASSIGNMENT
 call printf
     # ASSIGNMENT
 mov -8(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     # ASSIGNMENT
 mov -8(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
     push $printstring
 call printf
     pop %esi

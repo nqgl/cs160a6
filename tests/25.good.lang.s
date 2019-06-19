@@ -2,161 +2,6 @@
 printstring: .asciz "%d\n"
 .text
 .globl Main_main
-ClassTable {
-  Float -> {
-    VariableTable {
-      exp -> {Integer, 4, 4},
-      frac -> {Integer, 8, 4},
-      sign -> {Boolean, 0, 4}
-    },
-    MethodTable {
-      Float -> {
-        None,
-        0,
-        VariableTable {
-          e -> {Integer, 16, 4},
-          f -> {Integer, 20, 4},
-          s -> {Boolean, 12, 4}
-        }
-      },
-      copy -> {
-        Object(Float),
-        0,
-        VariableTable {}
-      },
-      printval -> {
-        None,
-        0,
-        VariableTable {}
-      }
-    }
-  },
-  FloatOps -> {
-    VariableTable {},
-    MethodTable {
-      add -> {
-        Object(Float),
-        20,
-        VariableTable {
-          diff -> {Integer, -16, 4},
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          i -> {Integer, -20, 4},
-          result -> {Object(Float), -12, 4},
-          x -> {Object(Float), -4, 4},
-          y -> {Object(Float), -8, 4}
-        }
-      },
-      div -> {
-        Object(Float),
-        4,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          result -> {Object(Float), -4, 4}
-        }
-      },
-      exp -> {
-        Object(Float),
-        48,
-        VariableTable {
-          base -> {Object(Float), -20, 4},
-          c2 -> {Object(Float), -32, 4},
-          c3 -> {Object(Float), -36, 4},
-          c4 -> {Object(Float), -40, 4},
-          c5 -> {Object(Float), -44, 4},
-          c6 -> {Object(Float), -48, 4},
-          e -> {Object(Float), -12, 4},
-          f -> {Object(Float), 12, 4},
-          i -> {Integer, -4, 4},
-          one -> {Object(Float), -16, 4},
-          result -> {Object(Float), -28, 4},
-          tmp -> {Object(Float), -24, 4},
-          val -> {Integer, -8, 4}
-        }
-      },
-      ln -> {
-        Object(Float),
-        40,
-        VariableTable {
-          base -> {Object(Float), -12, 4},
-          c2 -> {Object(Float), -20, 4},
-          c3 -> {Object(Float), -24, 4},
-          c4 -> {Object(Float), -28, 4},
-          c5 -> {Object(Float), -32, 4},
-          f -> {Object(Float), 12, 4},
-          i -> {Integer, -40, 4},
-          log2 -> {Object(Float), -4, 4},
-          one -> {Object(Float), -36, 4},
-          result -> {Object(Float), -16, 4},
-          x -> {Object(Float), -8, 4}
-        }
-      },
-      lt -> {
-        Boolean,
-        8,
-        VariableTable {
-          done -> {Boolean, -4, 4},
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          result -> {Boolean, -8, 4}
-        }
-      },
-      mult -> {
-        Object(Float),
-        32,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          hi -> {Integer, -8, 4},
-          hi1 -> {Integer, -12, 4},
-          hi2 -> {Integer, -16, 4},
-          lo -> {Integer, -20, 4},
-          lo1 -> {Integer, -24, 4},
-          lo2 -> {Integer, -28, 4},
-          result -> {Object(Float), -4, 4},
-          tmp -> {Integer, -32, 4}
-        }
-      },
-      pow -> {
-        Object(Float),
-        0,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4}
-        }
-      },
-      sub -> {
-        Object(Float),
-        0,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4}
-        }
-      }
-    }
-  },
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        36,
-        VariableTable {
-          Amt -> {Object(Float), -32, 4},
-          F -> {Object(FloatOps), -16, 4},
-          N -> {Object(Float), -28, 4},
-          f1 -> {Object(Float), -4, 4},
-          f2 -> {Object(Float), -8, 4},
-          f3 -> {Object(Float), -12, 4},
-          one -> {Object(Float), -20, 4},
-          r -> {Object(Float), -24, 4},
-          res -> {Object(Float), -36, 4}
-        }
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 Float_Float:
     push %ebp
@@ -171,7 +16,7 @@ Float_Float:
 push 12(%ebp)
     ### END VARIABLE
     mov 8(%ebp), %edx
-    pop -96(%edx)
+    pop -12(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT exp
 #### ADD
@@ -189,7 +34,7 @@ push 16(%ebp)
     push %eax
 #### END ADD
     mov 8(%ebp), %edx
-    pop -92(%edx)
+    pop -8(%edx)
     # END ASSIGNMENT
     # ASSIGNMENT frac
     ### VARIABLE
@@ -197,7 +42,7 @@ push 16(%ebp)
 push 20(%ebp)
     ### END VARIABLE
     mov 8(%ebp), %edx
-    pop -88(%edx)
+    pop -4(%edx)
     # END ASSIGNMENT
     pop %esi
     pop %edi
@@ -206,161 +51,6 @@ push 20(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
-ClassTable {
-  Float -> {
-    VariableTable {
-      exp -> {Integer, 4, 4},
-      frac -> {Integer, 8, 4},
-      sign -> {Boolean, 0, 4}
-    },
-    MethodTable {
-      Float -> {
-        None,
-        0,
-        VariableTable {
-          e -> {Integer, 16, 4},
-          f -> {Integer, 20, 4},
-          s -> {Boolean, 12, 4}
-        }
-      },
-      copy -> {
-        Object(Float),
-        0,
-        VariableTable {}
-      },
-      printval -> {
-        None,
-        0,
-        VariableTable {}
-      }
-    }
-  },
-  FloatOps -> {
-    VariableTable {},
-    MethodTable {
-      add -> {
-        Object(Float),
-        20,
-        VariableTable {
-          diff -> {Integer, -16, 4},
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          i -> {Integer, -20, 4},
-          result -> {Object(Float), -12, 4},
-          x -> {Object(Float), -4, 4},
-          y -> {Object(Float), -8, 4}
-        }
-      },
-      div -> {
-        Object(Float),
-        4,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          result -> {Object(Float), -4, 4}
-        }
-      },
-      exp -> {
-        Object(Float),
-        48,
-        VariableTable {
-          base -> {Object(Float), -20, 4},
-          c2 -> {Object(Float), -32, 4},
-          c3 -> {Object(Float), -36, 4},
-          c4 -> {Object(Float), -40, 4},
-          c5 -> {Object(Float), -44, 4},
-          c6 -> {Object(Float), -48, 4},
-          e -> {Object(Float), -12, 4},
-          f -> {Object(Float), 12, 4},
-          i -> {Integer, -4, 4},
-          one -> {Object(Float), -16, 4},
-          result -> {Object(Float), -28, 4},
-          tmp -> {Object(Float), -24, 4},
-          val -> {Integer, -8, 4}
-        }
-      },
-      ln -> {
-        Object(Float),
-        40,
-        VariableTable {
-          base -> {Object(Float), -12, 4},
-          c2 -> {Object(Float), -20, 4},
-          c3 -> {Object(Float), -24, 4},
-          c4 -> {Object(Float), -28, 4},
-          c5 -> {Object(Float), -32, 4},
-          f -> {Object(Float), 12, 4},
-          i -> {Integer, -40, 4},
-          log2 -> {Object(Float), -4, 4},
-          one -> {Object(Float), -36, 4},
-          result -> {Object(Float), -16, 4},
-          x -> {Object(Float), -8, 4}
-        }
-      },
-      lt -> {
-        Boolean,
-        8,
-        VariableTable {
-          done -> {Boolean, -4, 4},
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          result -> {Boolean, -8, 4}
-        }
-      },
-      mult -> {
-        Object(Float),
-        32,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          hi -> {Integer, -8, 4},
-          hi1 -> {Integer, -12, 4},
-          hi2 -> {Integer, -16, 4},
-          lo -> {Integer, -20, 4},
-          lo1 -> {Integer, -24, 4},
-          lo2 -> {Integer, -28, 4},
-          result -> {Object(Float), -4, 4},
-          tmp -> {Integer, -32, 4}
-        }
-      },
-      pow -> {
-        Object(Float),
-        0,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4}
-        }
-      },
-      sub -> {
-        Object(Float),
-        0,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4}
-        }
-      }
-    }
-  },
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        36,
-        VariableTable {
-          Amt -> {Object(Float), -32, 4},
-          F -> {Object(FloatOps), -16, 4},
-          N -> {Object(Float), -28, 4},
-          f1 -> {Object(Float), -4, 4},
-          f2 -> {Object(Float), -8, 4},
-          f3 -> {Object(Float), -12, 4},
-          one -> {Object(Float), -20, 4},
-          r -> {Object(Float), -24, 4},
-          res -> {Object(Float), -36, 4}
-        }
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 Float_printval:
     push %ebp
@@ -372,7 +62,7 @@ Float_printval:
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -96(%edx)
+    push -12(%edx)
     ### END VARIABLE
     push $printstring
 call printf
@@ -380,7 +70,7 @@ call printf
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -92(%edx)
+    push -8(%edx)
     ### END VARIABLE
 # INT LITERAL
     mov $127, %eax
@@ -396,7 +86,7 @@ call printf
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -88(%edx)
+    push -4(%edx)
     ### END VARIABLE
     push $printstring
 call printf
@@ -407,161 +97,6 @@ call printf
     pop %ebp
     ret
     ### END METHOD DEFINITION
-ClassTable {
-  Float -> {
-    VariableTable {
-      exp -> {Integer, 4, 4},
-      frac -> {Integer, 8, 4},
-      sign -> {Boolean, 0, 4}
-    },
-    MethodTable {
-      Float -> {
-        None,
-        0,
-        VariableTable {
-          e -> {Integer, 16, 4},
-          f -> {Integer, 20, 4},
-          s -> {Boolean, 12, 4}
-        }
-      },
-      copy -> {
-        Object(Float),
-        0,
-        VariableTable {}
-      },
-      printval -> {
-        None,
-        0,
-        VariableTable {}
-      }
-    }
-  },
-  FloatOps -> {
-    VariableTable {},
-    MethodTable {
-      add -> {
-        Object(Float),
-        20,
-        VariableTable {
-          diff -> {Integer, -16, 4},
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          i -> {Integer, -20, 4},
-          result -> {Object(Float), -12, 4},
-          x -> {Object(Float), -4, 4},
-          y -> {Object(Float), -8, 4}
-        }
-      },
-      div -> {
-        Object(Float),
-        4,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          result -> {Object(Float), -4, 4}
-        }
-      },
-      exp -> {
-        Object(Float),
-        48,
-        VariableTable {
-          base -> {Object(Float), -20, 4},
-          c2 -> {Object(Float), -32, 4},
-          c3 -> {Object(Float), -36, 4},
-          c4 -> {Object(Float), -40, 4},
-          c5 -> {Object(Float), -44, 4},
-          c6 -> {Object(Float), -48, 4},
-          e -> {Object(Float), -12, 4},
-          f -> {Object(Float), 12, 4},
-          i -> {Integer, -4, 4},
-          one -> {Object(Float), -16, 4},
-          result -> {Object(Float), -28, 4},
-          tmp -> {Object(Float), -24, 4},
-          val -> {Integer, -8, 4}
-        }
-      },
-      ln -> {
-        Object(Float),
-        40,
-        VariableTable {
-          base -> {Object(Float), -12, 4},
-          c2 -> {Object(Float), -20, 4},
-          c3 -> {Object(Float), -24, 4},
-          c4 -> {Object(Float), -28, 4},
-          c5 -> {Object(Float), -32, 4},
-          f -> {Object(Float), 12, 4},
-          i -> {Integer, -40, 4},
-          log2 -> {Object(Float), -4, 4},
-          one -> {Object(Float), -36, 4},
-          result -> {Object(Float), -16, 4},
-          x -> {Object(Float), -8, 4}
-        }
-      },
-      lt -> {
-        Boolean,
-        8,
-        VariableTable {
-          done -> {Boolean, -4, 4},
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          result -> {Boolean, -8, 4}
-        }
-      },
-      mult -> {
-        Object(Float),
-        32,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          hi -> {Integer, -8, 4},
-          hi1 -> {Integer, -12, 4},
-          hi2 -> {Integer, -16, 4},
-          lo -> {Integer, -20, 4},
-          lo1 -> {Integer, -24, 4},
-          lo2 -> {Integer, -28, 4},
-          result -> {Object(Float), -4, 4},
-          tmp -> {Integer, -32, 4}
-        }
-      },
-      pow -> {
-        Object(Float),
-        0,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4}
-        }
-      },
-      sub -> {
-        Object(Float),
-        0,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4}
-        }
-      }
-    }
-  },
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        36,
-        VariableTable {
-          Amt -> {Object(Float), -32, 4},
-          F -> {Object(FloatOps), -16, 4},
-          N -> {Object(Float), -28, 4},
-          f1 -> {Object(Float), -4, 4},
-          f2 -> {Object(Float), -8, 4},
-          f3 -> {Object(Float), -12, 4},
-          one -> {Object(Float), -20, 4},
-          r -> {Object(Float), -24, 4},
-          res -> {Object(Float), -36, 4}
-        }
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 Float_copy:
     push %ebp
@@ -577,13 +112,13 @@ Float_copy:
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -88(%edx)
+    push -4(%edx)
     ### END VARIABLE
 #### SUBTRACT
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -92(%edx)
+    push -8(%edx)
     ### END VARIABLE
 # INT LITERAL
     mov $127, %eax
@@ -597,9 +132,9 @@ Float_copy:
     ### VARIABLE
     ### END VARget
     mov 8(%ebp), %edx
-    push -96(%edx)
+    push -12(%edx)
     ### END VARIABLE
-push $96
+push $12
 call malloc
 add $4, %esp
 push %eax
@@ -618,161 +153,6 @@ call Float_Float
     pop %ebp
     ret
     ### END METHOD DEFINITION
-ClassTable {
-  Float -> {
-    VariableTable {
-      exp -> {Integer, 4, 4},
-      frac -> {Integer, 8, 4},
-      sign -> {Boolean, 0, 4}
-    },
-    MethodTable {
-      Float -> {
-        None,
-        0,
-        VariableTable {
-          e -> {Integer, 16, 4},
-          f -> {Integer, 20, 4},
-          s -> {Boolean, 12, 4}
-        }
-      },
-      copy -> {
-        Object(Float),
-        0,
-        VariableTable {}
-      },
-      printval -> {
-        None,
-        0,
-        VariableTable {}
-      }
-    }
-  },
-  FloatOps -> {
-    VariableTable {},
-    MethodTable {
-      add -> {
-        Object(Float),
-        20,
-        VariableTable {
-          diff -> {Integer, -16, 4},
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          i -> {Integer, -20, 4},
-          result -> {Object(Float), -12, 4},
-          x -> {Object(Float), -4, 4},
-          y -> {Object(Float), -8, 4}
-        }
-      },
-      div -> {
-        Object(Float),
-        4,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          result -> {Object(Float), -4, 4}
-        }
-      },
-      exp -> {
-        Object(Float),
-        48,
-        VariableTable {
-          base -> {Object(Float), -20, 4},
-          c2 -> {Object(Float), -32, 4},
-          c3 -> {Object(Float), -36, 4},
-          c4 -> {Object(Float), -40, 4},
-          c5 -> {Object(Float), -44, 4},
-          c6 -> {Object(Float), -48, 4},
-          e -> {Object(Float), -12, 4},
-          f -> {Object(Float), 12, 4},
-          i -> {Integer, -4, 4},
-          one -> {Object(Float), -16, 4},
-          result -> {Object(Float), -28, 4},
-          tmp -> {Object(Float), -24, 4},
-          val -> {Integer, -8, 4}
-        }
-      },
-      ln -> {
-        Object(Float),
-        40,
-        VariableTable {
-          base -> {Object(Float), -12, 4},
-          c2 -> {Object(Float), -20, 4},
-          c3 -> {Object(Float), -24, 4},
-          c4 -> {Object(Float), -28, 4},
-          c5 -> {Object(Float), -32, 4},
-          f -> {Object(Float), 12, 4},
-          i -> {Integer, -40, 4},
-          log2 -> {Object(Float), -4, 4},
-          one -> {Object(Float), -36, 4},
-          result -> {Object(Float), -16, 4},
-          x -> {Object(Float), -8, 4}
-        }
-      },
-      lt -> {
-        Boolean,
-        8,
-        VariableTable {
-          done -> {Boolean, -4, 4},
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          result -> {Boolean, -8, 4}
-        }
-      },
-      mult -> {
-        Object(Float),
-        32,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          hi -> {Integer, -8, 4},
-          hi1 -> {Integer, -12, 4},
-          hi2 -> {Integer, -16, 4},
-          lo -> {Integer, -20, 4},
-          lo1 -> {Integer, -24, 4},
-          lo2 -> {Integer, -28, 4},
-          result -> {Object(Float), -4, 4},
-          tmp -> {Integer, -32, 4}
-        }
-      },
-      pow -> {
-        Object(Float),
-        0,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4}
-        }
-      },
-      sub -> {
-        Object(Float),
-        0,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4}
-        }
-      }
-    }
-  },
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        36,
-        VariableTable {
-          Amt -> {Object(Float), -32, 4},
-          F -> {Object(FloatOps), -16, 4},
-          N -> {Object(Float), -28, 4},
-          f1 -> {Object(Float), -4, 4},
-          f2 -> {Object(Float), -8, 4},
-          f3 -> {Object(Float), -12, 4},
-          one -> {Object(Float), -20, 4},
-          r -> {Object(Float), -24, 4},
-          res -> {Object(Float), -36, 4}
-        }
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 FloatOps_add:
     push %ebp
@@ -798,7 +178,7 @@ FloatOps_add:
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $12
 call malloc
 add $4, %esp
 push %eax
@@ -815,10 +195,10 @@ call Float_Float
 # CHECK GT
     # ASSIGNMENT
 mov 16(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
     pop %ebx
     pop %eax
     mov $0, %edx # Clear %edx
@@ -908,10 +288,10 @@ label1:
 #### SUBTRACT
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
     # ASSIGNMENT
 mov -8(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
  pop %ebx
  pop %eax
  sub %ebx, %eax
@@ -926,14 +306,14 @@ push -92(%edx)    # END ASSIGNMENT
 # END INT LITERAL
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
     pop %ebx
     pop %eax
     add %ebx, %eax
     push %eax
 #### END ADD
 mov -4(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
     # ASSIGNMENT y
 #### ADD
 # INT LITERAL
@@ -942,19 +322,19 @@ pop -88(%edx)    # END ASSIGNMENT
 # END INT LITERAL
     # ASSIGNMENT
 mov -8(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
     pop %ebx
     pop %eax
     add %ebx, %eax
     push %eax
 #### END ADD
 mov -8(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
 # IF:
     ### PUSH CONDITIONAL
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push -12(%edx)    # END ASSIGNMENT
     ### END CONDITIONAL
 pop %eax
 mov $0, %ebx
@@ -973,21 +353,21 @@ je label3
 # END NEGATION
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
  pop %ebx
  pop %eax
  imul %ebx, %eax
  push %eax
 #### END MULTIPLY
 mov -4(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
 jmp label3
 label3:
 # IF:
     ### PUSH CONDITIONAL
     # ASSIGNMENT
 mov -8(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push -12(%edx)    # END ASSIGNMENT
     ### END CONDITIONAL
 pop %eax
 mov $0, %ebx
@@ -1006,14 +386,14 @@ je label5
 # END NEGATION
     # ASSIGNMENT
 mov -8(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
  pop %ebx
  pop %eax
  imul %ebx, %eax
  push %eax
 #### END MULTIPLY
 mov -8(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
 jmp label5
 label5:
     # ASSIGNMENT i
@@ -1065,7 +445,7 @@ push -20(%ebp)
 # DIVIDE
     # ASSIGNMENT
 mov -8(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $2, %eax
     push %eax
@@ -1077,7 +457,7 @@ push -88(%edx)    # END ASSIGNMENT
     push %eax
 # END DIVIDE
 mov -8(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
 jmp label6
 label7:
 #END WHILE LOOP
@@ -1085,23 +465,23 @@ label7:
 #### ADD
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
     # ASSIGNMENT
 mov -8(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
     pop %ebx
     pop %eax
     add %ebx, %eax
     push %eax
 #### END ADD
 mov -12(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
     # ASSIGNMENT result
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
 mov -12(%ebp), %edx
-pop -92(%edx)    # END ASSIGNMENT
+pop -8(%edx)    # END ASSIGNMENT
 # IF:
     ### PUSH CONDITIONAL
 # CHECK GT
@@ -1111,7 +491,7 @@ pop -92(%edx)    # END ASSIGNMENT
 # END INT LITERAL
     # ASSIGNMENT
 mov -12(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
     pop %ebx
     pop %eax
     mov $0, %edx # Clear %edx
@@ -1138,21 +518,21 @@ je label8
 # END NEGATION
     # ASSIGNMENT
 mov -12(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
  pop %ebx
  pop %eax
  imul %ebx, %eax
  push %eax
 #### END MULTIPLY
 mov -12(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
     # ASSIGNMENT result
 # BOOL LITERAL
     mov $1, %eax
     push %eax
 # END BOOL LITERAL
 mov -12(%ebp), %edx
-pop -96(%edx)    # END ASSIGNMENT
+pop -12(%edx)    # END ASSIGNMENT
 jmp label9
 label8:
 # ELSE:
@@ -1162,7 +542,7 @@ label8:
     push %eax
 # END BOOL LITERAL
 mov -12(%ebp), %edx
-pop -96(%edx)    # END ASSIGNMENT
+pop -12(%edx)    # END ASSIGNMENT
 label9:
 # IF:
     ### PUSH CONDITIONAL
@@ -1170,7 +550,7 @@ label9:
 # CHECK EQUALITY
     # ASSIGNMENT
 mov -12(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $0, %eax
     push %eax
@@ -1203,7 +583,7 @@ label12:
 # END INT LITERAL
     # ASSIGNMENT
 mov -12(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
     pop %ebx
     pop %eax
     mov $0, %edx # Clear %edx
@@ -1220,7 +600,7 @@ je label13
 #### MULTIPLY
     # ASSIGNMENT
 mov -12(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $2, %eax
     push %eax
@@ -1231,12 +611,12 @@ push -88(%edx)    # END ASSIGNMENT
  push %eax
 #### END MULTIPLY
 mov -12(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
     # ASSIGNMENT result
 #### SUBTRACT
     # ASSIGNMENT
 mov -12(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $1, %eax
     push %eax
@@ -1247,7 +627,7 @@ push -92(%edx)    # END ASSIGNMENT
  push %eax
 #### END SUBTRACT
 mov -12(%ebp), %edx
-pop -92(%edx)    # END ASSIGNMENT
+pop -8(%edx)    # END ASSIGNMENT
 jmp label12
 label13:
 #END WHILE LOOP
@@ -1256,7 +636,7 @@ label14:
 # CHECK GTE
     # ASSIGNMENT
 mov -12(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $16777216, %eax
     push %eax
@@ -1276,7 +656,7 @@ je label15
 # DIVIDE
     # ASSIGNMENT
 mov -12(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $2, %eax
     push %eax
@@ -1288,12 +668,12 @@ push -88(%edx)    # END ASSIGNMENT
     push %eax
 # END DIVIDE
 mov -12(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
     # ASSIGNMENT result
 #### ADD
     # ASSIGNMENT
 mov -12(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $1, %eax
     push %eax
@@ -1304,7 +684,7 @@ push -92(%edx)    # END ASSIGNMENT
     push %eax
 #### END ADD
 mov -12(%ebp), %edx
-pop -92(%edx)    # END ASSIGNMENT
+pop -8(%edx)    # END ASSIGNMENT
 jmp label14
 label15:
 #END WHILE LOOP
@@ -1312,7 +692,7 @@ label15:
 #### SUBTRACT
     # ASSIGNMENT
 mov -12(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $8388608, %eax
     push %eax
@@ -1323,7 +703,7 @@ push -88(%edx)    # END ASSIGNMENT
  push %eax
 #### END SUBTRACT
 mov -12(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
 jmp label11
 label10:
 # ELSE:
@@ -1333,7 +713,7 @@ label10:
     push %eax
 # END INT LITERAL
 mov -12(%ebp), %edx
-pop -92(%edx)    # END ASSIGNMENT
+pop -8(%edx)    # END ASSIGNMENT
 label11:
     ### VARIABLE
     ### END VARget
@@ -1347,161 +727,6 @@ push -12(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
-ClassTable {
-  Float -> {
-    VariableTable {
-      exp -> {Integer, 4, 4},
-      frac -> {Integer, 8, 4},
-      sign -> {Boolean, 0, 4}
-    },
-    MethodTable {
-      Float -> {
-        None,
-        0,
-        VariableTable {
-          e -> {Integer, 16, 4},
-          f -> {Integer, 20, 4},
-          s -> {Boolean, 12, 4}
-        }
-      },
-      copy -> {
-        Object(Float),
-        0,
-        VariableTable {}
-      },
-      printval -> {
-        None,
-        0,
-        VariableTable {}
-      }
-    }
-  },
-  FloatOps -> {
-    VariableTable {},
-    MethodTable {
-      add -> {
-        Object(Float),
-        20,
-        VariableTable {
-          diff -> {Integer, -16, 4},
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          i -> {Integer, -20, 4},
-          result -> {Object(Float), -12, 4},
-          x -> {Object(Float), -4, 4},
-          y -> {Object(Float), -8, 4}
-        }
-      },
-      div -> {
-        Object(Float),
-        4,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          result -> {Object(Float), -4, 4}
-        }
-      },
-      exp -> {
-        Object(Float),
-        48,
-        VariableTable {
-          base -> {Object(Float), -20, 4},
-          c2 -> {Object(Float), -32, 4},
-          c3 -> {Object(Float), -36, 4},
-          c4 -> {Object(Float), -40, 4},
-          c5 -> {Object(Float), -44, 4},
-          c6 -> {Object(Float), -48, 4},
-          e -> {Object(Float), -12, 4},
-          f -> {Object(Float), 12, 4},
-          i -> {Integer, -4, 4},
-          one -> {Object(Float), -16, 4},
-          result -> {Object(Float), -28, 4},
-          tmp -> {Object(Float), -24, 4},
-          val -> {Integer, -8, 4}
-        }
-      },
-      ln -> {
-        Object(Float),
-        40,
-        VariableTable {
-          base -> {Object(Float), -12, 4},
-          c2 -> {Object(Float), -20, 4},
-          c3 -> {Object(Float), -24, 4},
-          c4 -> {Object(Float), -28, 4},
-          c5 -> {Object(Float), -32, 4},
-          f -> {Object(Float), 12, 4},
-          i -> {Integer, -40, 4},
-          log2 -> {Object(Float), -4, 4},
-          one -> {Object(Float), -36, 4},
-          result -> {Object(Float), -16, 4},
-          x -> {Object(Float), -8, 4}
-        }
-      },
-      lt -> {
-        Boolean,
-        8,
-        VariableTable {
-          done -> {Boolean, -4, 4},
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          result -> {Boolean, -8, 4}
-        }
-      },
-      mult -> {
-        Object(Float),
-        32,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          hi -> {Integer, -8, 4},
-          hi1 -> {Integer, -12, 4},
-          hi2 -> {Integer, -16, 4},
-          lo -> {Integer, -20, 4},
-          lo1 -> {Integer, -24, 4},
-          lo2 -> {Integer, -28, 4},
-          result -> {Object(Float), -4, 4},
-          tmp -> {Integer, -32, 4}
-        }
-      },
-      pow -> {
-        Object(Float),
-        0,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4}
-        }
-      },
-      sub -> {
-        Object(Float),
-        0,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4}
-        }
-      }
-    }
-  },
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        36,
-        VariableTable {
-          Amt -> {Object(Float), -32, 4},
-          F -> {Object(FloatOps), -16, 4},
-          N -> {Object(Float), -28, 4},
-          f1 -> {Object(Float), -4, 4},
-          f2 -> {Object(Float), -8, 4},
-          f3 -> {Object(Float), -12, 4},
-          one -> {Object(Float), -20, 4},
-          r -> {Object(Float), -24, 4},
-          res -> {Object(Float), -36, 4}
-        }
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 FloatOps_sub:
     push %ebp
@@ -1521,11 +746,11 @@ FloatOps_sub:
     push %edx
     # ASSIGNMENT
 mov 16(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 #### SUBTRACT
     # ASSIGNMENT
 mov 16(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $127, %eax
     push %eax
@@ -1538,7 +763,7 @@ push -92(%edx)    # END ASSIGNMENT
 # NOT
     # ASSIGNMENT
 mov 16(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push -12(%edx)    # END ASSIGNMENT
     pop %eax
     mov $0, %ebx
     mov $0, %edx # Clear %edx
@@ -1546,7 +771,7 @@ push -96(%edx)    # END ASSIGNMENT
     sete %dl # Sets lowest byte
     push %edx
 # END NOT
-push $96
+push $12
 call malloc
 add $4, %esp
 push %eax
@@ -1579,161 +804,6 @@ push 12(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
-ClassTable {
-  Float -> {
-    VariableTable {
-      exp -> {Integer, 4, 4},
-      frac -> {Integer, 8, 4},
-      sign -> {Boolean, 0, 4}
-    },
-    MethodTable {
-      Float -> {
-        None,
-        0,
-        VariableTable {
-          e -> {Integer, 16, 4},
-          f -> {Integer, 20, 4},
-          s -> {Boolean, 12, 4}
-        }
-      },
-      copy -> {
-        Object(Float),
-        0,
-        VariableTable {}
-      },
-      printval -> {
-        None,
-        0,
-        VariableTable {}
-      }
-    }
-  },
-  FloatOps -> {
-    VariableTable {},
-    MethodTable {
-      add -> {
-        Object(Float),
-        20,
-        VariableTable {
-          diff -> {Integer, -16, 4},
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          i -> {Integer, -20, 4},
-          result -> {Object(Float), -12, 4},
-          x -> {Object(Float), -4, 4},
-          y -> {Object(Float), -8, 4}
-        }
-      },
-      div -> {
-        Object(Float),
-        4,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          result -> {Object(Float), -4, 4}
-        }
-      },
-      exp -> {
-        Object(Float),
-        48,
-        VariableTable {
-          base -> {Object(Float), -20, 4},
-          c2 -> {Object(Float), -32, 4},
-          c3 -> {Object(Float), -36, 4},
-          c4 -> {Object(Float), -40, 4},
-          c5 -> {Object(Float), -44, 4},
-          c6 -> {Object(Float), -48, 4},
-          e -> {Object(Float), -12, 4},
-          f -> {Object(Float), 12, 4},
-          i -> {Integer, -4, 4},
-          one -> {Object(Float), -16, 4},
-          result -> {Object(Float), -28, 4},
-          tmp -> {Object(Float), -24, 4},
-          val -> {Integer, -8, 4}
-        }
-      },
-      ln -> {
-        Object(Float),
-        40,
-        VariableTable {
-          base -> {Object(Float), -12, 4},
-          c2 -> {Object(Float), -20, 4},
-          c3 -> {Object(Float), -24, 4},
-          c4 -> {Object(Float), -28, 4},
-          c5 -> {Object(Float), -32, 4},
-          f -> {Object(Float), 12, 4},
-          i -> {Integer, -40, 4},
-          log2 -> {Object(Float), -4, 4},
-          one -> {Object(Float), -36, 4},
-          result -> {Object(Float), -16, 4},
-          x -> {Object(Float), -8, 4}
-        }
-      },
-      lt -> {
-        Boolean,
-        8,
-        VariableTable {
-          done -> {Boolean, -4, 4},
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          result -> {Boolean, -8, 4}
-        }
-      },
-      mult -> {
-        Object(Float),
-        32,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          hi -> {Integer, -8, 4},
-          hi1 -> {Integer, -12, 4},
-          hi2 -> {Integer, -16, 4},
-          lo -> {Integer, -20, 4},
-          lo1 -> {Integer, -24, 4},
-          lo2 -> {Integer, -28, 4},
-          result -> {Object(Float), -4, 4},
-          tmp -> {Integer, -32, 4}
-        }
-      },
-      pow -> {
-        Object(Float),
-        0,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4}
-        }
-      },
-      sub -> {
-        Object(Float),
-        0,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4}
-        }
-      }
-    }
-  },
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        36,
-        VariableTable {
-          Amt -> {Object(Float), -32, 4},
-          F -> {Object(FloatOps), -16, 4},
-          N -> {Object(Float), -28, 4},
-          f1 -> {Object(Float), -4, 4},
-          f2 -> {Object(Float), -8, 4},
-          f3 -> {Object(Float), -12, 4},
-          one -> {Object(Float), -20, 4},
-          r -> {Object(Float), -24, 4},
-          res -> {Object(Float), -36, 4}
-        }
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 FloatOps_mult:
     push %ebp
@@ -1759,7 +829,7 @@ FloatOps_mult:
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $12
 call malloc
 add $4, %esp
 push %eax
@@ -1778,7 +848,7 @@ call Float_Float
 # CHECK EQUALITY
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $0, %eax
     push %eax
@@ -1793,7 +863,7 @@ push -92(%edx)    # END ASSIGNMENT
 # CHECK EQUALITY
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $0, %eax
     push %eax
@@ -1814,7 +884,7 @@ push -88(%edx)    # END ASSIGNMENT
 # CHECK EQUALITY
     # ASSIGNMENT
 mov 16(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $0, %eax
     push %eax
@@ -1829,7 +899,7 @@ push -92(%edx)    # END ASSIGNMENT
 # CHECK EQUALITY
     # ASSIGNMENT
 mov 16(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $0, %eax
     push %eax
@@ -1862,21 +932,21 @@ je label16
     push %eax
 # END BOOL LITERAL
 mov -4(%ebp), %edx
-pop -96(%edx)    # END ASSIGNMENT
+pop -12(%edx)    # END ASSIGNMENT
     # ASSIGNMENT result
 # INT LITERAL
     mov $0, %eax
     push %eax
 # END INT LITERAL
 mov -4(%ebp), %edx
-pop -92(%edx)    # END ASSIGNMENT
+pop -8(%edx)    # END ASSIGNMENT
     # ASSIGNMENT result
 # INT LITERAL
     mov $0, %eax
     push %eax
 # END INT LITERAL
 mov -4(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
 jmp label17
 label16:
 # ELSE:
@@ -1886,10 +956,10 @@ label16:
 # OR
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push -12(%edx)    # END ASSIGNMENT
     # ASSIGNMENT
 mov 16(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push -12(%edx)    # END ASSIGNMENT
     pop %eax
     pop %ebx
     or %ebx, %eax
@@ -1899,10 +969,10 @@ push -96(%edx)    # END ASSIGNMENT
 # AND
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push -12(%edx)    # END ASSIGNMENT
     # ASSIGNMENT
 mov 16(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push -12(%edx)    # END ASSIGNMENT
     pop %eax
     pop %ebx
     and %ebx, %eax
@@ -1931,7 +1001,7 @@ je label18
     push %eax
 # END BOOL LITERAL
 mov -4(%ebp), %edx
-pop -96(%edx)    # END ASSIGNMENT
+pop -12(%edx)    # END ASSIGNMENT
 jmp label19
 label18:
 # ELSE:
@@ -1941,17 +1011,17 @@ label18:
     push %eax
 # END BOOL LITERAL
 mov -4(%ebp), %edx
-pop -96(%edx)    # END ASSIGNMENT
+pop -12(%edx)    # END ASSIGNMENT
 label19:
     # ASSIGNMENT result
 #### SUBTRACT
 #### ADD
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
     # ASSIGNMENT
 mov 16(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
     pop %ebx
     pop %eax
     add %ebx, %eax
@@ -1967,12 +1037,12 @@ push -92(%edx)    # END ASSIGNMENT
  push %eax
 #### END SUBTRACT
 mov -4(%ebp), %edx
-pop -92(%edx)    # END ASSIGNMENT
+pop -8(%edx)    # END ASSIGNMENT
     # ASSIGNMENT f1
 #### ADD
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $8388608, %eax
     push %eax
@@ -1983,12 +1053,12 @@ push -88(%edx)    # END ASSIGNMENT
     push %eax
 #### END ADD
 mov 12(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
     # ASSIGNMENT f2
 #### ADD
     # ASSIGNMENT
 mov 16(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $8388608, %eax
     push %eax
@@ -1999,12 +1069,12 @@ push -88(%edx)    # END ASSIGNMENT
     push %eax
 #### END ADD
 mov 16(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
     # ASSIGNMENT hi1
 # DIVIDE
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $4096, %eax
     push %eax
@@ -2020,7 +1090,7 @@ push -88(%edx)    # END ASSIGNMENT
 #### SUBTRACT
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 #### MULTIPLY
     ### VARIABLE
     ### END VARget
@@ -2045,7 +1115,7 @@ push -12(%ebp)
 # DIVIDE
     # ASSIGNMENT
 mov 16(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $4096, %eax
     push %eax
@@ -2061,7 +1131,7 @@ push -88(%edx)    # END ASSIGNMENT
 #### SUBTRACT
     # ASSIGNMENT
 mov 16(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 #### MULTIPLY
     ### VARIABLE
     ### END VARget
@@ -2194,12 +1264,12 @@ push -20(%ebp)
 push -8(%ebp)
     ### END VARIABLE
 mov -4(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
     # ASSIGNMENT result
 #### ADD
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $1, %eax
     push %eax
@@ -2210,14 +1280,14 @@ push -92(%edx)    # END ASSIGNMENT
     push %eax
 #### END ADD
 mov -4(%ebp), %edx
-pop -92(%edx)    # END ASSIGNMENT
+pop -8(%edx)    # END ASSIGNMENT
 # IF:
     ### PUSH CONDITIONAL
 # NOT
 # CHECK EQUALITY
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $0, %eax
     push %eax
@@ -2250,7 +1320,7 @@ label22:
 # END INT LITERAL
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
     pop %ebx
     pop %eax
     mov $0, %edx # Clear %edx
@@ -2267,7 +1337,7 @@ je label23
 #### MULTIPLY
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $2, %eax
     push %eax
@@ -2278,12 +1348,12 @@ push -88(%edx)    # END ASSIGNMENT
  push %eax
 #### END MULTIPLY
 mov -4(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
     # ASSIGNMENT result
 #### SUBTRACT
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $1, %eax
     push %eax
@@ -2294,12 +1364,12 @@ push -92(%edx)    # END ASSIGNMENT
  push %eax
 #### END SUBTRACT
 mov -4(%ebp), %edx
-pop -92(%edx)    # END ASSIGNMENT
+pop -8(%edx)    # END ASSIGNMENT
     # ASSIGNMENT result
 #### ADD
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # DIVIDE
     ### VARIABLE
     ### END VARget
@@ -2321,7 +1391,7 @@ push -20(%ebp)
     push %eax
 #### END ADD
 mov -4(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
     # ASSIGNMENT lo
 #### SUBTRACT
     ### VARIABLE
@@ -2373,7 +1443,7 @@ label24:
 # CHECK GTE
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $16777216, %eax
     push %eax
@@ -2393,7 +1463,7 @@ je label25
 # DIVIDE
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $2, %eax
     push %eax
@@ -2405,12 +1475,12 @@ push -88(%edx)    # END ASSIGNMENT
     push %eax
 # END DIVIDE
 mov -4(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
     # ASSIGNMENT result
 #### ADD
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $1, %eax
     push %eax
@@ -2421,7 +1491,7 @@ push -92(%edx)    # END ASSIGNMENT
     push %eax
 #### END ADD
 mov -4(%ebp), %edx
-pop -92(%edx)    # END ASSIGNMENT
+pop -8(%edx)    # END ASSIGNMENT
 jmp label24
 label25:
 #END WHILE LOOP
@@ -2431,7 +1501,7 @@ label21:
 #### SUBTRACT
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $8388608, %eax
     push %eax
@@ -2442,12 +1512,12 @@ push -88(%edx)    # END ASSIGNMENT
  push %eax
 #### END SUBTRACT
 mov -4(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
     # ASSIGNMENT f1
 #### SUBTRACT
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $8388608, %eax
     push %eax
@@ -2458,12 +1528,12 @@ push -88(%edx)    # END ASSIGNMENT
  push %eax
 #### END SUBTRACT
 mov 12(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
     # ASSIGNMENT f2
 #### SUBTRACT
     # ASSIGNMENT
 mov 16(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $8388608, %eax
     push %eax
@@ -2474,7 +1544,7 @@ push -88(%edx)    # END ASSIGNMENT
  push %eax
 #### END SUBTRACT
 mov 16(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
 label17:
     ### VARIABLE
     ### END VARget
@@ -2488,161 +1558,6 @@ push -4(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
-ClassTable {
-  Float -> {
-    VariableTable {
-      exp -> {Integer, 4, 4},
-      frac -> {Integer, 8, 4},
-      sign -> {Boolean, 0, 4}
-    },
-    MethodTable {
-      Float -> {
-        None,
-        0,
-        VariableTable {
-          e -> {Integer, 16, 4},
-          f -> {Integer, 20, 4},
-          s -> {Boolean, 12, 4}
-        }
-      },
-      copy -> {
-        Object(Float),
-        0,
-        VariableTable {}
-      },
-      printval -> {
-        None,
-        0,
-        VariableTable {}
-      }
-    }
-  },
-  FloatOps -> {
-    VariableTable {},
-    MethodTable {
-      add -> {
-        Object(Float),
-        20,
-        VariableTable {
-          diff -> {Integer, -16, 4},
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          i -> {Integer, -20, 4},
-          result -> {Object(Float), -12, 4},
-          x -> {Object(Float), -4, 4},
-          y -> {Object(Float), -8, 4}
-        }
-      },
-      div -> {
-        Object(Float),
-        4,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          result -> {Object(Float), -4, 4}
-        }
-      },
-      exp -> {
-        Object(Float),
-        48,
-        VariableTable {
-          base -> {Object(Float), -20, 4},
-          c2 -> {Object(Float), -32, 4},
-          c3 -> {Object(Float), -36, 4},
-          c4 -> {Object(Float), -40, 4},
-          c5 -> {Object(Float), -44, 4},
-          c6 -> {Object(Float), -48, 4},
-          e -> {Object(Float), -12, 4},
-          f -> {Object(Float), 12, 4},
-          i -> {Integer, -4, 4},
-          one -> {Object(Float), -16, 4},
-          result -> {Object(Float), -28, 4},
-          tmp -> {Object(Float), -24, 4},
-          val -> {Integer, -8, 4}
-        }
-      },
-      ln -> {
-        Object(Float),
-        40,
-        VariableTable {
-          base -> {Object(Float), -12, 4},
-          c2 -> {Object(Float), -20, 4},
-          c3 -> {Object(Float), -24, 4},
-          c4 -> {Object(Float), -28, 4},
-          c5 -> {Object(Float), -32, 4},
-          f -> {Object(Float), 12, 4},
-          i -> {Integer, -40, 4},
-          log2 -> {Object(Float), -4, 4},
-          one -> {Object(Float), -36, 4},
-          result -> {Object(Float), -16, 4},
-          x -> {Object(Float), -8, 4}
-        }
-      },
-      lt -> {
-        Boolean,
-        8,
-        VariableTable {
-          done -> {Boolean, -4, 4},
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          result -> {Boolean, -8, 4}
-        }
-      },
-      mult -> {
-        Object(Float),
-        32,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          hi -> {Integer, -8, 4},
-          hi1 -> {Integer, -12, 4},
-          hi2 -> {Integer, -16, 4},
-          lo -> {Integer, -20, 4},
-          lo1 -> {Integer, -24, 4},
-          lo2 -> {Integer, -28, 4},
-          result -> {Object(Float), -4, 4},
-          tmp -> {Integer, -32, 4}
-        }
-      },
-      pow -> {
-        Object(Float),
-        0,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4}
-        }
-      },
-      sub -> {
-        Object(Float),
-        0,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4}
-        }
-      }
-    }
-  },
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        36,
-        VariableTable {
-          Amt -> {Object(Float), -32, 4},
-          F -> {Object(FloatOps), -16, 4},
-          N -> {Object(Float), -28, 4},
-          f1 -> {Object(Float), -4, 4},
-          f2 -> {Object(Float), -8, 4},
-          f3 -> {Object(Float), -12, 4},
-          one -> {Object(Float), -20, 4},
-          r -> {Object(Float), -24, 4},
-          res -> {Object(Float), -36, 4}
-        }
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 FloatOps_div:
     push %ebp
@@ -2668,7 +1583,7 @@ FloatOps_div:
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $12
 call malloc
 add $4, %esp
 push %eax
@@ -2686,10 +1601,10 @@ call Float_Float
 # OR
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push -12(%edx)    # END ASSIGNMENT
     # ASSIGNMENT
 mov 16(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push -12(%edx)    # END ASSIGNMENT
     pop %eax
     pop %ebx
     or %ebx, %eax
@@ -2699,10 +1614,10 @@ push -96(%edx)    # END ASSIGNMENT
 # AND
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push -12(%edx)    # END ASSIGNMENT
     # ASSIGNMENT
 mov 16(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push -12(%edx)    # END ASSIGNMENT
     pop %eax
     pop %ebx
     and %ebx, %eax
@@ -2731,7 +1646,7 @@ je label26
     push %eax
 # END BOOL LITERAL
 mov -4(%ebp), %edx
-pop -96(%edx)    # END ASSIGNMENT
+pop -12(%edx)    # END ASSIGNMENT
 jmp label27
 label26:
 # ELSE:
@@ -2741,17 +1656,17 @@ label26:
     push %eax
 # END BOOL LITERAL
 mov -4(%ebp), %edx
-pop -96(%edx)    # END ASSIGNMENT
+pop -12(%edx)    # END ASSIGNMENT
 label27:
     # ASSIGNMENT result
 #### ADD
 #### SUBTRACT
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
     # ASSIGNMENT
 mov 16(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
  pop %ebx
  pop %eax
  sub %ebx, %eax
@@ -2767,12 +1682,12 @@ push -92(%edx)    # END ASSIGNMENT
     push %eax
 #### END ADD
 mov -4(%ebp), %edx
-pop -92(%edx)    # END ASSIGNMENT
+pop -8(%edx)    # END ASSIGNMENT
     # ASSIGNMENT f1
 #### ADD
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $8388608, %eax
     push %eax
@@ -2783,12 +1698,12 @@ push -88(%edx)    # END ASSIGNMENT
     push %eax
 #### END ADD
 mov 12(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
     # ASSIGNMENT f2
 #### ADD
     # ASSIGNMENT
 mov 16(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $8388608, %eax
     push %eax
@@ -2799,12 +1714,12 @@ push -88(%edx)    # END ASSIGNMENT
     push %eax
 #### END ADD
 mov 16(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
     # ASSIGNMENT f1
 #### MULTIPLY
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $128, %eax
     push %eax
@@ -2815,15 +1730,15 @@ push -88(%edx)    # END ASSIGNMENT
  push %eax
 #### END MULTIPLY
 mov 12(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
     # ASSIGNMENT result
 # DIVIDE
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
     # ASSIGNMENT
 mov 16(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
     pop %ebx
     pop %eax
     cdq # moves sign into EDX (?)
@@ -2831,12 +1746,12 @@ push -88(%edx)    # END ASSIGNMENT
     push %eax
 # END DIVIDE
 mov -4(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
     # ASSIGNMENT result
 #### ADD
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $16, %eax
     push %eax
@@ -2847,12 +1762,12 @@ push -92(%edx)    # END ASSIGNMENT
     push %eax
 #### END ADD
 mov -4(%ebp), %edx
-pop -92(%edx)    # END ASSIGNMENT
+pop -8(%edx)    # END ASSIGNMENT
     # ASSIGNMENT f1
 # DIVIDE
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $128, %eax
     push %eax
@@ -2864,12 +1779,12 @@ push -88(%edx)    # END ASSIGNMENT
     push %eax
 # END DIVIDE
 mov 12(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
     # ASSIGNMENT f1
 #### SUBTRACT
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $8388608, %eax
     push %eax
@@ -2880,12 +1795,12 @@ push -88(%edx)    # END ASSIGNMENT
  push %eax
 #### END SUBTRACT
 mov 12(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
     # ASSIGNMENT f2
 #### SUBTRACT
     # ASSIGNMENT
 mov 16(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $8388608, %eax
     push %eax
@@ -2896,14 +1811,14 @@ push -88(%edx)    # END ASSIGNMENT
  push %eax
 #### END SUBTRACT
 mov 16(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
 # IF:
     ### PUSH CONDITIONAL
 # NOT
 # CHECK EQUALITY
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $0, %eax
     push %eax
@@ -2936,7 +1851,7 @@ label30:
 # END INT LITERAL
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
     pop %ebx
     pop %eax
     mov $0, %edx # Clear %edx
@@ -2953,7 +1868,7 @@ je label31
 #### MULTIPLY
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $2, %eax
     push %eax
@@ -2964,12 +1879,12 @@ push -88(%edx)    # END ASSIGNMENT
  push %eax
 #### END MULTIPLY
 mov -4(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
     # ASSIGNMENT result
 #### SUBTRACT
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $1, %eax
     push %eax
@@ -2980,7 +1895,7 @@ push -92(%edx)    # END ASSIGNMENT
  push %eax
 #### END SUBTRACT
 mov -4(%ebp), %edx
-pop -92(%edx)    # END ASSIGNMENT
+pop -8(%edx)    # END ASSIGNMENT
 jmp label30
 label31:
 #END WHILE LOOP
@@ -2989,7 +1904,7 @@ label32:
 # CHECK GTE
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $16777216, %eax
     push %eax
@@ -3009,7 +1924,7 @@ je label33
 # DIVIDE
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $2, %eax
     push %eax
@@ -3021,12 +1936,12 @@ push -88(%edx)    # END ASSIGNMENT
     push %eax
 # END DIVIDE
 mov -4(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
     # ASSIGNMENT result
 #### ADD
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $1, %eax
     push %eax
@@ -3037,7 +1952,7 @@ push -92(%edx)    # END ASSIGNMENT
     push %eax
 #### END ADD
 mov -4(%ebp), %edx
-pop -92(%edx)    # END ASSIGNMENT
+pop -8(%edx)    # END ASSIGNMENT
 jmp label32
 label33:
 #END WHILE LOOP
@@ -3047,7 +1962,7 @@ label29:
 #### SUBTRACT
     # ASSIGNMENT
 mov -4(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $8388608, %eax
     push %eax
@@ -3058,7 +1973,7 @@ push -88(%edx)    # END ASSIGNMENT
  push %eax
 #### END SUBTRACT
 mov -4(%ebp), %edx
-pop -88(%edx)    # END ASSIGNMENT
+pop -4(%edx)    # END ASSIGNMENT
     ### VARIABLE
     ### END VARget
 push -4(%ebp)
@@ -3071,161 +1986,6 @@ push -4(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
-ClassTable {
-  Float -> {
-    VariableTable {
-      exp -> {Integer, 4, 4},
-      frac -> {Integer, 8, 4},
-      sign -> {Boolean, 0, 4}
-    },
-    MethodTable {
-      Float -> {
-        None,
-        0,
-        VariableTable {
-          e -> {Integer, 16, 4},
-          f -> {Integer, 20, 4},
-          s -> {Boolean, 12, 4}
-        }
-      },
-      copy -> {
-        Object(Float),
-        0,
-        VariableTable {}
-      },
-      printval -> {
-        None,
-        0,
-        VariableTable {}
-      }
-    }
-  },
-  FloatOps -> {
-    VariableTable {},
-    MethodTable {
-      add -> {
-        Object(Float),
-        20,
-        VariableTable {
-          diff -> {Integer, -16, 4},
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          i -> {Integer, -20, 4},
-          result -> {Object(Float), -12, 4},
-          x -> {Object(Float), -4, 4},
-          y -> {Object(Float), -8, 4}
-        }
-      },
-      div -> {
-        Object(Float),
-        4,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          result -> {Object(Float), -4, 4}
-        }
-      },
-      exp -> {
-        Object(Float),
-        48,
-        VariableTable {
-          base -> {Object(Float), -20, 4},
-          c2 -> {Object(Float), -32, 4},
-          c3 -> {Object(Float), -36, 4},
-          c4 -> {Object(Float), -40, 4},
-          c5 -> {Object(Float), -44, 4},
-          c6 -> {Object(Float), -48, 4},
-          e -> {Object(Float), -12, 4},
-          f -> {Object(Float), 12, 4},
-          i -> {Integer, -4, 4},
-          one -> {Object(Float), -16, 4},
-          result -> {Object(Float), -28, 4},
-          tmp -> {Object(Float), -24, 4},
-          val -> {Integer, -8, 4}
-        }
-      },
-      ln -> {
-        Object(Float),
-        40,
-        VariableTable {
-          base -> {Object(Float), -12, 4},
-          c2 -> {Object(Float), -20, 4},
-          c3 -> {Object(Float), -24, 4},
-          c4 -> {Object(Float), -28, 4},
-          c5 -> {Object(Float), -32, 4},
-          f -> {Object(Float), 12, 4},
-          i -> {Integer, -40, 4},
-          log2 -> {Object(Float), -4, 4},
-          one -> {Object(Float), -36, 4},
-          result -> {Object(Float), -16, 4},
-          x -> {Object(Float), -8, 4}
-        }
-      },
-      lt -> {
-        Boolean,
-        8,
-        VariableTable {
-          done -> {Boolean, -4, 4},
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          result -> {Boolean, -8, 4}
-        }
-      },
-      mult -> {
-        Object(Float),
-        32,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          hi -> {Integer, -8, 4},
-          hi1 -> {Integer, -12, 4},
-          hi2 -> {Integer, -16, 4},
-          lo -> {Integer, -20, 4},
-          lo1 -> {Integer, -24, 4},
-          lo2 -> {Integer, -28, 4},
-          result -> {Object(Float), -4, 4},
-          tmp -> {Integer, -32, 4}
-        }
-      },
-      pow -> {
-        Object(Float),
-        0,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4}
-        }
-      },
-      sub -> {
-        Object(Float),
-        0,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4}
-        }
-      }
-    }
-  },
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        36,
-        VariableTable {
-          Amt -> {Object(Float), -32, 4},
-          F -> {Object(FloatOps), -16, 4},
-          N -> {Object(Float), -28, 4},
-          f1 -> {Object(Float), -4, 4},
-          f2 -> {Object(Float), -8, 4},
-          f3 -> {Object(Float), -12, 4},
-          one -> {Object(Float), -20, 4},
-          r -> {Object(Float), -24, 4},
-          res -> {Object(Float), -36, 4}
-        }
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 FloatOps_lt:
     push %ebp
@@ -3251,11 +2011,11 @@ FloatOps_lt:
 # AND
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push -12(%edx)    # END ASSIGNMENT
 # NOT
     # ASSIGNMENT
 mov 16(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push -12(%edx)    # END ASSIGNMENT
     pop %eax
     mov $0, %ebx
     mov $0, %edx # Clear %edx
@@ -3293,7 +2053,7 @@ label35:
 # NOT
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push -12(%edx)    # END ASSIGNMENT
     pop %eax
     mov $0, %ebx
     mov $0, %edx # Clear %edx
@@ -3303,7 +2063,7 @@ push -96(%edx)    # END ASSIGNMENT
 # END NOT
     # ASSIGNMENT
 mov 16(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push -12(%edx)    # END ASSIGNMENT
     pop %eax
     pop %ebx
     and %ebx, %eax
@@ -3346,10 +2106,10 @@ push -4(%ebp)
 # CHECK GT
     # ASSIGNMENT
 mov 16(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
     pop %ebx
     pop %eax
     mov $0, %edx # Clear %edx
@@ -3400,10 +2160,10 @@ push -4(%ebp)
 # CHECK GT
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
     # ASSIGNMENT
 mov 16(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
     pop %ebx
     pop %eax
     mov $0, %edx # Clear %edx
@@ -3454,10 +2214,10 @@ push -4(%ebp)
 # CHECK GT
     # ASSIGNMENT
 mov 16(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
     pop %ebx
     pop %eax
     mov $0, %edx # Clear %edx
@@ -3502,10 +2262,10 @@ push -4(%ebp)
 # CHECK GT
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
     # ASSIGNMENT
 mov 16(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
     pop %ebx
     pop %eax
     mov $0, %edx # Clear %edx
@@ -3537,10 +2297,10 @@ label45:
 # AND
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push -12(%edx)    # END ASSIGNMENT
     # ASSIGNMENT
 mov 16(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push -12(%edx)    # END ASSIGNMENT
     pop %eax
     pop %ebx
     and %ebx, %eax
@@ -3579,161 +2339,6 @@ push -8(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
-ClassTable {
-  Float -> {
-    VariableTable {
-      exp -> {Integer, 4, 4},
-      frac -> {Integer, 8, 4},
-      sign -> {Boolean, 0, 4}
-    },
-    MethodTable {
-      Float -> {
-        None,
-        0,
-        VariableTable {
-          e -> {Integer, 16, 4},
-          f -> {Integer, 20, 4},
-          s -> {Boolean, 12, 4}
-        }
-      },
-      copy -> {
-        Object(Float),
-        0,
-        VariableTable {}
-      },
-      printval -> {
-        None,
-        0,
-        VariableTable {}
-      }
-    }
-  },
-  FloatOps -> {
-    VariableTable {},
-    MethodTable {
-      add -> {
-        Object(Float),
-        20,
-        VariableTable {
-          diff -> {Integer, -16, 4},
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          i -> {Integer, -20, 4},
-          result -> {Object(Float), -12, 4},
-          x -> {Object(Float), -4, 4},
-          y -> {Object(Float), -8, 4}
-        }
-      },
-      div -> {
-        Object(Float),
-        4,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          result -> {Object(Float), -4, 4}
-        }
-      },
-      exp -> {
-        Object(Float),
-        48,
-        VariableTable {
-          base -> {Object(Float), -20, 4},
-          c2 -> {Object(Float), -32, 4},
-          c3 -> {Object(Float), -36, 4},
-          c4 -> {Object(Float), -40, 4},
-          c5 -> {Object(Float), -44, 4},
-          c6 -> {Object(Float), -48, 4},
-          e -> {Object(Float), -12, 4},
-          f -> {Object(Float), 12, 4},
-          i -> {Integer, -4, 4},
-          one -> {Object(Float), -16, 4},
-          result -> {Object(Float), -28, 4},
-          tmp -> {Object(Float), -24, 4},
-          val -> {Integer, -8, 4}
-        }
-      },
-      ln -> {
-        Object(Float),
-        40,
-        VariableTable {
-          base -> {Object(Float), -12, 4},
-          c2 -> {Object(Float), -20, 4},
-          c3 -> {Object(Float), -24, 4},
-          c4 -> {Object(Float), -28, 4},
-          c5 -> {Object(Float), -32, 4},
-          f -> {Object(Float), 12, 4},
-          i -> {Integer, -40, 4},
-          log2 -> {Object(Float), -4, 4},
-          one -> {Object(Float), -36, 4},
-          result -> {Object(Float), -16, 4},
-          x -> {Object(Float), -8, 4}
-        }
-      },
-      lt -> {
-        Boolean,
-        8,
-        VariableTable {
-          done -> {Boolean, -4, 4},
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          result -> {Boolean, -8, 4}
-        }
-      },
-      mult -> {
-        Object(Float),
-        32,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          hi -> {Integer, -8, 4},
-          hi1 -> {Integer, -12, 4},
-          hi2 -> {Integer, -16, 4},
-          lo -> {Integer, -20, 4},
-          lo1 -> {Integer, -24, 4},
-          lo2 -> {Integer, -28, 4},
-          result -> {Object(Float), -4, 4},
-          tmp -> {Integer, -32, 4}
-        }
-      },
-      pow -> {
-        Object(Float),
-        0,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4}
-        }
-      },
-      sub -> {
-        Object(Float),
-        0,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4}
-        }
-      }
-    }
-  },
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        36,
-        VariableTable {
-          Amt -> {Object(Float), -32, 4},
-          F -> {Object(FloatOps), -16, 4},
-          N -> {Object(Float), -28, 4},
-          f1 -> {Object(Float), -4, 4},
-          f2 -> {Object(Float), -8, 4},
-          f3 -> {Object(Float), -12, 4},
-          one -> {Object(Float), -20, 4},
-          r -> {Object(Float), -24, 4},
-          res -> {Object(Float), -36, 4}
-        }
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 FloatOps_exp:
     push %ebp
@@ -3759,7 +2364,7 @@ FloatOps_exp:
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $12
 call malloc
 add $4, %esp
 push %eax
@@ -3788,7 +2393,7 @@ call Float_Float
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $12
 call malloc
 add $4, %esp
 push %eax
@@ -3817,7 +2422,7 @@ call Float_Float
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $12
 call malloc
 add $4, %esp
 push %eax
@@ -3846,7 +2451,7 @@ call Float_Float
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $12
 call malloc
 add $4, %esp
 push %eax
@@ -3879,7 +2484,7 @@ push 12(%ebp)
     ### PUSH CONDITIONAL
     # ASSIGNMENT
 mov -24(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push -12(%edx)    # END ASSIGNMENT
     ### END CONDITIONAL
 pop %eax
 mov $0, %ebx
@@ -3891,7 +2496,7 @@ je label49
     push %eax
 # END BOOL LITERAL
 mov -24(%ebp), %edx
-pop -96(%edx)    # END ASSIGNMENT
+pop -12(%edx)    # END ASSIGNMENT
 jmp label49
 label49:
     # ASSIGNMENT c2
@@ -3916,7 +2521,7 @@ label49:
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $12
 call malloc
 add $4, %esp
 push %eax
@@ -3950,7 +2555,7 @@ call Float_Float
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $12
 call malloc
 add $4, %esp
 push %eax
@@ -3984,7 +2589,7 @@ call Float_Float
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $12
 call malloc
 add $4, %esp
 push %eax
@@ -4018,7 +2623,7 @@ call Float_Float
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $12
 call malloc
 add $4, %esp
 push %eax
@@ -4052,7 +2657,7 @@ call Float_Float
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $12
 call malloc
 add $4, %esp
 push %eax
@@ -4600,7 +3205,7 @@ push -28(%ebp)
     ### PUSH CONDITIONAL
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -96(%edx)    # END ASSIGNMENT
+push -12(%edx)    # END ASSIGNMENT
     ### END CONDITIONAL
 pop %eax
 mov $0, %ebx
@@ -4645,161 +3250,6 @@ push -28(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
-ClassTable {
-  Float -> {
-    VariableTable {
-      exp -> {Integer, 4, 4},
-      frac -> {Integer, 8, 4},
-      sign -> {Boolean, 0, 4}
-    },
-    MethodTable {
-      Float -> {
-        None,
-        0,
-        VariableTable {
-          e -> {Integer, 16, 4},
-          f -> {Integer, 20, 4},
-          s -> {Boolean, 12, 4}
-        }
-      },
-      copy -> {
-        Object(Float),
-        0,
-        VariableTable {}
-      },
-      printval -> {
-        None,
-        0,
-        VariableTable {}
-      }
-    }
-  },
-  FloatOps -> {
-    VariableTable {},
-    MethodTable {
-      add -> {
-        Object(Float),
-        20,
-        VariableTable {
-          diff -> {Integer, -16, 4},
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          i -> {Integer, -20, 4},
-          result -> {Object(Float), -12, 4},
-          x -> {Object(Float), -4, 4},
-          y -> {Object(Float), -8, 4}
-        }
-      },
-      div -> {
-        Object(Float),
-        4,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          result -> {Object(Float), -4, 4}
-        }
-      },
-      exp -> {
-        Object(Float),
-        48,
-        VariableTable {
-          base -> {Object(Float), -20, 4},
-          c2 -> {Object(Float), -32, 4},
-          c3 -> {Object(Float), -36, 4},
-          c4 -> {Object(Float), -40, 4},
-          c5 -> {Object(Float), -44, 4},
-          c6 -> {Object(Float), -48, 4},
-          e -> {Object(Float), -12, 4},
-          f -> {Object(Float), 12, 4},
-          i -> {Integer, -4, 4},
-          one -> {Object(Float), -16, 4},
-          result -> {Object(Float), -28, 4},
-          tmp -> {Object(Float), -24, 4},
-          val -> {Integer, -8, 4}
-        }
-      },
-      ln -> {
-        Object(Float),
-        40,
-        VariableTable {
-          base -> {Object(Float), -12, 4},
-          c2 -> {Object(Float), -20, 4},
-          c3 -> {Object(Float), -24, 4},
-          c4 -> {Object(Float), -28, 4},
-          c5 -> {Object(Float), -32, 4},
-          f -> {Object(Float), 12, 4},
-          i -> {Integer, -40, 4},
-          log2 -> {Object(Float), -4, 4},
-          one -> {Object(Float), -36, 4},
-          result -> {Object(Float), -16, 4},
-          x -> {Object(Float), -8, 4}
-        }
-      },
-      lt -> {
-        Boolean,
-        8,
-        VariableTable {
-          done -> {Boolean, -4, 4},
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          result -> {Boolean, -8, 4}
-        }
-      },
-      mult -> {
-        Object(Float),
-        32,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          hi -> {Integer, -8, 4},
-          hi1 -> {Integer, -12, 4},
-          hi2 -> {Integer, -16, 4},
-          lo -> {Integer, -20, 4},
-          lo1 -> {Integer, -24, 4},
-          lo2 -> {Integer, -28, 4},
-          result -> {Object(Float), -4, 4},
-          tmp -> {Integer, -32, 4}
-        }
-      },
-      pow -> {
-        Object(Float),
-        0,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4}
-        }
-      },
-      sub -> {
-        Object(Float),
-        0,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4}
-        }
-      }
-    }
-  },
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        36,
-        VariableTable {
-          Amt -> {Object(Float), -32, 4},
-          F -> {Object(FloatOps), -16, 4},
-          N -> {Object(Float), -28, 4},
-          f1 -> {Object(Float), -4, 4},
-          f2 -> {Object(Float), -8, 4},
-          f3 -> {Object(Float), -12, 4},
-          one -> {Object(Float), -20, 4},
-          r -> {Object(Float), -24, 4},
-          res -> {Object(Float), -36, 4}
-        }
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 FloatOps_ln:
     push %ebp
@@ -4830,7 +3280,7 @@ FloatOps_ln:
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $12
 call malloc
 add $4, %esp
 push %eax
@@ -4859,7 +3309,7 @@ call Float_Float
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $12
 call malloc
 add $4, %esp
 push %eax
@@ -4893,7 +3343,7 @@ call Float_Float
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $12
 call malloc
 add $4, %esp
 push %eax
@@ -4927,7 +3377,7 @@ call Float_Float
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $12
 call malloc
 add $4, %esp
 push %eax
@@ -4961,7 +3411,7 @@ call Float_Float
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $12
 call malloc
 add $4, %esp
 push %eax
@@ -4995,7 +3445,7 @@ call Float_Float
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $12
 call malloc
 add $4, %esp
 push %eax
@@ -5029,7 +3479,7 @@ call Float_Float
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $12
 call malloc
 add $4, %esp
 push %eax
@@ -5045,7 +3495,7 @@ call Float_Float
 #### SUBTRACT
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -92(%edx)    # END ASSIGNMENT
+push -8(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $127, %eax
     push %eax
@@ -5155,7 +3605,7 @@ push -12(%ebp)
     push %edx
     # ASSIGNMENT
 mov 12(%ebp), %edx
-push -88(%edx)    # END ASSIGNMENT
+push -4(%edx)    # END ASSIGNMENT
 # INT LITERAL
     mov $0, %eax
     push %eax
@@ -5164,7 +3614,7 @@ push -88(%edx)    # END ASSIGNMENT
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $12
 call malloc
 add $4, %esp
 push %eax
@@ -5532,161 +3982,6 @@ push -12(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
-ClassTable {
-  Float -> {
-    VariableTable {
-      exp -> {Integer, 4, 4},
-      frac -> {Integer, 8, 4},
-      sign -> {Boolean, 0, 4}
-    },
-    MethodTable {
-      Float -> {
-        None,
-        0,
-        VariableTable {
-          e -> {Integer, 16, 4},
-          f -> {Integer, 20, 4},
-          s -> {Boolean, 12, 4}
-        }
-      },
-      copy -> {
-        Object(Float),
-        0,
-        VariableTable {}
-      },
-      printval -> {
-        None,
-        0,
-        VariableTable {}
-      }
-    }
-  },
-  FloatOps -> {
-    VariableTable {},
-    MethodTable {
-      add -> {
-        Object(Float),
-        20,
-        VariableTable {
-          diff -> {Integer, -16, 4},
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          i -> {Integer, -20, 4},
-          result -> {Object(Float), -12, 4},
-          x -> {Object(Float), -4, 4},
-          y -> {Object(Float), -8, 4}
-        }
-      },
-      div -> {
-        Object(Float),
-        4,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          result -> {Object(Float), -4, 4}
-        }
-      },
-      exp -> {
-        Object(Float),
-        48,
-        VariableTable {
-          base -> {Object(Float), -20, 4},
-          c2 -> {Object(Float), -32, 4},
-          c3 -> {Object(Float), -36, 4},
-          c4 -> {Object(Float), -40, 4},
-          c5 -> {Object(Float), -44, 4},
-          c6 -> {Object(Float), -48, 4},
-          e -> {Object(Float), -12, 4},
-          f -> {Object(Float), 12, 4},
-          i -> {Integer, -4, 4},
-          one -> {Object(Float), -16, 4},
-          result -> {Object(Float), -28, 4},
-          tmp -> {Object(Float), -24, 4},
-          val -> {Integer, -8, 4}
-        }
-      },
-      ln -> {
-        Object(Float),
-        40,
-        VariableTable {
-          base -> {Object(Float), -12, 4},
-          c2 -> {Object(Float), -20, 4},
-          c3 -> {Object(Float), -24, 4},
-          c4 -> {Object(Float), -28, 4},
-          c5 -> {Object(Float), -32, 4},
-          f -> {Object(Float), 12, 4},
-          i -> {Integer, -40, 4},
-          log2 -> {Object(Float), -4, 4},
-          one -> {Object(Float), -36, 4},
-          result -> {Object(Float), -16, 4},
-          x -> {Object(Float), -8, 4}
-        }
-      },
-      lt -> {
-        Boolean,
-        8,
-        VariableTable {
-          done -> {Boolean, -4, 4},
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          result -> {Boolean, -8, 4}
-        }
-      },
-      mult -> {
-        Object(Float),
-        32,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          hi -> {Integer, -8, 4},
-          hi1 -> {Integer, -12, 4},
-          hi2 -> {Integer, -16, 4},
-          lo -> {Integer, -20, 4},
-          lo1 -> {Integer, -24, 4},
-          lo2 -> {Integer, -28, 4},
-          result -> {Object(Float), -4, 4},
-          tmp -> {Integer, -32, 4}
-        }
-      },
-      pow -> {
-        Object(Float),
-        0,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4}
-        }
-      },
-      sub -> {
-        Object(Float),
-        0,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4}
-        }
-      }
-    }
-  },
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        36,
-        VariableTable {
-          Amt -> {Object(Float), -32, 4},
-          F -> {Object(FloatOps), -16, 4},
-          N -> {Object(Float), -28, 4},
-          f1 -> {Object(Float), -4, 4},
-          f2 -> {Object(Float), -8, 4},
-          f3 -> {Object(Float), -12, 4},
-          one -> {Object(Float), -20, 4},
-          r -> {Object(Float), -24, 4},
-          res -> {Object(Float), -36, 4}
-        }
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 FloatOps_pow:
     push %ebp
@@ -5756,161 +4051,6 @@ push 16(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
-ClassTable {
-  Float -> {
-    VariableTable {
-      exp -> {Integer, 4, 4},
-      frac -> {Integer, 8, 4},
-      sign -> {Boolean, 0, 4}
-    },
-    MethodTable {
-      Float -> {
-        None,
-        0,
-        VariableTable {
-          e -> {Integer, 16, 4},
-          f -> {Integer, 20, 4},
-          s -> {Boolean, 12, 4}
-        }
-      },
-      copy -> {
-        Object(Float),
-        0,
-        VariableTable {}
-      },
-      printval -> {
-        None,
-        0,
-        VariableTable {}
-      }
-    }
-  },
-  FloatOps -> {
-    VariableTable {},
-    MethodTable {
-      add -> {
-        Object(Float),
-        20,
-        VariableTable {
-          diff -> {Integer, -16, 4},
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          i -> {Integer, -20, 4},
-          result -> {Object(Float), -12, 4},
-          x -> {Object(Float), -4, 4},
-          y -> {Object(Float), -8, 4}
-        }
-      },
-      div -> {
-        Object(Float),
-        4,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          result -> {Object(Float), -4, 4}
-        }
-      },
-      exp -> {
-        Object(Float),
-        48,
-        VariableTable {
-          base -> {Object(Float), -20, 4},
-          c2 -> {Object(Float), -32, 4},
-          c3 -> {Object(Float), -36, 4},
-          c4 -> {Object(Float), -40, 4},
-          c5 -> {Object(Float), -44, 4},
-          c6 -> {Object(Float), -48, 4},
-          e -> {Object(Float), -12, 4},
-          f -> {Object(Float), 12, 4},
-          i -> {Integer, -4, 4},
-          one -> {Object(Float), -16, 4},
-          result -> {Object(Float), -28, 4},
-          tmp -> {Object(Float), -24, 4},
-          val -> {Integer, -8, 4}
-        }
-      },
-      ln -> {
-        Object(Float),
-        40,
-        VariableTable {
-          base -> {Object(Float), -12, 4},
-          c2 -> {Object(Float), -20, 4},
-          c3 -> {Object(Float), -24, 4},
-          c4 -> {Object(Float), -28, 4},
-          c5 -> {Object(Float), -32, 4},
-          f -> {Object(Float), 12, 4},
-          i -> {Integer, -40, 4},
-          log2 -> {Object(Float), -4, 4},
-          one -> {Object(Float), -36, 4},
-          result -> {Object(Float), -16, 4},
-          x -> {Object(Float), -8, 4}
-        }
-      },
-      lt -> {
-        Boolean,
-        8,
-        VariableTable {
-          done -> {Boolean, -4, 4},
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          result -> {Boolean, -8, 4}
-        }
-      },
-      mult -> {
-        Object(Float),
-        32,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4},
-          hi -> {Integer, -8, 4},
-          hi1 -> {Integer, -12, 4},
-          hi2 -> {Integer, -16, 4},
-          lo -> {Integer, -20, 4},
-          lo1 -> {Integer, -24, 4},
-          lo2 -> {Integer, -28, 4},
-          result -> {Object(Float), -4, 4},
-          tmp -> {Integer, -32, 4}
-        }
-      },
-      pow -> {
-        Object(Float),
-        0,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4}
-        }
-      },
-      sub -> {
-        Object(Float),
-        0,
-        VariableTable {
-          f1 -> {Object(Float), 12, 4},
-          f2 -> {Object(Float), 16, 4}
-        }
-      }
-    }
-  },
-  Main -> {
-    VariableTable {},
-    MethodTable {
-      main -> {
-        None,
-        36,
-        VariableTable {
-          Amt -> {Object(Float), -32, 4},
-          F -> {Object(FloatOps), -16, 4},
-          N -> {Object(Float), -28, 4},
-          f1 -> {Object(Float), -4, 4},
-          f2 -> {Object(Float), -8, 4},
-          f3 -> {Object(Float), -12, 4},
-          one -> {Object(Float), -20, 4},
-          r -> {Object(Float), -24, 4},
-          res -> {Object(Float), -36, 4}
-        }
-      }
-    }
-  }
-}
     ### BEGIN METHOD DEFINITION
 Main_main:
     push %ebp
@@ -5936,7 +4076,7 @@ Main_main:
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $12
 call malloc
 add $4, %esp
 push %eax
@@ -5965,7 +4105,7 @@ call Float_Float
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $12
 call malloc
 add $4, %esp
 push %eax
@@ -6238,7 +4378,7 @@ push -12(%ebp)
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $12
 call malloc
 add $4, %esp
 push %eax
@@ -6267,7 +4407,7 @@ call Float_Float
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $12
 call malloc
 add $4, %esp
 push %eax
@@ -6296,7 +4436,7 @@ call Float_Float
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $12
 call malloc
 add $4, %esp
 push %eax
@@ -6325,7 +4465,7 @@ call Float_Float
     mov $0, %eax
     push %eax
 # END BOOL LITERAL
-push $96
+push $12
 call malloc
 add $4, %esp
 push %eax
