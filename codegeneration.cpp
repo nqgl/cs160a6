@@ -519,7 +519,7 @@ void CodeGenerator::visitMethodCallNode(MethodCallNode* node) {
         std::cout << "    call " << methodCallingClass(currentClassName, node->identifier_1->name, this) << "_" << node->identifier_1->name << std::endl;
     }
     // remove arguments
-    std::cout << "    add $" << this->currentMethodInfo.parameters->size() * 4  << ", %esp" << std::endl;
+    std::cout << "    add $" << (this->currentMethodInfo.parameters->size() - 1) * 4  << ", %esp" << std::endl;
 
     // restore caller-save regs
     std::cout<< "    pop %edx" << std::endl;
