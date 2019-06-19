@@ -2,6 +2,59 @@
 printstring: .asciz "%d\n"
 .text
 .globl Main_main
+ClassTable {
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        4,
+        VariableTable {
+          b -> {Object(classB), -4, 4}
+        }
+      }
+    }
+  },
+  classA -> {
+    VariableTable {
+      x -> {Integer, 0, 4}
+    },
+    MethodTable {
+      classA -> {
+        None,
+        0,
+        VariableTable {
+          val -> {Integer, 12, 4}
+        }
+      }
+    }
+  },
+  classB -> {
+    VariableTable {
+      x -> {Integer, 0, 4}
+    },
+    MethodTable {
+      classB -> {
+        None,
+        0,
+        VariableTable {}
+      },
+      dofib -> {
+        None,
+        0,
+        VariableTable {}
+      },
+      fib -> {
+        Object(classA),
+        4,
+        VariableTable {
+          a -> {Object(classA), 12, 4},
+          tmp -> {Integer, -4, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 classA_classA:
     push %ebp
@@ -25,6 +78,59 @@ push 12(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        4,
+        VariableTable {
+          b -> {Object(classB), -4, 4}
+        }
+      }
+    }
+  },
+  classA -> {
+    VariableTable {
+      x -> {Integer, 0, 4}
+    },
+    MethodTable {
+      classA -> {
+        None,
+        0,
+        VariableTable {
+          val -> {Integer, 12, 4}
+        }
+      }
+    }
+  },
+  classB -> {
+    VariableTable {
+      x -> {Integer, 0, 4}
+    },
+    MethodTable {
+      classB -> {
+        None,
+        0,
+        VariableTable {}
+      },
+      dofib -> {
+        None,
+        0,
+        VariableTable {}
+      },
+      fib -> {
+        Object(classA),
+        4,
+        VariableTable {
+          a -> {Object(classA), 12, 4},
+          tmp -> {Integer, -4, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 classB_classB:
     push %ebp
@@ -48,6 +154,59 @@ classB_classB:
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        4,
+        VariableTable {
+          b -> {Object(classB), -4, 4}
+        }
+      }
+    }
+  },
+  classA -> {
+    VariableTable {
+      x -> {Integer, 0, 4}
+    },
+    MethodTable {
+      classA -> {
+        None,
+        0,
+        VariableTable {
+          val -> {Integer, 12, 4}
+        }
+      }
+    }
+  },
+  classB -> {
+    VariableTable {
+      x -> {Integer, 0, 4}
+    },
+    MethodTable {
+      classB -> {
+        None,
+        0,
+        VariableTable {}
+      },
+      dofib -> {
+        None,
+        0,
+        VariableTable {}
+      },
+      fib -> {
+        Object(classA),
+        4,
+        VariableTable {
+          a -> {Object(classA), 12, 4},
+          tmp -> {Integer, -4, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 classB_fib:
     push %ebp
@@ -115,6 +274,59 @@ call classA_classA
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        4,
+        VariableTable {
+          b -> {Object(classB), -4, 4}
+        }
+      }
+    }
+  },
+  classA -> {
+    VariableTable {
+      x -> {Integer, 0, 4}
+    },
+    MethodTable {
+      classA -> {
+        None,
+        0,
+        VariableTable {
+          val -> {Integer, 12, 4}
+        }
+      }
+    }
+  },
+  classB -> {
+    VariableTable {
+      x -> {Integer, 0, 4}
+    },
+    MethodTable {
+      classB -> {
+        None,
+        0,
+        VariableTable {}
+      },
+      dofib -> {
+        None,
+        0,
+        VariableTable {}
+      },
+      fib -> {
+        Object(classA),
+        4,
+        VariableTable {
+          a -> {Object(classA), 12, 4},
+          tmp -> {Integer, -4, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 classB_dofib:
     push %ebp
@@ -283,6 +495,59 @@ call classA_classA
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        4,
+        VariableTable {
+          b -> {Object(classB), -4, 4}
+        }
+      }
+    }
+  },
+  classA -> {
+    VariableTable {
+      x -> {Integer, 0, 4}
+    },
+    MethodTable {
+      classA -> {
+        None,
+        0,
+        VariableTable {
+          val -> {Integer, 12, 4}
+        }
+      }
+    }
+  },
+  classB -> {
+    VariableTable {
+      x -> {Integer, 0, 4}
+    },
+    MethodTable {
+      classB -> {
+        None,
+        0,
+        VariableTable {}
+      },
+      dofib -> {
+        None,
+        0,
+        VariableTable {}
+      },
+      fib -> {
+        Object(classA),
+        4,
+        VariableTable {
+          a -> {Object(classA), 12, 4},
+          tmp -> {Integer, -4, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 Main_main:
     push %ebp

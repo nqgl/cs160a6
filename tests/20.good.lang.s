@@ -2,6 +2,59 @@
 printstring: .asciz "%d\n"
 .text
 .globl Main_main
+ClassTable {
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        12,
+        VariableTable {
+          a1 -> {Object(classA), -4, 4},
+          a2 -> {Object(classA), -8, 4},
+          b -> {Object(classB), -12, 4}
+        }
+      }
+    }
+  },
+  classA -> {
+    VariableTable {
+      x -> {Integer, 0, 4},
+      y -> {Integer, 4, 4}
+    },
+    MethodTable {
+      classA -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  },
+  classB -> {
+    VariableTable {
+      xplus -> {Integer, 0, 4},
+      yplus -> {Integer, 4, 4}
+    },
+    MethodTable {
+      classB -> {
+        None,
+        0,
+        VariableTable {
+          xval -> {Integer, 12, 4},
+          yval -> {Integer, 16, 4}
+        }
+      },
+      makeA -> {
+        Object(classA),
+        4,
+        VariableTable {
+          a -> {Object(classA), 12, 4},
+          aNew -> {Object(classA), -4, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 classA_classA:
     push %ebp
@@ -33,6 +86,59 @@ classA_classA:
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        12,
+        VariableTable {
+          a1 -> {Object(classA), -4, 4},
+          a2 -> {Object(classA), -8, 4},
+          b -> {Object(classB), -12, 4}
+        }
+      }
+    }
+  },
+  classA -> {
+    VariableTable {
+      x -> {Integer, 0, 4},
+      y -> {Integer, 4, 4}
+    },
+    MethodTable {
+      classA -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  },
+  classB -> {
+    VariableTable {
+      xplus -> {Integer, 0, 4},
+      yplus -> {Integer, 4, 4}
+    },
+    MethodTable {
+      classB -> {
+        None,
+        0,
+        VariableTable {
+          xval -> {Integer, 12, 4},
+          yval -> {Integer, 16, 4}
+        }
+      },
+      makeA -> {
+        Object(classA),
+        4,
+        VariableTable {
+          a -> {Object(classA), 12, 4},
+          aNew -> {Object(classA), -4, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 classB_classB:
     push %ebp
@@ -64,6 +170,59 @@ push 16(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        12,
+        VariableTable {
+          a1 -> {Object(classA), -4, 4},
+          a2 -> {Object(classA), -8, 4},
+          b -> {Object(classB), -12, 4}
+        }
+      }
+    }
+  },
+  classA -> {
+    VariableTable {
+      x -> {Integer, 0, 4},
+      y -> {Integer, 4, 4}
+    },
+    MethodTable {
+      classA -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  },
+  classB -> {
+    VariableTable {
+      xplus -> {Integer, 0, 4},
+      yplus -> {Integer, 4, 4}
+    },
+    MethodTable {
+      classB -> {
+        None,
+        0,
+        VariableTable {
+          xval -> {Integer, 12, 4},
+          yval -> {Integer, 16, 4}
+        }
+      },
+      makeA -> {
+        Object(classA),
+        4,
+        VariableTable {
+          a -> {Object(classA), 12, 4},
+          aNew -> {Object(classA), -4, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 classB_makeA:
     push %ebp
@@ -135,6 +294,59 @@ push -4(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        12,
+        VariableTable {
+          a1 -> {Object(classA), -4, 4},
+          a2 -> {Object(classA), -8, 4},
+          b -> {Object(classB), -12, 4}
+        }
+      }
+    }
+  },
+  classA -> {
+    VariableTable {
+      x -> {Integer, 0, 4},
+      y -> {Integer, 4, 4}
+    },
+    MethodTable {
+      classA -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  },
+  classB -> {
+    VariableTable {
+      xplus -> {Integer, 0, 4},
+      yplus -> {Integer, 4, 4}
+    },
+    MethodTable {
+      classB -> {
+        None,
+        0,
+        VariableTable {
+          xval -> {Integer, 12, 4},
+          yval -> {Integer, 16, 4}
+        }
+      },
+      makeA -> {
+        Object(classA),
+        4,
+        VariableTable {
+          a -> {Object(classA), 12, 4},
+          aNew -> {Object(classA), -4, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 Main_main:
     push %ebp

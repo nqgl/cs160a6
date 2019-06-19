@@ -2,6 +2,37 @@
 printstring: .asciz "%d\n"
 .text
 .globl Main_main
+ClassTable {
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        4,
+        VariableTable {
+          a -> {Object(classA), -4, 4}
+        }
+      }
+    }
+  },
+  classA -> {
+    VariableTable {},
+    MethodTable {
+      doAll -> {
+        None,
+        0,
+        VariableTable {}
+      },
+      f0 -> {
+        None,
+        0,
+        VariableTable {
+          x -> {Integer, 12, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 classA_f0:
     push %ebp
@@ -33,6 +64,37 @@ call printf
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        4,
+        VariableTable {
+          a -> {Object(classA), -4, 4}
+        }
+      }
+    }
+  },
+  classA -> {
+    VariableTable {},
+    MethodTable {
+      doAll -> {
+        None,
+        0,
+        VariableTable {}
+      },
+      f0 -> {
+        None,
+        0,
+        VariableTable {
+          x -> {Integer, 12, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 classA_doAll:
     push %ebp
@@ -90,6 +152,37 @@ classA_doAll:
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        4,
+        VariableTable {
+          a -> {Object(classA), -4, 4}
+        }
+      }
+    }
+  },
+  classA -> {
+    VariableTable {},
+    MethodTable {
+      doAll -> {
+        None,
+        0,
+        VariableTable {}
+      },
+      f0 -> {
+        None,
+        0,
+        VariableTable {
+          x -> {Integer, 12, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 Main_main:
     push %ebp

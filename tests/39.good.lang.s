@@ -2,6 +2,60 @@
 printstring: .asciz "%d\n"
 .text
 .globl Main_main
+ClassTable {
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        24,
+        VariableTable {
+          i0 -> {Integer, -8, 4},
+          i1 -> {Integer, -12, 4},
+          i2 -> {Integer, -16, 4},
+          i3 -> {Integer, -20, 4},
+          i4 -> {Integer, -24, 4},
+          local0 -> {Object(class0), -4, 4}
+        }
+      }
+    }
+  },
+  class0 -> {
+    VariableTable {
+      member0 -> {Integer, 0, 4},
+      member1 -> {Integer, 4, 4},
+      member2 -> {Boolean, 8, 4}
+    },
+    MethodTable {
+      class0 -> {
+        None,
+        24,
+        VariableTable {
+          i0 -> {Integer, -16, 4},
+          i1 -> {Integer, -20, 4},
+          i2 -> {Integer, -24, 4},
+          local0 -> {Integer, -4, 4},
+          local1 -> {Boolean, -8, 4},
+          local2 -> {Integer, -12, 4}
+        }
+      },
+      f0 -> {
+        Integer,
+        24,
+        VariableTable {
+          arg0 -> {Integer, 12, 4},
+          arg1 -> {Boolean, 16, 4},
+          i0 -> {Integer, -4, 4},
+          i1 -> {Integer, -8, 4},
+          i2 -> {Integer, -12, 4},
+          i3 -> {Integer, -16, 4},
+          i4 -> {Integer, -20, 4},
+          i5 -> {Integer, -24, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 class0_f0:
     push %ebp
@@ -664,6 +718,60 @@ push 12(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        24,
+        VariableTable {
+          i0 -> {Integer, -8, 4},
+          i1 -> {Integer, -12, 4},
+          i2 -> {Integer, -16, 4},
+          i3 -> {Integer, -20, 4},
+          i4 -> {Integer, -24, 4},
+          local0 -> {Object(class0), -4, 4}
+        }
+      }
+    }
+  },
+  class0 -> {
+    VariableTable {
+      member0 -> {Integer, 0, 4},
+      member1 -> {Integer, 4, 4},
+      member2 -> {Boolean, 8, 4}
+    },
+    MethodTable {
+      class0 -> {
+        None,
+        24,
+        VariableTable {
+          i0 -> {Integer, -16, 4},
+          i1 -> {Integer, -20, 4},
+          i2 -> {Integer, -24, 4},
+          local0 -> {Integer, -4, 4},
+          local1 -> {Boolean, -8, 4},
+          local2 -> {Integer, -12, 4}
+        }
+      },
+      f0 -> {
+        Integer,
+        24,
+        VariableTable {
+          arg0 -> {Integer, 12, 4},
+          arg1 -> {Boolean, 16, 4},
+          i0 -> {Integer, -4, 4},
+          i1 -> {Integer, -8, 4},
+          i2 -> {Integer, -12, 4},
+          i3 -> {Integer, -16, 4},
+          i4 -> {Integer, -20, 4},
+          i5 -> {Integer, -24, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 class0_class0:
     push %ebp
@@ -1073,6 +1181,60 @@ label39:
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        24,
+        VariableTable {
+          i0 -> {Integer, -8, 4},
+          i1 -> {Integer, -12, 4},
+          i2 -> {Integer, -16, 4},
+          i3 -> {Integer, -20, 4},
+          i4 -> {Integer, -24, 4},
+          local0 -> {Object(class0), -4, 4}
+        }
+      }
+    }
+  },
+  class0 -> {
+    VariableTable {
+      member0 -> {Integer, 0, 4},
+      member1 -> {Integer, 4, 4},
+      member2 -> {Boolean, 8, 4}
+    },
+    MethodTable {
+      class0 -> {
+        None,
+        24,
+        VariableTable {
+          i0 -> {Integer, -16, 4},
+          i1 -> {Integer, -20, 4},
+          i2 -> {Integer, -24, 4},
+          local0 -> {Integer, -4, 4},
+          local1 -> {Boolean, -8, 4},
+          local2 -> {Integer, -12, 4}
+        }
+      },
+      f0 -> {
+        Integer,
+        24,
+        VariableTable {
+          arg0 -> {Integer, 12, 4},
+          arg1 -> {Boolean, 16, 4},
+          i0 -> {Integer, -4, 4},
+          i1 -> {Integer, -8, 4},
+          i2 -> {Integer, -12, 4},
+          i3 -> {Integer, -16, 4},
+          i4 -> {Integer, -20, 4},
+          i5 -> {Integer, -24, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 Main_main:
     push %ebp

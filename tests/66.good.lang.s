@@ -2,6 +2,85 @@
 printstring: .asciz "%d\n"
 .text
 .globl Main_main
+ClassTable {
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        96,
+        VariableTable {
+          i0 -> {Integer, -20, 4},
+          i1 -> {Integer, -24, 4},
+          i10 -> {Integer, -60, 4},
+          i11 -> {Integer, -64, 4},
+          i12 -> {Integer, -68, 4},
+          i13 -> {Integer, -72, 4},
+          i14 -> {Integer, -76, 4},
+          i15 -> {Integer, -80, 4},
+          i16 -> {Integer, -84, 4},
+          i17 -> {Integer, -88, 4},
+          i18 -> {Integer, -92, 4},
+          i19 -> {Integer, -96, 4},
+          i2 -> {Integer, -28, 4},
+          i3 -> {Integer, -32, 4},
+          i4 -> {Integer, -36, 4},
+          i5 -> {Integer, -40, 4},
+          i6 -> {Integer, -44, 4},
+          i7 -> {Integer, -48, 4},
+          i8 -> {Integer, -52, 4},
+          i9 -> {Integer, -56, 4},
+          local0 -> {Object(class1), -4, 4},
+          local1 -> {Boolean, -8, 4},
+          local2 -> {Object(class0), -12, 4},
+          local3 -> {Object(class1), -16, 4}
+        }
+      }
+    }
+  },
+  class0 -> {
+    VariableTable {
+      member0 -> {Integer, 0, 4},
+      member1 -> {Boolean, 4, 4}
+    },
+    MethodTable {
+      class0 -> {
+        None,
+        16,
+        VariableTable {
+          arg0 -> {Integer, 12, 4},
+          arg1 -> {Boolean, 16, 4},
+          arg2 -> {Integer, 20, 4},
+          arg3 -> {Integer, 24, 4},
+          local0 -> {Integer, -4, 4},
+          local1 -> {Boolean, -8, 4},
+          local2 -> {Boolean, -12, 4},
+          local3 -> {Integer, -16, 4}
+        }
+      }
+    }
+  },
+  class1 -> {
+    VariableTable {},
+    MethodTable {
+      class1 -> {
+        None,
+        16,
+        VariableTable {
+          arg0 -> {Boolean, 12, 4},
+          arg1 -> {Boolean, 16, 4},
+          arg2 -> {Boolean, 20, 4},
+          arg3 -> {Integer, 24, 4},
+          arg4 -> {Integer, 28, 4},
+          local0 -> {Integer, -4, 4},
+          local1 -> {Integer, -8, 4},
+          local2 -> {Integer, -12, 4},
+          local3 -> {Integer, -16, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 class0_class0:
     push %ebp
@@ -143,6 +222,85 @@ label1:
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        96,
+        VariableTable {
+          i0 -> {Integer, -20, 4},
+          i1 -> {Integer, -24, 4},
+          i10 -> {Integer, -60, 4},
+          i11 -> {Integer, -64, 4},
+          i12 -> {Integer, -68, 4},
+          i13 -> {Integer, -72, 4},
+          i14 -> {Integer, -76, 4},
+          i15 -> {Integer, -80, 4},
+          i16 -> {Integer, -84, 4},
+          i17 -> {Integer, -88, 4},
+          i18 -> {Integer, -92, 4},
+          i19 -> {Integer, -96, 4},
+          i2 -> {Integer, -28, 4},
+          i3 -> {Integer, -32, 4},
+          i4 -> {Integer, -36, 4},
+          i5 -> {Integer, -40, 4},
+          i6 -> {Integer, -44, 4},
+          i7 -> {Integer, -48, 4},
+          i8 -> {Integer, -52, 4},
+          i9 -> {Integer, -56, 4},
+          local0 -> {Object(class1), -4, 4},
+          local1 -> {Boolean, -8, 4},
+          local2 -> {Object(class0), -12, 4},
+          local3 -> {Object(class1), -16, 4}
+        }
+      }
+    }
+  },
+  class0 -> {
+    VariableTable {
+      member0 -> {Integer, 0, 4},
+      member1 -> {Boolean, 4, 4}
+    },
+    MethodTable {
+      class0 -> {
+        None,
+        16,
+        VariableTable {
+          arg0 -> {Integer, 12, 4},
+          arg1 -> {Boolean, 16, 4},
+          arg2 -> {Integer, 20, 4},
+          arg3 -> {Integer, 24, 4},
+          local0 -> {Integer, -4, 4},
+          local1 -> {Boolean, -8, 4},
+          local2 -> {Boolean, -12, 4},
+          local3 -> {Integer, -16, 4}
+        }
+      }
+    }
+  },
+  class1 -> {
+    VariableTable {},
+    MethodTable {
+      class1 -> {
+        None,
+        16,
+        VariableTable {
+          arg0 -> {Boolean, 12, 4},
+          arg1 -> {Boolean, 16, 4},
+          arg2 -> {Boolean, 20, 4},
+          arg3 -> {Integer, 24, 4},
+          arg4 -> {Integer, 28, 4},
+          local0 -> {Integer, -4, 4},
+          local1 -> {Integer, -8, 4},
+          local2 -> {Integer, -12, 4},
+          local3 -> {Integer, -16, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 class1_class1:
     push %ebp
@@ -237,6 +395,85 @@ push -4(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        96,
+        VariableTable {
+          i0 -> {Integer, -20, 4},
+          i1 -> {Integer, -24, 4},
+          i10 -> {Integer, -60, 4},
+          i11 -> {Integer, -64, 4},
+          i12 -> {Integer, -68, 4},
+          i13 -> {Integer, -72, 4},
+          i14 -> {Integer, -76, 4},
+          i15 -> {Integer, -80, 4},
+          i16 -> {Integer, -84, 4},
+          i17 -> {Integer, -88, 4},
+          i18 -> {Integer, -92, 4},
+          i19 -> {Integer, -96, 4},
+          i2 -> {Integer, -28, 4},
+          i3 -> {Integer, -32, 4},
+          i4 -> {Integer, -36, 4},
+          i5 -> {Integer, -40, 4},
+          i6 -> {Integer, -44, 4},
+          i7 -> {Integer, -48, 4},
+          i8 -> {Integer, -52, 4},
+          i9 -> {Integer, -56, 4},
+          local0 -> {Object(class1), -4, 4},
+          local1 -> {Boolean, -8, 4},
+          local2 -> {Object(class0), -12, 4},
+          local3 -> {Object(class1), -16, 4}
+        }
+      }
+    }
+  },
+  class0 -> {
+    VariableTable {
+      member0 -> {Integer, 0, 4},
+      member1 -> {Boolean, 4, 4}
+    },
+    MethodTable {
+      class0 -> {
+        None,
+        16,
+        VariableTable {
+          arg0 -> {Integer, 12, 4},
+          arg1 -> {Boolean, 16, 4},
+          arg2 -> {Integer, 20, 4},
+          arg3 -> {Integer, 24, 4},
+          local0 -> {Integer, -4, 4},
+          local1 -> {Boolean, -8, 4},
+          local2 -> {Boolean, -12, 4},
+          local3 -> {Integer, -16, 4}
+        }
+      }
+    }
+  },
+  class1 -> {
+    VariableTable {},
+    MethodTable {
+      class1 -> {
+        None,
+        16,
+        VariableTable {
+          arg0 -> {Boolean, 12, 4},
+          arg1 -> {Boolean, 16, 4},
+          arg2 -> {Boolean, 20, 4},
+          arg3 -> {Integer, 24, 4},
+          arg4 -> {Integer, 28, 4},
+          local0 -> {Integer, -4, 4},
+          local1 -> {Integer, -8, 4},
+          local2 -> {Integer, -12, 4},
+          local3 -> {Integer, -16, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 Main_main:
     push %ebp

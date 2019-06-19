@@ -2,6 +2,34 @@
 printstring: .asciz "%d\n"
 .text
 .globl Main_main
+ClassTable {
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        8,
+        VariableTable {
+          a -> {Object(classA), -4, 4},
+          i -> {Integer, -8, 4}
+        }
+      }
+    }
+  },
+  classA -> {
+    VariableTable {
+      x -> {Integer, 0, 4},
+      y -> {Integer, 4, 4}
+    },
+    MethodTable {
+      inc -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 classA_inc:
     push %ebp
@@ -55,6 +83,34 @@ classA_inc:
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        8,
+        VariableTable {
+          a -> {Object(classA), -4, 4},
+          i -> {Integer, -8, 4}
+        }
+      }
+    }
+  },
+  classA -> {
+    VariableTable {
+      x -> {Integer, 0, 4},
+      y -> {Integer, 4, 4}
+    },
+    MethodTable {
+      inc -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 Main_main:
     push %ebp

@@ -2,6 +2,161 @@
 printstring: .asciz "%d\n"
 .text
 .globl Main_main
+ClassTable {
+  Float -> {
+    VariableTable {
+      exp -> {Integer, 4, 4},
+      frac -> {Integer, 8, 4},
+      sign -> {Boolean, 0, 4}
+    },
+    MethodTable {
+      Float -> {
+        None,
+        0,
+        VariableTable {
+          e -> {Integer, 16, 4},
+          f -> {Integer, 20, 4},
+          s -> {Boolean, 12, 4}
+        }
+      },
+      copy -> {
+        Object(Float),
+        0,
+        VariableTable {}
+      },
+      printval -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  },
+  FloatOps -> {
+    VariableTable {},
+    MethodTable {
+      add -> {
+        Object(Float),
+        20,
+        VariableTable {
+          diff -> {Integer, -16, 4},
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          i -> {Integer, -20, 4},
+          result -> {Object(Float), -12, 4},
+          x -> {Object(Float), -4, 4},
+          y -> {Object(Float), -8, 4}
+        }
+      },
+      div -> {
+        Object(Float),
+        4,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          result -> {Object(Float), -4, 4}
+        }
+      },
+      exp -> {
+        Object(Float),
+        48,
+        VariableTable {
+          base -> {Object(Float), -20, 4},
+          c2 -> {Object(Float), -32, 4},
+          c3 -> {Object(Float), -36, 4},
+          c4 -> {Object(Float), -40, 4},
+          c5 -> {Object(Float), -44, 4},
+          c6 -> {Object(Float), -48, 4},
+          e -> {Object(Float), -12, 4},
+          f -> {Object(Float), 12, 4},
+          i -> {Integer, -4, 4},
+          one -> {Object(Float), -16, 4},
+          result -> {Object(Float), -28, 4},
+          tmp -> {Object(Float), -24, 4},
+          val -> {Integer, -8, 4}
+        }
+      },
+      ln -> {
+        Object(Float),
+        40,
+        VariableTable {
+          base -> {Object(Float), -12, 4},
+          c2 -> {Object(Float), -20, 4},
+          c3 -> {Object(Float), -24, 4},
+          c4 -> {Object(Float), -28, 4},
+          c5 -> {Object(Float), -32, 4},
+          f -> {Object(Float), 12, 4},
+          i -> {Integer, -40, 4},
+          log2 -> {Object(Float), -4, 4},
+          one -> {Object(Float), -36, 4},
+          result -> {Object(Float), -16, 4},
+          x -> {Object(Float), -8, 4}
+        }
+      },
+      lt -> {
+        Boolean,
+        8,
+        VariableTable {
+          done -> {Boolean, -4, 4},
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          result -> {Boolean, -8, 4}
+        }
+      },
+      mult -> {
+        Object(Float),
+        32,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          hi -> {Integer, -8, 4},
+          hi1 -> {Integer, -12, 4},
+          hi2 -> {Integer, -16, 4},
+          lo -> {Integer, -20, 4},
+          lo1 -> {Integer, -24, 4},
+          lo2 -> {Integer, -28, 4},
+          result -> {Object(Float), -4, 4},
+          tmp -> {Integer, -32, 4}
+        }
+      },
+      pow -> {
+        Object(Float),
+        0,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4}
+        }
+      },
+      sub -> {
+        Object(Float),
+        0,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4}
+        }
+      }
+    }
+  },
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        36,
+        VariableTable {
+          Amt -> {Object(Float), -32, 4},
+          F -> {Object(FloatOps), -16, 4},
+          N -> {Object(Float), -28, 4},
+          f1 -> {Object(Float), -4, 4},
+          f2 -> {Object(Float), -8, 4},
+          f3 -> {Object(Float), -12, 4},
+          one -> {Object(Float), -20, 4},
+          r -> {Object(Float), -24, 4},
+          res -> {Object(Float), -36, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 Float_Float:
     push %ebp
@@ -51,6 +206,161 @@ push 20(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Float -> {
+    VariableTable {
+      exp -> {Integer, 4, 4},
+      frac -> {Integer, 8, 4},
+      sign -> {Boolean, 0, 4}
+    },
+    MethodTable {
+      Float -> {
+        None,
+        0,
+        VariableTable {
+          e -> {Integer, 16, 4},
+          f -> {Integer, 20, 4},
+          s -> {Boolean, 12, 4}
+        }
+      },
+      copy -> {
+        Object(Float),
+        0,
+        VariableTable {}
+      },
+      printval -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  },
+  FloatOps -> {
+    VariableTable {},
+    MethodTable {
+      add -> {
+        Object(Float),
+        20,
+        VariableTable {
+          diff -> {Integer, -16, 4},
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          i -> {Integer, -20, 4},
+          result -> {Object(Float), -12, 4},
+          x -> {Object(Float), -4, 4},
+          y -> {Object(Float), -8, 4}
+        }
+      },
+      div -> {
+        Object(Float),
+        4,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          result -> {Object(Float), -4, 4}
+        }
+      },
+      exp -> {
+        Object(Float),
+        48,
+        VariableTable {
+          base -> {Object(Float), -20, 4},
+          c2 -> {Object(Float), -32, 4},
+          c3 -> {Object(Float), -36, 4},
+          c4 -> {Object(Float), -40, 4},
+          c5 -> {Object(Float), -44, 4},
+          c6 -> {Object(Float), -48, 4},
+          e -> {Object(Float), -12, 4},
+          f -> {Object(Float), 12, 4},
+          i -> {Integer, -4, 4},
+          one -> {Object(Float), -16, 4},
+          result -> {Object(Float), -28, 4},
+          tmp -> {Object(Float), -24, 4},
+          val -> {Integer, -8, 4}
+        }
+      },
+      ln -> {
+        Object(Float),
+        40,
+        VariableTable {
+          base -> {Object(Float), -12, 4},
+          c2 -> {Object(Float), -20, 4},
+          c3 -> {Object(Float), -24, 4},
+          c4 -> {Object(Float), -28, 4},
+          c5 -> {Object(Float), -32, 4},
+          f -> {Object(Float), 12, 4},
+          i -> {Integer, -40, 4},
+          log2 -> {Object(Float), -4, 4},
+          one -> {Object(Float), -36, 4},
+          result -> {Object(Float), -16, 4},
+          x -> {Object(Float), -8, 4}
+        }
+      },
+      lt -> {
+        Boolean,
+        8,
+        VariableTable {
+          done -> {Boolean, -4, 4},
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          result -> {Boolean, -8, 4}
+        }
+      },
+      mult -> {
+        Object(Float),
+        32,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          hi -> {Integer, -8, 4},
+          hi1 -> {Integer, -12, 4},
+          hi2 -> {Integer, -16, 4},
+          lo -> {Integer, -20, 4},
+          lo1 -> {Integer, -24, 4},
+          lo2 -> {Integer, -28, 4},
+          result -> {Object(Float), -4, 4},
+          tmp -> {Integer, -32, 4}
+        }
+      },
+      pow -> {
+        Object(Float),
+        0,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4}
+        }
+      },
+      sub -> {
+        Object(Float),
+        0,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4}
+        }
+      }
+    }
+  },
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        36,
+        VariableTable {
+          Amt -> {Object(Float), -32, 4},
+          F -> {Object(FloatOps), -16, 4},
+          N -> {Object(Float), -28, 4},
+          f1 -> {Object(Float), -4, 4},
+          f2 -> {Object(Float), -8, 4},
+          f3 -> {Object(Float), -12, 4},
+          one -> {Object(Float), -20, 4},
+          r -> {Object(Float), -24, 4},
+          res -> {Object(Float), -36, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 Float_printval:
     push %ebp
@@ -97,6 +407,161 @@ call printf
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Float -> {
+    VariableTable {
+      exp -> {Integer, 4, 4},
+      frac -> {Integer, 8, 4},
+      sign -> {Boolean, 0, 4}
+    },
+    MethodTable {
+      Float -> {
+        None,
+        0,
+        VariableTable {
+          e -> {Integer, 16, 4},
+          f -> {Integer, 20, 4},
+          s -> {Boolean, 12, 4}
+        }
+      },
+      copy -> {
+        Object(Float),
+        0,
+        VariableTable {}
+      },
+      printval -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  },
+  FloatOps -> {
+    VariableTable {},
+    MethodTable {
+      add -> {
+        Object(Float),
+        20,
+        VariableTable {
+          diff -> {Integer, -16, 4},
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          i -> {Integer, -20, 4},
+          result -> {Object(Float), -12, 4},
+          x -> {Object(Float), -4, 4},
+          y -> {Object(Float), -8, 4}
+        }
+      },
+      div -> {
+        Object(Float),
+        4,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          result -> {Object(Float), -4, 4}
+        }
+      },
+      exp -> {
+        Object(Float),
+        48,
+        VariableTable {
+          base -> {Object(Float), -20, 4},
+          c2 -> {Object(Float), -32, 4},
+          c3 -> {Object(Float), -36, 4},
+          c4 -> {Object(Float), -40, 4},
+          c5 -> {Object(Float), -44, 4},
+          c6 -> {Object(Float), -48, 4},
+          e -> {Object(Float), -12, 4},
+          f -> {Object(Float), 12, 4},
+          i -> {Integer, -4, 4},
+          one -> {Object(Float), -16, 4},
+          result -> {Object(Float), -28, 4},
+          tmp -> {Object(Float), -24, 4},
+          val -> {Integer, -8, 4}
+        }
+      },
+      ln -> {
+        Object(Float),
+        40,
+        VariableTable {
+          base -> {Object(Float), -12, 4},
+          c2 -> {Object(Float), -20, 4},
+          c3 -> {Object(Float), -24, 4},
+          c4 -> {Object(Float), -28, 4},
+          c5 -> {Object(Float), -32, 4},
+          f -> {Object(Float), 12, 4},
+          i -> {Integer, -40, 4},
+          log2 -> {Object(Float), -4, 4},
+          one -> {Object(Float), -36, 4},
+          result -> {Object(Float), -16, 4},
+          x -> {Object(Float), -8, 4}
+        }
+      },
+      lt -> {
+        Boolean,
+        8,
+        VariableTable {
+          done -> {Boolean, -4, 4},
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          result -> {Boolean, -8, 4}
+        }
+      },
+      mult -> {
+        Object(Float),
+        32,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          hi -> {Integer, -8, 4},
+          hi1 -> {Integer, -12, 4},
+          hi2 -> {Integer, -16, 4},
+          lo -> {Integer, -20, 4},
+          lo1 -> {Integer, -24, 4},
+          lo2 -> {Integer, -28, 4},
+          result -> {Object(Float), -4, 4},
+          tmp -> {Integer, -32, 4}
+        }
+      },
+      pow -> {
+        Object(Float),
+        0,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4}
+        }
+      },
+      sub -> {
+        Object(Float),
+        0,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4}
+        }
+      }
+    }
+  },
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        36,
+        VariableTable {
+          Amt -> {Object(Float), -32, 4},
+          F -> {Object(FloatOps), -16, 4},
+          N -> {Object(Float), -28, 4},
+          f1 -> {Object(Float), -4, 4},
+          f2 -> {Object(Float), -8, 4},
+          f3 -> {Object(Float), -12, 4},
+          one -> {Object(Float), -20, 4},
+          r -> {Object(Float), -24, 4},
+          res -> {Object(Float), -36, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 Float_copy:
     push %ebp
@@ -153,6 +618,161 @@ call Float_Float
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Float -> {
+    VariableTable {
+      exp -> {Integer, 4, 4},
+      frac -> {Integer, 8, 4},
+      sign -> {Boolean, 0, 4}
+    },
+    MethodTable {
+      Float -> {
+        None,
+        0,
+        VariableTable {
+          e -> {Integer, 16, 4},
+          f -> {Integer, 20, 4},
+          s -> {Boolean, 12, 4}
+        }
+      },
+      copy -> {
+        Object(Float),
+        0,
+        VariableTable {}
+      },
+      printval -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  },
+  FloatOps -> {
+    VariableTable {},
+    MethodTable {
+      add -> {
+        Object(Float),
+        20,
+        VariableTable {
+          diff -> {Integer, -16, 4},
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          i -> {Integer, -20, 4},
+          result -> {Object(Float), -12, 4},
+          x -> {Object(Float), -4, 4},
+          y -> {Object(Float), -8, 4}
+        }
+      },
+      div -> {
+        Object(Float),
+        4,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          result -> {Object(Float), -4, 4}
+        }
+      },
+      exp -> {
+        Object(Float),
+        48,
+        VariableTable {
+          base -> {Object(Float), -20, 4},
+          c2 -> {Object(Float), -32, 4},
+          c3 -> {Object(Float), -36, 4},
+          c4 -> {Object(Float), -40, 4},
+          c5 -> {Object(Float), -44, 4},
+          c6 -> {Object(Float), -48, 4},
+          e -> {Object(Float), -12, 4},
+          f -> {Object(Float), 12, 4},
+          i -> {Integer, -4, 4},
+          one -> {Object(Float), -16, 4},
+          result -> {Object(Float), -28, 4},
+          tmp -> {Object(Float), -24, 4},
+          val -> {Integer, -8, 4}
+        }
+      },
+      ln -> {
+        Object(Float),
+        40,
+        VariableTable {
+          base -> {Object(Float), -12, 4},
+          c2 -> {Object(Float), -20, 4},
+          c3 -> {Object(Float), -24, 4},
+          c4 -> {Object(Float), -28, 4},
+          c5 -> {Object(Float), -32, 4},
+          f -> {Object(Float), 12, 4},
+          i -> {Integer, -40, 4},
+          log2 -> {Object(Float), -4, 4},
+          one -> {Object(Float), -36, 4},
+          result -> {Object(Float), -16, 4},
+          x -> {Object(Float), -8, 4}
+        }
+      },
+      lt -> {
+        Boolean,
+        8,
+        VariableTable {
+          done -> {Boolean, -4, 4},
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          result -> {Boolean, -8, 4}
+        }
+      },
+      mult -> {
+        Object(Float),
+        32,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          hi -> {Integer, -8, 4},
+          hi1 -> {Integer, -12, 4},
+          hi2 -> {Integer, -16, 4},
+          lo -> {Integer, -20, 4},
+          lo1 -> {Integer, -24, 4},
+          lo2 -> {Integer, -28, 4},
+          result -> {Object(Float), -4, 4},
+          tmp -> {Integer, -32, 4}
+        }
+      },
+      pow -> {
+        Object(Float),
+        0,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4}
+        }
+      },
+      sub -> {
+        Object(Float),
+        0,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4}
+        }
+      }
+    }
+  },
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        36,
+        VariableTable {
+          Amt -> {Object(Float), -32, 4},
+          F -> {Object(FloatOps), -16, 4},
+          N -> {Object(Float), -28, 4},
+          f1 -> {Object(Float), -4, 4},
+          f2 -> {Object(Float), -8, 4},
+          f3 -> {Object(Float), -12, 4},
+          one -> {Object(Float), -20, 4},
+          r -> {Object(Float), -24, 4},
+          res -> {Object(Float), -36, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 FloatOps_add:
     push %ebp
@@ -727,6 +1347,161 @@ push -12(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Float -> {
+    VariableTable {
+      exp -> {Integer, 4, 4},
+      frac -> {Integer, 8, 4},
+      sign -> {Boolean, 0, 4}
+    },
+    MethodTable {
+      Float -> {
+        None,
+        0,
+        VariableTable {
+          e -> {Integer, 16, 4},
+          f -> {Integer, 20, 4},
+          s -> {Boolean, 12, 4}
+        }
+      },
+      copy -> {
+        Object(Float),
+        0,
+        VariableTable {}
+      },
+      printval -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  },
+  FloatOps -> {
+    VariableTable {},
+    MethodTable {
+      add -> {
+        Object(Float),
+        20,
+        VariableTable {
+          diff -> {Integer, -16, 4},
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          i -> {Integer, -20, 4},
+          result -> {Object(Float), -12, 4},
+          x -> {Object(Float), -4, 4},
+          y -> {Object(Float), -8, 4}
+        }
+      },
+      div -> {
+        Object(Float),
+        4,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          result -> {Object(Float), -4, 4}
+        }
+      },
+      exp -> {
+        Object(Float),
+        48,
+        VariableTable {
+          base -> {Object(Float), -20, 4},
+          c2 -> {Object(Float), -32, 4},
+          c3 -> {Object(Float), -36, 4},
+          c4 -> {Object(Float), -40, 4},
+          c5 -> {Object(Float), -44, 4},
+          c6 -> {Object(Float), -48, 4},
+          e -> {Object(Float), -12, 4},
+          f -> {Object(Float), 12, 4},
+          i -> {Integer, -4, 4},
+          one -> {Object(Float), -16, 4},
+          result -> {Object(Float), -28, 4},
+          tmp -> {Object(Float), -24, 4},
+          val -> {Integer, -8, 4}
+        }
+      },
+      ln -> {
+        Object(Float),
+        40,
+        VariableTable {
+          base -> {Object(Float), -12, 4},
+          c2 -> {Object(Float), -20, 4},
+          c3 -> {Object(Float), -24, 4},
+          c4 -> {Object(Float), -28, 4},
+          c5 -> {Object(Float), -32, 4},
+          f -> {Object(Float), 12, 4},
+          i -> {Integer, -40, 4},
+          log2 -> {Object(Float), -4, 4},
+          one -> {Object(Float), -36, 4},
+          result -> {Object(Float), -16, 4},
+          x -> {Object(Float), -8, 4}
+        }
+      },
+      lt -> {
+        Boolean,
+        8,
+        VariableTable {
+          done -> {Boolean, -4, 4},
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          result -> {Boolean, -8, 4}
+        }
+      },
+      mult -> {
+        Object(Float),
+        32,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          hi -> {Integer, -8, 4},
+          hi1 -> {Integer, -12, 4},
+          hi2 -> {Integer, -16, 4},
+          lo -> {Integer, -20, 4},
+          lo1 -> {Integer, -24, 4},
+          lo2 -> {Integer, -28, 4},
+          result -> {Object(Float), -4, 4},
+          tmp -> {Integer, -32, 4}
+        }
+      },
+      pow -> {
+        Object(Float),
+        0,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4}
+        }
+      },
+      sub -> {
+        Object(Float),
+        0,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4}
+        }
+      }
+    }
+  },
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        36,
+        VariableTable {
+          Amt -> {Object(Float), -32, 4},
+          F -> {Object(FloatOps), -16, 4},
+          N -> {Object(Float), -28, 4},
+          f1 -> {Object(Float), -4, 4},
+          f2 -> {Object(Float), -8, 4},
+          f3 -> {Object(Float), -12, 4},
+          one -> {Object(Float), -20, 4},
+          r -> {Object(Float), -24, 4},
+          res -> {Object(Float), -36, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 FloatOps_sub:
     push %ebp
@@ -804,6 +1579,161 @@ push 12(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Float -> {
+    VariableTable {
+      exp -> {Integer, 4, 4},
+      frac -> {Integer, 8, 4},
+      sign -> {Boolean, 0, 4}
+    },
+    MethodTable {
+      Float -> {
+        None,
+        0,
+        VariableTable {
+          e -> {Integer, 16, 4},
+          f -> {Integer, 20, 4},
+          s -> {Boolean, 12, 4}
+        }
+      },
+      copy -> {
+        Object(Float),
+        0,
+        VariableTable {}
+      },
+      printval -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  },
+  FloatOps -> {
+    VariableTable {},
+    MethodTable {
+      add -> {
+        Object(Float),
+        20,
+        VariableTable {
+          diff -> {Integer, -16, 4},
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          i -> {Integer, -20, 4},
+          result -> {Object(Float), -12, 4},
+          x -> {Object(Float), -4, 4},
+          y -> {Object(Float), -8, 4}
+        }
+      },
+      div -> {
+        Object(Float),
+        4,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          result -> {Object(Float), -4, 4}
+        }
+      },
+      exp -> {
+        Object(Float),
+        48,
+        VariableTable {
+          base -> {Object(Float), -20, 4},
+          c2 -> {Object(Float), -32, 4},
+          c3 -> {Object(Float), -36, 4},
+          c4 -> {Object(Float), -40, 4},
+          c5 -> {Object(Float), -44, 4},
+          c6 -> {Object(Float), -48, 4},
+          e -> {Object(Float), -12, 4},
+          f -> {Object(Float), 12, 4},
+          i -> {Integer, -4, 4},
+          one -> {Object(Float), -16, 4},
+          result -> {Object(Float), -28, 4},
+          tmp -> {Object(Float), -24, 4},
+          val -> {Integer, -8, 4}
+        }
+      },
+      ln -> {
+        Object(Float),
+        40,
+        VariableTable {
+          base -> {Object(Float), -12, 4},
+          c2 -> {Object(Float), -20, 4},
+          c3 -> {Object(Float), -24, 4},
+          c4 -> {Object(Float), -28, 4},
+          c5 -> {Object(Float), -32, 4},
+          f -> {Object(Float), 12, 4},
+          i -> {Integer, -40, 4},
+          log2 -> {Object(Float), -4, 4},
+          one -> {Object(Float), -36, 4},
+          result -> {Object(Float), -16, 4},
+          x -> {Object(Float), -8, 4}
+        }
+      },
+      lt -> {
+        Boolean,
+        8,
+        VariableTable {
+          done -> {Boolean, -4, 4},
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          result -> {Boolean, -8, 4}
+        }
+      },
+      mult -> {
+        Object(Float),
+        32,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          hi -> {Integer, -8, 4},
+          hi1 -> {Integer, -12, 4},
+          hi2 -> {Integer, -16, 4},
+          lo -> {Integer, -20, 4},
+          lo1 -> {Integer, -24, 4},
+          lo2 -> {Integer, -28, 4},
+          result -> {Object(Float), -4, 4},
+          tmp -> {Integer, -32, 4}
+        }
+      },
+      pow -> {
+        Object(Float),
+        0,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4}
+        }
+      },
+      sub -> {
+        Object(Float),
+        0,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4}
+        }
+      }
+    }
+  },
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        36,
+        VariableTable {
+          Amt -> {Object(Float), -32, 4},
+          F -> {Object(FloatOps), -16, 4},
+          N -> {Object(Float), -28, 4},
+          f1 -> {Object(Float), -4, 4},
+          f2 -> {Object(Float), -8, 4},
+          f3 -> {Object(Float), -12, 4},
+          one -> {Object(Float), -20, 4},
+          r -> {Object(Float), -24, 4},
+          res -> {Object(Float), -36, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 FloatOps_mult:
     push %ebp
@@ -1558,6 +2488,161 @@ push -4(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Float -> {
+    VariableTable {
+      exp -> {Integer, 4, 4},
+      frac -> {Integer, 8, 4},
+      sign -> {Boolean, 0, 4}
+    },
+    MethodTable {
+      Float -> {
+        None,
+        0,
+        VariableTable {
+          e -> {Integer, 16, 4},
+          f -> {Integer, 20, 4},
+          s -> {Boolean, 12, 4}
+        }
+      },
+      copy -> {
+        Object(Float),
+        0,
+        VariableTable {}
+      },
+      printval -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  },
+  FloatOps -> {
+    VariableTable {},
+    MethodTable {
+      add -> {
+        Object(Float),
+        20,
+        VariableTable {
+          diff -> {Integer, -16, 4},
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          i -> {Integer, -20, 4},
+          result -> {Object(Float), -12, 4},
+          x -> {Object(Float), -4, 4},
+          y -> {Object(Float), -8, 4}
+        }
+      },
+      div -> {
+        Object(Float),
+        4,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          result -> {Object(Float), -4, 4}
+        }
+      },
+      exp -> {
+        Object(Float),
+        48,
+        VariableTable {
+          base -> {Object(Float), -20, 4},
+          c2 -> {Object(Float), -32, 4},
+          c3 -> {Object(Float), -36, 4},
+          c4 -> {Object(Float), -40, 4},
+          c5 -> {Object(Float), -44, 4},
+          c6 -> {Object(Float), -48, 4},
+          e -> {Object(Float), -12, 4},
+          f -> {Object(Float), 12, 4},
+          i -> {Integer, -4, 4},
+          one -> {Object(Float), -16, 4},
+          result -> {Object(Float), -28, 4},
+          tmp -> {Object(Float), -24, 4},
+          val -> {Integer, -8, 4}
+        }
+      },
+      ln -> {
+        Object(Float),
+        40,
+        VariableTable {
+          base -> {Object(Float), -12, 4},
+          c2 -> {Object(Float), -20, 4},
+          c3 -> {Object(Float), -24, 4},
+          c4 -> {Object(Float), -28, 4},
+          c5 -> {Object(Float), -32, 4},
+          f -> {Object(Float), 12, 4},
+          i -> {Integer, -40, 4},
+          log2 -> {Object(Float), -4, 4},
+          one -> {Object(Float), -36, 4},
+          result -> {Object(Float), -16, 4},
+          x -> {Object(Float), -8, 4}
+        }
+      },
+      lt -> {
+        Boolean,
+        8,
+        VariableTable {
+          done -> {Boolean, -4, 4},
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          result -> {Boolean, -8, 4}
+        }
+      },
+      mult -> {
+        Object(Float),
+        32,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          hi -> {Integer, -8, 4},
+          hi1 -> {Integer, -12, 4},
+          hi2 -> {Integer, -16, 4},
+          lo -> {Integer, -20, 4},
+          lo1 -> {Integer, -24, 4},
+          lo2 -> {Integer, -28, 4},
+          result -> {Object(Float), -4, 4},
+          tmp -> {Integer, -32, 4}
+        }
+      },
+      pow -> {
+        Object(Float),
+        0,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4}
+        }
+      },
+      sub -> {
+        Object(Float),
+        0,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4}
+        }
+      }
+    }
+  },
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        36,
+        VariableTable {
+          Amt -> {Object(Float), -32, 4},
+          F -> {Object(FloatOps), -16, 4},
+          N -> {Object(Float), -28, 4},
+          f1 -> {Object(Float), -4, 4},
+          f2 -> {Object(Float), -8, 4},
+          f3 -> {Object(Float), -12, 4},
+          one -> {Object(Float), -20, 4},
+          r -> {Object(Float), -24, 4},
+          res -> {Object(Float), -36, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 FloatOps_div:
     push %ebp
@@ -1986,6 +3071,161 @@ push -4(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Float -> {
+    VariableTable {
+      exp -> {Integer, 4, 4},
+      frac -> {Integer, 8, 4},
+      sign -> {Boolean, 0, 4}
+    },
+    MethodTable {
+      Float -> {
+        None,
+        0,
+        VariableTable {
+          e -> {Integer, 16, 4},
+          f -> {Integer, 20, 4},
+          s -> {Boolean, 12, 4}
+        }
+      },
+      copy -> {
+        Object(Float),
+        0,
+        VariableTable {}
+      },
+      printval -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  },
+  FloatOps -> {
+    VariableTable {},
+    MethodTable {
+      add -> {
+        Object(Float),
+        20,
+        VariableTable {
+          diff -> {Integer, -16, 4},
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          i -> {Integer, -20, 4},
+          result -> {Object(Float), -12, 4},
+          x -> {Object(Float), -4, 4},
+          y -> {Object(Float), -8, 4}
+        }
+      },
+      div -> {
+        Object(Float),
+        4,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          result -> {Object(Float), -4, 4}
+        }
+      },
+      exp -> {
+        Object(Float),
+        48,
+        VariableTable {
+          base -> {Object(Float), -20, 4},
+          c2 -> {Object(Float), -32, 4},
+          c3 -> {Object(Float), -36, 4},
+          c4 -> {Object(Float), -40, 4},
+          c5 -> {Object(Float), -44, 4},
+          c6 -> {Object(Float), -48, 4},
+          e -> {Object(Float), -12, 4},
+          f -> {Object(Float), 12, 4},
+          i -> {Integer, -4, 4},
+          one -> {Object(Float), -16, 4},
+          result -> {Object(Float), -28, 4},
+          tmp -> {Object(Float), -24, 4},
+          val -> {Integer, -8, 4}
+        }
+      },
+      ln -> {
+        Object(Float),
+        40,
+        VariableTable {
+          base -> {Object(Float), -12, 4},
+          c2 -> {Object(Float), -20, 4},
+          c3 -> {Object(Float), -24, 4},
+          c4 -> {Object(Float), -28, 4},
+          c5 -> {Object(Float), -32, 4},
+          f -> {Object(Float), 12, 4},
+          i -> {Integer, -40, 4},
+          log2 -> {Object(Float), -4, 4},
+          one -> {Object(Float), -36, 4},
+          result -> {Object(Float), -16, 4},
+          x -> {Object(Float), -8, 4}
+        }
+      },
+      lt -> {
+        Boolean,
+        8,
+        VariableTable {
+          done -> {Boolean, -4, 4},
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          result -> {Boolean, -8, 4}
+        }
+      },
+      mult -> {
+        Object(Float),
+        32,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          hi -> {Integer, -8, 4},
+          hi1 -> {Integer, -12, 4},
+          hi2 -> {Integer, -16, 4},
+          lo -> {Integer, -20, 4},
+          lo1 -> {Integer, -24, 4},
+          lo2 -> {Integer, -28, 4},
+          result -> {Object(Float), -4, 4},
+          tmp -> {Integer, -32, 4}
+        }
+      },
+      pow -> {
+        Object(Float),
+        0,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4}
+        }
+      },
+      sub -> {
+        Object(Float),
+        0,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4}
+        }
+      }
+    }
+  },
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        36,
+        VariableTable {
+          Amt -> {Object(Float), -32, 4},
+          F -> {Object(FloatOps), -16, 4},
+          N -> {Object(Float), -28, 4},
+          f1 -> {Object(Float), -4, 4},
+          f2 -> {Object(Float), -8, 4},
+          f3 -> {Object(Float), -12, 4},
+          one -> {Object(Float), -20, 4},
+          r -> {Object(Float), -24, 4},
+          res -> {Object(Float), -36, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 FloatOps_lt:
     push %ebp
@@ -2339,6 +3579,161 @@ push -8(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Float -> {
+    VariableTable {
+      exp -> {Integer, 4, 4},
+      frac -> {Integer, 8, 4},
+      sign -> {Boolean, 0, 4}
+    },
+    MethodTable {
+      Float -> {
+        None,
+        0,
+        VariableTable {
+          e -> {Integer, 16, 4},
+          f -> {Integer, 20, 4},
+          s -> {Boolean, 12, 4}
+        }
+      },
+      copy -> {
+        Object(Float),
+        0,
+        VariableTable {}
+      },
+      printval -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  },
+  FloatOps -> {
+    VariableTable {},
+    MethodTable {
+      add -> {
+        Object(Float),
+        20,
+        VariableTable {
+          diff -> {Integer, -16, 4},
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          i -> {Integer, -20, 4},
+          result -> {Object(Float), -12, 4},
+          x -> {Object(Float), -4, 4},
+          y -> {Object(Float), -8, 4}
+        }
+      },
+      div -> {
+        Object(Float),
+        4,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          result -> {Object(Float), -4, 4}
+        }
+      },
+      exp -> {
+        Object(Float),
+        48,
+        VariableTable {
+          base -> {Object(Float), -20, 4},
+          c2 -> {Object(Float), -32, 4},
+          c3 -> {Object(Float), -36, 4},
+          c4 -> {Object(Float), -40, 4},
+          c5 -> {Object(Float), -44, 4},
+          c6 -> {Object(Float), -48, 4},
+          e -> {Object(Float), -12, 4},
+          f -> {Object(Float), 12, 4},
+          i -> {Integer, -4, 4},
+          one -> {Object(Float), -16, 4},
+          result -> {Object(Float), -28, 4},
+          tmp -> {Object(Float), -24, 4},
+          val -> {Integer, -8, 4}
+        }
+      },
+      ln -> {
+        Object(Float),
+        40,
+        VariableTable {
+          base -> {Object(Float), -12, 4},
+          c2 -> {Object(Float), -20, 4},
+          c3 -> {Object(Float), -24, 4},
+          c4 -> {Object(Float), -28, 4},
+          c5 -> {Object(Float), -32, 4},
+          f -> {Object(Float), 12, 4},
+          i -> {Integer, -40, 4},
+          log2 -> {Object(Float), -4, 4},
+          one -> {Object(Float), -36, 4},
+          result -> {Object(Float), -16, 4},
+          x -> {Object(Float), -8, 4}
+        }
+      },
+      lt -> {
+        Boolean,
+        8,
+        VariableTable {
+          done -> {Boolean, -4, 4},
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          result -> {Boolean, -8, 4}
+        }
+      },
+      mult -> {
+        Object(Float),
+        32,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          hi -> {Integer, -8, 4},
+          hi1 -> {Integer, -12, 4},
+          hi2 -> {Integer, -16, 4},
+          lo -> {Integer, -20, 4},
+          lo1 -> {Integer, -24, 4},
+          lo2 -> {Integer, -28, 4},
+          result -> {Object(Float), -4, 4},
+          tmp -> {Integer, -32, 4}
+        }
+      },
+      pow -> {
+        Object(Float),
+        0,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4}
+        }
+      },
+      sub -> {
+        Object(Float),
+        0,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4}
+        }
+      }
+    }
+  },
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        36,
+        VariableTable {
+          Amt -> {Object(Float), -32, 4},
+          F -> {Object(FloatOps), -16, 4},
+          N -> {Object(Float), -28, 4},
+          f1 -> {Object(Float), -4, 4},
+          f2 -> {Object(Float), -8, 4},
+          f3 -> {Object(Float), -12, 4},
+          one -> {Object(Float), -20, 4},
+          r -> {Object(Float), -24, 4},
+          res -> {Object(Float), -36, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 FloatOps_exp:
     push %ebp
@@ -3250,6 +4645,161 @@ push -28(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Float -> {
+    VariableTable {
+      exp -> {Integer, 4, 4},
+      frac -> {Integer, 8, 4},
+      sign -> {Boolean, 0, 4}
+    },
+    MethodTable {
+      Float -> {
+        None,
+        0,
+        VariableTable {
+          e -> {Integer, 16, 4},
+          f -> {Integer, 20, 4},
+          s -> {Boolean, 12, 4}
+        }
+      },
+      copy -> {
+        Object(Float),
+        0,
+        VariableTable {}
+      },
+      printval -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  },
+  FloatOps -> {
+    VariableTable {},
+    MethodTable {
+      add -> {
+        Object(Float),
+        20,
+        VariableTable {
+          diff -> {Integer, -16, 4},
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          i -> {Integer, -20, 4},
+          result -> {Object(Float), -12, 4},
+          x -> {Object(Float), -4, 4},
+          y -> {Object(Float), -8, 4}
+        }
+      },
+      div -> {
+        Object(Float),
+        4,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          result -> {Object(Float), -4, 4}
+        }
+      },
+      exp -> {
+        Object(Float),
+        48,
+        VariableTable {
+          base -> {Object(Float), -20, 4},
+          c2 -> {Object(Float), -32, 4},
+          c3 -> {Object(Float), -36, 4},
+          c4 -> {Object(Float), -40, 4},
+          c5 -> {Object(Float), -44, 4},
+          c6 -> {Object(Float), -48, 4},
+          e -> {Object(Float), -12, 4},
+          f -> {Object(Float), 12, 4},
+          i -> {Integer, -4, 4},
+          one -> {Object(Float), -16, 4},
+          result -> {Object(Float), -28, 4},
+          tmp -> {Object(Float), -24, 4},
+          val -> {Integer, -8, 4}
+        }
+      },
+      ln -> {
+        Object(Float),
+        40,
+        VariableTable {
+          base -> {Object(Float), -12, 4},
+          c2 -> {Object(Float), -20, 4},
+          c3 -> {Object(Float), -24, 4},
+          c4 -> {Object(Float), -28, 4},
+          c5 -> {Object(Float), -32, 4},
+          f -> {Object(Float), 12, 4},
+          i -> {Integer, -40, 4},
+          log2 -> {Object(Float), -4, 4},
+          one -> {Object(Float), -36, 4},
+          result -> {Object(Float), -16, 4},
+          x -> {Object(Float), -8, 4}
+        }
+      },
+      lt -> {
+        Boolean,
+        8,
+        VariableTable {
+          done -> {Boolean, -4, 4},
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          result -> {Boolean, -8, 4}
+        }
+      },
+      mult -> {
+        Object(Float),
+        32,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          hi -> {Integer, -8, 4},
+          hi1 -> {Integer, -12, 4},
+          hi2 -> {Integer, -16, 4},
+          lo -> {Integer, -20, 4},
+          lo1 -> {Integer, -24, 4},
+          lo2 -> {Integer, -28, 4},
+          result -> {Object(Float), -4, 4},
+          tmp -> {Integer, -32, 4}
+        }
+      },
+      pow -> {
+        Object(Float),
+        0,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4}
+        }
+      },
+      sub -> {
+        Object(Float),
+        0,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4}
+        }
+      }
+    }
+  },
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        36,
+        VariableTable {
+          Amt -> {Object(Float), -32, 4},
+          F -> {Object(FloatOps), -16, 4},
+          N -> {Object(Float), -28, 4},
+          f1 -> {Object(Float), -4, 4},
+          f2 -> {Object(Float), -8, 4},
+          f3 -> {Object(Float), -12, 4},
+          one -> {Object(Float), -20, 4},
+          r -> {Object(Float), -24, 4},
+          res -> {Object(Float), -36, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 FloatOps_ln:
     push %ebp
@@ -3982,6 +5532,161 @@ push -12(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Float -> {
+    VariableTable {
+      exp -> {Integer, 4, 4},
+      frac -> {Integer, 8, 4},
+      sign -> {Boolean, 0, 4}
+    },
+    MethodTable {
+      Float -> {
+        None,
+        0,
+        VariableTable {
+          e -> {Integer, 16, 4},
+          f -> {Integer, 20, 4},
+          s -> {Boolean, 12, 4}
+        }
+      },
+      copy -> {
+        Object(Float),
+        0,
+        VariableTable {}
+      },
+      printval -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  },
+  FloatOps -> {
+    VariableTable {},
+    MethodTable {
+      add -> {
+        Object(Float),
+        20,
+        VariableTable {
+          diff -> {Integer, -16, 4},
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          i -> {Integer, -20, 4},
+          result -> {Object(Float), -12, 4},
+          x -> {Object(Float), -4, 4},
+          y -> {Object(Float), -8, 4}
+        }
+      },
+      div -> {
+        Object(Float),
+        4,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          result -> {Object(Float), -4, 4}
+        }
+      },
+      exp -> {
+        Object(Float),
+        48,
+        VariableTable {
+          base -> {Object(Float), -20, 4},
+          c2 -> {Object(Float), -32, 4},
+          c3 -> {Object(Float), -36, 4},
+          c4 -> {Object(Float), -40, 4},
+          c5 -> {Object(Float), -44, 4},
+          c6 -> {Object(Float), -48, 4},
+          e -> {Object(Float), -12, 4},
+          f -> {Object(Float), 12, 4},
+          i -> {Integer, -4, 4},
+          one -> {Object(Float), -16, 4},
+          result -> {Object(Float), -28, 4},
+          tmp -> {Object(Float), -24, 4},
+          val -> {Integer, -8, 4}
+        }
+      },
+      ln -> {
+        Object(Float),
+        40,
+        VariableTable {
+          base -> {Object(Float), -12, 4},
+          c2 -> {Object(Float), -20, 4},
+          c3 -> {Object(Float), -24, 4},
+          c4 -> {Object(Float), -28, 4},
+          c5 -> {Object(Float), -32, 4},
+          f -> {Object(Float), 12, 4},
+          i -> {Integer, -40, 4},
+          log2 -> {Object(Float), -4, 4},
+          one -> {Object(Float), -36, 4},
+          result -> {Object(Float), -16, 4},
+          x -> {Object(Float), -8, 4}
+        }
+      },
+      lt -> {
+        Boolean,
+        8,
+        VariableTable {
+          done -> {Boolean, -4, 4},
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          result -> {Boolean, -8, 4}
+        }
+      },
+      mult -> {
+        Object(Float),
+        32,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          hi -> {Integer, -8, 4},
+          hi1 -> {Integer, -12, 4},
+          hi2 -> {Integer, -16, 4},
+          lo -> {Integer, -20, 4},
+          lo1 -> {Integer, -24, 4},
+          lo2 -> {Integer, -28, 4},
+          result -> {Object(Float), -4, 4},
+          tmp -> {Integer, -32, 4}
+        }
+      },
+      pow -> {
+        Object(Float),
+        0,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4}
+        }
+      },
+      sub -> {
+        Object(Float),
+        0,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4}
+        }
+      }
+    }
+  },
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        36,
+        VariableTable {
+          Amt -> {Object(Float), -32, 4},
+          F -> {Object(FloatOps), -16, 4},
+          N -> {Object(Float), -28, 4},
+          f1 -> {Object(Float), -4, 4},
+          f2 -> {Object(Float), -8, 4},
+          f3 -> {Object(Float), -12, 4},
+          one -> {Object(Float), -20, 4},
+          r -> {Object(Float), -24, 4},
+          res -> {Object(Float), -36, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 FloatOps_pow:
     push %ebp
@@ -4051,6 +5756,161 @@ push 16(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Float -> {
+    VariableTable {
+      exp -> {Integer, 4, 4},
+      frac -> {Integer, 8, 4},
+      sign -> {Boolean, 0, 4}
+    },
+    MethodTable {
+      Float -> {
+        None,
+        0,
+        VariableTable {
+          e -> {Integer, 16, 4},
+          f -> {Integer, 20, 4},
+          s -> {Boolean, 12, 4}
+        }
+      },
+      copy -> {
+        Object(Float),
+        0,
+        VariableTable {}
+      },
+      printval -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  },
+  FloatOps -> {
+    VariableTable {},
+    MethodTable {
+      add -> {
+        Object(Float),
+        20,
+        VariableTable {
+          diff -> {Integer, -16, 4},
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          i -> {Integer, -20, 4},
+          result -> {Object(Float), -12, 4},
+          x -> {Object(Float), -4, 4},
+          y -> {Object(Float), -8, 4}
+        }
+      },
+      div -> {
+        Object(Float),
+        4,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          result -> {Object(Float), -4, 4}
+        }
+      },
+      exp -> {
+        Object(Float),
+        48,
+        VariableTable {
+          base -> {Object(Float), -20, 4},
+          c2 -> {Object(Float), -32, 4},
+          c3 -> {Object(Float), -36, 4},
+          c4 -> {Object(Float), -40, 4},
+          c5 -> {Object(Float), -44, 4},
+          c6 -> {Object(Float), -48, 4},
+          e -> {Object(Float), -12, 4},
+          f -> {Object(Float), 12, 4},
+          i -> {Integer, -4, 4},
+          one -> {Object(Float), -16, 4},
+          result -> {Object(Float), -28, 4},
+          tmp -> {Object(Float), -24, 4},
+          val -> {Integer, -8, 4}
+        }
+      },
+      ln -> {
+        Object(Float),
+        40,
+        VariableTable {
+          base -> {Object(Float), -12, 4},
+          c2 -> {Object(Float), -20, 4},
+          c3 -> {Object(Float), -24, 4},
+          c4 -> {Object(Float), -28, 4},
+          c5 -> {Object(Float), -32, 4},
+          f -> {Object(Float), 12, 4},
+          i -> {Integer, -40, 4},
+          log2 -> {Object(Float), -4, 4},
+          one -> {Object(Float), -36, 4},
+          result -> {Object(Float), -16, 4},
+          x -> {Object(Float), -8, 4}
+        }
+      },
+      lt -> {
+        Boolean,
+        8,
+        VariableTable {
+          done -> {Boolean, -4, 4},
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          result -> {Boolean, -8, 4}
+        }
+      },
+      mult -> {
+        Object(Float),
+        32,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4},
+          hi -> {Integer, -8, 4},
+          hi1 -> {Integer, -12, 4},
+          hi2 -> {Integer, -16, 4},
+          lo -> {Integer, -20, 4},
+          lo1 -> {Integer, -24, 4},
+          lo2 -> {Integer, -28, 4},
+          result -> {Object(Float), -4, 4},
+          tmp -> {Integer, -32, 4}
+        }
+      },
+      pow -> {
+        Object(Float),
+        0,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4}
+        }
+      },
+      sub -> {
+        Object(Float),
+        0,
+        VariableTable {
+          f1 -> {Object(Float), 12, 4},
+          f2 -> {Object(Float), 16, 4}
+        }
+      }
+    }
+  },
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        36,
+        VariableTable {
+          Amt -> {Object(Float), -32, 4},
+          F -> {Object(FloatOps), -16, 4},
+          N -> {Object(Float), -28, 4},
+          f1 -> {Object(Float), -4, 4},
+          f2 -> {Object(Float), -8, 4},
+          f3 -> {Object(Float), -12, 4},
+          one -> {Object(Float), -20, 4},
+          r -> {Object(Float), -24, 4},
+          res -> {Object(Float), -36, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 Main_main:
     push %ebp

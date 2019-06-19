@@ -2,6 +2,55 @@
 printstring: .asciz "%d\n"
 .text
 .globl Main_main
+ClassTable {
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        4,
+        VariableTable {
+          b -> {Object(classB), -4, 4}
+        }
+      }
+    }
+  },
+  classA -> {
+    VariableTable {
+      x -> {Integer, 0, 4}
+    },
+    MethodTable {
+      classA -> {
+        None,
+        0,
+        VariableTable {
+          val -> {Integer, 12, 4}
+        }
+      },
+      f0 -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  },
+  classB -> {
+    classA,
+    VariableTable {
+      y -> {Boolean, 0, 4}
+    },
+    MethodTable {
+      classB -> {
+        None,
+        0,
+        VariableTable {
+          val1 -> {Integer, 12, 4},
+          val2 -> {Boolean, 16, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 classA_classA:
     push %ebp
@@ -25,6 +74,55 @@ push 12(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        4,
+        VariableTable {
+          b -> {Object(classB), -4, 4}
+        }
+      }
+    }
+  },
+  classA -> {
+    VariableTable {
+      x -> {Integer, 0, 4}
+    },
+    MethodTable {
+      classA -> {
+        None,
+        0,
+        VariableTable {
+          val -> {Integer, 12, 4}
+        }
+      },
+      f0 -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  },
+  classB -> {
+    classA,
+    VariableTable {
+      y -> {Boolean, 0, 4}
+    },
+    MethodTable {
+      classB -> {
+        None,
+        0,
+        VariableTable {
+          val1 -> {Integer, 12, 4},
+          val2 -> {Boolean, 16, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 classA_f0:
     push %ebp
@@ -59,6 +157,55 @@ classA_f0:
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        4,
+        VariableTable {
+          b -> {Object(classB), -4, 4}
+        }
+      }
+    }
+  },
+  classA -> {
+    VariableTable {
+      x -> {Integer, 0, 4}
+    },
+    MethodTable {
+      classA -> {
+        None,
+        0,
+        VariableTable {
+          val -> {Integer, 12, 4}
+        }
+      },
+      f0 -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  },
+  classB -> {
+    classA,
+    VariableTable {
+      y -> {Boolean, 0, 4}
+    },
+    MethodTable {
+      classB -> {
+        None,
+        0,
+        VariableTable {
+          val1 -> {Integer, 12, 4},
+          val2 -> {Boolean, 16, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 classB_classB:
     push %ebp
@@ -104,6 +251,55 @@ push 16(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        4,
+        VariableTable {
+          b -> {Object(classB), -4, 4}
+        }
+      }
+    }
+  },
+  classA -> {
+    VariableTable {
+      x -> {Integer, 0, 4}
+    },
+    MethodTable {
+      classA -> {
+        None,
+        0,
+        VariableTable {
+          val -> {Integer, 12, 4}
+        }
+      },
+      f0 -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  },
+  classB -> {
+    classA,
+    VariableTable {
+      y -> {Boolean, 0, 4}
+    },
+    MethodTable {
+      classB -> {
+        None,
+        0,
+        VariableTable {
+          val1 -> {Integer, 12, 4},
+          val2 -> {Boolean, 16, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 Main_main:
     push %ebp

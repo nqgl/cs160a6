@@ -2,6 +2,48 @@
 printstring: .asciz "%d\n"
 .text
 .globl Main_main
+ClassTable {
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        20,
+        VariableTable {
+          i0 -> {Integer, -8, 4},
+          i1 -> {Integer, -12, 4},
+          i2 -> {Integer, -16, 4},
+          i3 -> {Integer, -20, 4},
+          local0 -> {Boolean, -4, 4}
+        }
+      }
+    }
+  },
+  class0 -> {
+    VariableTable {
+      member0 -> {Integer, 0, 4},
+      member1 -> {Integer, 4, 4},
+      member2 -> {Integer, 8, 4},
+      member3 -> {Integer, 12, 4},
+      member4 -> {Boolean, 16, 4},
+      member5 -> {Boolean, 20, 4}
+    },
+    MethodTable {
+      class0 -> {
+        None,
+        24,
+        VariableTable {
+          i0 -> {Integer, -24, 4},
+          local0 -> {Integer, -4, 4},
+          local1 -> {Integer, -8, 4},
+          local2 -> {Boolean, -12, 4},
+          local3 -> {Integer, -16, 4},
+          local4 -> {Boolean, -20, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 class0_class0:
     push %ebp
@@ -267,6 +309,48 @@ label1:
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        20,
+        VariableTable {
+          i0 -> {Integer, -8, 4},
+          i1 -> {Integer, -12, 4},
+          i2 -> {Integer, -16, 4},
+          i3 -> {Integer, -20, 4},
+          local0 -> {Boolean, -4, 4}
+        }
+      }
+    }
+  },
+  class0 -> {
+    VariableTable {
+      member0 -> {Integer, 0, 4},
+      member1 -> {Integer, 4, 4},
+      member2 -> {Integer, 8, 4},
+      member3 -> {Integer, 12, 4},
+      member4 -> {Boolean, 16, 4},
+      member5 -> {Boolean, 20, 4}
+    },
+    MethodTable {
+      class0 -> {
+        None,
+        24,
+        VariableTable {
+          i0 -> {Integer, -24, 4},
+          local0 -> {Integer, -4, 4},
+          local1 -> {Integer, -8, 4},
+          local2 -> {Boolean, -12, 4},
+          local3 -> {Integer, -16, 4},
+          local4 -> {Boolean, -20, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 Main_main:
     push %ebp

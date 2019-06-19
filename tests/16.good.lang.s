@@ -2,6 +2,39 @@
 printstring: .asciz "%d\n"
 .text
 .globl Main_main
+ClassTable {
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        4,
+        VariableTable {
+          a -> {Object(classA), -4, 4}
+        }
+      }
+    }
+  },
+  classA -> {
+    VariableTable {},
+    MethodTable {
+      doAll -> {
+        None,
+        0,
+        VariableTable {}
+      },
+      f0 -> {
+        Integer,
+        8,
+        VariableTable {
+          mod2 -> {Integer, -8, 4},
+          val -> {Integer, -4, 4},
+          x -> {Integer, 12, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 classA_f0:
     push %ebp
@@ -129,6 +162,39 @@ push -4(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        4,
+        VariableTable {
+          a -> {Object(classA), -4, 4}
+        }
+      }
+    }
+  },
+  classA -> {
+    VariableTable {},
+    MethodTable {
+      doAll -> {
+        None,
+        0,
+        VariableTable {}
+      },
+      f0 -> {
+        Integer,
+        8,
+        VariableTable {
+          mod2 -> {Integer, -8, 4},
+          val -> {Integer, -4, 4},
+          x -> {Integer, 12, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 classA_doAll:
     push %ebp
@@ -225,6 +291,39 @@ call printf
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        4,
+        VariableTable {
+          a -> {Object(classA), -4, 4}
+        }
+      }
+    }
+  },
+  classA -> {
+    VariableTable {},
+    MethodTable {
+      doAll -> {
+        None,
+        0,
+        VariableTable {}
+      },
+      f0 -> {
+        Integer,
+        8,
+        VariableTable {
+          mod2 -> {Integer, -8, 4},
+          val -> {Integer, -4, 4},
+          x -> {Integer, 12, 4}
+        }
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 Main_main:
     push %ebp

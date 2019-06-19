@@ -2,6 +2,74 @@
 printstring: .asciz "%d\n"
 .text
 .globl Main_main
+ClassTable {
+  CastClass -> {
+    VariableTable {},
+    MethodTable {
+      BtoA -> {
+        Object(classA),
+        0,
+        VariableTable {
+          b -> {Object(classB), 12, 4}
+        }
+      }
+    }
+  },
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        12,
+        VariableTable {
+          a -> {Object(classA), -8, 4},
+          b -> {Object(classB), -4, 4},
+          c -> {Object(CastClass), -12, 4}
+        }
+      }
+    }
+  },
+  classA -> {
+    VariableTable {
+      x -> {Integer, 0, 4}
+    },
+    MethodTable {
+      classA -> {
+        None,
+        0,
+        VariableTable {
+          val -> {Integer, 12, 4}
+        }
+      },
+      double -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  },
+  classB -> {
+    classA,
+    VariableTable {
+      x -> {Integer, 0, 4}
+    },
+    MethodTable {
+      classB -> {
+        None,
+        0,
+        VariableTable {
+          val1 -> {Integer, 12, 4},
+          val2 -> {Integer, 16, 4}
+        }
+      },
+      double -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 classA_classA:
     push %ebp
@@ -25,6 +93,74 @@ push 12(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  CastClass -> {
+    VariableTable {},
+    MethodTable {
+      BtoA -> {
+        Object(classA),
+        0,
+        VariableTable {
+          b -> {Object(classB), 12, 4}
+        }
+      }
+    }
+  },
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        12,
+        VariableTable {
+          a -> {Object(classA), -8, 4},
+          b -> {Object(classB), -4, 4},
+          c -> {Object(CastClass), -12, 4}
+        }
+      }
+    }
+  },
+  classA -> {
+    VariableTable {
+      x -> {Integer, 0, 4}
+    },
+    MethodTable {
+      classA -> {
+        None,
+        0,
+        VariableTable {
+          val -> {Integer, 12, 4}
+        }
+      },
+      double -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  },
+  classB -> {
+    classA,
+    VariableTable {
+      x -> {Integer, 0, 4}
+    },
+    MethodTable {
+      classB -> {
+        None,
+        0,
+        VariableTable {
+          val1 -> {Integer, 12, 4},
+          val2 -> {Integer, 16, 4}
+        }
+      },
+      double -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 classA_double:
     push %ebp
@@ -59,6 +195,74 @@ classA_double:
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  CastClass -> {
+    VariableTable {},
+    MethodTable {
+      BtoA -> {
+        Object(classA),
+        0,
+        VariableTable {
+          b -> {Object(classB), 12, 4}
+        }
+      }
+    }
+  },
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        12,
+        VariableTable {
+          a -> {Object(classA), -8, 4},
+          b -> {Object(classB), -4, 4},
+          c -> {Object(CastClass), -12, 4}
+        }
+      }
+    }
+  },
+  classA -> {
+    VariableTable {
+      x -> {Integer, 0, 4}
+    },
+    MethodTable {
+      classA -> {
+        None,
+        0,
+        VariableTable {
+          val -> {Integer, 12, 4}
+        }
+      },
+      double -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  },
+  classB -> {
+    classA,
+    VariableTable {
+      x -> {Integer, 0, 4}
+    },
+    MethodTable {
+      classB -> {
+        None,
+        0,
+        VariableTable {
+          val1 -> {Integer, 12, 4},
+          val2 -> {Integer, 16, 4}
+        }
+      },
+      double -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 classB_classB:
     push %ebp
@@ -104,6 +308,74 @@ push 16(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  CastClass -> {
+    VariableTable {},
+    MethodTable {
+      BtoA -> {
+        Object(classA),
+        0,
+        VariableTable {
+          b -> {Object(classB), 12, 4}
+        }
+      }
+    }
+  },
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        12,
+        VariableTable {
+          a -> {Object(classA), -8, 4},
+          b -> {Object(classB), -4, 4},
+          c -> {Object(CastClass), -12, 4}
+        }
+      }
+    }
+  },
+  classA -> {
+    VariableTable {
+      x -> {Integer, 0, 4}
+    },
+    MethodTable {
+      classA -> {
+        None,
+        0,
+        VariableTable {
+          val -> {Integer, 12, 4}
+        }
+      },
+      double -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  },
+  classB -> {
+    classA,
+    VariableTable {
+      x -> {Integer, 0, 4}
+    },
+    MethodTable {
+      classB -> {
+        None,
+        0,
+        VariableTable {
+          val1 -> {Integer, 12, 4},
+          val2 -> {Integer, 16, 4}
+        }
+      },
+      double -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 classB_double:
     push %ebp
@@ -150,6 +422,74 @@ classB_double:
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  CastClass -> {
+    VariableTable {},
+    MethodTable {
+      BtoA -> {
+        Object(classA),
+        0,
+        VariableTable {
+          b -> {Object(classB), 12, 4}
+        }
+      }
+    }
+  },
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        12,
+        VariableTable {
+          a -> {Object(classA), -8, 4},
+          b -> {Object(classB), -4, 4},
+          c -> {Object(CastClass), -12, 4}
+        }
+      }
+    }
+  },
+  classA -> {
+    VariableTable {
+      x -> {Integer, 0, 4}
+    },
+    MethodTable {
+      classA -> {
+        None,
+        0,
+        VariableTable {
+          val -> {Integer, 12, 4}
+        }
+      },
+      double -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  },
+  classB -> {
+    classA,
+    VariableTable {
+      x -> {Integer, 0, 4}
+    },
+    MethodTable {
+      classB -> {
+        None,
+        0,
+        VariableTable {
+          val1 -> {Integer, 12, 4},
+          val2 -> {Integer, 16, 4}
+        }
+      },
+      double -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 CastClass_BtoA:
     push %ebp
@@ -170,6 +510,74 @@ push 12(%ebp)
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  CastClass -> {
+    VariableTable {},
+    MethodTable {
+      BtoA -> {
+        Object(classA),
+        0,
+        VariableTable {
+          b -> {Object(classB), 12, 4}
+        }
+      }
+    }
+  },
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        12,
+        VariableTable {
+          a -> {Object(classA), -8, 4},
+          b -> {Object(classB), -4, 4},
+          c -> {Object(CastClass), -12, 4}
+        }
+      }
+    }
+  },
+  classA -> {
+    VariableTable {
+      x -> {Integer, 0, 4}
+    },
+    MethodTable {
+      classA -> {
+        None,
+        0,
+        VariableTable {
+          val -> {Integer, 12, 4}
+        }
+      },
+      double -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  },
+  classB -> {
+    classA,
+    VariableTable {
+      x -> {Integer, 0, 4}
+    },
+    MethodTable {
+      classB -> {
+        None,
+        0,
+        VariableTable {
+          val1 -> {Integer, 12, 4},
+          val2 -> {Integer, 16, 4}
+        }
+      },
+      double -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 Main_main:
     push %ebp

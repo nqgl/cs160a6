@@ -2,6 +2,30 @@
 printstring: .asciz "%d\n"
 .text
 .globl Main_main
+ClassTable {
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        4,
+        VariableTable {
+          a -> {Object(classA), -4, 4}
+        }
+      }
+    }
+  },
+  classA -> {
+    VariableTable {},
+    MethodTable {
+      doAll -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 classA_doAll:
     push %ebp
@@ -33,6 +57,30 @@ call printf
     pop %ebp
     ret
     ### END METHOD DEFINITION
+ClassTable {
+  Main -> {
+    VariableTable {},
+    MethodTable {
+      main -> {
+        None,
+        4,
+        VariableTable {
+          a -> {Object(classA), -4, 4}
+        }
+      }
+    }
+  },
+  classA -> {
+    VariableTable {},
+    MethodTable {
+      doAll -> {
+        None,
+        0,
+        VariableTable {}
+      }
+    }
+  }
+}
     ### BEGIN METHOD DEFINITION
 Main_main:
     push %ebp

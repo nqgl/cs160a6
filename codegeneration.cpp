@@ -9,6 +9,10 @@ void gen(std::string codeLine){
     std::cout<<codeLine<<std::endl;
 }
 
+void printcontext(CodeGenerator* scope){
+    print(*scope->classTable, 0);
+}
+
 typedef struct accessiblevariableinfo{
     VariableInfo variableInfo;
     int classOffset; // for a member variable, this is zero or negative
@@ -170,6 +174,7 @@ void CodeGenerator::visitClassNode(ClassNode* node) {
 
 void CodeGenerator::visitMethodNode(MethodNode* node) {
     // WRITEME: Replace with code if necessary
+    printcontext(this);
     std::cout << "    ### BEGIN METHOD DEFINITION" << std::endl;
     currentMethodName = node->identifier->name; // set current method
     currentMethodInfo = (*(currentClassInfo.methods))[currentMethodName];
