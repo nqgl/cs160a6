@@ -39,6 +39,7 @@ makecorrecttests(){
 	done
 }
 prepare(){
+	cleanchk
 	make diff > diffs.out
 	cat diffs.out | getlines > diffs.lines
 	make run > make.out
@@ -50,24 +51,21 @@ finderrors(){
 	while read line; do
 		sedme=${line}p
 		sed -n $sedme < ./make.linestests
+		errnum=$(($errnum+1))
 	done
 }
 
-egfun(){
-	while read line; do
-		echo 5 $line
-	done
+other_incorrect(){
+	echo x86 runtime errors:
+	grep -i -n "error" make.out | sed -n "s/^.\([0-9]*\).*$/\1/p" | finderrors
 }
-
-
 
 checktests(){
+	errnum=0
 	prepare
 	cat diffs.lines | finderrors | sort | uniq -c
-}
-
-checkchgsource(){
-	echo
+	other_incorrect
+	echo in total, $errnum tests did not pass
 }
 
 checkprepped(){
