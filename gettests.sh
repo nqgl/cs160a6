@@ -86,7 +86,7 @@ resettest(){
 	cp originaltests/$1.good.lang tests/$1.good.lang
 }
 
-reset_all(){
+reset_all_tests(){
 	rm tests/85.*
 	for i in $(seq 0 84); do
 		resettest $i
