@@ -58,6 +58,8 @@ finderrors(){
 other_incorrect(){
 	echo x86 runtime errors:
 	grep -i -n "error" make.out | sed -n "s/^.\([0-9]*\).*$/\1/p" | finderrors
+	echo assembling and linking failures:
+	grep -i -n "assembling" make.out | sed -n "s/^.\([0-9]*\).*$/\1/p" | finderrors
 }
 
 checktests(){
@@ -72,3 +74,15 @@ checkprepped(){
 	cat diffs.lines | finderrors | sort | uniq -c
 }
 
+
+resettest(){
+	cp originaltests/$1.good.lang tests/$1.good.lang
+}
+
+reset_all(){
+	rm tests/85.*
+	for i in $(seq 0 84); do
+		resettest $i
+	done
+	echo any modified tests have been reset to their original state
+}
