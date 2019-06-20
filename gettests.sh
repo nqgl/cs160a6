@@ -67,7 +67,6 @@ checktests(){
 	prepare
 	cat diffs.lines | finderrors | sort | uniq -c
 	other_incorrect
-	echo in total, $errnum tests did not pass
 }
 
 checkprepped(){
