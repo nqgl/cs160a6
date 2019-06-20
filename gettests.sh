@@ -1,10 +1,10 @@
 #!/bin/bash
 getlines(){
 	while read line; do
-		if [[ $line =~ ^[\>,\<,-] ]]; then
+		if [[ $line =~ ^[\>,\<,p,m,M] ]] || [[ $line =~ - ]]; then
 			l=
 		else
-			echo $line | sed -n "s/^.*.[^0-9]\(.[0-9]*\).*$/\1/p"
+			echo $line | sed -n "s/^\(.[0-9]*\).[^0-9]*.*$/\1/p"
 		fi
 	done
 }
@@ -41,32 +41,40 @@ makecorrecttests(){
 prepare(){
 	cleanchk
 	make diff > diffs.out
+	echo gelines
 	cat diffs.out | getlines > diffs.lines
 	make run > make.out
+	echo linesfromrun
 	cat make.out | linesfromrun > make.linestests
 }
 
 
 finderrors(){
 	while read line; do
-		sedme=${line}p
-		sed -n $sedme < ./make.linestests
+		sedme=${line}!d
+		sed ${sedme} < ./make.linestests
 		errnum=$(($errnum+1))
 	done
 }
 
-other_incorrect(){
+tabline(){
+	while read line; do
+		echo "    "$line
+	done
+}
+
+check_other_inconsistency_types(){
 	echo x86 runtime errors:
-	grep -i -n "error" make.out | sed -n "s/^.\([0-9]*\).*$/\1/p" | finderrors
+	grep -i -n "error" make.out | sed -n "s/^\([0-9]*\).*$/\1/p" | finderrors | tabline 
 	echo assembling and linking failures:
-	grep -i -n "assembling" make.out | sed -n "s/^.\([0-9]*\).*$/\1/p" | finderrors
+	grep -i -n "assembling" make.out | sed -n "s/^\([0-9]*\).*$/\1/p" | finderrors | tabline
 }
 
 checktests(){
 	errnum=0
 	prepare
 	cat diffs.lines | finderrors | sort | uniq -c
-	other_incorrect
+	check_other_inconsistency_types
 }
 
 checkprepped(){
